@@ -1,11 +1,21 @@
-% !TEX program = pdflatex
-% !TEX encoding = UTF-8 Unicode
-
 % Plantilla, basada en la clase `scrbook` del paquete KOMA-script,  para la elaboración de un TFG siguiendo las directrices del la comisión del Grado en Matemáticas de la Universidad de Granada.
 
-% Francisco Torralbo Torralbo
+\documentclass[print, color, oneside]{../ugrTFG}
+\usepackage{url}           % Para poder manejar enlaces URL correctamente
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}       % Si usas matemáticas
+\usepackage[backend=biber,style=numeric]{biblatex}
+\usepackage{geometry}
+\usepackage[perpage]{footmisc} % Reinicia la numeración en cada página
+\geometry{twoside=false}
+\geometry{left=2.5cm, right=2.5cm, top=3cm, bottom=3cm}
 
-\documentclass[print, color]{../ugrTFG}
+%\usepackage[backend=bibtex,style=numeric]{biblatex}
+
+%\usepackage{natbib}
+%\bibliographystyle{apalike}
+%\bibliography{../capitulos/referencias.bib}
+%\usepackage[backend=bibtex,style=authoryear]{biblatex}
 
 % VERSIÓN ELECTRÓNICA PARA TABLETA
 % Cambiando la opción "print" por "tablet" generaremos un pdf adaptado para leerlo en tabletas de 9 pulgadas.
@@ -33,7 +43,11 @@ José Luis Romero Béjar \\ \emph{Departamento de Estadística e Investigación 
 	pdfauthor={\textcopyright\ \miNombre, \miFacultad, \miFacultadBis, \miUniversidad}
 }
 
+
+\addbibresource{../capitulos/referencias.bib}
+
 \begin{document} 
+
 
 \maketitle
 
@@ -45,7 +59,9 @@ José Luis Romero Béjar \\ \emph{Departamento de Estadística e Investigación 
 \input{../preliminares/declaracion-originalidad}   
 %\input{preliminares/dedicatoria}                % Opcional
 %\input{preliminares/agradecimientos}            % Opcional
-
+\input{../capitulos/introduccion}
+\newpage
+\input{../capitulos/biologia-content}
 %\input{../preliminares/summary}                    
 
 %\input{preliminares/tablacontenidos}            
@@ -88,16 +104,11 @@ José Luis Romero Béjar \\ \emph{Departamento de Estadística e Investigación 
 % BACKMATTER
 % -------------------------------------------------------------------
 
-%\backmatter % Desactiva la numeración de los capítulos
+%backmatter % Desactiva la numeración de los capítulos
 %\pdfbookmark[-1]{Referencias}{BM-Referencias}
 
 % BIBLIOGRAFÍA
 %-------------------------------------------------------------------
-
-%\bibliographystyle{alpha-es} 
-%\begin{small} 
-%  \bibliography{library.bib}
-%\end{small}
-
+\printbibliography
 
 \end{document}
