@@ -1,0 +1,94 @@
+\section{Datos ómicos}
+
+A la información cuantitativa y cualitativa obtenida a partir de las tecnologías utilizadas
+en las distintas ciencias ómicas, se le denomina \textbf{datos ómicos}. Estos datos abarcan 
+información genética (genómica), de expresión génica (transcriptómica), de proteínas (proteómica),
+metabolitos (metabolómica) y otras áreas emergentes dentro de las ciencias ómicas.
+
+Una de sus características más relevantes es su \textbf{alta dimensionalidad}, lo que genera conjuntos de datos 
+masivos y complejos. Esta naturaleza multidimensional y heterogénea de los datos ómicos presenta 
+desafíos significativos en su procesamiento, análisis e interpretación.
+
+Por ello, en el presente trabajo se pretende emplear técnicas de estadística multivariante y aprendizaje
+automático para la identificación de patrones biológicos relevantes en estos datos.
+
+\subsection{Estructura de los datos}
+
+Los datos con los que trabajaremos se caracterizan por tener una estructura parecida. Analizaremos un
+conjunto con pocas muestras frente al gran número de características que observaremos sobre ellas. Apreciamos
+aquí el carácter de alta dimensionalidad de los datos ómicos. \newline
+
+Las características que analizamos pueden ser de diferentes tipos, como el nivel de fluorescencia, en el caso
+de que estemos trabajando con microarrays, como los de ADN, metilación o proteínas, o el número de lecturas 
+alineadas obtenidas en procedimientos de secuenciación. Estas características, pueden estar asociadas a un
+elemento de análisis o a un conjunto de muestras en un microarray. O bien, la información puede corresponder a
+un gen, un exón\footnote{Exón: un exón es una región del genoma que termina dentro de una molécula de ARN mensajero.
+Algunos exones son codificantes, es decir, contienen información para fabricar una proteína, mientras que otros 
+son no codificantes. Los genes del genoma están formados por exones e intrones.},
+una proteína o una región específica del genoma. \newline
+
+Denotaremos por $N$ al número de características observadas, que será un valor relativamente grande, del orden
+de miles. Como hemos mencionado anteriormente, estas características se observan sobre un conjunto reducido de 
+individuos, del orden de las decenas, en el mejor de los casos. Sea entonces $n$ el número de muestras sobre
+las que serán observadas las variables (características). \newline
+
+Por consiguiente, el problema se enmarca dentro del campo de la \textbf{estadística de alta dimensión}. Esta
+situación, donde $N$ supera a $n$, contrasta con lo que se observa en los enfoques estadísticos convencionales,
+en los cuales suele ocurrir todo lo contrario: el número de muestras es mayor que el de variables. Aunque esta
+desigualdad presenta limitaciones, también abre un nuevo campo de investigación con retos que los métodos 
+tradicionales no pueden resolver, lo que motiva el desarrollo de nuevos procedimientos que se explorarán más 
+adelante. \newline
+
+Las características las almacenaremos en una matriz, que llamaremos \textbf{matriz de expresión}, dada por:
+
+\[
+    x = [x_{ij}]_{i,j=1,...,n}
+\]
+
+donde $x_{ij}$ cuantifica la característica $i$ en la muestra $j$. \newline
+
+\textbf{Nota.} Observemos que en un contexto estadístico
+convencional, la matriz de datos sería la matriz transpuesta de la que vamos a estar utilizando. \newline
+
+En el supuesto de que $x_{ij}$ esté asociado con un microarray de ADN, entonces, mide un nivel de fluorescencia,
+tomando valores positivos, aunque pudiera ser que, tras el procesado de los datos, se diera lugar a expresiones 
+negativas.
+
+Por su parte, si se tratase de un dato obtenido mediante la técnica de secuenciación RNA-seq, tendríamos conteos; 
+número de lecturas cortas que se alinean sobre un gen, exón o una zona genómica concretos. Un mayor número de
+lecturas será indicativo de una mayor expresión de dicha característica. \newline
+
+Los valores observados de una característica sobre el conjunto de todas las muestras (una fila de la matriz de
+expresión) son, en el ámbito de la transcriptómica, lo que se conoce como \textit{perfil}, o de forma más general,
+perfil de expresión. \newline
+
+En la matriz $x$ los valores correspondientes a las diferentes muestras son independientes entre sí, aunque pueden
+haber sido obtenidos bajo condiciones distintas. Por lo tanto, no se trata de réplicas de una misma condición
+experimental, sino de observaciones independientes. Es decir, presentan independencia condicional. Sin embargo, las
+filas de $x$ representan vectores que sí están relacionados. Por ejemplo, en una matriz de expresión génica, los 
+valores de expresión de las filas no son independientes, debido a que los genes tienden a actuar de manera coordinada. \newline
+
+Por lo general, los datos en las columnas de la matriz $x$, no pueden compararse directamente entre sí, por la presencia
+de diversos artefactos técnicos y ruido en la medición de la característica de interés. Es por ello que se han desarrollado
+técnicas para corregir estos problemas, denominadas como \textbf{técnicas de preprocesado}. Al aplicar estos métodos, los
+datos dejan de ser completamente independientes. No obstante, en la mayoría de los estudios este aspecto no se suele
+tener en cuenta. Tras la normalización, los datos siguen considerandose independientes por columnas (muestras) y dependientes
+por filas. \newline
+
+
+A la información o variables que describen y caracterizan a las muestras, las llamaremos \textbf{metadatos} o 
+\textbf{variables fenotípicas}. En este contexto, el uso de este término es adecuado porque estas variables reflejan
+atributos medibles y observables de las muestras, lo que se conoce, en el ámbito de la biología, como \textit{fenotipo}. 
+Normalmente tendremos varias variables fenotípicas. 
+Llamaremos $y = (y_{1},...,y_{n})$ a los valores observados de una variable en las $n$ muestras. Uno de los casos más típicos
+de variable fenotípica es cuando se tienen dos grupos de muestras: casos (individuos que tienen la enfermedad) y controles
+(no tienen la enfermedad o condición de interés). En este caso tendríamos $y_{i} = 1$, para un caso e $y_{i} = 0$, si es control.
+Si tuvieramos la situación en la que hay $k$ grupos a comparar, con $k > 2$, entonces se utiliza $y_{i} \in \{1,...,n\}$ 
+con $i = 1,...,n$. Hemos de recalcar que los valores $y_{k}$ son arbitrarios y pueden tomar cualquier otro par de valores. \newline
+
+
+
+
+% toda la información obtenida del libro "G. Ayala - Bioinformática Estadística (2023).pdf"
+% definición de axon: https://www.genome.gov/genetics-glossary/Exon
+% definición de fenotipo: https://www.genome.gov/es/genetics-glossary/Fenotipo 
