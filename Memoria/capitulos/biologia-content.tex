@@ -1,3 +1,4 @@
+\newpage
 \thispagestyle{empty}
 \vspace*{\fill}
 \begin{center}
@@ -12,7 +13,7 @@
 \newpage
 
 
-\section{Datos ómicos}
+\chapter{Datos ómicos}
 
 A la información cuantitativa y cualitativa obtenida a partir de las tecnologías utilizadas
 en las distintas ciencias ómicas, se le denomina \textbf{datos ómicos}. Estos datos abarcan 
@@ -23,7 +24,7 @@ Una de sus características más relevantes es su \textbf{alta dimensionalidad},
 masivos y complejos. Esta naturaleza multidimensional y heterogénea de los datos ómicos presenta 
 desafíos significativos en su procesamiento, análisis e interpretación.
 
-\subsection{Estructura de los datos}
+\section{Estructura de los datos}
 
 Los datos con los que trabajaremos se caracterizan por tener una estructura parecida. Analizaremos un
 conjunto con pocas muestras frente al gran número de características que observaremos sobre ellas. Apreciamos
@@ -108,7 +109,7 @@ con $i = 1,...,n$. Hemos de recalcar que los valores $y_{k}$ son arbitrarios y p
 % definición de fenotipo: https://www.genome.gov/es/genetics-glossary/Fenotipo 
 
 
-\subsection{Problema Estadístico}
+\section{Problema Estadístico}
 
 Normalmente, las técnicas estadísticas utilizadas en muchos campos se basan en contextos en los que 
 el número de muestras, $n$, es mayor que el de variables, $N$. Sin embargo, en el caso de los datos ómicos, esta relación se invierte,
@@ -141,7 +142,7 @@ su objetivo es identificar patrones de expresión que puedan estar vinculados a 
 % https://www.genome.gov/es/genetics-glossary/Expresion-genica -- Definiición expresión génica
 
 
-\subsection{Transcriptómica: datos RNA-seq y single-cell RNA-seq}
+\section{Transcriptómica: datos RNA-seq y single-cell RNA-seq}
 
 Entre las distintas tecnologías utilizadas en la generación de datos ómicos, la \textbf{transcriptómica} desempeña un papel fundamental en el análisis de la expresión génica, y en particular, las 
 tecnologías de \textbf{RNA-seq} y \textbf{single-cell RNA-seq} han revolucionado este campo al permitir la cuantificación precisa de los 
@@ -155,7 +156,7 @@ En este apartado, se describirá la estructura de los datos obtenidos mediante R
 principales retos asociados a su manejo, desde las consideraciones técnicas hasta las implicaciones estadísticas y computacionales, 
 que hacen de la transcriptómica un área idónea para aplicar metodologías multivariantes en la identificación de patrones biológicos.
 
-\subsubsection{¿Qué es la transcriptómica? Tecnologias de secuenciación}
+\subsection{¿Qué es la transcriptómica? Tecnologias de secuenciación}
 
 La transcriptómica es la rama de la biología que estudia el conjunto completo de ARN (ácido ribonucleico) transcritos en una
 célula, tejido u organismo en un momento determinado, bajo condiciones específicas. A este conjunto se le denomina transcriptoma. Se centra en la cuantificación y caracterización
@@ -184,7 +185,7 @@ específicas que influyen en su representación y análisis. Estas tecnologías 
 matricial compleja, en la que el número de características (genes) supera ampliamente al número de muestras, lo que da lugar a retos 
 significativos en términos de almacenamiento, procesamiento y análisis.
 
-\subsubsection{RNA-seq}
+\subsection{RNA-seq}
 
 El método RNA-seq (secuenciación de ARN) consiste en la conversión de una muestra de ARN (total o fraccionado) en una biblioteca de ADNc 
 (ADN codificado), que luego es secuenciada utilizando tecnologías de secuenciación profunda. Genera un conjunto masivo de datos que consiste 
@@ -256,7 +257,7 @@ de ácidos nucleicos como de proteínas. Estos son: formato \textbf{FASTA} y \te
 
 \end{itemize}
 
-\subsubsection{scRNA-seq (sigle-cell RNA-seq)}
+\subsection{scRNA-seq (sigle-cell RNA-seq)}
 
 La secuenciación de ARN ha impulsado muchos descubrimientos e innovaciones en diversos campos en los últimos años. Por razones prácticas, la técnica RNA-seq
 suele realizarse en muestras que comprenden entre miles y millones de células. Sin embargo, esto ha dificultado la evaluación directa de la unidad fundamental
@@ -287,9 +288,10 @@ rendimiento para análisis en estudios de gran escala. Dado que el aislamiento m
 se han propuesto enfoques computacionales que permitan inferir la composición celular sin necesidad de manipulación experimental. En este contexto, 
 los métodos multivariantes desempeñan un papel clave en la extracción de información relevante, facilitando la identificación de estructuras en los datos 
 sin necesidad de un conocimiento previo sobre los tipos celulares presentes en la muestra. La combinación de técnicas estadísticas y aprendizaje automático 
-ha demostrado ser esencial para mejorar la precisión y fiabilidad de estos análisis en el ámbito biomolecular.
+ha demostrado ser esencial para mejorar la precisión y fiabilidad de estos análisis en el ámbito biomolecular. \newline
 
 % REFERENCIA: todo se ha sacado de: transcriptomica-3-scRNA-seq-1.pdf
 
 Dado que scRNA-seq es una variante de RNA-seq, hereda sus formatos de almacenamiento iniciales, principalmente FASTA y FASTQ, siendo este último el formato 
 más crudo en el que se encuentran los datos de scRNA-seq. % REFERENCIA: https://broadinstitute.github.io/2019_scWorkshop/processing-scrnaseq-data.html
+% y también de transcriptomica-3-scRNA-seq-2.pdf 
