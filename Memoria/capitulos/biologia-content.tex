@@ -77,7 +77,11 @@ perfil de expresión. \newline
 En la matriz $x$ los valores correspondientes a las diferentes muestras son independientes entre sí, aunque pueden
 haber sido obtenidos bajo condiciones distintas. Por lo tanto, no se trata de réplicas de una misma condición
 experimental, sino de observaciones independientes. Es decir, presentan independencia condicional. Sin embargo, las
-filas de $x$ representan vectores que sí están relacionados. Por ejemplo, en una matriz de expresión génica, los 
+filas de $x$ representan vectores que sí están relacionados. Por ejemplo, en una matriz de expresión génica\footnote[5]{Expresión génica: 
+La expresión génica es el proceso por el cual la información codificada por un gen se usa 
+para producir moléculas de ARN que codifican para proteínas o para producir moléculas de ARN no codificantes que cumplen otras funciones. La expresión génica
+actúa como un “interruptor” que controla cuándo y dónde se producen moléculas de ARN y proteínas y como un “control de volumen” para determinar qué cantidad
+de esos materiales se produce.}, los 
 valores de expresión de las filas no son independientes, debido a que los genes tienden a actuar de manera coordinada. \newline
 
 Por lo general, los datos en las columnas de la matriz $x$, no pueden compararse directamente entre sí, por la presencia
@@ -128,10 +132,7 @@ Por todo ello, en este contexto, las técnicas estadísticas utilizadas son mera
 que el número de muestras es mayor que el de variables. \newline
 
 Uno de los principales retos que se abordarán es el análisis de expresión diferencial, 
-que examina cómo varían los niveles de expresión génica\footnote[5]{Expresión génica: La expresión génica es el proceso por el cual la información codificada por un gen se usa 
-para producir moléculas de ARN que codifican para proteínas o para producir moléculas de ARN no codificantes que cumplen otras funciones. La expresión génica
-actúa como un “interruptor” que controla cuándo y dónde se producen moléculas de ARN y proteínas y como un “control de volumen” para determinar qué cantidad
-de esos materiales se produce} entre distintas condiciones experimentales o grupos de individuos. En particular, se
+que examina cómo varían los niveles de expresión génica entre distintas condiciones experimentales o grupos de individuos. En particular, se
 busca determinar si existe una relación entre el perfil de expresión génica y una variable fenotípica específica. Este enfoque, denominado análisis
 de expresión diferencial marginal, permite explorar asociaciones entre conjuntos de genes, organizados como grupos de filas dentro de la matriz de expresión, 
 y la característica fenotípica de interés. A este tipo de análisis se le conoce también como análisis de conjuntos de genes o \textit{gene set analysis}, y 
@@ -143,7 +144,7 @@ su objetivo es identificar patrones de expresión que puedan estar vinculados a 
 \subsection{Transcriptómica: datos RNA-seq y single-cell RNA-seq}
 
 Entre las distintas tecnologías utilizadas en la generación de datos ómicos, la \textbf{transcriptómica} desempeña un papel fundamental en el análisis de la expresión génica, y en particular, las 
-tecnologías de RNA-seq y single-cell RNA-seq han revolucionado este campo al permitir la cuantificación precisa de los 
+tecnologías de \textbf{RNA-seq} y \textbf{single-cell RNA-seq} han revolucionado este campo al permitir la cuantificación precisa de los 
 niveles de ARN mensajero en diferentes condiciones biológicas. Estas técnicas producen datos con una estructura matricial 
 compleja, caracterizada por un alto número de variables (genes) frente a un número reducido de muestras (individuos o células). 
 Esta estructura plantea desafíos en términos de almacenamiento, procesamiento y análisis, debido a la alta dimensionalidad de 
@@ -171,7 +172,9 @@ la secuenciación de Sanger de bibliotecas de ARN, pero era bastante costosa y d
 desarrollaron métodos basados en etiquetas para superar estas limitaciones, pero tenían el inconveniente de que estaban basados en la 
 costosa tecnolgía de secuenciación de Sanger, y una parte significativa de las etiquetas cortas no se podían asignar de forma única al
 genoma de referencia. Todas estas desventajas limitan el uso de la tecnología de secuenciación tradicional para anotar la estructura de los 
-transcriptomas. \newline
+transcriptomas. \newline    
+
+% estos 3 párrafos sacados del archivo transcriptomics-1.pdf
 
 Tecnologías de secuenciación de ADN de alto rendimiento como \textbf{RNA-seq} y \textbf{single-cell RNA-seq} han emergido como herramientas 
 clave para estudiar la expresión génica a gran escala. Estas técnicas permiten la cuantificación precisa de los niveles de ARN en diferentes 
@@ -199,12 +202,12 @@ lo que lo hace particularmente útil para organismos no modelo o cuando se carec
 En la secuenciación de ARN, las lecturas generadas a partir de las muestras de ARN se alinean contra un genoma de referencia o se ensamblan de
 nuevo para crear un "mapa transcripcional". Si se dispone de un genoma de referencia, los datos se alinean para identificar la ubicación exacta de
 los transcritos en el genoma, permitiendo la cuantificación de la expresión génica. En casos donde no hay un genoma de referencia, las lecturas 
-de ARN se ensamblan para generar una secuencia de contigs \footnote[3]{Contig: Tramo de secuencia continua in silico generada por alineamiento 
+de ARN se ensamblan para generar una secuencia de contigs\footnote[3]{Contig: Tramo de secuencia continua in silico generada por alineamiento 
 de lecturas de secuencias solapantes.} que luego se pueden anotar funcionalmente. Además de mapear las lecturas a un genoma, 
-se deben identificar eventos de empalme (splicing \footnote[4]{Splicing: el splicing o empalme, ocurre al final del proceso de transcripción e 
+se deben identificar eventos de empalme (splicing\footnote[4]{Splicing: el splicing o empalme, ocurre al final del proceso de transcripción e 
 implica cortar y reorganizar secciones de ARNm.}), que es crucial para detectar variantes de splicing alternativo. Este proceso es especialmente 
 importante para genes que tienen varios exones, ya que las lecturas pueden cruzar estos empalmes y revelar alternativas de splicing que no son 
-evidentes con tecnologías anteriores.  % REFERENCIA: Mapping and quantifying mammalian transcriptomes by RNA-seq
+evidentes con tecnologías anteriores. \newline % REFERENCIA: Mapping and quantifying mammalian transcriptomes by RNA-seq
 
 % contig: https://www.institutoroche.es/recursos/glosario/contig
 % splicing: https://www.yourgenome.org/theme/what-is-rna-splicing/
@@ -219,15 +222,74 @@ Por otra parte, los datos RNA-seq requieren estar en unos formatos específicos 
 de ácidos nucleicos como de proteínas. Estos son: formato \textbf{FASTA} y \textbf{FASTQ}.
 
 \begin{itemize}
-    \item \textbf{Formato FASTA:}
+    \item \textbf{Formato FASTA:} basado en texto, es usado para representar secuencias de nucleótidos o de aminoácidos, ambos representados mediante una sola letra.
+    Incluye símbolos para representar huecos (\textit{gaps}) o posiciones desconocidas en la secuencia. Consta de dos líneas:
+    \begin{itemize}
+        \item La primera línea comienza con el símbolo $>$, junto con una descripción de la secuencia.
+        \item La segunda, contiene la secuencia de bases o aminoácidos. 
+    \end{itemize}
+
+    Pese a que no hay restricciones en el número de filas, el número de columnas no debería superar las $80$.
+    
     \item \textbf{Formato FASTAQ:} es el más popular y consiste en cuatro líneas por lectura:
     \begin{itemize}
         \item La primera comienza con el carácter "@" y contiene el nombre de la secuencia. Opcionalmente, puede incluir una descripción.
         \item La segunda línea contiene la secuencia con las letras correspondientes, dependiendo del tipo de secuencia del que se trate (nucleótido o aminoácido).
         \item La tercera comienza con el carácter "+" y contiene información opcional sobre la secuencia.
         \item La cuarta y última línea cuantifica la calidad o confiabilidad de cada base en la secuencia recogida en la segunda línea, basada en el índice
-        \textit{Phred} y su codificación.
+        \textit{Phred} y su codificación. \newline
     \end{itemize}
+
+    \begin{mybox}{Ejemplo}
+        
+
+        \begin{lstlisting}
+
+        @SRR1293399.1 ILLUMINA-545855_0026_FC629BG:6:1:1022:5049 length=50
+        ACAGGGACGCCATCGAATCCGGATCNTNNNNNNNNNNNNANNNNNNNNNN
+        +SRR1293399.1 ILLUMINA-545855_0026_FC629BG:6:1:1022:5049 length=50
+        dee\edYcdc`bbY`S]bb_]]Ua^BBBBBBBBBBBBBBBBBBBBBBBBB
+            
+        \end{lstlisting}
+        
+    \end{mybox}
+
 \end{itemize}
 
-\subsubsection{sigle-cell RNA-seq}
+\subsubsection{scRNA-seq (sigle-cell RNA-seq)}
+
+La secuenciación de ARN ha impulsado muchos descubrimientos e innovaciones en diversos campos en los últimos años. Por razones prácticas, la técnica RNA-seq
+suele realizarse en muestras que comprenden entre miles y millones de células. Sin embargo, esto ha dificultado la evaluación directa de la unidad fundamental
+de la biología: la célula. Es por esto que surge una variante a la RNA-seq: \textbf{scRNA-seq} (\textit{single-cell RNA-seq}), que se ha extendido considerablemente hasta 
+consolidarse como la opción principal en investigación de la diversidad celular, ya que posibilita el estudio individual de cada célula dentro de una misma muestra. 
+Es una tecnología que permite la cuantificación y comparación de los transcriptomas de células individuales, logrando una disección de la expresión génica a resolución de una 
+sola célula y describiendo moléculas de ARN con alta precisión y a escala genómica. Además, otro aspecto importante de esta técnica es que permite analizar 
+la heterogeneidad celuar; evaluar las similitudes y diferencias transcripcionales dentro de una población de células, lo que ha permitido una comprensión más 
+detallada de los procesos moleculares al evidenciar la variabilidad existente dentro de una misma población celular. \newline
+
+Aunque existe una gran confianza en la utilidad general de scRNA-seq, hay una barrera técnica que debe considerarse cuidadosamente: el aislamiento efectivo de 
+células individuales del tejido de interés, pues existe un riesgo potencial de que los protocolos utilizados para este proceso alteren los niveles de ARNm. 
+Aunque las células vecinas pueden contribuir a mantener los estados celulares, scRNA-seq opera bajo el supuesto de que el aislamiento de células individuales 
+no desencadena cambios transcriptómicos antes de la captura del ARNm. Además, esta técnica a menudo requiere el uso de marcadores específicos para distinguir 
+con precisión diferentes poblaciones celulares, lo que puede añadir complejidad al diseño experimental. A esto se suman limitaciones relacionadas con el tiempo 
+y los costos asociados, que pueden dificultar la realización de investigaciones a gran escala. \newline
+
+El análisis de datos provenientes de scRNA-seq supone un desafío computacional considerable debido a su alta dimensionalidad y a la presencia de ruido significativo. 
+En el estudio de muestras heterogéneas, es fundamental identificar las distintas subpoblaciones celulares presentes, lo que requiere el desarrollo de algoritmos 
+capaces de descomponer la mezcla de expresión génica obtenida. Para ello, se aplican técnicas de normalización y reducción de dimensionalidad, como el análisis 
+de componentes principales (PCA), entre otras, que permiten segmentar las células en función de sus perfiles de 
+expresión. No obstante, la presencia de efectos por lote y la variabilidad técnica pueden introducir sesgos en los resultados, lo que hace necesario implementar 
+estrategias de corrección para garantizar la robustez del análisis y evitar la aparición de artefactos en la identificación de patrones biológicos. \newline
+
+Además, el volumen de datos generado por scRNA-seq plantea retos en términos de almacenamiento, gestión y escalabilidad computacional. La integración de 
+millones de lecturas individuales requiere estrategias eficientes de compresión y procesamiento distribuido, así como el uso de infraestructuras de alto 
+rendimiento para análisis en estudios de gran escala. Dado que el aislamiento manual de células en el laboratorio puede ser costoso y técnicamente desafiante, 
+se han propuesto enfoques computacionales que permitan inferir la composición celular sin necesidad de manipulación experimental. En este contexto, 
+los métodos multivariantes desempeñan un papel clave en la extracción de información relevante, facilitando la identificación de estructuras en los datos 
+sin necesidad de un conocimiento previo sobre los tipos celulares presentes en la muestra. La combinación de técnicas estadísticas y aprendizaje automático 
+ha demostrado ser esencial para mejorar la precisión y fiabilidad de estos análisis en el ámbito biomolecular.
+
+% REFERENCIA: todo se ha sacado de: transcriptomica-3-scRNA-seq-1.pdf
+
+Dado que scRNA-seq es una variante de RNA-seq, hereda sus formatos de almacenamiento iniciales, principalmente FASTA y FASTQ, siendo este último el formato 
+más crudo en el que se encuentran los datos de scRNA-seq. % REFERENCIA: https://broadinstitute.github.io/2019_scWorkshop/processing-scrnaseq-data.html
