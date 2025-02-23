@@ -12,17 +12,26 @@
 
 \newpage
 
-
 \chapter{Datos ómicos}
+\setcounter{page}{\value{page}}  % Esto asegura que no se reinicie el contador de páginas
+
 
 A la información cuantitativa y cualitativa obtenida a partir de las tecnologías utilizadas
-en las distintas ciencias ómicas, se le denomina \textbf{datos ómicos}. Estos datos abarcan 
+en las distintas ciencias ómicas, se le denomina \textit{datos ómicos}. Estos datos abarcan 
 información genética (genómica), de expresión génica (transcriptómica), de proteínas (proteómica),
 metabolitos (metabolómica) y otras áreas emergentes dentro de las ciencias ómicas.
 
-Una de sus características más relevantes es su \textbf{alta dimensionalidad}, lo que genera conjuntos de datos 
+Una de sus características más relevantes es su \textit{alta dimensionalidad}, lo que genera conjuntos de datos 
 masivos y complejos. Esta naturaleza multidimensional y heterogénea de los datos ómicos presenta 
 desafíos significativos en su procesamiento, análisis e interpretación.
+
+En este capítulo, se presenta la estructura de los datos ómicos, destacando su naturaleza matricial en la que 
+el número de características (variables) suele superar ampliamente el número de muestras. Se analiza el desafío 
+estadístico que representan los datos de alta dimensión y se introduce el problema de la expresión diferencial. 
+Además, se aborda la transcriptómica y las tecnologías de secuenciación de ARN (RNA-seq y scRNA-seq), describiendo 
+la estructura de los datos que generan y los retos asociados a su manejo, dado su gran volumen y alta dimensionalidad.
+
+La información presentada en las próximas dos secciones ha sido extraída de la fuente bibliográfica\cite{Ayala2023}.
 
 \section{Estructura de los datos}
 
@@ -34,30 +43,32 @@ Las características que analizamos pueden ser de diferentes tipos, como el nive
 de que estemos trabajando con microarrays \footnote[1]{Microarray: La tecnología de microarrays permite estudiar 
 la expresión de múltiples genes simultáneamente. Consiste en fijar miles de secuencias génicas en un chip de vidrio. 
 Al exponer una muestra de ADN o ARN, el apareamiento de bases complementarias genera una señal luminosa medible, 
-indicando los genes expresados en la muestra.}, como los de ADN, metilación o proteínas, o el número de lecturas 
+indicando los genes expresados en la muestra\cite{microarray-definition}.}, como los de ADN, metilación o proteínas, o el número de lecturas 
 alineadas obtenidas en procedimientos de secuenciación. Estas características, pueden estar asociadas a un
 elemento de análisis o a un conjunto de muestras en un microarray. O bien, la información puede corresponder a
 un gen, un exón\footnote[2]{Exón: un exón es una región del genoma que termina dentro de una molécula de ARN mensajero.
 Algunos exones son codificantes, es decir, contienen información para fabricar una proteína, mientras que otros 
-son no codificantes. Los genes del genoma están formados por exones e intrones.},
-una proteína o una región específica del genoma. \newline
+son no codificantes. Los genes del genoma están formados por exones e intrones, que son trozos muy grandes de ARN 
+dentro de una molécula de ARN mensajero que interfieren con el código de los exones. 
+Estos intrones se eliminan de la molécula de ARN para dejar una serie de exones unidos entre sí de manera que se 
+puedan codificar los aminoácidos correctos.\cite{exon-definition}\cite{intron-definition}}, una proteína o una región específica del genoma. \newline
 
 Denotaremos por $N$ al número de características observadas, que será un valor relativamente grande, del orden
 de miles. Como hemos mencionado anteriormente, estas características se observan sobre un conjunto reducido de 
 individuos, del orden de las decenas, en el mejor de los casos. Sea entonces $n$ el número de muestras sobre
 las que serán observadas las variables (características). \newline
 
-Por consiguiente, el problema se enmarca dentro del campo de la \textbf{estadística de alta dimensión}. Esta
+Por consiguiente, el problema se enmarca dentro del campo de la estadística de alta dimensión. Esta
 situación, donde $N$ supera a $n$, contrasta con lo que se observa en los enfoques estadísticos convencionales,
 en los cuales suele ocurrir todo lo contrario: el número de muestras es mayor que el de variables. Aunque esta
 desigualdad presenta limitaciones, también abre un nuevo campo de investigación con retos que los métodos 
 tradicionales no pueden resolver, lo que motiva el desarrollo de nuevos procedimientos que se explorarán más 
 adelante. \newline
 
-Las características las almacenaremos en una matriz, que llamaremos \textbf{matriz de expresión}, dada por:
+Las características las almacenaremos en una matriz, que llamaremos \textit{matriz de expresión}, dada por:
 
 \[
-    x = [x_{ij}]_{i,j=1,...,n}
+x = [x_{ij}]_{i=1,\dots,N,\, j=1,\dots,n}
 \]
 
 donde $x_{ij}$ cuantifica la característica $i$ en la muestra $j$. \newline
@@ -67,7 +78,7 @@ convencional, la matriz de datos sería la matriz transpuesta de la que vamos a 
 
 En el supuesto de que $x_{ij}$ esté asociado con un microarray de ADN, entonces, mide un nivel de fluorescencia,
 tomando valores positivos, aunque pudiera ser que, tras el procesado de los datos, se diera lugar a expresiones 
-negativas. Por su parte, si se tratase de un dato obtenido mediante la técnica de secuenciación RNA-seq, tendríamos conteos; 
+negativas. Por su parte, si se tratase de un dato obtenido mediante la técnica de secuenciación RNA-seq, que será introducida a continuación, tendríamos conteos; 
 número de lecturas cortas que se alinean sobre un gen, exón o una zona genómica concretos. Un mayor número de
 lecturas será indicativo de una mayor expresión de dicha característica. \newline
 
@@ -82,30 +93,31 @@ filas de $x$ representan vectores que sí están relacionados. Por ejemplo, en u
 La expresión génica es el proceso por el cual la información codificada por un gen se usa 
 para producir moléculas de ARN que codifican para proteínas o para producir moléculas de ARN no codificantes que cumplen otras funciones. La expresión génica
 actúa como un “interruptor” que controla cuándo y dónde se producen moléculas de ARN y proteínas y como un “control de volumen” para determinar qué cantidad
-de esos materiales se produce.}, los 
+de esos materiales se produce\cite{expresion-genica-definition}.}, los 
 valores de expresión de las filas no son independientes, debido a que los genes tienden a actuar de manera coordinada. \newline
 
 Por lo general, los datos en las columnas de la matriz $x$, no pueden compararse directamente entre sí, por la presencia
 de diversos artefactos técnicos y ruido en la medición de la característica de interés. Es por ello que se han desarrollado
-técnicas para corregir estos problemas, denominadas como \textbf{técnicas de preprocesado}. Al aplicar estos métodos, los
+técnicas para corregir estos problemas, denominadas como \textit{técnicas de preprocesado}. Al aplicar estos métodos, los
 datos dejan de ser completamente independientes. No obstante, en la mayoría de los estudios este aspecto no se suele
 tener en cuenta. Tras la normalización, los datos siguen considerandose independientes por columnas (muestras) y dependientes
 por filas. \newline
 
-A la información o variables que describen y caracterizan a las muestras, las llamaremos \textbf{metadatos} o 
-\textbf{variables fenotípicas}. En este contexto, el uso de este término es adecuado porque estas variables reflejan
-atributos medibles y observables de las muestras, lo que se conoce en el ámbito de la biología como \textit{fenotipo}. 
+A la información o variables que describen y caracterizan a las muestras, las llamaremos \textit{metadatos} o 
+\textit{variables fenotípicas}. En este contexto, el uso de este término es adecuado porque estas variables reflejan
+atributos medibles y observables de las muestras, lo que se conoce en el ámbito de la biología como \textit{fenotipo}\cite{phenotype-definition}. 
 Normalmente tendremos varias variables fenotípicas. 
 Llamaremos $y = (y_{1},...,y_{n})$ a los valores observados de una variable en las $n$ muestras. Uno de los casos más típicos
 de variable fenotípica es cuando se tienen dos grupos de muestras: casos (individuos que tienen la enfermedad) y controles
 (no tienen la enfermedad o condición de interés). En este caso tendríamos $y_{i} = 1$, para un caso e $y_{i} = 0$, si es control.
 Si tuvieramos la situación en la que hay $k$ grupos a comparar, con $k > 2$, entonces se utiliza $y_{i} \in \{1,...,n\}$ 
-con $i = 1,...,n$. Hemos de recalcar que los valores $y_{k}$ son arbitrarios y pueden tomar cualquier otro par de valores. \newline
+con $i = 1,...,n$. Hemos de recalcar que los valores $y_{k}$ son arbitrarios y pueden tomar cualquier otro par de valores.\newline
 
 
 % toda la información obtenida del libro "G. Ayala - Bioinformática Estadística (2023).pdf"
 % definición de microarray: https://www.genome.gov/es/genetics-glossary/Tecnolog%C3%ADa-de-microarrays-chips-de-ADN-o-ARN 
 % definición de axon: https://www.genome.gov/genetics-glossary/Exon
+% definición de intrón: https://www.genome.gov/es/genetics-glossary/Intron 
 % definición de fenotipo: https://www.genome.gov/es/genetics-glossary/Fenotipo 
 
 
@@ -137,15 +149,16 @@ que examina cómo varían los niveles de expresión génica entre distintas cond
 busca determinar si existe una relación entre el perfil de expresión génica y una variable fenotípica específica. Este enfoque, denominado análisis
 de expresión diferencial marginal, permite explorar asociaciones entre conjuntos de genes, organizados como grupos de filas dentro de la matriz de expresión, 
 y la característica fenotípica de interés. A este tipo de análisis se le conoce también como análisis de conjuntos de genes o \textit{gene set analysis}, y 
-su objetivo es identificar patrones de expresión que puedan estar vinculados a determinados rasgos biológicos.
+su objetivo es identificar patrones de expresión que puedan estar vinculados a determinados rasgos biológicos. \newline
 
-% https://www.genome.gov/es/genetics-glossary/Expresion-genica -- Definiición expresión génica
+% https://www.genome.gov/es/genetics-glossary/Expresion-genica -- Definición expresión génica
+% toda la información obtenida del libro "G. Ayala - Bioinformática Estadística (2023).pdf"
 
 
 \section{Transcriptómica: datos RNA-seq y single-cell RNA-seq}
 
-Entre las distintas tecnologías utilizadas en la generación de datos ómicos, la \textbf{transcriptómica} desempeña un papel fundamental en el análisis de la expresión génica, y en particular, las 
-tecnologías de \textbf{RNA-seq} y \textbf{single-cell RNA-seq} han revolucionado este campo al permitir la cuantificación precisa de los 
+Entre las distintas tecnologías utilizadas en la generación de datos ómicos, la \textit{transcriptómica} desempeña un papel fundamental en el análisis de la expresión génica, y en particular, las 
+tecnologías de \textit{RNA-seq} y \textit{single-cell RNA-seq} han revolucionado este campo al permitir la cuantificación precisa de los 
 niveles de ARN mensajero en diferentes condiciones biológicas. Estas técnicas producen datos con una estructura matricial 
 compleja, caracterizada por un alto número de variables (genes) frente a un número reducido de muestras (individuos o células). 
 Esta estructura plantea desafíos en términos de almacenamiento, procesamiento y análisis, debido a la alta dimensionalidad de 
@@ -173,11 +186,11 @@ la secuenciación de Sanger de bibliotecas de ARN, pero era bastante costosa y d
 desarrollaron métodos basados en etiquetas para superar estas limitaciones, pero tenían el inconveniente de que estaban basados en la 
 costosa tecnolgía de secuenciación de Sanger, y una parte significativa de las etiquetas cortas no se podían asignar de forma única al
 genoma de referencia. Todas estas desventajas limitan el uso de la tecnología de secuenciación tradicional para anotar la estructura de los 
-transcriptomas. \newline    
+transcriptomas\cite{transcriptomics-1}. \newline    
 
 % estos 3 párrafos sacados del archivo transcriptomics-1.pdf
 
-Tecnologías de secuenciación de ADN de alto rendimiento como \textbf{RNA-seq} y \textbf{single-cell RNA-seq} han emergido como herramientas 
+Tecnologías de secuenciación de ADN de alto rendimiento como \textit{RNA-seq} y \textit{single-cell RNA-seq} han emergido como herramientas 
 clave para estudiar la expresión génica a gran escala. Estas técnicas permiten la cuantificación precisa de los niveles de ARN en diferentes 
 condiciones biológicas, a diferencia de los métodos basados en microarrays, lo que proporciona información valiosa sobre la actividad celular 
 y los mecanismos de regulación genética. Sin embargo, los datos obtenidos mediante RNA-seq y single-cell RNA-seq poseen características 
@@ -197,18 +210,18 @@ los niveles de expresión de genes entre diferentes condiciones
 biológicas, como células tratadas frente a no tratadas, tejidos sanos frente a cancerosos o distintos estados del desarrollo. Esto ofrece 
 una visión detallada de los cambios en la actividad génica y ayuda a identificar biomarcadores, rutas metabólicas alteradas o procesos 
 reguladores clave. Además, RNA-seq no está limitado a detectar solo transcritos que corresponden a secuencias genómicas conocidas, 
-lo que lo hace particularmente útil para organismos no modelo o cuando se carece de un genoma de referencia bien caracterizado. \newline
+lo que lo hace particularmente útil para organismos no modelo o cuando se carece de un genoma de referencia bien caracterizado\cite{transcriptomics-2-RNA-seq}.\newline
 % REFERENCIA: RNA-seq: A revolutionary tool....
 
 En la secuenciación de ARN, las lecturas generadas a partir de las muestras de ARN se alinean contra un genoma de referencia o se ensamblan de
 nuevo para crear un "mapa transcripcional". Si se dispone de un genoma de referencia, los datos se alinean para identificar la ubicación exacta de
 los transcritos en el genoma, permitiendo la cuantificación de la expresión génica. En casos donde no hay un genoma de referencia, las lecturas 
 de ARN se ensamblan para generar una secuencia de contigs\footnote[3]{Contig: Tramo de secuencia continua in silico generada por alineamiento 
-de lecturas de secuencias solapantes.} que luego se pueden anotar funcionalmente. Además de mapear las lecturas a un genoma, 
+de lecturas de secuencias solapantes\cite{contig-definition}.} que luego se pueden anotar funcionalmente. Además de mapear las lecturas a un genoma, 
 se deben identificar eventos de empalme (splicing\footnote[4]{Splicing: el splicing o empalme, ocurre al final del proceso de transcripción e 
-implica cortar y reorganizar secciones de ARNm.}), que es crucial para detectar variantes de splicing alternativo. Este proceso es especialmente 
+implica cortar y reorganizar secciones de ARNm.\cite{splicing-definition}}), que es crucial para detectar variantes de splicing alternativo. Este proceso es especialmente 
 importante para genes que tienen varios exones, ya que las lecturas pueden cruzar estos empalmes y revelar alternativas de splicing que no son 
-evidentes con tecnologías anteriores. \newline % REFERENCIA: Mapping and quantifying mammalian transcriptomes by RNA-seq
+evidentes con tecnologías anteriores\cite{transcriptomics-2-RNA-seq-2}. \newline % REFERENCIA: Mapping and quantifying mammalian transcriptomes by RNA-seq
 
 % contig: https://www.institutoroche.es/recursos/glosario/contig
 % splicing: https://www.yourgenome.org/theme/what-is-rna-splicing/
@@ -216,11 +229,11 @@ evidentes con tecnologías anteriores. \newline % REFERENCIA: Mapping and quanti
 Pese a las ventajas que la RNA-seq tiene frente a tecnologías anteriores, los conjuntos de datos producidos son grandes y complejos y la interpretación
 no es sencilla. La interpretación de los datos de secuenciación de ARN depende de la cuestión científica de interés. El objetivo principal de muchos 
 estudios biológicos es el perfil de expresión génica entre muestras, que es particularmente relevante, por ejemplo, para experimentos controlados 
-que comparan la expresión en cepas de tipo salvaje y mutantes del mismo tejido, comparando células tratadas versus no tratadas, cáncer versus normal, etc.
+que comparan la expresión en cepas de tipo salvaje y mutantes del mismo tejido, comparando células tratadas versus no tratadas, cáncer versus normal, etc\cite{transcriptomics-2-RNA-seq-3}. \newline
 % REFERENCIA: transcriptomics-RNA-seq-3
 
 Por otra parte, los datos RNA-seq requieren estar en unos formatos específicos para su tratamiento. Formatos adecuados para almacenar secuencias tanto
-de ácidos nucleicos como de proteínas. Estos son: formato \textbf{FASTA} y \textbf{FASTQ}.
+de ácidos nucleicos como de proteínas. Estos son: formato \textit{FASTA} y \textit{FASTQ}. La información que presentamos a continuación ha sido extraída de\cite{Ayala2023}.
 
 \begin{itemize}
     \item \textbf{Formato FASTA:} basado en texto, es usado para representar secuencias de nucleótidos o de aminoácidos, ambos representados mediante una sola letra.
@@ -261,7 +274,7 @@ de ácidos nucleicos como de proteínas. Estos son: formato \textbf{FASTA} y \te
 
 La secuenciación de ARN ha impulsado muchos descubrimientos e innovaciones en diversos campos en los últimos años. Por razones prácticas, la técnica RNA-seq
 suele realizarse en muestras que comprenden entre miles y millones de células. Sin embargo, esto ha dificultado la evaluación directa de la unidad fundamental
-de la biología: la célula. Es por esto que surge una variante a la RNA-seq: \textbf{scRNA-seq} (\textit{single-cell RNA-seq}), que se ha extendido considerablemente hasta 
+de la biología: la célula. Es por esto que surge una variante a la RNA-seq: \textit{scRNA-seq} (\textit{single-cell RNA-seq}), que se ha extendido considerablemente hasta 
 consolidarse como la opción principal en investigación de la diversidad celular, ya que posibilita el estudio individual de cada célula dentro de una misma muestra. 
 Es una tecnología que permite la cuantificación y comparación de los transcriptomas de células individuales, logrando una disección de la expresión génica a resolución de una 
 sola célula y describiendo moléculas de ARN con alta precisión y a escala genómica. Además, otro aspecto importante de esta técnica es que permite analizar 
@@ -295,3 +308,5 @@ ha demostrado ser esencial para mejorar la precisión y fiabilidad de estos aná
 Dado que scRNA-seq es una variante de RNA-seq, hereda sus formatos de almacenamiento iniciales, principalmente FASTA y FASTQ, siendo este último el formato 
 más crudo en el que se encuentran los datos de scRNA-seq. % REFERENCIA: https://broadinstitute.github.io/2019_scWorkshop/processing-scrnaseq-data.html
 % y también de transcriptomica-3-scRNA-seq-2.pdf 
+
+Toda la información recogida en esta subsección ha sido extraída de las fuentes bibliográficas\cite{transcriptomics-3-scRNA-seq-1},\cite{transcriptomics-3-scRNA-seq-2},\cite{BroadInstitute2019}.
