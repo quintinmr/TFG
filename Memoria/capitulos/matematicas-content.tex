@@ -13,16 +13,137 @@
 
 \newpage
 
-\chapter{Técnicas multivariantes}
+\chapter{Técnicas multivariantes: fundamentos y desarrollo del análisis clúster}
 
-En este capítulo se presentarán los fundamentos matemáticos de las técnicas multivariantes utilizadas 
-en este trabajo. Se comenzará con una visión general de distintas metodologías, detallando sus supuestos 
-teóricos, desarrollo formal e inferencia estadística. Posteriormente, el enfoque se reducirá a una 
-técnica específica, profundizando en su formulación matemática y su aplicación en el contexto del estudio. 
-Además, se establecerá la notación que se empleará a lo largo del documento para garantizar una exposición c
-lara y estructurada.
+El análisis de datos en ciencias ómicas requiere metodologías capaces de manejar la complejidad 
+inherente a los sistemas estudiados. En particular, las técnicas multivariantes han demostrado ser 
+herramientas fundamentales para la exploración, modelado e interpretación de datos de alta dimensión. 
+Estas metodologías permiten identificar relaciones entre variables, reducir la dimensionalidad y 
+clasificar observaciones en función de patrones subyacentes. \newline
 
-\section{Introducción}
+Este capítulo está estructurado en dos secciones. En primer lugar, se presentarán las principales 
+técnicas multivariantes, destacando su utilidad y objetivos dentro del análisis de datos. Posteriormente, 
+se abordará en profundidad el análisis clúster, una técnica multivariante ampliamente utilizada para 
+la identificación de patrones en grandes volúmenes de datos. Su aplicación en el ámbito biológico 
+permite revelar estructuras subyacentes en datos complejos, facilitando la comprensión de procesos 
+como la agrupación de expresiones génicas o la clasificación de organismos en función de sus características.
 
-\section{Análisis de Componentes Principales}
-\section{}
+\section{Preliminares}
+
+La información aquí recogida se ha extraído principalmente de las fuentes. \newline %history-mul-1, history-mul-2, %Bib-1
+
+El análisis multivariante es una herramienta clave para explorar y comprender la complejidad de los sistemas 
+biológicos, económicos y sociales. Su capacidad para procesar múltiples variables simultáneamente permite identificar 
+patrones ocultos en grandes volúmenes de datos. \newline
+
+Las técnicas multivariantes son fundamentales para abordar la complejidad de los datos en diversas disciplinas, 
+incluyendo las ciencias ómicas, donde se requieren metodologías capaces de gestionar la alta dimensionalidad y 
+variabilidad de los datos obtenidos. Estas herramientas permiten descubrir relaciones entre variables, 
+reducir la dimensionalidad y clasificar observaciones, lo que facilita la interpretación y el modelado de sistemas 
+complejos. \newline
+
+El desarrollo del análisis multivariante se remonta a principios del siglo XX, cuando pioneros como Karl Pearson y R.A
+Fisher introdujeron técnicas fundamentales como el análisis de componentes principales y el análisis discriminante.
+Posteriormente, C.R. Rao y otros investigadores expandieron estos métodos, estableciendo bases matemáticas sólidas que
+han permitido su aplicación en un amplio espectro de disciplinas. Estas técnicas han ido desarrollándose exponencialmente
+con el avance de la computación, facilitando el procesamiento de grandes volúmenes de datos y dando lugar a análisis 
+mucho más sofisticados en muchas áreas como la biología, la economía, las ciencias sociales, etc. \newline
+
+En términos generales, las metodologías multivariantes pueden dividirse en dos grandes enfoques: \textit{descriptivo}
+e \textit{inferencial}. El primero busca simplificar la estructura de los datos y revelar relaciones latentes entre
+variables, mientras que el segundo permite realizar pruebas de hipótesis considerando múltiples variables de manera
+simultánea, asegurando la validez estadística de los resultados. La elección de la técnica adecuada depende del tipo 
+de datos y de la pregunta de investigación. A continuación, se presentan algunas de las principales metodologías multivariantes:
+
+\subsection{Análisis de Componentes Principales (PCA)}
+
+El \textit{análisis de componentes principales (PCA)} fue introducido por primera vez por Karl Pearson a principios del siglo XX. El 
+tratamiento formal de esta técnica se debe a Hotelling (1933) y Rao (1964). Su propósito era facilitar la comprensión de conjuntos 
+de datos complejos mediante la reducción de su dimensionalidad, minimizando la pérdida de información. En PCA, un conjunto de $p$ variables correlacionadas
+se transforma en un conjunto más pequeño de constructos hipotéticos no correlacionados llamados \textit{componentes principales}.
+Su objetivo es condensar la información proporcionada por dichas variables en unas pocas de ellas o en pocas combinaciones lineales de 
+ellas (con máxima variabilidad). \newline %referencia PCA romero béjar, % referencia: Bib-5
+
+Las componentes principales se definen como combinaciones lineales de las variables originales que capturan la mayor variabilidad
+posible en los datos. Matemáticamente, si $Y$ es un vector de $p$ variables observadas con media $\mu$ y matriz de covarianza $\Sigma$,
+las componentes principales $Z_{j}$ se obtienen como:
+
+%duda: ¿tengo que explicar que suponemos normalidad multivariante?
+
+\[
+Z_{j} = p^{'}_{j} Y, \hspace{0.2cm} j=1,2,...,p
+\]
+
+donde $p_{j}$ es un vector de pesos o \textit{cargas principales} que maximizan la varianza de $Z_{j}$ bajo la restricción de que $p_{j}$
+tiene norma unitaria, es decir,
+
+\[%duda: ¿tengo que decir la norma que estoy usando?
+\max Var(Z_{j}) = p_{j}^{'}\Sigma p_{j}, \text{ sujeto a } p_{j}^{'}p_{j} = 1.
+\]
+
+Los vectores $p_{j}$ son los autovectors de la matriz de covarianza $\Sigma$, y los valores propios $\lambda_{j}$, corresponden
+a la varianza explicada por cada componente principal. La transformación completa de los datos se expresa de la siguiente forma:
+
+\[
+Z=P^{'}Y
+\]
+
+donde $P$ es la matriz de autovectores de $\Sigma$, lo que garantiza que las componentes principales sean ortogonales entre sí y no 
+correlacionados. \newline
+
+Las CP se utilizan para descubrir e interpretar las dependencias que existen entre las variables y para examinar las relaciones
+que pueden existir entre los individuos. También son útiles para estabilizar las estimaciones, evaluar la normalidad
+multivariante y detectar valores atípicos. \newline
+
+% referencias: bib-5, biib-6, PCA-béjar
+
+\subsection{Análisis factorial}
+
+El objetivo principal del \textit{análisis factorial} (AF) es capturar la realidad de la manera más simple posible, identificando 
+unas ‘pocas’ variables latentes que definen esa realidad. Esta técnica multivariante busca explicar el comportamiento de las $p$ 
+variables en la matriz de datos $X$ utilizando un número reducido de variables latentes\footnote{Variable latente: variable no observable 
+que se infiere a partir de un conjunto de variables observables utilizando un modelo matemático. }, denominadas \textit{factores}. Lo ideal es que toda 
+la información contenida en $X$ pueda ser representada mediante un número menor de factores. Esta técnica busca explicar las correlaciones 
+entre las variables mediante la combinación lineal de dichos factores. Así, cada factor es una variable latente que 
+influye en las variables observadas, y cuya presencia se infiere a partir de las correlaciones entre ellas. \newline
+
+Matemáticamente, cada variable observada, $x\in \mathbb{R}^{p}$, 
+se expresa como una combinación lineal de estos factores, más un término de error específico:
+
+\[
+x_{j} = \sum_{l=1}^{k}q_{jl}f_{l} + \mu_{j}, \text{ } j=1,...,p.
+\]
+
+Aquí, $f_{l}$, con $l=1,...,k$ denota a los factores. El número de factores, $k$, debería ser siempre mucho más pequeño que $p$. \newline
+
+En definitiva, el modelo de análisis factorial asume que la variable observada $x$ puede descomponerse en dos componentes: una parte explicada
+por los factores comunes y una parte específica de cada variable. Esto se expresa matricialmente de la siguiente forma:
+
+\[
+x=\Lambda F + \psi
+\]
+
+donde:
+
+\begin{itemize}
+    \item $\Lambda$ es la matriz de cargas factoriales de dimensión $p \times k$,
+    \item $F$ es el vector de factores de dimensión $k$.
+    \item $\psi$ es el vector de factores específicos o residuales de dimensión $p$
+\end{itemize}
+
+El análisis factorial fue desarrollado por Charles Spearman a principios del siglo XX para modelar la inteligencia humana, 
+postulando que las puntuaciones en distintas pruebas estaban intercorrelacionadas debido a un único factor latente de inteligencia 
+general (g). Su modelo de un solo factor fue posteriormente generalizado por Thurstone a múltiples factores. \newline
+
+El análisis de componentes principales (PCA)  y el análisis factorial suelen confundirse porque ambos analizan 
+la variación en un conjunto de variables a partir de la matriz de correlación o covarianza. Sin embargo, mientras que en el EFA unas 
+pocas variables latentes explican las correlaciones observadas, en el PCA se necesitan todos los componentes principales para describir 
+completamente la variabilidad. Así, el PCA se centra en explicar la varianza total, mientras que el EFA se enfoca en las relaciones 
+entre las variables mediante factores comunes. 
+
+%refernecia: Bib-5, Bib-6, AF-romero bejar.
+
+
+\subsection{Análisis Discriminante}
+
+\section{Análisis Clúster}
