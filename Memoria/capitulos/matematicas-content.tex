@@ -26,11 +26,19 @@ técnicas multivariantes, destacando su utilidad y objetivos dentro del análisi
 se abordará en profundidad el análisis clúster, una técnica multivariante ampliamente utilizada para 
 la identificación de patrones en grandes volúmenes de datos. Su aplicación en el ámbito biológico 
 permite revelar estructuras subyacentes en datos complejos, facilitando la comprensión de procesos 
-como la agrupación de expresiones génicas o la clasificación de organismos en función de sus características.
+como la agrupación de expresiones génicas o la clasificación de organismos en función de sus características. \newline
+
+Dado que en el capítulo dedicado a los datos ómicos hemos introducido la matriz de datos ómicos $X$, que 
+representa las $N$ características medidas sobre $n$ muestras, mantendremos esta notación en el desarrollo de
+los fundamentos matemáticos sobre los que se basa este trabajo. Así, consideraremos que la matriz de expresión 
+$X \in \mathbb{R}^{N \times n}$ almacena las observaciones de nuestras variables, con filas representando las
+características y columnas las muestras. 
+
+
 
 \section{Preliminares}
 
-La información aquí recogida se ha extraído principalmente de las fuentes. \newline %history-mul-1, history-mul-2, %Bib-1
+La información aquí recogida se ha extraído principalmente de las fuentes \cite{hist-mul-1}, \cite{hist-mul-2}, \cite{Bib-1}. \newline %history-mul-1, history-mul-2, %Bib-1
 
 El análisis multivariante es una herramienta clave para explorar y comprender la complejidad de los sistemas 
 biológicos, económicos y sociales. Su capacidad para procesar múltiples variables simultáneamente permite identificar 
@@ -59,29 +67,39 @@ de datos y de la pregunta de investigación. A continuación, se presentan algun
 
 El \textit{análisis de componentes principales (PCA)} fue introducido por primera vez por Karl Pearson a principios del siglo XX. El 
 tratamiento formal de esta técnica se debe a Hotelling (1933) y Rao (1964). Su propósito era facilitar la comprensión de conjuntos 
-de datos complejos mediante la reducción de su dimensionalidad, minimizando la pérdida de información. En PCA, un conjunto de $p$ variables correlacionadas
+de datos complejos mediante la reducción de su dimensionalidad, minimizando la pérdida de información. En PCA, un conjunto de $N$ variables correlacionadas
 se transforma en un conjunto más pequeño de constructos hipotéticos no correlacionados llamados \textit{componentes principales}.
 Su objetivo es condensar la información proporcionada por dichas variables en unas pocas de ellas o en pocas combinaciones lineales de 
 ellas (con máxima variabilidad). \newline %referencia PCA romero béjar, % referencia: Bib-5
 
+
 Las componentes principales se definen como combinaciones lineales de las variables originales que capturan la mayor variabilidad
-posible en los datos. Matemáticamente, si $Y$ es un vector de $p$ variables observadas con media $\mu$ y matriz de covarianza $\Sigma$,
-las componentes principales $Z_{j}$ se obtienen como:
+posible en los datos. Matemáticamente, si $Y$ es un vector de $N$ variables observadas con media $\mu$ y matriz de covarianza $\Sigma$,
+las componentes principales $Z_{i}$ se obtienen como:
 
 %duda: ¿tengo que explicar que suponemos normalidad multivariante?
 
 \[
-Z_{j} = p^{'}_{j} Y, \hspace{0.2cm} j=1,2,...,p
+Z_{i} = p^{'}_{i} Y, \hspace{0.2cm} i=1,2,...,N
 \]
 
-donde $p_{j}$ es un vector de pesos o \textit{cargas principales} que maximizan la varianza de $Z_{j}$ bajo la restricción de que $p_{j}$
+donde $p_{i}$ es un vector de pesos o \textit{cargas principales} que maximizan la varianza de $Z_{i}$ bajo la restricción de que $p_{i}$
 tiene norma unitaria, es decir,
 
 \[%duda: ¿tengo que decir la norma que estoy usando?
-\max Var(Z_{j}) = p_{j}^{'}\Sigma p_{j}, \text{ sujeto a } p_{j}^{'}p_{j} = 1.
+\max Var(Z_{i}) = p_{i}^{'}\Sigma p_{i}, \text{ sujeto a } p_{i}^{'}p_{i} = 1.
 \]
 
-Los vectores $p_{j}$ son los autovectors de la matriz de covarianza $\Sigma$, y los valores propios $\lambda_{j}$, corresponden
+y tal que asegura que las componentes principales son ortogonales entre sí, es decir:
+
+\[
+p_{i}^{'}p_{j} = 0, \text{ para } i \neq j.
+\]
+
+Así, garantizamos que las componentes principales $Z_{i}$ y $Z_{j}$ son intercorrelacionadas, es decir, su covarianza es cero para $i\neq j$.
+
+
+Los vectores $p_{i}$ son los autovectors de la matriz de covarianza $\Sigma$, y los valores propios $\lambda_{i}$, corresponden
 a la varianza explicada por cada componente principal. La transformación completa de los datos se expresa de la siguiente forma:
 
 \[
@@ -89,7 +107,7 @@ Z=P^{'}Y
 \]
 
 donde $P$ es la matriz de autovectores de $\Sigma$, lo que garantiza que las componentes principales sean ortogonales entre sí y no 
-correlacionados. \newline
+correlacionadas, cada una con las anteriores. \newline
 
 Las CP se utilizan para descubrir e interpretar las dependencias que existen entre las variables y para examinar las relaciones
 que pueden existir entre los individuos. También son útiles para estabilizar las estimaciones, evaluar la normalidad
@@ -100,21 +118,21 @@ multivariante y detectar valores atípicos. \newline
 \subsection{Análisis factorial}
 
 El objetivo principal del \textit{análisis factorial} (AF) es capturar la realidad de la manera más simple posible, identificando 
-unas ‘pocas’ variables latentes que definen esa realidad. Esta técnica multivariante busca explicar el comportamiento de las $p$ 
-variables en la matriz de datos $X$ utilizando un número reducido de variables latentes\footnote{Variable latente: variable no observable 
-que se infiere a partir de un conjunto de variables observables utilizando un modelo matemático. }, denominadas \textit{factores}. Lo ideal es que toda 
+unas pocas variables latentes\footnote[8]{Variable latente: variable no observable que se infiere a partir de un conjunto de variables 
+observables utilizando un modelo matemático. } que definen esa realidad. Esta técnica multivariante busca explicar el comportamiento de las $N$ 
+variables en la matriz de datos $X$ utilizando un número reducido de variables latentes, denominadas \textit{factores}. Lo ideal es que toda 
 la información contenida en $X$ pueda ser representada mediante un número menor de factores. Esta técnica busca explicar las correlaciones 
 entre las variables mediante la combinación lineal de dichos factores. Así, cada factor es una variable latente que 
 influye en las variables observadas, y cuya presencia se infiere a partir de las correlaciones entre ellas. \newline
 
-Matemáticamente, cada variable observada, $x\in \mathbb{R}^{p}$, 
+Matemáticamente, cada variable observada, $x\in \mathbb{R}^{N}$, 
 se expresa como una combinación lineal de estos factores, más un término de error específico:
 
 \[
-x_{j} = \sum_{l=1}^{k}q_{jl}f_{l} + \mu_{j}, \text{ } j=1,...,p.
+x_{i} = \sum_{l=1}^{k}q_{il}f_{l} + \mu_{i}, \text{ } i=1,...,N.
 \]
 
-Aquí, $f_{l}$, con $l=1,...,k$ denota a los factores. El número de factores, $k$, debería ser siempre mucho más pequeño que $p$. \newline
+Aquí, $f_{l}$, con $l=1,...,k$ denota a los factores. El número de factores, $k$, debería ser siempre mucho más pequeño que $N$. \newline
 
 En definitiva, el modelo de análisis factorial asume que la variable observada $x$ puede descomponerse en dos componentes: una parte explicada
 por los factores comunes y una parte específica de cada variable. Esto se expresa matricialmente de la siguiente forma:
@@ -126,9 +144,9 @@ x=\Lambda F + \psi
 donde:
 
 \begin{itemize}
-    \item $\Lambda$ es la matriz de cargas factoriales de dimensión $p \times k$,
+    \item $\Lambda$ es la matriz de cargas factoriales de dimensión $N \times k$,
     \item $F$ es el vector de factores de dimensión $k$.
-    \item $\psi$ es el vector de factores específicos o residuales de dimensión $p$
+    \item $\psi$ es el vector de factores específicos o residuales de dimensión $N$
 \end{itemize}
 
 El análisis factorial fue desarrollado por Charles Spearman a principios del siglo XX para modelar la inteligencia humana, 
@@ -145,5 +163,46 @@ entre las variables mediante factores comunes.
 
 
 \subsection{Análisis Discriminante}
+
+El \textit{análisis discriminante} es una técnica multivariante exploratoria que permite identificar un subconjunto de variables y funciones
+asociadas que maximicen la separación entre los grupos o poblaciones de estudio. Su objetivo principal es construir funciones
+discriminantes que describan y caractericen la separación de los grupos, evaluar el grado de diferenciación y analizar la contribución
+de cada variable a la discriminación. \newline
+
+Cuando estas funciones son combinaciones lineales de las variables originales, se denominan funciones discriminantes lineales (LDF). En
+particular, el análisis discriminante lineal de Fisher busca encontrar una combinación lineal de variables que maximice la separación
+entre grupos. Para dos grupos con medias $\mu_{1}$ y $\mu_{2}$ y una matriiz de covarianza común $\Sigma$, la función discriminante de Fisher
+se define como:
+
+\[
+L = a^{'}y = \sum_{j=1}^{N} a_{j}y_{j}
+\]
+
+donde $a$ es el vector de coeficientes de la función discriminante e $y$ es el vector de observaciones de las variables. \newline
+
+El vector $a$ que maximiza la separación entre los grupos se obtiene como:
+
+\[
+a_{\Sigma} = \Sigma^{-1}(\mu_{1}-\mu_{2})
+\]
+
+Además, la \textit{distancia de Mahalanobis}, que explicaremos con detalle en la siguiente sección, se emplea para medir la separación entre
+los centroides de los grupos:
+
+\[
+D^{2} = (\mu_{1}-\mu_{2})^{'}S^{-1}(\mu_{1}-\mu_{2})
+\]
+
+Si $D^{2}$ es significativo, implica una buena discriminación entre los grupos. \newline
+
+Este análisis tiene aplicaciones en diversos campos: en biología, Fisher (1936) lo utilizó para diferenciar especies de iris en función de
+características morfológicas; en la gestión de personal, permite clasificar profesionales según sus habilidades; en medicina, ayuda a distinguir
+entre individuos con alto o bajo riesgo de enfermedades; y en la industria, contribuye a identificar cuándo un proceso está bajo control o fuera 
+de control. \newline
+
+Para el caso de múltiples grupos, la función discriminante se construye de manera que maximice la variabilidad entre los grupos en relación con 
+la variabilidad dentro de los grupos, lo que se logra mediante una descomposición en valores propios. \newline
+
+Toda la información ha sido extraída de las fuentes bibliográficas\cite{bejar-PCA},\cite{bejar-AF}\cite{Bib-5},\cite{Bib-6} %bib-5, biib-6, PCA-béjar, AF-romero bejar
 
 \section{Análisis Clúster}

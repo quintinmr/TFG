@@ -51,7 +51,7 @@ Algunos exones son codificantes, es decir, contienen información para fabricar 
 son no codificantes. Los genes del genoma están formados por exones e intrones, que son trozos muy grandes de ARN 
 dentro de una molécula de ARN mensajero que interfieren con el código de los exones. 
 Estos intrones se eliminan de la molécula de ARN para dejar una serie de exones unidos entre sí de manera que se 
-puedan codificar los aminoácidos correctos.\cite{exon-definition}\cite{intron-definition}}, una proteína o una región específica del genoma. \newline
+puedan codificar los aminoácidos correctos\cite{exon-definition}\cite{intron-definition}}, una proteína o una región específica del genoma. \newline
 
 Denotaremos por $N$ al número de características observadas, que será un valor relativamente grande, del orden
 de miles. Como hemos mencionado anteriormente, estas características se observan sobre un conjunto reducido de 
@@ -221,12 +221,12 @@ lo que lo hace particularmente útil para organismos no modelo o cuando se carec
 % REFERENCIA: RNA-seq: A revolutionary tool....
 
 En la secuenciación de ARN, las lecturas generadas a partir de las muestras de ARN se alinean contra un genoma de referencia o se ensamblan de
-nuevo para crear un "mapa transcripcional". Si se dispone de un genoma de referencia, los datos se alinean para identificar la ubicación exacta de
+nuevo para crear un \textit{mapa transcripcional}. Si se dispone de un genoma de referencia, los datos se alinean para identificar la ubicación exacta de
 los transcritos en el genoma, permitiendo la cuantificación de la expresión génica. En casos donde no hay un genoma de referencia, las lecturas 
 de ARN se ensamblan para generar una secuencia de contigs\footnote[3]{Contig: Tramo de secuencia continua in silico generada por alineamiento 
 de lecturas de secuencias solapantes\cite{contig-definition}.} que luego se pueden anotar funcionalmente. Además de mapear las lecturas a un genoma, 
 se deben identificar eventos de empalme (splicing\footnote[4]{Splicing: el splicing o empalme, ocurre al final del proceso de transcripción e 
-implica cortar y reorganizar secciones de ARNm.\cite{splicing-definition}}), que es crucial para detectar variantes de splicing alternativo. Este proceso es especialmente 
+implica cortar y reorganizar secciones de ARNm\cite{splicing-definition}.}), que es crucial para detectar variantes de splicing alternativo. Este proceso es especialmente 
 importante para genes que tienen varios exones, ya que las lecturas pueden cruzar estos empalmes y revelar alternativas de splicing que no son 
 evidentes con tecnologías anteriores\cite{transcriptomics-2-RNA-seq-2}. \newline % REFERENCIA: Mapping and quantifying mammalian transcriptomes by RNA-seq
 
