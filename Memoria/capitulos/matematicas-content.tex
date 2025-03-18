@@ -164,7 +164,7 @@ entre las variables mediante factores comunes.
 
 \subsection{Análisis Discriminante}
 
-El \textit{análisis discriminante} es una técnica multivariante exploratoria que permite identificar un subconjunto de variables y funciones
+El \textit{análisis discriminante} es una técnica multivariante que permite identificar un subconjunto de variables y funciones
 asociadas que maximicen la separación entre los grupos o poblaciones de estudio. Su objetivo principal es construir funciones
 discriminantes que describan y caractericen la separación de los grupos, evaluar el grado de diferenciación y analizar la contribución
 de cada variable a la discriminación. \newline
@@ -206,3 +206,144 @@ la variabilidad dentro de los grupos, lo que se logra mediante una descomposici�
 Toda la información ha sido extraída de las fuentes bibliográficas\cite{bejar-PCA},\cite{bejar-AF}\cite{Bib-5},\cite{Bib-6} %bib-5, biib-6, PCA-béjar, AF-romero bejar
 
 \section{Análisis Clúster}
+
+% VER REFERENCIAS clustering-1, clustering-2
+
+\subsection{Introducción}
+
+\begin{quote}
+    Un ser inteligente no puede tratar cada objeto que ve como una entidad única, diferente de cualquier otra en el universo. Debe categorizar los 
+    objetos para poder aplicar el conocimiento adquirido con tanto esfuerzo sobre objetos similares encontrados en el pasado al objeto en cuestión.
+
+\textit{Steven Pinker, Cómo funciona la mente, 1997}
+\end{quote}
+
+Una de las habilidades básicas que poseemos los seres humanos es la de agrupar objetos similares para generar una clasificación. Esta idea de 
+clasficar cosas similares en categorías es bastante primitiva. Nuestros antepasados prehistóricos debían ser capaces de darse cuenta de que muchos
+objetos tenían propiedades semejantes, como ser comestibles, venenosos, peligrosos, etc. \newline
+
+Organizar datos en grupos razonables es uno de los modos más fundamentales de comprensión y aprendizaje. De hecho, es vital para el desarrollo del 
+lenguaje, el cual consiste en palabras que nos ayudan a reconocer y analizar los diferentes tipos de eventos, objetos y personas con los que nos
+relacionamos. Por ejemplo, los sustantivos en una lengua son palabras que describen una clase de cosas que comparten unas características comunes; 
+gatos, perros, caballos, etc., y dicho nombre agrupa a los individuos en grupos. \newline
+
+Además de ser una actividad conceptual humana básica, la clasificación es fundamental en muchas ramas de la ciencia. En biología, por ejemplo, la 
+clasificación de organismos (\textit{taxonomía}) ha sido una gran preocupación desde las primeras investigaciones. Aristóteles ya ideó un sistema para clasificar las especies
+del reino animal; comenzó dividiendo a los animales en dos grupos: los que tienen sangre roja (vertebrados) y los que carecen de ella (invertebrados). 
+Además subdividió estos grupos según su forma de reproducirse: vivas, en huevos, en pupas, etc. Luego, Theophrastos escribió lo relativo a las plantas.
+Los libros resultantes estaban tan bien documentados y eran tan completos, tan profundos y de un alcance tan amplio que sentaron las bases de la investigación
+biológica duranre siglos. \newline
+
+No fue ya hasta los siglos XVII y XVIII cuando los exploradores europeos crearon un nuevo programa similar de investigación y recolección bajo la dirección del 
+sueco Linnaeus, quien estableció un sistema de clasificación que sentó las bases de la taxonomía moderna. Su metodo no solo organizaba a los seres vivos
+en categorías jerárquicas, sino que también reflejaba una idea más profunda: la clasificación es esencial para el conocimiento. \newline
+
+En este sentido, todo el conocimiento real que poseemos, depende de métodos con los que podamos distinguir los similar de lo diferente. Cuanto mayor sea el 
+número de distinciones naturales que un método comprenda, más clara será nuestra idea de las cosas. A medida que el número de objetos de estudio crece, la 
+necesidad de desarrollar sistemas de clasificación más precisos se vuelve aún más necesaria. \newline
+
+En cierto nivel, un esquema de clasificación puede simplemente representar un método conveniente para organizar un gran conjunto de datos, de modo que se pueda
+comprender con mayor facilidad y la información se recupere de forma más eficiente. Si los datos pueden resumirse adecuadamente mediante un pequeño número de grupos
+de objetos, las etiquetas de grupo pueden proporcionar una descripción muy consisa de los patrones de similitudes y diferencias entre los datos. La necesidad de 
+resumir conjuntos de datos de esta manera es cada vez más importante debido al creciente número de grandes bases de datos disponibles en muchas áreas de la ciencia,
+como la transcriptómica, que es la que nos ocupa en este trabajo, y la exploración de dichas bases de datos mediante \textit{análisis clúster} y otras técnicas de 
+análisis multivariante se denomina hoy día \textit{minería de datos}. \newline
+
+Las técnicas numéricas de clasificación se originaron principalmente en las ciencias naturales, con el objetivo de liberar a la taxonomía de su naturaleza tradicionalmente
+subjetva. El objetivo era dar clasificaciones objetivas y estables. Objetivas en el sentido de que el análisis del mismo conjunto de organismos mediante la misma 
+secuencia de métodos numéricos produce la misma clasificación; estables en cuanto a que la clasificación permanece igual ante la adición de organismos o de nuevas
+características que los describen. \newline
+
+Se le han dado muchos nombres a estas técnicas numéricas, dependiendo del área de aplicación. En biología, el término más extendido es el de \textit{taxonomía numérica}.
+En psicología, se usa mucho el término \textit{análisis Q}. En inteligencia articial, el reconocimiento de patrones no supervisado es el término predilecto. Sin embargo,
+hoy en día, el \textit{análisis clúster} es probablemente el término genérico para los procedimientos que buscan descubrir grupos en los datos. \newline
+
+La información recogida en esta introducción ha sido extraída de la fuente bibliográfica % clustering-2.pdf
+
+\subsection{¿Qué es el Análisis Cluster (AC)?}
+
+El \textit{análisis cluster} puede definirse como el estudio formal de los algoritmos y métodos de clasificación de objetos. Un objeto es descrito por un conjunto de mediciones o
+bien de relaciones entre el objeto y otros objetos. No usa etiquetas de categoría que etiqueten objetos con identificadores previos. A diferencia del análisis discriminante, el 
+análisis clúster no utiliza etiquetas predefinidas para clasificar los objetos, sino que busca descubrir estructuras en los datos de manera autónoma. \newline
+
+El objetivo del análisis cluster es agrupar objetos formando conjuntos (clusters) en los que los elementos dentro de cada uno sean lo más similares posible entre sí (baja 
+variabilidad interna), mientras que los diferentes grupos sean lo más distintos entre sí (alta variabilidad entre ellos). Es, en definitiva, una técnica exploratoria que 
+identifica patrones de similitud dentro de un conjunto de datos, agrupando elementos con características comunes mientras mantiene separadas 
+las estructuras con mayores diferencias.\newline % referencia https://digibug.ugr.es/bitstream/handle/10481/85861/AC.pdf?sequence=1&isAllowed=y
+
+Un cluster puede entenderse como un conjunto de elementos que presentan una alta cohesión interna (homogeneidad) y una clara separación externa con respecto a otros grupos. 
+Sin embargo, la definición formal de un cluster es difícil de establecer y depende en gran medida del juicio del usuario y del contexto en el que se aplica. Mientras que 
+algunos métodos de análisis buscan identificar estructuras naturales en los datos, en muchas ocasiones el proceso de agrupamiento puede imponer una estructura artificial 
+en la información. Esto resalta la importancia de interpretar con cautela los resultados de un análisis de clusters, ya que no siempre reflejan patrones inherentes a los 
+datos, sino que pueden ser el resultado de los criterios específicos utilizados en la clasificación. \newline %referencia: clustering-2.pdf \newline
+
+\begin{center}
+    \includegraphics[width=0.5\textwidth]{../img/cluster-1.png}
+\end{center}
+
+En la mayoría de las aplicaciones del AC se busca una partición de los datos en la que cada individuo u objeto pertenezca a un único cluster y el conjunto completo de clusters
+contenga a todos los individuos. Sin embargo, esto no siempre es así y, de hecho, en algunas circunstancias, la superposición de clusters puede ofrecer una solución más aceptable.
+Decimos que una respuesta aceptable del análisis cluster es que no se justifica la agrupación de los datos. El análisis cluster es un procedimiento objetivo; no están predefinidos,
+sino que se forman a medida que avanza el análisis. \newline
+
+Los datos básicos para la mayoría de las aplicaciones del análisis cluster se almacenan en una matriz $n \times p$, $X$, que contiene los valores de las variables que describen
+cada objeto que se va a agrupar, es decir,
+
+\[
+X = [x_{ij}]_{i=1,\dots,n,\, j=1,\dots,p} =
+\begin{bmatrix}
+x_{11} & x_{12} & \cdots & x_{1p} \\
+x_{21} & x_{22} & \cdots & x_{2p} \\
+\vdots & \vdots & \ddots & \vdots \\
+x_{n1} & x_{n2} & \cdots & x_{np}
+\end{bmatrix}
+\]
+%       OBSERVA QUE ES LO CONTRARIO DE LO QUE DIJIMOS EN DATOS ÓMICOS (LA TRASPUESTA)?????? QUÉ HAGO?
+donde $x_{ij}$ cuantifica la variable $j$ en la muestra $i$. El AC tratará de desarrollar un esquema de clasificación que particionará las filas de $X$ en $k$ clusters. %referencia: clustering-2.pdf
+
+
+% medidas de proximidad (simularidad, disimilaridad)
+\subsection{Medidas de proximidad}
+
+Para desarrollar esta sección se han utlizado las siguientes referencias bibliográficas: \newline%clustering-2 %Bib-5 \newline
+
+Dado que el análisis cluster trata de identificar los vectores que son similares y agruparlos en clusters, es esencial contar con herramientas que permitan evaluar la cercanía o 
+distancia entre los objetos que se están agrupando. Las decisiones sobre cómo se van a formar los clusters dependen directamente de las medidas de proximidad utilizadas, ya que estas 
+definen cómo se calcula la similitud o diferencia entre los distintos elementos. \newline
+
+Las \textit{medidas de proximidad} se usan para representar la cercanía de dos objetos. Si una medida de proximidad representa \textit{similaridad}, el valor de la medida incrementa 
+cuanto más similares sean dos objetos. Alternativamente, si la medida de proximidad representa disimilitud, el valor de la medida disminuye a medida que dos objetos se vuelven más 
+parecidos.
+
+\subsubsection{Medidas de Disimilaridad}
+
+Cuando todas las variables registradas son continuas, las proximidades entre los individuos generalmente se cuantifican mediante medidas de disimilaridad o medidas de distancia. 
+Por ello, definiremos el concepto de \textit{disimilaridad} análogamente al de distancia.
+
+\begin{definicion}
+    Sean $\Omega \subset \mathbb{R}^{n}$ un conjunto de puntos de $\mathbb{R}^{n}$ y $x,y \in \Omega$ dos puntos cualesquiera de dicho conjunto. Entendemos por disimilaridad a toda 
+    aplicación $d: \Omega \times \Omega \longrightarrow \mathbb{R}$ que satisface las siguientes propiedades:
+
+    \begin{itemize}
+        \item[i] $d(x,y) \ge 0$
+        \item[ii] $d(x,y)= 0 \Longleftrightarrow x = y$
+        \item[iii] $d(x,y) = d(y,x)$ (simétrica)
+        
+        Se dice que la disimilaridad es \textit{métrica} si satisface una cuarta propiedad:
+        \item[iv] $d(x,y) \leq d(x,z) + d(z,y) \forall z \in \Omega$,
+        
+        y se dirá \textit{ultramétrica} si es métrica y además cumple:
+        \item[v] $d(x,y) \leq \max\{d(x,z),d(y,z)\}$
+        
+
+    \end{itemize}
+\end{definicion}
+
+
+A continuación presentamos algunas de las medidas de disimilaridad más usadas. Hemos de hacer notar que estas medidas normalmente se usan para medir cuán próximos están los individuos, 
+pero si te quiere medir entre variables, también son válidas. Simplemente habría que trasponer la matriz $X$ y trabajar con ella.
+
+% ejemplos para datos de intervalo, datos binarios ,etc.
+
+% clústering jerárquico
+% métodos no jerárquicos
