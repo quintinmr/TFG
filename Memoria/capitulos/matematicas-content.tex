@@ -238,7 +238,7 @@ No fue ya hasta los siglos XVII y XVIII cuando los exploradores europeos crearon
 sueco Linnaeus, quien estableció un sistema de clasificación que sentó las bases de la taxonomía moderna. Su metodo no solo organizaba a los seres vivos
 en categorías jerárquicas, sino que también reflejaba una idea más profunda: la clasificación es esencial para el conocimiento. \newline
 
-En este sentido, todo el conocimiento real que poseemos, depende de métodos con los que podamos distinguir los similar de lo diferente. Cuanto mayor sea el 
+En este sentido, todo el conocimiento real que poseemos, depende de métodos con los que podamos distinguir lo similar de lo diferente. Cuanto mayor sea el 
 número de distinciones naturales que un método comprenda, más clara será nuestra idea de las cosas. A medida que el número de objetos de estudio crece, la 
 necesidad de desarrollar sistemas de clasificación más precisos se vuelve aún más necesaria. \newline
 
@@ -258,7 +258,7 @@ Se le han dado muchos nombres a estas técnicas numéricas, dependiendo del áre
 En psicología, se usa mucho el término \textit{análisis Q}. En inteligencia articial, el reconocimiento de patrones no supervisado es el término predilecto. Sin embargo,
 hoy en día, el \textit{análisis clúster} es probablemente el término genérico para los procedimientos que buscan descubrir grupos en los datos. \newline
 
-La información recogida en esta introducción ha sido extraída de la fuente bibliográfica % clustering-2.pdf
+La información recogida en esta introducción ha sido extraída de la fuente bibliográfica\cite{clustering-2}. % clustering-2.pdf
 
 \subsection{¿Qué es el Análisis Cluster (AC)?}
 
@@ -269,13 +269,13 @@ análisis clúster no utiliza etiquetas predefinidas para clasificar los objetos
 El objetivo del análisis cluster es agrupar objetos formando conjuntos (clusters) en los que los elementos dentro de cada uno sean lo más similares posible entre sí (baja 
 variabilidad interna), mientras que los diferentes grupos sean lo más distintos entre sí (alta variabilidad entre ellos). Es, en definitiva, una técnica exploratoria que 
 identifica patrones de similitud dentro de un conjunto de datos, agrupando elementos con características comunes mientras mantiene separadas 
-las estructuras con mayores diferencias.\newline % referencia https://digibug.ugr.es/bitstream/handle/10481/85861/AC.pdf?sequence=1&isAllowed=y
+las estructuras con mayores diferencias\cite{bejar-AC}.\newline % referencia https://digibug.ugr.es/bitstream/handle/10481/85861/AC.pdf?sequence=1&isAllowed=y
 
 Un cluster puede entenderse como un conjunto de elementos que presentan una alta cohesión interna (homogeneidad) y una clara separación externa con respecto a otros grupos. 
 Sin embargo, la definición formal de un cluster es difícil de establecer y depende en gran medida del juicio del usuario y del contexto en el que se aplica. Mientras que 
 algunos métodos de análisis buscan identificar estructuras naturales en los datos, en muchas ocasiones el proceso de agrupamiento puede imponer una estructura artificial 
 en la información. Esto resalta la importancia de interpretar con cautela los resultados de un análisis de clusters, ya que no siempre reflejan patrones inherentes a los 
-datos, sino que pueden ser el resultado de los criterios específicos utilizados en la clasificación. \newline %referencia: clustering-2.pdf \newline
+datos, sino que pueden ser el resultado de los criterios específicos utilizados en la clasificación\cite{clustering-2}. \newline %referencia: clustering-2.pdf \newline
 
 \begin{center}
     \includegraphics[width=0.5\textwidth]{../img/cluster-1.png}
@@ -299,20 +299,20 @@ x_{n1} & x_{n2} & \cdots & x_{np}
 \end{bmatrix}
 \]
 %       OBSERVA QUE ES LO CONTRARIO DE LO QUE DIJIMOS EN DATOS ÓMICOS (LA TRASPUESTA)?????? QUÉ HAGO?
-donde $x_{ij}$ cuantifica la variable $j$ en la muestra $i$. El AC tratará de desarrollar un esquema de clasificación que particionará las filas de $X$ en $k$ clusters. %referencia: clustering-2.pdf
+donde $x_{ij}$ cuantifica la variable $j$ en la muestra $i$. El AC tratará de desarrollar un esquema de clasificación que particionará las filas de $X$ en $k$ clusters\cite{clustering-2}. %referencia: clustering-2.pdf
 
 
 % medidas de proximidad (simularidad, disimilaridad)
 \subsection{Medidas de proximidad}
 
-Para desarrollar esta sección se han utlizado las siguientes referencias bibliográficas: \newline%clustering-2 %Bib-5 \newline
+Para desarrollar esta sección se han utlizado las siguientes referencias bibliográficas:\cite{clustering-2}\cite{Bib-5}. \newline%clustering-2 %Bib-5 \newline
 
 Dado que el análisis cluster trata de identificar los vectores que son similares y agruparlos en clusters, es esencial contar con herramientas que permitan evaluar la cercanía o 
 distancia entre los objetos que se están agrupando. Las decisiones sobre cómo se van a formar los clusters dependen directamente de las medidas de proximidad utilizadas, ya que estas 
 definen cómo se calcula la similitud o diferencia entre los distintos elementos. \newline
 
 Las \textit{medidas de proximidad} se usan para representar la cercanía de dos objetos. Si una medida de proximidad representa \textit{similaridad}, el valor de la medida incrementa 
-cuanto más similares sean dos objetos. Alternativamente, si la medida de proximidad representa disimilitud, el valor de la medida disminuye a medida que dos objetos se vuelven más 
+cuanto más similares sean dos objetos. Alternativamente, si la medida de proximidad representa \textit{disimilitud}, el valor de la medida disminuye a medida que dos objetos se vuelven más 
 parecidos.
 
 \subsubsection{Medidas de Disimilaridad}
@@ -328,22 +328,151 @@ Por ello, definiremos el concepto de \textit{disimilaridad} análogamente al de 
         \item[i] $d(x,y) \ge 0$
         \item[ii] $d(x,y)= 0 \Longleftrightarrow x = y$
         \item[iii] $d(x,y) = d(y,x)$ (simétrica)
-        
-        Se dice que la disimilaridad es \textit{métrica} si satisface una cuarta propiedad:
-        \item[iv] $d(x,y) \leq d(x,z) + d(z,y) \forall z \in \Omega$,
-        
-        y se dirá \textit{ultramétrica} si es métrica y además cumple:
-        \item[v] $d(x,y) \leq \max\{d(x,z),d(y,z)\}$
-        
-
     \end{itemize}
+    Se dice que la disimilaridad es \textit{métrica} si satisface una cuarta propiedad:
+    \begin{itemize}
+        \item[iv] $d(x,y) \leq d(x,z) + d(z,y) \forall z \in \Omega$, 
+    \end{itemize}
+        
+    y se dirá \textit{ultramétrica} si es métrica y además cumple:
+        
+    \begin{itemize}
+        \item[v] $d(x,y) \leq \max\{d(x,z),d(y,z)\}$
+    \end{itemize}
+        
 \end{definicion}
 
 
 A continuación presentamos algunas de las medidas de disimilaridad más usadas. Hemos de hacer notar que estas medidas normalmente se usan para medir cuán próximos están los individuos, 
-pero si te quiere medir entre variables, también son válidas. Simplemente habría que trasponer la matriz $X$ y trabajar con ella.
+pero si se quiere medir entre variables, también son válidas. Simplemente habría que trasponer la matriz $X$ y trabajar con ella. \newline
+
+Toda la información que sigue a partir de este punto, ha sido extraída de las fuentes bibliográficas:\cite{clustering-1},\cite{clustering-2},\cite{Bib-1},\cite{Bib-5},\cite{Bib-6}.
 
 % ejemplos para datos de intervalo, datos binarios ,etc.
+\subsubsection{Medidas de disimilaridad entre individuos}   % clustering-1, clustering-2, Bib-1, Bib-6, Bib-5
+
+Las medidas de disimilaridad entre individuos se usan ante la necesidad de agrupar individuos con características similares. Una medida de disimilaridad adecuada es la distancia entre 
+dos observaciones. Se considera una medida de disimilaridad por el hecho de que la distancia aumenta conforme dos individuos se alejan. \newline
+
+Una gran variedad de distancias pueden generarse mediante la norma\footnote[10]{Norma: Una \textit{norma} en un espacio vectorial $X$ es una aplicación $\|\cdot\| \rightarrow \mathbb{R}$ que verifica:
+\begin{itemize}
+    \item[(N.1)] Desigualdad triangular: $\|x+y\| \leq \|x\| + \|y\| \forall x,y \in X$
+    \item[(N.2)] Homogeneidad por homotecias: $\|\lambda x\| = |\lambda| \|x\| \forall x \in \mathbb{X}$, $\lambda \in \mathbb{R}$
+    \item[(N.3)] No degeneración: $x \in X$, $\|x\| = 0 \Rightarrow x = 0$.\cite{def-norma}  
+\end{itemize}.} $L_{r}$, $r \geq 1$, 
+
+% definición norma: https://www.ugr.es/~rpaya/documentos/AnalisisI/2014-15/Normados.pdf
+
+\[
+d_{ij} = \|x_{i} - x_{j}\|_{r} = \{\sum_{k=1}^{p} |x_{ik}-x_{jk}|^{r}\}^{\frac{1}{r}} \hspace{2cm} (1)
+\]
+
+donde $x_{ik}$ denota el valor de la $k$-ésima variable en el objeto $i$. A esta distancia se la conoce por el nombre de \textit{distancia de Minkowsi}\newline
+
+En lo que sigue, consideremos $x_{i}, x_{j} \in \mathbb{R}^{p}$ dos individuos de la población. Esto es, dos filas de la matriz $X$ que contine los datos. 
+Definimos las siguientes medidas de disimilaridad:
+
+\begin{definicion}
+
+Definimos la \textit{distancia euclídea} como la derivada de la norma $L_{2}$ (caso particular de la distancia de Minkowski cuando $r=2$), 
+
+\[
+d_{2}(x_{i},x_{j}) = \|x_{i} - x_{j}\|_{2} = \sqrt{(x_{i}-x_{j})^{'}(x_{i}-x_{j})} = \sqrt{\sum_{j=1}^{p}(x_{j}-y_{j})^{2}}
+\] 
+
+\end{definicion}
+
+
+De entre todas las medidas de disimilaridad, y de todas las métricas de Minkowski, la distancia Euclidea es la más común. Hemos de tener en cuenta que la 
+distancia euclidea (y la euclidea al cuadrado) suelen calcularse a partir de datos en bruto, 
+no de datos estandarizados. Esto presenta varias ventajas (p. ej., la distancia entre dos objetos cualesquiera no se ve afectada por la adición de nuevos objetos 
+al análisis, que podrían ser valores atípicos). Sin embargo, las distancias pueden verse considerablemente afectadas por las diferencias de escala entre las 
+dimensiones a partir de las cuales se calculan.  Por ejemplo, si una de las dimensiones representa una longitud medida en centímetros y luego se convierte a milímetros (multiplicando los 
+valores por 10), las distancias euclidianas o euclidianas al cuadrado resultantes (calculadas a partir de múltiples dimensiones) pueden verse considerablemente 
+afectadas y, en consecuencia, los resultados de los análisis de conglomerados pueden ser muy diferentes. \newline
+
+
+\begin{observacion}
+La \textit{distancia euclidea al cuadrado} puede resultar útil para asignar progresivamente mayor importancia a los objetos más separados. Además, al evitar las
+raíces cuadradas, los cálculos se amenizan.
+\end{observacion}
+
+
+\begin{definicion}
+
+    Se denomina distancia \textit{Manhattan}, \textit{City Block}, \textit{Hamming}, o \textit{$d_{1}$}, a la distancia derivada de la norma $L_{1}$, que viene dada por
+    
+    \[
+    d_{1}(x_{i},x_{j}) = \sum_{k=1}^{p} |x_{ik}-x_{jk}|
+    \]
+    
+\end{definicion}
+
+Se utiliza cuando todas las características (variables) son binarias y mide el número de características en las que dos individuos difieren.
+
+\begin{definicion}  % referencia: https://en.wikipedia.org/wiki/Lp_space
+    
+    Tomando límite cuando $r \rightarrow \infty$, la distancia derivada del límite de la norma $L_{r}$, llamada \textit{norma del máximo}, $L_{\infty}$, es la que se conoce
+    como \textit{distancia de Chebychev}, y viene dada por
+
+    \[
+    d_{\infty}(x_{i},x_{j}) = \max_{k=1,\dots,p} |x_{ik}-x_{jk}|
+    \]
+\end{definicion}
+
+\begin{observacion}
+    La distancia euclidea la podemos ver como un caso particular de la distancia:
+    \[
+    d_{M}(x_{i},x_{j}) = \sqrt{(x_{i}-x_{j})^{'}M(x_{i}-x_{j})}
+    \]
+
+    cuando $M=I_{p}$, la matriz identidad de orden $p$.
+\end{observacion}
+
+Supongamos que $M$ es la matriz de covarianzas de las variables (las columnas de la matrix $X$ de datos), que se define de la siguiente forma:
+
+\[
+M=\Sigma = \frac{1}{p} \sum_{i=1}^{n}(x_{ij}-\overline{x}_{j})(x_{ij}-\overline{x}_{j})^{'}, \hspace{0.2cm} j=1,...,p 
+\]
+
+Podemos observar que si $p \geq n$, la matriz de covarianzas $\Sigma$, es definida positiva y, por consiguiente, es invertible. Esto nos permite 
+definir la siguiente medida de disimilaridad:
+
+\begin{definicion}
+    Definimos la \textit{distancia de Mahalanobis} para individuos, como:
+    \[
+    D_{\Sigma}(x_{i},x_{j}) = \sqrt{(x_{i}-x_{j})^{'}\Sigma^{-1}(x_{i}-x_{j})}
+    \]
+\end{definicion}
+
+A diferencia de la distancia Euclidea, la de Mahalanobis es invariante frente a cambios de escala. En efecto, sea $C_{n\times n}$ una matriz no singular
+de orden $n$, entonces:
+
+\[
+D_{\Sigma}(Cx_{i},Cx_{j}) = \sqrt{(Cx_{i},Cx_{j})^{'}[\frac{1}{p}C(x_{ij}-\overline{x}_{j})(x_{ij}-\overline{x}_{j})^{'}C^{'}]^{-1}(Cx_{i},Cx_{j})} = 
+\]
+\[
+= \sqrt{(x_{i},x_{j})^{'}C^{'}(C^{'})^{-1}[\frac{1}{p}(x_{ij}-\overline{x}_{j})(x_{ij}-\overline{x}_{j})^{'}]^{-1}C^{-1}C(x_{i},x_{j})} = 
+\]    
+\[
+= sqrt{(x_{i}-x_{j})^{'}\Sigma^{-1}(x_{i}-x_{j})} = D_{\Sigma}(x_{i},x_{j})
+\]
+
+La distancia de Mahalanobis no se usa comúnmente en técnicas de clustering porque calcula la matriz $\Sigma$ considerando todos los individuos juntos, en lugar 
+de tratar los objetos de cada clúster por separado. Además, su cálculo es más complejo que el de otras métricas. Sin embargo, puede aplicarse dentro de 
+cada clúster en una fase específica del proceso\cite{cluster-mahalanobis}.
+
+
+
+
+% mahalanobis distance
+
+\subsubsection{Medidas de disimilaridad entre variables}
+
+
+\subsection{Medidas de similaridad}
+
 
 % clústering jerárquico
+
 % métodos no jerárquicos
