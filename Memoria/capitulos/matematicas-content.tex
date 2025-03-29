@@ -38,7 +38,7 @@ características y columnas las muestras.
 
 \section{Preliminares}
 
-La información aquí recogida se ha extraído principalmente de las fuentes \cite{hist-mul-1}, \cite{hist-mul-2}, \cite{Bib-1}. \newline %history-mul-1, history-mul-2, %Bib-1
+La información aquí recogida se ha extraído de las fuentes\cite{hist-mul-1},\cite{hist-mul-2},\cite{Bib-1}. \newline %history-mul-1, history-mul-2, %Bib-1
 
 El análisis multivariante es una herramienta clave para explorar y comprender la complejidad de los sistemas 
 biológicos, económicos y sociales. Su capacidad para procesar múltiples variables simultáneamente permite identificar 
@@ -49,6 +49,8 @@ incluyendo las ciencias ómicas, donde se requieren metodologías capaces de ges
 variabilidad de los datos obtenidos. Estas herramientas permiten descubrir relaciones entre variables, 
 reducir la dimensionalidad y clasificar observaciones, lo que facilita la interpretación y el modelado de sistemas 
 complejos. \newline
+
+
 
 El desarrollo del análisis multivariante se remonta a principios del siglo XX, cuando pioneros como Karl Pearson y R.A
 Fisher introdujeron técnicas fundamentales como el análisis de componentes principales y el análisis discriminante.
@@ -68,7 +70,7 @@ de datos y de la pregunta de investigación. A continuación, se presentan algun
 El \textit{análisis de componentes principales (PCA)} fue introducido por primera vez por Karl Pearson a principios del siglo XX. El 
 tratamiento formal de esta técnica se debe a Hotelling (1933) y Rao (1964). Su propósito era facilitar la comprensión de conjuntos 
 de datos complejos mediante la reducción de su dimensionalidad, minimizando la pérdida de información. En PCA, un conjunto de $N$ variables correlacionadas
-se transforma en un conjunto más pequeño de constructos hipotéticos no correlacionados llamados \textit{componentes principales}.
+se transforma en un conjunto más pequeño de constructos hipotéticos no correlacionados llamados \textit{componentes principales}(CP).
 Su objetivo es condensar la información proporcionada por dichas variables en unas pocas de ellas o en pocas combinaciones lineales de 
 ellas (con máxima variabilidad). \newline %referencia PCA romero béjar, % referencia: Bib-5
 
@@ -80,7 +82,7 @@ las componentes principales $Z_{i}$ se obtienen como:
 %duda: ¿tengo que explicar que suponemos normalidad multivariante?
 
 \[
-Z_{i} = p^{'}_{i} Y, \hspace{0.2cm} i=1,2,...,N
+Z_{i} = p^{'}_{i} Y, \hspace{0.2cm} i=1,2,\dots,N
 \]
 
 donde $p_{i}$ es un vector de pesos o \textit{cargas principales} que maximizan la varianza de $Z_{i}$ bajo la restricción de que $p_{i}$
@@ -125,14 +127,15 @@ la información contenida en $X$ pueda ser representada mediante un número meno
 entre las variables mediante la combinación lineal de dichos factores. Así, cada factor es una variable latente que 
 influye en las variables observadas, y cuya presencia se infiere a partir de las correlaciones entre ellas. \newline
 
-Matemáticamente, cada variable observada, $x\in \mathbb{R}^{N}$, 
+Matemáticamente, cada variable observada, $x_{i}\in \mathbb{R}^{N}$, 
 se expresa como una combinación lineal de estos factores, más un término de error específico:
 
 \[
-x_{i} = \sum_{l=1}^{k}q_{il}f_{l} + \mu_{i}, \text{ } i=1,...,N.
+x_{i} = \sum_{l=1}^{k}q_{il}f_{l} + \mu_{i} + e_{i}, \text{ } i=1,...,N.
 \]
 
-Aquí, $f_{l}$, con $l=1,...,k$ denota a los factores. El número de factores, $k$, debería ser siempre mucho más pequeño que $N$. \newline
+donde, $q_{il} \in [q_{il}]_{N \times k}$ es una matriz de pesos, $f_{l}$, con $l=1,...,k$ son los factores, $\mu_{i}$ denota la media de la variable
+$x_{i}$ y $e_{i}$ es la componente i-ésima del vector de errores aleatorios, $e_{N\times 1}$. El número de factores, $k$, debería ser siempre mucho más pequeño que $N$. \newline
 
 En definitiva, el modelo de análisis factorial asume que la variable observada $x$ puede descomponerse en dos componentes: una parte explicada
 por los factores comunes y una parte específica de cada variable. Esto se expresa matricialmente de la siguiente forma:
@@ -151,12 +154,12 @@ donde:
 
 El análisis factorial fue desarrollado por Charles Spearman a principios del siglo XX para modelar la inteligencia humana, 
 postulando que las puntuaciones en distintas pruebas estaban intercorrelacionadas debido a un único factor latente de inteligencia 
-general (g). Su modelo de un solo factor fue posteriormente generalizado por Thurstone a múltiples factores. \newline
+general. Su modelo de un solo factor fue posteriormente generalizado por Thurstone a múltiples factores. \newline
 
 El análisis de componentes principales (PCA)  y el análisis factorial suelen confundirse porque ambos analizan 
-la variación en un conjunto de variables a partir de la matriz de correlación o covarianza. Sin embargo, mientras que en el EFA unas 
+la variación en un conjunto de variables a partir de la matriz de correlación o covarianza. Sin embargo, mientras que en el AF unas 
 pocas variables latentes explican las correlaciones observadas, en el PCA se necesitan todos los componentes principales para describir 
-completamente la variabilidad. Así, el PCA se centra en explicar la varianza total, mientras que el EFA se enfoca en las relaciones 
+completamente la variabilidad. Así, el PCA se centra en explicar la varianza total, mientras que el AF se enfoca en las relaciones 
 entre las variables mediante factores comunes. 
 
 %refernecia: Bib-5, Bib-6, AF-romero bejar.
@@ -277,9 +280,11 @@ algunos métodos de análisis buscan identificar estructuras naturales en los da
 en la información. Esto resalta la importancia de interpretar con cautela los resultados de un análisis de clusters, ya que no siempre reflejan patrones inherentes a los 
 datos, sino que pueden ser el resultado de los criterios específicos utilizados en la clasificación\cite{clustering-2}. \newline %referencia: clustering-2.pdf \newline
 
-\begin{center}
-    \includegraphics[width=0.5\textwidth]{../img/cluster-1.png}
-\end{center}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../img/cluster-1.png}
+    \caption{Ejemplo de clustering\cite{img-cluster-1}.}
+\end{figure}
 
 En la mayoría de las aplicaciones del AC se busca una partición de los datos en la que cada individuo u objeto pertenezca a un único cluster y el conjunto completo de clusters
 contenga a todos los individuos. Sin embargo, esto no siempre es así y, de hecho, en algunas circunstancias, la superposición de clusters puede ofrecer una solución más aceptable.
@@ -305,13 +310,13 @@ donde $x_{ij}$ cuantifica la variable $j$ en la muestra $i$. El AC tratará de d
 % medidas de proximidad (simularidad, disimilaridad)
 \subsection{Medidas de proximidad}
 
-Para desarrollar esta sección se han utlizado las siguientes referencias bibliográficas:\cite{clustering-2}\cite{Bib-5}. \newline%clustering-2 %Bib-5 \newline
+Para desarrollar esta sección se han utlizado las siguientes referencias bibliográficas:\cite{Bib-5}\cite{clustering-2}. \newline%clustering-2 %Bib-5 \newline
 
 Dado que el análisis cluster trata de identificar los vectores que son similares y agruparlos en clusters, es esencial contar con herramientas que permitan evaluar la cercanía o 
-distancia entre los objetos que se están agrupando. Las decisiones sobre cómo se van a formar los clusters dependen directamente de las medidas de proximidad utilizadas, ya que estas 
+distancia entre los objetos que se están agrupando: las \textit{medidas de proximidad}. Las decisiones sobre cómo se van a formar los clusters dependen directamente de las medidas de proximidad utilizadas, ya que estas 
 definen cómo se calcula la similitud o diferencia entre los distintos elementos. \newline
 
-Las \textit{medidas de proximidad} se usan para representar la cercanía de dos objetos. Si una medida de proximidad representa \textit{similaridad}, el valor de la medida incrementa 
+Si una medida de proximidad representa \textit{similaridad}, el valor de la medida incrementa 
 cuanto más similares sean dos objetos. Alternativamente, si la medida de proximidad representa \textit{disimilitud}, el valor de la medida disminuye a medida que dos objetos se vuelven más 
 parecidos.
 
@@ -325,19 +330,19 @@ Por ello, definiremos el concepto de \textit{disimilaridad} análogamente al de 
     aplicación $d: \Omega \times \Omega \longrightarrow \mathbb{R}$ que satisface las siguientes propiedades:
 
     \begin{itemize}
-        \item[i] $d(x,y) \ge 0$
-        \item[ii] $d(x,y)= 0 \Longleftrightarrow x = y$
-        \item[iii] $d(x,y) = d(y,x)$ (simétrica)
+        \item[i)] $d(x,y) \ge 0$
+        \item[ii)] $d(x,y)= 0 \Longleftrightarrow x = y$
+        \item[iii)] $d(x,y) = d(y,x)$ (simétrica)
     \end{itemize}
     Se dice que la disimilaridad es \textit{métrica} si satisface una cuarta propiedad:
     \begin{itemize}
-        \item[iv] $d(x,y) \leq d(x,z) + d(z,y) \forall z \in \Omega$, 
+        \item[iv)] $d(x,y) \leq d(x,z) + d(z,y) \forall z \in \Omega$, 
     \end{itemize}
         
     y se dirá \textit{ultramétrica} si es métrica y además cumple:
         
     \begin{itemize}
-        \item[v] $d(x,y) \leq \max\{d(x,z),d(y,z)\}$
+        \item[v)] $d(x,y) \leq \max\{d(x,z),d(y,z)\}$
     \end{itemize}
         
 \end{definicion}
@@ -346,12 +351,12 @@ Por ello, definiremos el concepto de \textit{disimilaridad} análogamente al de 
 A continuación presentamos algunas de las medidas de disimilaridad más usadas. Hemos de hacer notar que estas medidas normalmente se usan para medir cuán próximos están los individuos, 
 pero si se quiere medir entre variables, también son válidas. Simplemente habría que trasponer la matriz $X$ y trabajar con ella. \newline
 
-Toda la información que sigue a partir de este punto, ha sido extraída de las fuentes bibliográficas:\cite{clustering-1},\cite{clustering-2},\cite{Bib-1},\cite{Bib-5},\cite{Bib-6}.
+Toda la información que sigue a partir de este punto, ha sido extraída de las fuentes bibliográficas:\cite{Bib-1},\cite{Bib-5},\cite{Bib-6},\cite{clustering-2},\cite{clustering-1}.
 
 % ejemplos para datos de intervalo, datos binarios ,etc.
-\subsubsection{Medidas de disimilaridad entre individuos}   % clustering-1, clustering-2, Bib-1, Bib-6, Bib-5
+\subsubsection{Medidas de disimilaridad}   % clustering-1, clustering-2, Bib-1, Bib-6, Bib-5
 
-Las medidas de disimilaridad entre individuos se usan ante la necesidad de agrupar individuos con características similares. Una medida de disimilaridad adecuada es la distancia entre 
+Las medidas de disimilaridad se usan ante la necesidad de agrupar objetos con características similares. Una medida de disimilaridad adecuada es la distancia entre 
 dos observaciones. Se considera una medida de disimilaridad por el hecho de que la distancia aumenta conforme dos individuos se alejan. \newline
 
 Una gran variedad de distancias pueden generarse mediante la norma\footnote[10]{Norma: Una \textit{norma} en un espacio vectorial $X$ es una aplicación $\|\cdot\| \rightarrow \mathbb{R}$ que verifica:
@@ -455,7 +460,7 @@ D_{\Sigma}(Cx_{i},Cx_{j}) = \sqrt{(Cx_{i},Cx_{j})^{'}[\frac{1}{p}C(x_{ij}-\overl
 = \sqrt{(x_{i},x_{j})^{'}C^{'}(C^{'})^{-1}[\frac{1}{p}(x_{ij}-\overline{x}_{j})(x_{ij}-\overline{x}_{j})^{'}]^{-1}C^{-1}C(x_{i},x_{j})} = 
 \]    
 \[
-= sqrt{(x_{i}-x_{j})^{'}\Sigma^{-1}(x_{i}-x_{j})} = D_{\Sigma}(x_{i},x_{j})
+= \sqrt{(x_{i}-x_{j})^{'}\Sigma^{-1}(x_{i}-x_{j})} = D_{\Sigma}(x_{i},x_{j})
 \]
 
 La distancia de Mahalanobis no se usa comúnmente en técnicas de clustering porque calcula la matriz $\Sigma$ considerando todos los individuos juntos, en lugar 
@@ -463,16 +468,135 @@ de tratar los objetos de cada clúster por separado. Además, su cálculo es má
 cada clúster en una fase específica del proceso\cite{cluster-mahalanobis}.
 
 
-
-
-% mahalanobis distance
-
-\subsubsection{Medidas de disimilaridad entre variables}
-
-
 \subsection{Medidas de similaridad}
 
+Esta subsección ha sido escrita en base a la información recogida en la referecia bibliográfica\cite{Bib-5}.
+
+Como en la subsección anterior, consideremos $x_{i},x_{j}$ dos vectores cualesquiera de $\mathbb{R}^{p}$. \newline
+
+\begin{definicion}
+Sea $\Omega \subset{\mathbb{R}^{n}}$ un conjunto de puntos de $\mathbb{R^{p}}$. Llamaremos \textit{similaridad} a toda aplicación $s:\Omega \times \Omega \rightarrow \mathbb{R}$
+que satisfaga las siguiente propiedades:
+
+\begin{itemize}
+    \item[i)] $0 \leq s(x_{i},x_{j}) \leq 1$
+    \item[ii)]$s(x_{i},x_{j}) = 1$ si y solo si $x_{i} = x_{j}$
+    \item[iii)] $s(x_{i},x_{j}) = s(x_{j},x_{i})$ (simétrica)
+\end{itemize}
+\end{definicion}
+
+Las condiciones $(i)$ y $(ii)$ aseguran que toda similaridad es siempre positiva e identicamente $1$ cuando los objetos $i$ y $j$ sean iguales. \newline
+
+\begin{observacion}
+    Podemos formar una disimilaridad a partir de una similaridad, sin más que hacer:
+    \[
+    d_{ij} = 1 - s_{ij}
+    \]
+    u otra función decreciente. Sin embargo, a diferencia de las disimilaridades, no consituye una métrica. \newline
+    Naturalmente, podríamos pensar si esto también ocurre a la inversa, es decir, si dada una medida de disimilaridad $d_{ij}$, podemos construir una medida de similaridad, sin más que 
+    despejar $s_{ij}$ en la anterior expresión: 
+    \[
+    s_{ij} = 1/(1+d_{ij})
+    \]
+    Pero como $d_{ij}$ no está acotada superiormente, $s_{ij} \in (0,1]$, lo cual implica que $s_{ij} \neq 0$. Es por ello que no se pueden crear similaridades a partir de
+    disimilaridades.
+\end{observacion}
+
+A continuación presentamos las principales medidas de similaridad que se usan en el ámbito del análisis cluster. \newline
+
+\begin{definicion}
+Definimos el \textit{coeficiente de correlación de Pearson} entre los objetos $x_{i},x_{j}$, como
+\[
+q_{ij} = \frac{\sum_{k=1}^{p}(x_{ik}-\overline{x}_{i.})(x_{jk}-\overline{x}_{j.})}{\left[\sum_{k=1}^{p}(x_{ik}-\overline{x}_{i.})^{2}\sum_{k=1}^{p}(x_{jk}-\overline{x}_{j.})^{2} \right]}
+\]   
+\end{definicion}
+
+donde $\overline{x}_{i.} = \sum_{k=1}^{p}\frac{x_{ik}}{p}$ y $\overline{x}_{j.} = \sum_{k=1}^{p}\frac{x_{jk}}{p}$. \newline
+
+\begin{observacion}
+    Dado que $q_{ij} \in [-1,1]$, es claro que no satisface la primera condición necesaria para ser una similaridad. No obstante, esto cambia si consideramos en su lugar, el 
+    valor absoluto del mismo, $|q_{ij}|$, o bien tomando $1-q_{ij}^{2}$. 
+\end{observacion}
+
+Presentamos ahora otra medida de similaridad para las filas de $X$.
+
+\begin{definicion}
+    Definimos el \textit{coseno del ángulo $\theta$} entre los vectores $x_{i},x_{j}$ como
+    \[
+    cos \theta = c_{ij} = \frac{x_{i}^{'}x_{j}}{\|x_{i}\| \|x_{j}\|}
+    \]
+\end{definicion}
+
+\begin{observacion}
+    Podemos ver que estamos en la misma situación que antes, $c_{ij} \in [-1,1]$, lo cual indica que no verifica la propiedad $1$ de las medidas de similaridad. La solución a esto es 
+    la misma que en el caso anterior: trabajar con $\|q_{ij}\|$ o $\|1-q_{ij}^{2}\|$. \newline
+\end{observacion}
 
 % clústering jerárquico
 
-% métodos no jerárquicos
+\subsection{Métodos jerárquicos}  % Bib-1, Bib-2, Bib-5, bejar-AC-2
+
+Los \textit{métodos jerárquicos} para el análisis cluster representan un intento de encontrar buenos clusters en los datos mediante la combinación o división de clusters, con el prósito de
+minimizar (maximizar) una medida de disimilaridad (similaridad). Hay dos tipos de métodos jerárquicos: los \textit{aglomerativos} y los \textit{disociativos}. Los aglomerativos comienzan 
+con clusters que contienen un solo objeto y sucesivamente van combinando clusters hasta que todos forman un único cluster. Los disociativos, por su parte, hacen justo lo contrario: 
+comienzan con todos los objetos agrupados en un único cluster, a continuación dividen dicho cluster en dos clusters separados, y así sucesivamente hasta formar clusters con un solo objeto. 
+
+\begin{observacion}
+Aunque se le suele prestar más atención a los métodos aglomerativos, los disociativos proporcionan clusterings más sofisticados y robustos.
+\end{observacion}
+
+\subsubsection{Dendrograma}
+
+El resultado final de todo método jerárquico es lo que se conoce como \textit{dendograma} o \textit{diagrama en árbol jerárquico}. Es una representación gráfica del clústering que generalmente se
+dibuja en sentido inverso, comenzando desde el último cluster que se ha formado y que engloba a todos los objetos y desde similaridad 0. En el punto de similaridad donde dos clusters se combinan 
+para dar lugar al cluster final, este se divide en dos clusters padres y así sucesivamente; la solución con $k$ clusters se obtiene fusionando algunos clusters de la solución con $(k+1)$. \newline
+
+El dendrograma puede dibujarse horizontal o verticalmente, queda a elección de cada uno; ambas formas proporcionan la misma información. En nuestro caso, lo consideraremos en vertical. Nos permite 
+determinar la altura del criterio de unión a la que los clusters se combinan para formar un nuevo cluster más grande. Los elementos similares se combinan a alturas bajas, mientras que los elementos
+más disímiles se combinan a mayor altura en el dendrograma. Por lo tanto, es la diferencia de alturas la que define la proximidad de los individuos entre sí. Cuanto mayor sea la distancia entre las
+alturas a las que se combinan los clusters, más fácilmente podremos identificar la estructura sustancial de los datos. \newline
+
+Cortando el dendrograma a una altura adecuada, podremos obtener una partición de los datos en un número específico de grupos. Si dibujamos una línea horizontal a una altura adecuada, el número, $k$, de 
+líneas verticales intersecadas por dicha línea horizontal determina una solución con $k$ clusters. Por tanto, estamos diciendo que cada intersección de la horizontal con una de las $k$ líneas verticales
+representa un cluster y los elementos que están por debajo de dicha intersección serán los elementos que conforman el cluster. \newline
+
+Nos podemos preguntar cómo saber a qué altura cortar el dendrograma. La respuesta es que depende; deberemos cortar a aquella altura que mejor represente los datos de entrada.\newline % bejar-AC-2
+
+\begin{nota}
+    
+    Cabe remarcar que, si bien las distancias verticales son importantes a la hora de determinar una solución, las horizontales son totalmente irrelevantes. \newline
+
+\end{nota}
+
+\begin{ejemplo}
+
+    Vemos qué información nos puede dar este dendrograma sobre el número de clusters, aproximado, en los que podríamos agrupar un conjunto de datos:
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.5\textwidth]{../img/dendrograma.png}
+        \caption{Ejemplo de dendrograma.}
+    \end{figure}
+
+    \FloatBarrier
+
+    Aclaremos que en el eje vertical tenemos la \textit{distancia euclidea} que existe entre cada grupo y en el eje horizontal, los datos. Las línea verticales son los
+    agrupamientos que, a medida que vamos subiendo, van disminuyendo, hasta acabar en uno solo. Observamos que hay una gran separación entre las ramas en un entorno alrededor
+    de $10$, por lo que, si trazáramos una línea horizontal a una altura por encima o por debajo de $10$, identificamos $3$ y $4$ clusters, respectivamente. \newline
+
+    No podemos afirmar nada acerca del número de clusters óptimo con esta información. Habría que utilizar otros métodos, tanto visuales como matemáticos que nos permitan
+    hacer una afirmación acerca de $k$ un poco más rotunda.
+
+\end{ejemplo}
+
+
+\subsubsection{Métodos jerárquicos aglomerativos}
+
+En esta subsección vamos a analizar los principales métodos jerárquicos aglomerativos. 
+
+
+
+\subsection{Métodos no jerárquicos}
+
+
+% determinacion del numero de clusters
