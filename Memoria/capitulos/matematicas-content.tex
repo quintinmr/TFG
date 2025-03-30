@@ -534,7 +534,7 @@ Presentamos ahora otra medida de similaridad para las filas de $X$.
 
 % clústering jerárquico
 
-\subsection{Métodos jerárquicos}  % Bib-1, Bib-2, Bib-5, bejar-AC-2
+\subsection{Métodos jerárquicos}  % Bib-1, Bib-2, Bib-5, bejar-AC-2, gallardo-jerarquicos
 
 Los \textit{métodos jerárquicos} para el análisis cluster representan un intento de encontrar buenos clusters en los datos mediante la combinación o división de clusters, con el prósito de
 minimizar (maximizar) una medida de disimilaridad (similaridad). Hay dos tipos de métodos jerárquicos: los \textit{aglomerativos} y los \textit{disociativos}. Los aglomerativos comienzan 
@@ -592,7 +592,106 @@ Nos podemos preguntar cómo saber a qué altura cortar el dendrograma. La respue
 
 \subsubsection{Métodos jerárquicos aglomerativos}
 
-En esta subsección vamos a analizar los principales métodos jerárquicos aglomerativos. 
+En esta subsección vamos a analizar los principales métodos jerárquicos aglomerativos. Hemos de aclarar que ninguno de los que presentaremos es más eficiente que otro. Esto 
+dependerá de la naturaleza de los datos y el enfoque que tenga el análisis. \newline
+
+\textbf{Estrategia de la distanca mínima o máxima similaridad} \newline
+
+Del inglés \textit{single linkage}, traducido como \textit{encadenamiento simple}, y más conocida como la estrategia del \textit{vecino más cercano} es una estrategia que
+se basa en combinar dos clusters que tengan distancia mínima (o máxima similaridad), siendo esta la distancia mínima entre sus componentes. \newline
+
+Sean $C_{i}$ y $C_{j}$ dos clusters cualesquiera con $n_{i}$, $n_{j}$ elementos, respectivamente, y sean $x_{ik} \in C_{i}$ , $x_{jm} \in C_{j}$, con $k=1,\dots,n_{i}$, $m=1,\dots,n_{j}$ dos elementos de dichos clusters. La 
+distancia entre $C_{i}$ y $C_{j}$ viene dada por
+
+\[
+d(C_{i},C_{j}) = \min_{\substack{k=1,\dots,n_{i} \\ m=1,\dots,n_{j}}}\{d(x_{ik},x_{jm}) \text{ | } x_{ik} \in C_{i} \text{ y } x_{jm} \in C_{j}\}
+\]
+
+donde $d(x_{ik},x_{jk})$ es la distancia Euclidea, generalmente, o cualquier otra distancia entre los elementos $x_{ik},x_{jk}$ de los clusters. 
+
+Equivalentemente, en un contexto en el que usemos similaridad, se unirán dos clusters $C_{i}, C_{j}$ si
+
+\[
+s(C_{i},C_{j}) = \max_{\substack{k=1,\dots,n_{i} \\ m=1,\dots,n_{j}}}\{s(x_{ik},x_{jm}) \text{ | } x_{ik} \in C_{i} \text{ y } x_{jm} \in C_{j}\}
+\]
+
+\textbf{Estrategia de la distancia máxima o mínima similaridad}
+
+Conocido también como el método del encadenamiento completo, al contrario que en la estrategia anterior, esta se basa en calcular la distancia máxima 
+entre los clusters teniendo en cuenta la distancia máxima entre sus componentes. Esto es, ponemos el foco de atención en los elementos más dispares de 
+los clusters, es decir, los que están a mayor distancia o son menos símiles. \newline
+
+Sean entonces $C_{i}$ y $C_{j}$ dos clusters cualesquiera con $n_{i}$, $n_{j}$ elementos, respectivamente y sean $x_{ik} \in C_{i}$ , $x_{jm} \in C_{j}$, 
+con $k=1,\dots,n_{i}$, $m=1,\dots,n_{j}$ dos elementos de dichos clusters. Entonces, la distancia entre dichos clusters viene dada por:
+
+\[
+d(C_{i},C_{j}) = \max_{\substack{k=1,\dots,n_{i} \\ m=1,\dots,n_{j}}}\{d(x_{ik},x_{jm}) \text{ | } x_{ik} \in C_{i} \text{ y } x_{jm} \in C_{j}\}
+\]
+
+Equivalentemente, si lo miramos desde el punto de vista de la similaridad, se unirán dos clusters $C_{i}, C_{j}$ si
+
+\[
+s(C_{i},C_{j}) = \min_{\substack{k=1,\dots,n_{i} \\ m=1,\dots,n_{j}}}\{s(x_{ik},x_{jm}) \text{ | } x_{ik} \in C_{i} \text{ y } x_{jm} \in C_{j}\}
+\]
+
+\textbf{Estrategia de la distancia o similitud promedio}
+
+Mientras que en las dos estrategias anteriores la combinación de dos clusters en uno dependía únicamente de un único para de objetos dentro de cada cluster, 
+y se usaba la distancia máxima o mínima, la estrategia de la distancia promedio calcula la distancia entre dos clusters como el promedio de las disimilaridades 
+en cada cluster. Dependiendo de si consideramos el tamaño de los clusters en el promedio o no, podemos distinguir entre dos estrategias diferentes: la no ponderada
+y la ponderada. \newline
+
+Consideremos en lo que sigue dos clusters $C_{i}$, $C_{j}$ con $n_{i},n_{j}$ elementos, y $x_{ik},x_{jm}$ dos elementos de $C_{i},C_{j}$, respectivamente con $k=1,\dots,n_{i}$, $m=1,\dots,n_{j}$.
+
+\begin{itemize}
+    \item \textbf{No ponderada} \newline
+
+    Supongamos, sin pérdida de generalidad, que $C_{i}$ está constituido por dos clusters $C_{i1}$ y $C_{i2}$ con $n_{i1},n_{i2}$ elementos respectivamente, la distancia entre $C_{i}$ y $C_{j}$ viene dada por
+    \[
+    d(C_{i},C_{j}) = \frac{d(C_{i1}, C_{j}) + d(C_{i2}, C_{j})}{2}
+    \]
+
+    Observamos que esta distancia es independiente de los tamaños de los clusters involucrados. Esto quiere decir que las distancias respecto a $C_{j}$ de $C_{i1}$ y $C_{i2}$
+    tienen el mismo peso. 
+
+    \item \textbf{Ponderada} \newline
+    
+    A diferencia de la anterior estrategia, esta distancia es el promedio ponderado de las distancias de las componentes del cluster con respecto a las del otro. Supongamos que 
+    $C_{i}$ está constituido por dos clusters $C_{i1}$, $C_{i2}$ con $n_{i1}$,$n_{i2}$ elementos tales que $n_{i} = n_{i1}+n_{i2}$ y tomemos los elementos $x_{ik_{1}} \in C_{i1}$, $x_{ik_{2}} \in C_{i2}$. Entonces, 
+    la distancia promedio pondera entre $C_{i},C_{j}$ viene dada por
+    
+    \[
+    d(C_{i},C_{j}) = \frac{\sum_{k=1}^{n_{i}}\sum_{m=1}^{n_{j}}d(x_{ik},x_{jm})}{n_{i}n_{j}} = \frac{1}{(n_{i1}+n_{i2})n_{j}} \sum_{k=1}^{n_{i1}+n_{i2}} \sum_{m=1}^{n_{j}} d(x_{ik},x_{jm}) = 
+    \]
+    \[
+    = \frac{1}{(n_{i1}+n_{i2})n_{j}} \sum_{k_{1}=1}^{n_{i1}} \sum_{m=1}^{n_{j}} d(x_{ik_{1}},x_{jm}) + \frac{1}{(n_{i1}+n_{i2})n_{j}} \sum_{k_{2}=1}^{n_{i2}} \sum_{m=1}^{n_{j}} d(x_{ik_{2}},x_{jm}) = 
+    \]
+    \[
+    = \frac{n_{i1}}{(n_{i1}+n_{i2})n_{j}n_{i1}} \sum_{k_{1}=1}^{n_{i1}} \sum_{m=1}^{n_{j}} d(x_{ik_{1}},x_{jm}) + \frac{n_{i2}}{(n_{i1}+n_{i2})n_{j}n_{i2}} \sum_{k_{2}=1}^{n_{i2}} \sum_{m=1}^{n_{j}} d(x_{ik_{2}},x_{jm}) = 
+    \]
+    \[
+    = \frac{n_{i1}}{n_{i1}+n_{i2}} d(C_{i1},C_{j}) + \frac{n_{i2}}{n_{i1}+n_{i2}} d(C_{i2},C_{j}) = 
+    \]
+    \[
+    = \frac{n_{i1}d(C_{i1},j) + n_{i2}d(C_{i2},C_{j})}{n_{i1}+n_{i2}}
+    \]
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{Método del centroide} \newline
+
+En este método, para determinar cuán semejantes son dos clusters, vamos a poner el foco de atención en los \textit{centroides} de los mismos, es decir, en los vectores de medias de las variables 
+observadas sobre los individuos que conforman el cluster. Entonces, los centroides de los clusters $C_{i},C_{j}$ son
+
+\[
+\bar{x}_{ik} = \frac{\sum_{k=1}^{n_{i}}x_{ik}}{n_{i}} = \begin{bmatrix} \bar{x}_{i1} \\  \bar{x}_{i2} \\ \vdots \\ \bar{x}_{n_{i}} \end{bmatrix} \text{ y } \bar{x}_{jm} = \frac{\sum_{m=1}^{n_{j}}x_{jm}}{n_{j}} = \begin{bmatrix} \bar{x}_{j1} \\  \bar{x}_{j2} \\ \vdots \\ \bar{x}_{n_{j}} \end{bmatrix} 
+\]
+
+respectivamente, y el cuadrado de la distancia Euclidea entre ambos centroides es $d^{2}(C_{i},C_{j}) = \|\bar{x}_{ik} - \bar{x}_{jm}\|^{2}$. Se persigue entonces el objetivo de encontrar clusters que hagan mínima la distancia entre
+sus centroides, para, consecuentemente, combinarlos en un nuevo cluster, que llamaremos $C_{t}$ con centroide $\bar{x}_{tl} = \frac{(n_{i}\bar{x}_{ik} + n_{j}\bar{x}_{jm})}{n_{i}+n_{j}}$. Se calcularían de nuevo las distancias entre dicho centroide y el de los demás clusters. Continuaríamos el proceso 
+hasta obtener un único cluster. \newline
 
 
 
