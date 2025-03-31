@@ -590,7 +590,7 @@ Nos podemos preguntar cómo saber a qué altura cortar el dendrograma. La respue
 \end{ejemplo}
 
 
-\subsubsection{Métodos jerárquicos aglomerativos}
+\subsubsection{Métodos jerárquicos aglomerativos}  %gallardo y Bib-5
 
 En esta subsección vamos a analizar los principales métodos jerárquicos aglomerativos. Hemos de aclarar que ninguno de los que presentaremos es más eficiente que otro. Esto 
 dependerá de la naturaleza de los datos y el enfoque que tenga el análisis. \newline
@@ -600,19 +600,19 @@ dependerá de la naturaleza de los datos y el enfoque que tenga el análisis. \n
 Del inglés \textit{single linkage}, traducido como \textit{encadenamiento simple}, y más conocida como la estrategia del \textit{vecino más cercano} es una estrategia que
 se basa en combinar dos clusters que tengan distancia mínima (o máxima similaridad), siendo esta la distancia mínima entre sus componentes. \newline
 
-Sean $C_{i}$ y $C_{j}$ dos clusters cualesquiera con $n_{i}$, $n_{j}$ elementos, respectivamente, y sean $x_{ik} \in C_{i}$ , $x_{jm} \in C_{j}$, con $k=1,\dots,n_{i}$, $m=1,\dots,n_{j}$ dos elementos de dichos clusters. La 
+Sean $C_{i}$ y $C_{j}$ dos clusters cualesquiera con $n_{i}$, $n_{j}$ elementos, respectivamente, y sean $x^{i}_{k} \in C_{i}$ , $x^{j}_{m} \in C_{j}$, con $k=1,\dots,n_{i}$, $m=1,\dots,n_{j}$ dos elementos de dichos clusters. La 
 distancia entre $C_{i}$ y $C_{j}$ viene dada por
 
 \[
-d(C_{i},C_{j}) = \min_{\substack{k=1,\dots,n_{i} \\ m=1,\dots,n_{j}}}\{d(x_{ik},x_{jm}) \text{ | } x_{ik} \in C_{i} \text{ y } x_{jm} \in C_{j}\}
+d(C_{i},C_{j}) = \min_{\substack{k=1,\dots,n_{i} \\ m=1,\dots,n_{j}}}\{d(x^{i}_{k},x^{j}_{m}) \text{ | } x^{i}_{k} \in C_{i} \text{ y } x^{j}_{m} \in C_{j}\}
 \]
 
-donde $d(x_{ik},x_{jk})$ es la distancia Euclidea, generalmente, o cualquier otra distancia entre los elementos $x_{ik},x_{jk}$ de los clusters. 
+donde $d(x^{i}_{k},x^{j}_{m})$ es la distancia Euclidea, generalmente, o cualquier otra distancia entre los elementos $x^{i}_{k},x^{j}_{k}$ de los clusters. 
 
 Equivalentemente, en un contexto en el que usemos similaridad, se unirán dos clusters $C_{i}, C_{j}$ si
 
 \[
-s(C_{i},C_{j}) = \max_{\substack{k=1,\dots,n_{i} \\ m=1,\dots,n_{j}}}\{s(x_{ik},x_{jm}) \text{ | } x_{ik} \in C_{i} \text{ y } x_{jm} \in C_{j}\}
+s(C_{i},C_{j}) = \max_{\substack{k=1,\dots,n_{i} \\ m=1,\dots,n_{j}}}\{s(x^{i}_{k},x^{j}_{m}) \text{ | } x^{i}_{k} \in C_{i} \text{ y } x^{j}_{m} \in C_{j}\}
 \]
 
 \textbf{Estrategia de la distancia máxima o mínima similaridad}
@@ -621,17 +621,17 @@ Conocido también como el método del encadenamiento completo, al contrario que 
 entre los clusters teniendo en cuenta la distancia máxima entre sus componentes. Esto es, ponemos el foco de atención en los elementos más dispares de 
 los clusters, es decir, los que están a mayor distancia o son menos símiles. \newline
 
-Sean entonces $C_{i}$ y $C_{j}$ dos clusters cualesquiera con $n_{i}$, $n_{j}$ elementos, respectivamente y sean $x_{ik} \in C_{i}$ , $x_{jm} \in C_{j}$, 
+Sean entonces $C_{i}$ y $C_{j}$ dos clusters cualesquiera con $n_{i}$, $n_{j}$ elementos, respectivamente y sean $x^{i}_{k} \in C_{i}$ , $x^{j}_{m} \in C_{j}$, 
 con $k=1,\dots,n_{i}$, $m=1,\dots,n_{j}$ dos elementos de dichos clusters. Entonces, la distancia entre dichos clusters viene dada por:
 
 \[
-d(C_{i},C_{j}) = \max_{\substack{k=1,\dots,n_{i} \\ m=1,\dots,n_{j}}}\{d(x_{ik},x_{jm}) \text{ | } x_{ik} \in C_{i} \text{ y } x_{jm} \in C_{j}\}
+d(C_{i},C_{j}) = \max_{\substack{k=1,\dots,n_{i} \\ m=1,\dots,n_{j}}}\{d(x^{i}_{k},x^{j}_{m}) \text{ | } x^{i}_{k} \in C_{i} \text{ y } x^{j}_{m} \in C_{j}\}
 \]
 
 Equivalentemente, si lo miramos desde el punto de vista de la similaridad, se unirán dos clusters $C_{i}, C_{j}$ si
 
 \[
-s(C_{i},C_{j}) = \min_{\substack{k=1,\dots,n_{i} \\ m=1,\dots,n_{j}}}\{s(x_{ik},x_{jm}) \text{ | } x_{ik} \in C_{i} \text{ y } x_{jm} \in C_{j}\}
+s(C_{i},C_{j}) = \min_{\substack{k=1,\dots,n_{i} \\ m=1,\dots,n_{j}}}\{s(x^{i}_{k},x^{j}_{m}) \text{ | } x^{i}_{k} \in C_{i} \text{ y } x^{j}_{m} \in C_{j}\}
 \]
 
 \textbf{Estrategia de la distancia o similitud promedio}
@@ -641,59 +641,237 @@ y se usaba la distancia máxima o mínima, la estrategia de la distancia promedi
 en cada cluster. Dependiendo de si consideramos el tamaño de los clusters en el promedio o no, podemos distinguir entre dos estrategias diferentes: la no ponderada
 y la ponderada. \newline
 
-Consideremos en lo que sigue dos clusters $C_{i}$, $C_{j}$ con $n_{i},n_{j}$ elementos, y $x_{ik},x_{jm}$ dos elementos de $C_{i},C_{j}$, respectivamente con $k=1,\dots,n_{i}$, $m=1,\dots,n_{j}$.
+Consideremos en lo que sigue dos clusters $C_{i}$, $C_{j}$ con $n_{i},n_{j}$ elementos, y $x^{i}_{k},x^{j}_{m}$ dos elementos de $C_{i},C_{j}$, respectivamente con $k=1,\dots,n_{i}$, $m=1,\dots,n_{j}$.
 
 \begin{itemize}
     \item \textbf{No ponderada} \newline
 
-    Supongamos, sin pérdida de generalidad, que $C_{i}$ está constituido por dos clusters $C_{i1}$ y $C_{i2}$ con $n_{i1},n_{i2}$ elementos respectivamente, la distancia entre $C_{i}$ y $C_{j}$ viene dada por
+    Supongamos, sin pérdida de generalidad, que $C_{i}$ está constituido por dos clusters $C_{i_{1}}$ y $C_{i_{2}}$ con $n_{i_{1}},n_{i_{2}}$ elementos respectivamente, la distancia entre $C_{i}$ y $C_{j}$ viene dada por
     \[
-    d(C_{i},C_{j}) = \frac{d(C_{i1}, C_{j}) + d(C_{i2}, C_{j})}{2}
+    d(C_{i},C_{j}) = \frac{d(C_{i_{1}}, C_{j}) + d(C_{i_{2}}, C_{j})}{2}
     \]
 
-    Observamos que esta distancia es independiente de los tamaños de los clusters involucrados. Esto quiere decir que las distancias respecto a $C_{j}$ de $C_{i1}$ y $C_{i2}$
+    Observamos que esta distancia es independiente de los tamaños de los clusters involucrados. Esto quiere decir que las distancias respecto a $C_{j}$ de $C_{i_{1}}$ y $C_{i_{2}}$
     tienen el mismo peso. 
 
     \item \textbf{Ponderada} \newline
     
     A diferencia de la anterior estrategia, esta distancia es el promedio ponderado de las distancias de las componentes del cluster con respecto a las del otro. Supongamos que 
-    $C_{i}$ está constituido por dos clusters $C_{i1}$, $C_{i2}$ con $n_{i1}$,$n_{i2}$ elementos tales que $n_{i} = n_{i1}+n_{i2}$ y tomemos los elementos $x_{ik_{1}} \in C_{i1}$, $x_{ik_{2}} \in C_{i2}$. Entonces, 
-    la distancia promedio pondera entre $C_{i},C_{j}$ viene dada por
+    $C_{i}$ está constituido por dos clusters $C_{i_{1}}$, $C_{i_{2}}$ con $n_{i_{1}}$,$n_{i_{2}}$ elementos tales que $n_{i} = n_{i_{1}}+n_{i_{2}}$ y tomemos los elementos $x^{i_{1}}_{z} \in C_{i_{1}}$, $x^{i_{2}}_{w} \in C_{i_{2}}$, donde 
+    $z = 1,\dots,n_{i_{1}} $ y $w = 1,\dots,n_{i_{2}}$. Entonces, la distancia promedio pondera entre $C_{i},C_{j}$ viene dada por
     
     \[
-    d(C_{i},C_{j}) = \frac{\sum_{k=1}^{n_{i}}\sum_{m=1}^{n_{j}}d(x_{ik},x_{jm})}{n_{i}n_{j}} = \frac{1}{(n_{i1}+n_{i2})n_{j}} \sum_{k=1}^{n_{i1}+n_{i2}} \sum_{m=1}^{n_{j}} d(x_{ik},x_{jm}) = 
+    d(C_{i},C_{j}) = \frac{\sum_{k=1}^{n_{i}}\sum_{m=1}^{n_{j}}d(x^{i}_{k},x^{j}_{m})}{n_{i}n_{j}} = \frac{1}{(n_{i_{1}}+n_{i_{2}})n_{j}} \sum_{k=1}^{n_{i_{1}}+n_{i_{2}}} \sum_{m=1}^{n_{j}} d(x^{i}_{k},x^{j}_{m}) = 
     \]
     \[
-    = \frac{1}{(n_{i1}+n_{i2})n_{j}} \sum_{k_{1}=1}^{n_{i1}} \sum_{m=1}^{n_{j}} d(x_{ik_{1}},x_{jm}) + \frac{1}{(n_{i1}+n_{i2})n_{j}} \sum_{k_{2}=1}^{n_{i2}} \sum_{m=1}^{n_{j}} d(x_{ik_{2}},x_{jm}) = 
+    = \frac{1}{(n_{i_{1}}+n_{i_{2}})n_{j}} \sum_{z=1}^{n_{i_{1}}} \sum_{m=1}^{n_{j}} d(x^{i_{1}}_{z},x^{j}_{m}) + \frac{1}{(n_{i_{1}}+n_{i_{2}})n_{j}} \sum_{w=1}^{n_{i_{2}}} \sum_{m=1}^{n_{j}} d(x^{i_{2}}_{w},x^{j}_{m}) = 
     \]
     \[
-    = \frac{n_{i1}}{(n_{i1}+n_{i2})n_{j}n_{i1}} \sum_{k_{1}=1}^{n_{i1}} \sum_{m=1}^{n_{j}} d(x_{ik_{1}},x_{jm}) + \frac{n_{i2}}{(n_{i1}+n_{i2})n_{j}n_{i2}} \sum_{k_{2}=1}^{n_{i2}} \sum_{m=1}^{n_{j}} d(x_{ik_{2}},x_{jm}) = 
+    = \frac{n_{i_{1}}}{(n_{i_{1}}+n_{i_{2}})n_{j}n_{i_{1}}} \sum_{z=1}^{n_{i_{1}}} \sum_{m=1}^{n_{j}} d(x^{i_{1}}_{z},x^{j}_{m}) + \frac{n_{i_{2}}}{(n_{i_{1}}+n_{i_{2}})n_{j}n_{i_{2}}} \sum_{w=1}^{n_{i_{2}}} \sum_{m=1}^{n_{j}} d(x^{i_{2}}_{w},x^{j}_{m}) = 
     \]
     \[
-    = \frac{n_{i1}}{n_{i1}+n_{i2}} d(C_{i1},C_{j}) + \frac{n_{i2}}{n_{i1}+n_{i2}} d(C_{i2},C_{j}) = 
+    = \frac{n_{i_{1}}}{n_{i_{1}}+n_{i_{2}}} d(C_{i_{1}},C_{j}) + \frac{n_{i_{2}}}{n_{i_{1}}+n_{i_{2}}} d(C_{i_{2}},C_{j}) = 
     \]
     \[
-    = \frac{n_{i1}d(C_{i1},j) + n_{i2}d(C_{i2},C_{j})}{n_{i1}+n_{i2}}
+    = \frac{n_{i_{1}}d(C_{i_{1}},j) + n_{i_{2}}d(C_{i_{2}},C_{j})}{n_{i_{1}}+n_{i_{2}}}
     \]
 
 \end{itemize}
 
 \vspace{0.5cm}
 
-\textbf{Método del centroide} \newline
+\textbf{Método del centroide} \newline  % gallardo y Bib-5
 
 En este método, para determinar cuán semejantes son dos clusters, vamos a poner el foco de atención en los \textit{centroides} de los mismos, es decir, en los vectores de medias de las variables 
 observadas sobre los individuos que conforman el cluster. Entonces, los centroides de los clusters $C_{i},C_{j}$ son
 
 \[
-\bar{x}_{ik} = \frac{\sum_{k=1}^{n_{i}}x_{ik}}{n_{i}} = \begin{bmatrix} \bar{x}_{i1} \\  \bar{x}_{i2} \\ \vdots \\ \bar{x}_{n_{i}} \end{bmatrix} \text{ y } \bar{x}_{jm} = \frac{\sum_{m=1}^{n_{j}}x_{jm}}{n_{j}} = \begin{bmatrix} \bar{x}_{j1} \\  \bar{x}_{j2} \\ \vdots \\ \bar{x}_{n_{j}} \end{bmatrix} 
+\bar{x}^{i} = \frac{\sum_{k=1}^{n_{i}}x^{i}_{k}}{n_{i}} = \begin{bmatrix} \bar{x}^{i}_{1} \\  \bar{x}^{i}_{2} \\ \vdots \\ \bar{x}^{i}_{n_{i}} \end{bmatrix} \text{ y } \bar{x}^{j} = \frac{\sum_{m=1}^{n_{j}}x^{j}_{m}}{n_{j}} = \begin{bmatrix} \bar{x}^{j}_{1} \\  \bar{x}^{j}_{2} \\ \vdots \\ \bar{x}^{j}_{n_{j}} \end{bmatrix} 
 \]
 
-respectivamente, y el cuadrado de la distancia Euclidea entre ambos centroides es $d^{2}(C_{i},C_{j}) = \|\bar{x}_{ik} - \bar{x}_{jm}\|^{2}$. Se persigue entonces el objetivo de encontrar clusters que hagan mínima la distancia entre
-sus centroides, para, consecuentemente, combinarlos en un nuevo cluster, que llamaremos $C_{t}$ con centroide $\bar{x}_{tl} = \frac{(n_{i}\bar{x}_{ik} + n_{j}\bar{x}_{jm})}{n_{i}+n_{j}}$. Se calcularían de nuevo las distancias entre dicho centroide y el de los demás clusters. Continuaríamos el proceso 
-hasta obtener un único cluster. \newline
+respectivamente, y el cuadrado de la distancia Euclidea entre ambos centroides es $d^{2}(C_{i},C_{j}) = \|\bar{x}^{i} - \bar{x}^{j}\|^{2}$. Se persigue entonces el objetivo de encontrar clusters que hagan mínima la 
+distancia entre sus centroides, para, consecuentemente, combinarlos en un nuevo cluster, que llamaremos $C_{t}$ con centroide $\bar{x}^{t} = \frac{(n_{i}\bar{x}^{i} + n_{j}\bar{x}^{j})}{n_{i}+n_{j}}$. Se calcularían 
+de nuevo las distancias entre dicho centroide y el de los demás clusters. Continuaríamos el proceso hasta obtener un único cluster.\newline
+
+El método del centroide se denomina \textit{método de la mediana} si se utiliza un promedio no ponderado de los centroides: $\bar{x}^{t} = \frac{(\bar{x}^{i} +\bar{x}^{j})}{2}$. Este método es preferible cuando $n_{i} >> n_{j}$ o
+viceversa. \newline
+
+Calculamos el cuadrado de la distancia Euclidea entre el cluster $C_{t}$ y el centroide $\bar{x}^{u}$ de un tercer cluster $C_{u}$ de la siguiente forma:
+\[
+d^{2}(C_{t}, C_{u}) = \left( \frac{n_{i}}{n_{i} + n_{j}} \right) d^{2}(C_{i},C_{j}) + \left (\frac{n_{j}}{n_{i} + n_{j}}\right) d^{2}(C_{i},C_{u}) - \left( \frac{n_{i}n_{j}}{n_{i} + n_{j}}\right) d^{2}(C_{i},C_{j})
+\]
+
+\vspace{0.5cm}
+
+\textbf{Método de Ward} \newline
+
+El \textit{método de Ward}, también conocido como \textit{método de la suma incremental de cuadrados}, es un método jerárquico aglomerativo cuya filosofía la podemos resumir de la siguiente forma: \newline
+
+Supongamos que tenemos $m$ elementos que queremos agrupar. Comenzamos con $m$ clusters, cada uno de ellos con un único individuo. A continuación, estudiamos la similaridad de dichos clusters y, el par de clusters más
+similares se combinan, reduciendose el número de clusters en uno. Se sigue este proceso hasta que todos los clusters estén fusionados. El objetivo de este método es, en definitiva, encontrar en cada iteración, los dos 
+clusters tales que su fusión genere el menor incremento en el valor total de la suma de los cuadrados de las diferencias entre cada elemento y el centroide del cluster. \newline
+
+Para desarrollar formalmente el método, vamos a establecer la siguiente notación:
+
+\begin{itemize}
+    \item Notaremos por $x^{k}_{ij}$ al valor de la $j$-ésima variable observada sobre el $i$-ésimo individuo dentro del $k$-ésimo cluster. Suponemos que dicho cluster estará formado por $n_{k}$ indivduos.
+    \item Al centroide del $k$-ésimo cluster lo denotaremos como hicimos en el método del centroide: $m^{k}$, con $n$ componentes, $m^{k}_{j}$.
+    \item $E_{k}$ será la suma de los cuadrados de las distancias (distancia euclidea) de cada individuo del cluster $k$ al centroide (los errores del cluster $k$). Esto es,
+    \[
+    E_{k} = \sum_{i=1}^{n_{k}}\sum_{j=1}^{n}(x^{k}_{ij} - m^{k}_{j})^{2} = \sum_{i=1}^{n_{k}}\sum_{j=1}^{n}(x^{k}_{ij})^{2} - n_{k}\sum_{j=1}^{n}(m^{k})^{2}
+    \]
+    \item Llamaremos $E$ a la suma de los cuadrados de los errores de todos los clusters en su conjunto. Es decir, suponiendo que hubiera $h$ clusters
+    \[
+    E = \sum_{k=1}^{h} E_{k}
+    \]
+\end{itemize}
 
 
+\begin{observacion}
+    Notemos que al principio del método, $E_{k} = 0$, $\forall k \in \{1,\dots,m\}$ pues hay $m$ clusters compuestos por un solo individuo. \newline
+    En cada etapa, buscaremos los dos clusters cuya fusión minimce el incremento en $E$.
+\end{observacion}
+
+Supongamos que en la siguiente etapa son $C_{p}$ y $C_{q}$ los dos clusters que se fusionan en uno nuevo, $C_{t}$. Entonces, el incremento de $E$, $\Delta E_{pq}$, vendrá dado por
+\[
+\Delta E_{pq} = E_{t} - E_{p} - E_{q} =
+\]
+\[
+= \left[ \sum_{i=1}^{n_{t}}\sum_{j=1}^{n}(x^{t}_{ij})^{2} - n_{t}\sum_{j=1}^{n}(m^{p})^{2} \right] - \left[ \sum_{i=1}^{n_{k}}\sum_{j=1}^{n}(x^{p}_{ij})^{2} - n_{p}\sum_{j=1}^{n}(m^{p})^{2} \right] - \left[ \sum_{i=1}^{n_{q}}\sum_{j=1}^{n}(x^{q}_{ij})^{2} - n_{p}\sum_{j=1}^{n}(m^{q})^{2} \right] = 
+\]
+\[
+\overset{n_{t} = n_{p}+n_{q}}{=} n_{p}\sum_{j=1}^{n}(m^{p}_{j})^{2} + n_{q}\sum_{j=1}^{n}(m^{q}_{j})^{2} - n_{t}\sum_{j=1}^{n}(m^{t}_{j})^{2}
+\]
+
+Ahora, por un lado sabemos por el apartado anterior que el centroide de un cluster $C_{c}$ se calcula como 
+\[
+m^{c} = \frac{\sum_{j=1}^{n_{c}}x^{c}_{j}}{n_{c}}
+\]
+
+Aplicando esto al cluster $C_{p}$, tenemos:
+\[
+m^{p} = \frac{\sum_{j=1}^{n_{p}}x^{p}_{j}}{n_{p}} \Longleftrightarrow n_{p}m^{p} = \sum_{j=1}^{n_{p}}x^{p}_{j}
+\]
+
+Para el cluster $C_{q}$:
+\[
+m^{q} = \frac{\sum_{j=1}^{n_{q}}x^{q}_{j}}{n_{q}} \Longleftrightarrow n_{q}m^{q} = \sum_{j=1}^{n_{q}}x^{q}_{j}
+\]
+
+Cuando fusionamos los clusters $C_{p}$ y $C_{q}$, tenemos un cluster $C_{t}$ de $n_{t} = n_{p} + n_{q}$ elementos, con centroide
+\[
+m^{t} = \frac{\sum_{j=1}^{n_{t}}x^{t}_{j}}{n_{t}}
+\]
+
+Como $C_{t}$ tiene todos los puntos de $C_{p}$ y $C_{q}$, podemos escribir
+\[
+\sum_{j=1}^{n_{t}}x^{t}_{j} = \sum_{j=1}^{n_{p}}x^{p}_{j} + \sum_{j=1}^{n_{q}}x^{q}_{j}
+\]
+
+Por lo que, si sustituimos en las expresiones de $n_{p}m^{p}$ y $n_{q}m^{q}_{j}$:
+\[
+\sum_{j=1}^{n_{t}}x^{t}_{j}  = n_{p}m^{p} + n_{q}m^{q}
+\]
+
+Multiplicando por $n_{t}$, obtenemos:
+\[
+n_{t}m^{t} = n_{p}m^{p} + n_{q}m^{q}
+\]
+
+Como esto es una igualdad vectorial, la igualdad se verifica componente a componente:
+
+\[
+n_{t}m^{t}_{j} = n_{p}m^{p}_{j} + n_{q}m^{q}_{j} \text{ con } j = 1,\dots,n
+\]
+
+Partiendo entonces de la igualdad $n_{t}m^{t}_{j} = n_{p}m^{p}_{j} + n_{q}m^{q}_{j}$, elevando al cuadrado ambos miembros obtenemos
+\[
+n_{t}^{2}(m^{t}_{j})^{2} = n^{2}_{p}(m^{p}_{j})^2 + n^{2}_{q}(m^{q}_{j})^{2} + 2n_{p}n_{q}m^{p}_{j}m^{q}_{j} = 
+\]
+\[
+= n^{2}_{p}(m^{p}_{j})^2 + n^{2}_{q}(m^{q}_{j})^{2} + n_{p}n_{q}(2m_{j}^{p}m_{j}^{q}) = n^{2}_{p}(m^{p}_{j})^2 + n^{2}_{q}(m^{q}_{j})^{2} + n_{p}n_{q}((m_{j}^{p})^{2} + (m_{j}^{q})^{2} - (m^{p}_{j}-m^{q}_{j})^{2})
+\]
+
+de donde se obtiene
+\[
+n_{t}^{2}(m^{t}_{j})^{2} = n_{p}(n_{p}+n_{q})(m^{p}_{j})^{2} + n_{q}(n_{p}+n_{q})(m^{q}_{j})^{2} - n_{p}n_{q}(m_{j}^{p}-m_{j}^{q})^{2}
+\]
+
+Dividiendo por $n_{t}^{2}$ se obtiene
+\[
+(m_{j}^{t})^{2} = \frac{n_{p}}{n_{t}}(m^{p}_{j})^{2} + \frac{n_{q}}{n_{t}}(m_{j}^{q})^{2} - \frac{n_{p}n_{q}}{n_{t}^{2}}(m^{p}_{j}-m^{q}_{j})^{2}
+\]
+
+Por tanto, si sustituimos esta expresión en la del incremento, $\Delta E_{pq}$, nos queda lo siguiente:
+\[
+\Delta E_{pq} = n_{p}\sum_{j=1}^{n}(m^{p}_{j})^{2} + n_{q}\sum_{j=1}^{n}(m^{q}_{j})^{2} - n_{t}\sum_{j=1}^{n} \left[\frac{n_{p}}{n_{t}}(m^{p}_{j})^{2} + \frac{n_{q}}{n_{t}}(m_{j}^{q})^{2} - \frac{n_{p}n_{q}}{n_{t}^{2}}(m^{p}_{j}-m^{q}_{j})^{2}\right] \Longleftrightarrow
+\]
+\[
+\Longleftrightarrow \Delta E_{pq} = n_{p}\sum_{j=1}^{n}(m^{p}_{j})^{2} + n_{q}\sum_{j=1}^{n}(m^{q}_{j})^{2} - m_{p}\sum_{j=1}^{n}(m_{j}^{p})^{2} - n_{q}\sum_{j=1}^{n}(m^{q}_{j})^{2} + \frac{n_{p}n_{q}}{n_{t}}\sum_{j=1}^{n}(m^{p}_{j}-m^{q}_{j})^{2}
+\]
+\vspace{0.5cm}
+\[
+\Rightarrow \Delta E_{pq} = \frac{n_{p}n_{q}}{n_{t}}\sum_{j=1}^{n}(m^{p}_{j}-m^{q}_{j})^{2}
+\]
+
+Obtenemos por consiguiente que el menor incremento de los errores cuadráticos es proporcional al cuadrado de la distancia euclidea de los centroides de los clusters fusionados. \newline
+
+Veamos cómo calcular los incrementos a partir de otros ya previamente calculados. \newline
+Sea $C_{t}$ el cluster que resulta de fusionar $C_{p}$ y $C_{q}$ y consideremos ahora otro cluster $C_{r}$ distinto a los demás. Entonces, por lo visto anteriormente, 
+el incremento en $E$ que se produce al fusionar $C_{r}$ con $C_{t}$, viene dado por
+\[
+\Delta E_{rt} = \frac{n_{r}n_{t}}{n_{r}+n_{t}}\sum_{j=1}^{n}(m^{r}_{j}-m^{t}_{j})^{2}
+\]
+
+Como $n_{t}m^{t} = n_{p}m^{p} + n_{q}m^{q}$ y $n_{t} = n_{p}+n_{q}$, y sabemos también que $(m_{j}^{t})^{2} = \frac{n_{p}}{n_{t}}(m^{p}_{j})^{2} + \frac{n_{q}}{n_{t}}(m_{j}^{q})^{2} - \frac{n_{p}n_{q}}{n_{t}^{2}}(m^{p}_{j}-m^{q}_{j})^{2}$, deducimos que
+\[
+(m^{r}_{j}-m^{t}_{j})^{2} = (m^{r}_{j})^{2} + (m^{t}_{j})^{2} - 2m_{j}^{r}m_{j}^{t} = 
+\]
+\[
+= (m_{j}^{r})^{2} + \frac{n_{p}}{n_{t}}(m^{p}_{j})^{2} + \frac{n_{q}}{n_{t}}(m^{q}_{j})^{2} - \frac{n_{p}n_{q}}{n_{t}^{2}}(m^{p}_{j}-m^{q}_{j})^{2} - 2m^{r}_{j}\frac{n_{p}m^{p}_{j} + n_{q}m^{q}_{j}}{n_{t}} = 
+\]
+\[
+= \frac{n_{p}(m_{j}^{r})^{2}+n_{q}(m_{j}^{q})^{2}}{n_{t}} + \frac{n_{p}}{n_{t}}(m^{p}_{j})^{2} + \frac{n_{q}}{n_{t}}(m^{q}_{j})^{2} - \frac{n_{p}n_{q}}{n^{2}_{t}}(m^{p}_{j}-m^{q}_{j})^{2} - 2m^{r}_{j}\frac{n_{p}m^{p}_{j} + n_{q}m^{q}_{j}}{n_{t}} = 
+\]
+\[
+= \frac{n_{p}}{n_{t}}(m^{r}_{j} - m^{p}_{j})^{2} + \frac{n_{q}}{n_{t}}(m^{r}_{j} - m^{q}_{j})^{2} - \frac{n_{p}n_{q}}{n_{t}^{2}}(m^{p}_{j}-m^{q}_{j})^{2}
+\]
+
+Obtenemos por tanto,
+
+\[
+\Delta E_{rt} = \frac{n_{r}n_{t}}{n_{r}+n_{t}} \sum_{j=1}^{n} (m^{r}_{j}-m^{t}_{j})^{2} = 
+\]
+\[
+= \frac{n_{r}n_{t}}{n_{r}+n_{t}}\sum_{j=1}^{n} \left[\frac{n_{p}}{n_{t}}(m^{r}_{j} - m^{p}_{j})^{2} + \frac{n_{q}}{n_{t}}(m^{r}_{j} - m^{q}_{j})^{2} - \frac{n_{p}n_{q}}{n_{t}^{2}}(m^{p}_{j}-m^{q}_{j})^{2}\right] = 
+\]
+\[
+= \frac{n_{r}n_{p}}{n_{r}+n_{t}}\sum_{j=1}^{n} (m^{r}_{j} - m^{p}_{j})^{2} + \frac{n_{q}n_{r}}{n_{r}+n_{t}}\sum_{j=1}^{n}(m^{r}_{j} - m^{q}_{j})^{2} - \frac{n_{r}n_{p}n_{q}}{n_{t}(n_{r}+n_{t})}(m^{p}_{j}-m^{q}_{j})^{2} = 
+\]
+\[
+= \frac{1}{n_{r}+n_{t}}\sum_{j=1}^{n}\left[n_{r}n_{p}(m^{r}_{j}-m^{p}_{j})^{2} + n_{r}n_{q}(m^{r}_{j}-m^{q}_{j})^{2} - \frac{n_{r}n_{p}n_{q}}{n_{p}+n_{q}}(m^{p}_{j}-m^{q}_{j})^{2}\right] =
+\]
+\[
+= \frac{1}{n_{r}+n_{t}}[(n_{r}+n_{p})\Delta E_{rp} + (n_{r}+n_{q})\Delta E_{rq} - n_{r}\Delta E_{pq}]
+\]
+
+\vspace{0.5cm}
+
+\begin{nota}
+    Se puede demostrar que esta relación no depende de la forma específica en que se mide la distancia, siempre que esta se defina a partir de 
+    una norma inducida por un producto escalar o que satisfaga la ley del paralelogramo.
+\end{nota}
+
+\vspace{0.5cm}
+
+Ofrecemos a continuación un pequeño ejemplo de aplicación de este método aglomerativo.
+
+\begin{ejemplo}
+    
+\end{ejemplo}
+
+
+\subsubsection{Métodos disociativos}
 
 \subsection{Métodos no jerárquicos}
 
