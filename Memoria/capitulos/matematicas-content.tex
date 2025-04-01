@@ -718,7 +718,7 @@ Para desarrollar formalmente el método, vamos a establecer la siguiente notaci�
     \item Al centroide del $k$-ésimo cluster lo denotaremos como hicimos en el método del centroide: $m^{k}$, con $n$ componentes, $m^{k}_{j}$.
     \item $E_{k}$ será la suma de los cuadrados de las distancias (distancia euclidea) de cada individuo del cluster $k$ al centroide (los errores del cluster $k$). Esto es,
     \[
-    E_{k} = \sum_{i=1}^{n_{k}}\sum_{j=1}^{n}(x^{k}_{ij} - m^{k}_{j})^{2} = \sum_{i=1}^{n_{k}}\sum_{j=1}^{n}(x^{k}_{ij})^{2} - n_{k}\sum_{j=1}^{n}(m^{k})^{2}
+    E_{k} = \sum_{i=1}^{n_{k}}\sum_{j=1}^{n}(x^{k}_{ij} - m^{k}_{j})^{2} = \sum_{i=1}^{n_{k}}\sum_{j=1}^{n}(x^{k}_{ij})^{2} - n_{k}\sum_{j=1}^{n}(m^{k}_{j})^{2}
     \]
     \item Llamaremos $E$ a la suma de los cuadrados de los errores de todos los clusters en su conjunto. Es decir, suponiendo que hubiera $h$ clusters
     \[
@@ -867,7 +867,108 @@ Obtenemos por tanto,
 Ofrecemos a continuación un pequeño ejemplo de aplicación de este método aglomerativo.
 
 \begin{ejemplo}
+
+    Consideremos los siguientes datos de $5$ genotipos sobre los que se observan dos variables $X_{1}$ y $X_{2}$.
+
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{|c|c|c|}
+            \hline
+            \textbf{Genotipo} & \textbf{$X_{1}$} & \textbf{$X_{2}$} \\
+            \hline
+            $G_{1}$ & 7 & 10 \\
+            \hline
+            $G_{2}$ & 8 & 10 \\
+            \hline
+            $G_{3}$ & 6 & 5 \\
+            \hline
+            $G_{4}$ & 3 & 2 \\
+            \hline
+            $G_{5}$ & 11 & 10 \\
+            \hline
+            
+        \end{tabular}
+        \caption{Ejemplo método de Ward}
+
+    \end{table}
     
+    En la primera iteración del método, contamos con $5$ clusters, cada uno compuesto por un único punto (cada punto de nuestro dataset 
+    en un cluster):
+
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            \textbf{Partición} & \textbf{Centroides} & \textbf{$E_{k}$} & \textbf{$E$} & \textbf{$\Delta E$} \\
+            \hline
+            $G_{1},G_{2},G_{3},G_{4},G_{5}$ & los propios puntos & $E_{G_{1}} = E_{G_{2}}=E_{G_{3}}=E_{G_{4}}=E_{G_{5}}=0$ & $E= 0$ & $ \Delta E = 0$ \\
+            \hline
+        \end{tabular}
+        \caption{Nivel 0} 
+
+    \end{table}
+
+    A continuación, barajamos todas las parejas que podemos formar con estos $5$ elementos, para estudiar qué pareja de clusters generaría el menor
+    $\Delta E$ al fusionarse. Estudiemos entonces las $\binom{5}{2} = 10$ combinaciones posibles.
+
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{| c | c | c | c | c |}
+            \hline
+            \textbf{Partición} & \textbf{Centroides} & \(E_{k}\) & \(E\) & \(\Delta E\) \\
+            \hline
+            (\(G_{1}, G_{2}\)), \(G_{3}, G_{4}, G_{5}\) & \(C_{G_{1}G_{2}} = (7.5, 10)\) & \(E_{G_{1}G_{2}} = 0.5\) & 0.5 & 0.5 \\
+            \hline
+            (\(G_{1}, G_{3}\)), \(G_{2}, G_{4}, G_{5}\) & \(C_{G_{1}G_{3}} = (6.5, 7.5)\) & \(E_{G_{1}G_{3}} = 13\) & 13 & 13 \\
+            \hline
+            (\(G_{1}, G_{4}\)), \(G_{2}, G_{3}, G_{5}\) & \(C_{G_{1}G_{4}} = (5, 6)\) & \(E_{G_{1}G_{4}} = 40\) & 40 & 40 \\
+            \hline
+            (\(G_{1}, G_{5}\)), \(G_{2}, G_{3}, G_{4}\) & \(C_{G_{1}G_{5}} = (9, 10)\) & \(E_{G_{1}G_{5}} = 8\) & 8 & 8 \\
+            \hline
+            (\(G_{2}, G_{3}\)), \(G_{1}, G_{4}, G_{5}\) & \(C_{G_{2}G_{3}} = (7, 7.5)\) & \(E_{G_{2}G_{3}} = 14.5\) & 14.5 & 14.5 \\
+            \hline
+            (\(G_{2}, G_{4}\)), \(G_{1}, G_{3}, G_{5}\) & \(C_{G_{2}G_{4}} = (5.5, 6)\) & \(E_{G_{2}G_{4}} = 44.5\) & 44.5 & 44.5 \\
+            \hline
+            (\(G_{2}, G_{5}\)), \(G_{1}, G_{3}, G_{4}\) & \(C_{G_{2}G_{5}} = (9.5, 10)\) & \(E_{G_{2}G_{5}} = 4.5\) & 4.5 & 4.5 \\
+            \hline
+            (\(G_{3}, G_{4}\)), \(G_{1}, G_{2}, G_{5}\) & \(C_{G_{3}G_{4}} = (4.5, 2.5)\) & \(E_{G_{3}G_{4}} = 21\) & 21 & 21 \\
+            \hline
+            (\(G_{3}, G_{5}\)), \(G_{1}, G_{2}, G_{4}\) & \(C_{G_{3}G_{5}} = (8.5, 7.5)\) & \(E_{G_{3}G_{5}} = 25\) & 25 & 25 \\
+            \hline
+            (\(G_{4}, G_{5}\)), \(G_{1}, G_{2}, G_{3}\) & \(C_{G_{4}G_{5}} = (7, 6)\) & \(E_{G_{4}G_{5}} = 64\) & 64 & 64 \\
+            \hline
+        \end{tabular}
+        \caption{Nivel 1}
+        
+    \end{table}
+
+    Observamos que se han de fusonar los elementos $G_{1}$ y $G_{2}$. En este nivel, la configuración de clusters es $(G_{1},G_{2}),G_{3},G_{4},G_{5}$. \newline
+
+    A continuación, calculemos los incrementos que daría lugar las $\binom{4}{2} = 6$ posibles combinaciones.
+
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            \textbf{Partici\'on} & \textbf{Centroides} & \textbf{$E_k$} & \textbf{$E$} & \textbf{$\Delta E$} \\
+            \hline
+            ($G_{1},G_{2}, G_{3}$), $G_{4}, G_{5}$ & $C_{G_{1}G_{2}G_{3}} = (7, 8.33)$ & $E_{G_{1}G_{2}G_{3}} = 18.67$, $E_{G_{4}}=E_{G_{5}}=0$ & 18.67 & 18.67 \\
+            \hline
+            ($G_{1},G_{2}, G_{4}$), $G_{3}, G_{5}$ & $C_{G_{1}G_{2}G_{4}} = (6, 7.33)$ & $E_{G_{1}G_{2}G_{4}} = 56.67$,$E_{G_{3}}=E_{G_{5}}=0$ & 56.67 & 56.67 \\
+            \hline
+            ($G_{1},G_{2}, G_{5}$), $G_{3}, G_{4}$ & $C_{G_{1}G_{2}G_{5}} = (8.67, 10)$ & $E_{G_{1}G_{2}G_{5}} = 8.67$,$E_{G_{3}}=E_{G_{4}}=0$ & 8.67 & 8.67 \\
+            \hline
+            ($G_{3}, G_{4}$), ($G_{1},G_{2}), G_{5}$ & $C_{G_{3}G_{4}} = (4.5, 3.5)$, $C_{G_{1}G_{2}} = (7.5, 10)$ & $E_{G_{3}G_{4}} = 11$,$E_{G_{1}G_{2}} = 0.5$,$E_{G_{5}}=0$ & 11 & 11 \\  % me he quedado por aqui
+            \hline
+            ($G_{3}, G_{5}$), ($G_{1}G_{2}), G_{4}$ & $C_{G_{3}G_{5}} = (8.5, 7.5)$ & $E_{G_{3}G_{5}}= 15.5$,$E_{G_{1}G_{2}} = 0.5$,$E_{G_{4}}=0$ & 15.5 & 15.5 \\
+            \hline
+            ($G_{4}, G_{5}$), ($G_{1}G_{2}), G_{3}$ & $C_{G_{4}G_{5}} = (7, 6)$ & $E_{G_{4}G_5} = 18$,$E_{G_{1}G_{2}} = 0.5$,$E_{G_{3}}=0$ & 18 & 18 \\
+            \hline
+        \end{tabular}
+        \caption{Segunda iteración del método de Ward}
+        \label{tab:ward2}
+    \end{table}
+
 \end{ejemplo}
 
 
