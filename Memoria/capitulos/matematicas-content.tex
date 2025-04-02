@@ -574,7 +574,7 @@ Nos podemos preguntar cómo saber a qué altura cortar el dendrograma. La respue
 
     \begin{figure}[h]
         \centering
-        \includegraphics[width=0.5\textwidth]{../img/dendrograma.png}
+        \includegraphics[width=0.5\textwidth]{../img/dendrograma-1.png}
         \caption{Ejemplo de dendrograma.}
     \end{figure}
 
@@ -901,7 +901,7 @@ Ofrecemos a continuación un pequeño ejemplo de aplicación de este método agl
             \hline
             \textbf{Partición} & \textbf{Centroides} & \textbf{$E_{k}$} & \textbf{$E$} & \textbf{$\Delta E$} \\
             \hline
-            $G_{1},G_{2},G_{3},G_{4},G_{5}$ & los propios puntos & $E_{G_{1}} = E_{G_{2}}=E_{G_{3}}=E_{G_{4}}=E_{G_{5}}=0$ & $E= 0$ & $ \Delta E = 0$ \\
+            $G_{1},G_{2},G_{3},G_{4},G_{5}$ & los propios puntos & $E_{G_{1}} = E_{G_{2}}=E_{G_{3}}=E_{G_{4}}=E_{G_{5}}=0$ & $0$ & $0$ \\
             \hline
         \end{tabular}
         \caption{Nivel 0} 
@@ -912,6 +912,7 @@ Ofrecemos a continuación un pequeño ejemplo de aplicación de este método agl
     $\Delta E$ al fusionarse. Estudiemos entonces las $\binom{5}{2} = 10$ combinaciones posibles.
 
     \begin{table}[h]
+        \small
         \centering
         \begin{tabular}{| c | c | c | c | c |}
             \hline
@@ -931,7 +932,7 @@ Ofrecemos a continuación un pequeño ejemplo de aplicación de este método agl
             \hline
             (\(G_{2}, G_{5}\)), \(G_{1}, G_{3}, G_{4}\) & \(C_{G_{2}G_{5}} = (9.5, 10)\) & \(E_{G_{2}G_{5}} = 4.5\) & 4.5 & 4.5 \\
             \hline
-            (\(G_{3}, G_{4}\)), \(G_{1}, G_{2}, G_{5}\) & \(C_{G_{3}G_{4}} = (4.5, 2.5)\) & \(E_{G_{3}G_{4}} = 21\) & 21 & 21 \\
+            (\(G_{3}, G_{4}\)), \(G_{1}, G_{2}, G_{5}\) & \(C_{G_{3}G_{4}} = (4.5, 3.5)\) & \(E_{G_{3}G_{4}} = 9\) & 9 & 9 \\
             \hline
             (\(G_{3}, G_{5}\)), \(G_{1}, G_{2}, G_{4}\) & \(C_{G_{3}G_{5}} = (8.5, 7.5)\) & \(E_{G_{3}G_{5}} = 25\) & 25 & 25 \\
             \hline
@@ -946,33 +947,82 @@ Ofrecemos a continuación un pequeño ejemplo de aplicación de este método agl
 
     A continuación, calculemos los incrementos que daría lugar las $\binom{4}{2} = 6$ posibles combinaciones.
 
+
     \begin{table}[h]
         \centering
         \begin{tabular}{|c|c|c|c|c|}
             \hline
-            \textbf{Partici\'on} & \textbf{Centroides} & \textbf{$E_k$} & \textbf{$E$} & \textbf{$\Delta E$} \\
+            \textbf{Partición} & \textbf{Centroides} & \textbf{$E_k$} & \textbf{$E$} & \textbf{$\Delta E$} \\
             \hline
-            ($G_{1},G_{2}, G_{3}$), $G_{4}, G_{5}$ & $C_{G_{1}G_{2}G_{3}} = (7, 8.33)$ & $E_{G_{1}G_{2}G_{3}} = 18.67$, $E_{G_{4}}=E_{G_{5}}=0$ & 18.67 & 18.67 \\
+            ($G_{1},G_{2}, G_{3}$), $G_{4}, G_{5}$ & $C_{G_{1}G_{2}G_{3}} = (7, 8.33)$ & \makecell{$E_{G_{1}G_{2}G_{3}} = 18.67$ \\ $E_{G_{4}}=E_{G_{5}}=0$} & 18.67 & 18.17 \\
             \hline
-            ($G_{1},G_{2}, G_{4}$), $G_{3}, G_{5}$ & $C_{G_{1}G_{2}G_{4}} = (6, 7.33)$ & $E_{G_{1}G_{2}G_{4}} = 56.67$,$E_{G_{3}}=E_{G_{5}}=0$ & 56.67 & 56.67 \\
+            ($G_{1},G_{2}, G_{4}$), $G_{3}, G_{5}$ & $C_{G_{1}G_{2}G_{4}} = (6, 7.33)$ & \makecell{$E_{G_{1}G_{2}G_{4}} = 56.67$ \\ $E_{G_{3}}= E_{G_{5}}=0$} & 56.67 & 56.17 \\
             \hline
-            ($G_{1},G_{2}, G_{5}$), $G_{3}, G_{4}$ & $C_{G_{1}G_{2}G_{5}} = (8.67, 10)$ & $E_{G_{1}G_{2}G_{5}} = 8.67$,$E_{G_{3}}=E_{G_{4}}=0$ & 8.67 & 8.67 \\
+            ($G_{1},G_{2}, G_{5}$), $G_{3}, G_{4}$ & $C_{G_{1}G_{2}G_{5}} = (8.67, 10)$ & \makecell{$E_{G_{1}G_{2}G_{5}} = 8.67$ \\ $E_{G_{3}}= E_{G_{4}}=0$} & 8.67 & 8.17 \\
             \hline
-            ($G_{3}, G_{4}$), ($G_{1},G_{2}), G_{5}$ & $C_{G_{3}G_{4}} = (4.5, 3.5)$, $C_{G_{1}G_{2}} = (7.5, 10)$ & $E_{G_{3}G_{4}} = 11$,$E_{G_{1}G_{2}} = 0.5$,$E_{G_{5}}=0$ & 11 & 11 \\  % me he quedado por aqui
+            ($G_{3}, G_{4}$), ($G_{1},G_{2}), G_{5}$ & \makecell{$C_{G_{3}G_{4}} = (4.5, 3.5)$ \\ $C_{G_{1}G_{2}} = (7.5, 10)$} & \makecell{$E_{G_{3}G_{4}} = 9$ \\ $E_{G_{1}G_{2}} = 0.5$,$E_{G_{5}}=0$} & 9 & 8.5 \\  
             \hline
-            ($G_{3}, G_{5}$), ($G_{1}G_{2}), G_{4}$ & $C_{G_{3}G_{5}} = (8.5, 7.5)$ & $E_{G_{3}G_{5}}= 15.5$,$E_{G_{1}G_{2}} = 0.5$,$E_{G_{4}}=0$ & 15.5 & 15.5 \\
+            ($G_{3}, G_{5}$), ($G_{1}G_{2}), G_{4}$ & $C_{G_{3}G_{5}} = (8.5, 7.5)$ & \makecell{$E_{G_{3}G_{5}}= 25$ \\ $E_{G_{1}G_{2}} = 0.5$, $E_{G_{4}}=0$} & 25.5 & 25 \\
             \hline
-            ($G_{4}, G_{5}$), ($G_{1}G_{2}), G_{3}$ & $C_{G_{4}G_{5}} = (7, 6)$ & $E_{G_{4}G_5} = 18$,$E_{G_{1}G_{2}} = 0.5$,$E_{G_{3}}=0$ & 18 & 18 \\
+            ($G_{4}, G_{5}$), ($G_{1}G_{2}), G_{3}$ & $C_{G_{4}G_{5}} = (7, 6)$ & \makecell{$E_{G_{4}G_5} = 64$ \\ $E_{G_{1}G_{2}} = 0.5$, $E_{G_{3}}=0$} & 64.5 & 64 \\
             \hline
         \end{tabular}
-        \caption{Segunda iteración del método de Ward}
-        \label{tab:ward2}
+        \caption{Nivel 2}
     \end{table}
+
+
+    Inferimos de esta iteración que el genotipo $G_{5}$ deberá fusionarse con $G_{1}$ y $G_{2}$. De esta forma, nos queda la siguiente configuración: $(G_{1},G_{2}, G_{5}$), $G_{3}, G_{4}$. \newline
+
+    Consideremos entonces las $\binom{3}{2} = 3$ posibles combinaciones que podemos hacer con los elementos de la configuración que se nos ha quedado:
+
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            \textbf{Partición} & \textbf{Centroides} & \textbf{$E_k$} & \textbf{$E$} & \textbf{$\Delta E$} \\
+            \hline
+            ($G_{1},G_{2}, G_{5},G_{3})$, $G_{4}$ & $C_{G_{1}G_{2}G_{3}G_{5}} = (8,8.75)$ & \makecell{$E_{G_{1}G_{2}G_{3}G_{5}} = 32.75$ \\ $E_{G_{4}}=0$} & 32.75 & 24.08 \\
+            \hline
+            ($G_{1},G_{2}, G_{5},G_{4}$), $G_{3}$ & $C_{G_{1}G_{2}G_{4}G_{5}} = (7.25,8)$ & \makecell{$E_{G_{1}G_{2}G_{4}G_{5}} = 80.75$ \\ $E_{G_{3}}=0$} & 80.75 & 72.08 \\
+            \hline
+            ($G_{1},G_{2}, G_{5}$), ($G_{3}, G_{4}$) & \makecell{$C_{G_{1}G_{2}G_{5}} = (8.67,10)$ \\ $C_{G_{3}G_{4}} = (4.5,3.5)$} & \makecell{$E_{G_{1}G_{2}G_{5}} = 8.67$ \\ $E_{G_{3}G_{4}}=9$} & 17.67 & 9 \\
+            \hline
+            
+        \end{tabular}
+        \caption{Nivel 3}
+    \end{table}
+
+    Observamos que los elementos $G_{3}$ y $G_{4}$ se han de combinar en un cluster independiente. Es por ello que en este nivel la configuración de clusters que resulta es ($G_{1},G_{2}, G_{5}$), ($G_{3}, G_{4}$).\newline
+
+    En la siguiente iteración, la única posibilidad es que todos los elementos estén en un único cluster: ($G_{1},G_{2}, G_{5},G_{3}, G_{4}$):
+
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            \textbf{Partición} & \textbf{Centroides} & \textbf{$E_{k}$} & \textbf{$E$} & \textbf{$\Delta E$} \\
+            \hline
+            $(G_{1},G_{2},G_{3},G_{4},G_{5})$ & $C_{G_{1}G_{2}G_{3}G_{4}G_{5}}=(7,7.4)$ & $E_{G_{1}G_{2}G_{3}G_{4}G_{5}}=89.2$ & $89.2$ & $ 71.53$ \\
+            \hline
+        \end{tabular}
+        \caption{Nivel 4} 
+
+    \end{table}
+
+    Finalmente, presentamos el dendrograma que resulta de haber aplicado el método de Ward a los datos de partida:
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.8\textwidth]{../img/dendrograma.png}
+        \caption{Dendrograma resultante. Imagen obtenida con R.}
+    \end{figure}
 
 \end{ejemplo}
 
 
 \subsubsection{Métodos disociativos}
+
+
 
 \subsection{Métodos no jerárquicos}
 
