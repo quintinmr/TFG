@@ -1022,9 +1022,63 @@ Ofrecemos a continuación un pequeño ejemplo de aplicación de este método agl
 
 \subsubsection{Métodos disociativos}
 
+Como ya apuntamos al comienzo de la subsección, un método jerárquico \textit{disociativo} comienza con un único cluster constituido por todos los individuos
+de nuestro conjunto de datos y lo divide en dos clusters. Sucesivamente, en cada iteración, uno de los clusters se divide en dos subclusters hasta conseguir
+un cluster por elemento. \newline
+
+Aunque la forma de calcular la distancia entre clusters es igual que en los aglomerativos, la diferencia está en que como se parte de un único cluster, se va
+a intentar maximizar las distancias o, equivalentemente, minimizar las similitudes. En definitiva, lo que se persigue es separar los elementos más disímiles en 
+clusters diferentes. \newline
+
+Los métodos disociativos son generalmente de dos clases: \textit{monotéticos} y \textit{politéticos}. En un enfoque monotético, la división de un grupo en dos 
+subgrupos se basa en una sola variable y resultan útiles cuando las variables son de tipo binario, mientras que el enfoque politético utiliza las $p$ 
+variables para realizar la división. \newline
+
+Tienen la misma desventaja que los aglomerativos: una vez realizada la partición, un elemento no puede trasladarse a otro grupo al que no pertenece en el momento 
+de la partición. En cambio, si se buscan grupos más grandes, a veces se prefiere el enfoque disociativo al aglomerativo, en el que los grupos más grandes se alcanzan
+solo tras un gran número de uniones de grupos más pequeños. A pesar de esto, son métodos mucho menos conocidos que los aglomerativos, de ahí que no haya tanta 
+bibliografía acerca de ellos. \newline
+
+Un aspecto fundamental en su aplicación es determinar el momento adecuado para parar la subdivisión de un cluster y empezar a fragmentar otro. Esto lo resuelve la 
+variante del método propuesta por MacNaughton-Smith en el año 1964, diseñada especialmente para medidas de asociación positivas, y que presentamos formalmente
+a continuación: \newline
+
+Sea $C$ un cluster inicial. Definimos un subconjunto $S \subset C$ como el grupo fragmentado, y su complemento $R = C\backslash S$ como el resto del cluster. El 
+proceso de división consistirá en evaluar, para cada elemento $x \in R$, la diferencia entre su disimilaridad promedio con los elementos de $R$ y su disimilaridad 
+promedio con los elementos de $S$. \newline
+
+La distancia promedio de un elemento $x$ respecto a un conjunto $A$ viene dada por: 
+\[
+d(x,A) = \frac{1}{n_{A}} \sum_{y\in A} d(x,y)
+\]
+
+donde $d(x,y)$ represeta la medida de disimilaridad entre los elementos $x$ e $y$.\newline
+
+Para cada $x\in R$, calculamos:
+\[
+\Delta (x) = d(x,R) - d(x,S)
+\]
+
+Si existe un $x^{'} \in R$ tal que $\max_{x \in R}{\Delta (x)} > 0$, entonces $x^{'}$ se traslada a $S$. En caso contrario, el procedimiento se detiene y la división
+se completa. \newline
+
+\begin{nota}
+    Podemos inicalizar el conjunto fragmentado $S$ con el elemento $x_{0} \in C$ que tenga la mayor disimilaridad promedio respecto a los demás elementos del cluster.
+\end{nota}
+
+%Para dividir un cluster, trabajamos con un grupo fragmentado y el resto. Buscamos el elemento del resto cuya distancia promedio (disimilaridad) con respecto a los demás
+%elementos del resto, menos su distancia promedio con respecto a los elementos del grupo fragmentado sea mayor. Si la mayor diferenca es positiva, el elemento se
+%traslada al grupo fragmentado. Si la mayor diferencia es negativa, el procedimiento se detiene y la división se completa. Podemos comenzar el grupo fragmentado con
+%el elemento que tenga la mayor distancia promediio con respecto a los demás elementos del grupo.
 
 
 \subsection{Métodos no jerárquicos}
+
+Los \textit{métodos no jerárquicos} para el análisis cluster, también conocidos como métodos de partición, simplemente dividen los datos en un número predeterminado $k$
+de clusters, donde no existe una relación jerárquica entre la solución con $k$ clusters y la de $(k+1)$, es decir, la solución con $k$ clusters no es el paso previo para
+la solución con $(k+1)$. Esta es la principal diferenciia con respecto a los jerárquicos, donde el número de clusters era desconocido a priori. \newline
+Dado un número $k$, buscamos particionar los datos en $k$ clusters de modo que los elementos dentro de cada cluster sean similares entre sí, mientras que los elementos 
+de clusters distintos sean bastante diferentes. 
 
 
 % determinacion del numero de clusters
