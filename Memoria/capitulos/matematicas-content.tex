@@ -1072,13 +1072,212 @@ se completa. \newline
 %el elemento que tenga la mayor distancia promediio con respecto a los demás elementos del grupo.
 
 
-\subsection{Métodos no jerárquicos}
+\subsection{Métodos no jerárquicos} %Bib-1, Bib-2, Bejar-AC
 
 Los \textit{métodos no jerárquicos} para el análisis cluster, también conocidos como métodos de partición, simplemente dividen los datos en un número predeterminado $k$
 de clusters, donde no existe una relación jerárquica entre la solución con $k$ clusters y la de $(k+1)$, es decir, la solución con $k$ clusters no es el paso previo para
-la solución con $(k+1)$. Esta es la principal diferenciia con respecto a los jerárquicos, donde el número de clusters era desconocido a priori. \newline
-Dado un número $k$, buscamos particionar los datos en $k$ clusters de modo que los elementos dentro de cada cluster sean similares entre sí, mientras que los elementos 
-de clusters distintos sean bastante diferentes. 
+la solución con $(k+1)$. Esta es la principal diferencia con respecto a los jerárquicos, donde el número de clusters era desconocido a priori. \newline
+
+En definitiva, dado un número $k$, buscamos particionar los datos en $k$ clusters de modo que los elementos dentro de cada cluster sean similares entre sí, mientras que los elementos 
+de clusters distintos sean bastante diferentes\cite{Bib-1}\cite{Bib-2}.\newline
+
+Se caracterizan por tener una estructura plana, es decir, no implican la construcción de una estructura jerárquica en forma de árbol, a diferencia de los métodos jerárquicos.
+En su lugar, los elementos se asignan a los clusters directamente, teniendo en cuenta el número predefinido de clusters, $k$. No se sigue un proceso progresivo de combinación
+o separación de grupos, como ocurre en los jerárquicos\cite{bejar-AC}. \newline
+
+\begin{nota}
+    Los algoritmos no jerárquicos son mucho más eficientes que los jerárquicos en términos computacionales.
+\end{nota}
+
+\subsubsection{Método \textit{k-means}}
+
+El algoritmo \textit{k-means}, propuesto por MacQueen en el año 1967, es el método más popular entre los no jerárquicos. Debido a su extrema eficiencia, se usa con frecuencia en proyectos de
+grandes dimensiones. Se denomina \textit{k-means} (k-medias) porque asigna cada individuo al cluster cuyo centroide esté más próximo, de entre $k$ clusters prefijados. Dicho centroide se calcula 
+a partir de los elementos que conforman el cluster después de cada asignación, en lugar de hacerlo al final de cada ciclo, como ocurre en otros métodos, lo cual es un aspecto
+clave de este algoritmo. \newline
+Cabe resaltar que este algoritmo necesita acceso a los datos originales y permite mover los elementos de un cluster a otro, una reasignación que no está disponible en los métodos 
+jerárquicos. \newline
+
+Veamos cómo funciona el algoritmo: \newline
+
+Sea $\mathcal{L} = \{x_{i} / i = 1,\dots,n\}$ el conjunto de puntos que conforman nuestro conjunto de datos y sea $k$ el número de clusters. Elegimos $k$ elementos que nos servirán de 
+\textit{semillas}, las cuales se reemplazarán por los centroides de los clusters en el transcurso del algoritmo. Hay varias formas de elegir dichas semillas:
+\begin{itemize}
+    \item[(1)] Seleccionando $k$ elementos al azar, aunque quizás separados por una mínima distancia.
+    \item[(2)] Eligiendo los $k$ primeros elementos del conjunto de datos, sujetos a una distancia mínima. 
+    \item[(3)] Seleccionando los $k$ puntos más alejados entre sí en base a una medida de disimilaridad.   
+\end{itemize}
+
+entre otras opciones. \newline
+
+Una vez elegidas las semillas, cada elemento de nuestro conjunto de datos se asignará al cluster que tenga la semilla más cercana, en términos de distancia euclidea. Una vez que 
+un cluster pase a tener más de un elemento, se reemplaza la semilla por su centroide. Cuando todos los elementos hayan sido asignados, entonces nos plantemos si cada elemento está
+más cerca del centroide del cluster donde está asignado o del de otro cluster. Esto es, calculamos el Error Cuadrático Medio (ECM) de cada observación con respecto al
+centroide de su clúster actual y el resto de centroides:
+\[
+ECM = \sum_{j=1}^{k}\sum_{i_{C_{j}}}(x_{i_{C_{j}}}-\bar{x}_{j})^{'}(x_{i_{C_{j}}}-\bar{x}_{j})
+\]
+
+donde $\bar{x}_{j}$ es el centroide del $j$-ésimo cluster y $C_{j}$ es el cluster que contiene a $x_{i_{C_{j}}}$. \newline
+
+Si está más cerca del centroide de otro cluster, dicho elemento se traslada a dicho cluster y se recalculan los centroides de ambos. El proceso continúa hasta 
+que no se puedan hacer más mejoras en términos de error cuadrátrico medio (se persigue minimizar el ECM). \newline
+
+Cabe destacar que este método es bastante sensible a la elección de las semillas al comienzo del mismo. Se aconseja probar con distintas semillas y analizar los resultados: si 
+con diferentes elecciones de semillas se dan resultados muy diferentes, o se requieren demasiadas iteraciones para estabilizarse (convergencia lenta), podemos sospechar que los datos no 
+forman grupos bien dfinidos de forma natural. \newline
+
+También puede usarse como mejora de los métodos jerárquicos: se agrupan primero los elementos mediante un método jerárquico y luego, utilizando como semillas los centroides de estos grupos
+aplicamos el algoritmo. De esta forma, podremos reasignar los puntos de un cluster a otro, en caso de necesitarlo. Suplimos así el handicap de los aglomerativos. \newline
+
+Ofrecemos a continuación un ejemplo con el que ilustraremos el funcionamiento del método:
+
+\begin{ejemplo}
+    Supongamos que tenemos $8$ genotipos, $G_{1}, G_{2},\dots,G_{8}$, sobre los que observamos la expresión de dos genes, $A$ y $B$:
+
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{|c|c|c|}
+            \hline
+            \textbf{Genotipo} & \textbf{$A$} & \textbf{$B$} \\
+            \hline
+            $G_{1}$ & 2.5 & 2.7 \\
+            \hline
+            $G_{2}$ & 5.1 & 4.9 \\
+            \hline
+            $G_{3}$ & 2.8 & 3.2 \\
+            \hline
+            $G_{4}$ & 3.0 & 2.4 \\
+            \hline
+            $G_{5}$ & 8.3 & 3.3 \\
+            \hline
+            $G_{6}$ & 4.6 & 6.1 \\
+            \hline
+            $G_{7}$ & 9.3 & 4.6 \\
+            \hline
+            $G_{8}$ & 5.3 & 3.8\\
+            \hline
+            
+        \end{tabular}
+        \caption{Ejemplo método \textit{$k$-means}}
+
+    \end{table}
+
+    Queremos aplicar el método no jerárquico $k$-means para $k=3$. \newline
+
+    Comenzamos eligiendo por semillas $3$ elementos aleatorios, $g_{i} = (a_{i},b_{i})$, $i=1,\dots,8$, de entre nuestro conjunto de datos. Estos
+    serán los primeros centroides:
+    \[
+    \bar{g}_{C_{1}} = (3.0,2.4) \hspace{0.3cm} \bar{g}_{C_{2}} = (8.3,3.3) \hspace{0.3cm} \bar{g}_{C_{3}} = (4.6,6.1)
+    \]
+
+    Calculamos las distancias de todos los puntos de nuestro dataset a estos centroides y obtenemos:
+
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            \textbf{$g_{i}$} & \textbf{$C_{1}$} & \textbf{$C_{2}$} & \textbf{$C_{3}$} & \textbf{Cluster más cercano}\\
+            \hline
+            $g_{1}$ & $0.5830952$ & $5.830952$ & $3.996248$ & $C_{1}$\\
+            \hline
+            $g_{2}$ & $3.2649655$ & $3.577709$  & $1.300000$ & $C_{3}$\\
+            \hline
+            $g_{3}$ & $0.8246211$ & $5.500909$ & $3.413210$ & $C_{1}$\\
+            \hline
+            $g_{4}$ & $0.0000000$ & $5.375872$ & $4.031129$ & $C_{1}$\\
+            \hline
+            $g_{5}$ & $5.3758720$ & $0.000000$ & $4.640043$ & $C_{2}$\\
+            \hline
+            $G_{6}$ & $4.0311289$ & $4.640043$ & $0.000000$ & $C_{3}$\\
+            \hline
+            $G_{7}$ & $6.6730802$ & $1.640122$ & $4.933559$ & $C_{2}$\\
+            \hline
+            $G_{8}$ & $2.6925824$ & $3.041381$ & $2.404163$ & $C_{3}$ \\
+            \hline
+            
+        \end{tabular}
+        \caption{Cálculo distancias respecto centroides}
+
+    \end{table}
+
+    A continuación, como todos los clusters han pasado de tener más de un elemento,$C_{1} = \{g_{1},g_{3},g_{4}\}$,
+    $C_{2} = \{g_{5},g_{7}\}$, $C_{3} = \{g_{2},g_{6},g_{8}\}$, recalculamos los centroides:
+
+    \[
+    \bar{g}_{C_{1}} = (2.767,2.767) \hspace{0.3cm} \bar{g}_{C_{2}} = (8.80,3.95) \hspace{0.3cm} \bar{g}_{C_{3}} = (5.0,4.9333)
+    \]
+
+    Calculamos de nuevo las distancias de cada punto a los nuevos centroies para ver si hay que hacer alguna reasignación de algún punto
+    a otro cluster:
+
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            \textbf{$g_{i}$} & \textbf{$C_{1}$} & \textbf{$C_{2}$} & \textbf{$C_{3}$} & \textbf{Cluster más cercano}\\
+            \hline
+            $g_{1}$ & $0.2748737$ & $6.422811$ & $3.3522573$ & $C_{1}$\\
+            \hline
+            $g_{2}$ & $3.1615749$ & $3.820013$  & $0.1053987$ & $C_{3}$\\
+            \hline
+            $g_{3}$ & $0.4346136$ & $6.046693$ & $2.8007729$ & $C_{1}$\\
+            \hline
+            $g_{4}$ & $0.4346134$ & $6.003541$ & $3.2276321$ & $C_{1}$\\
+            \hline
+            $g_{5}$ & $5.5589767$ & $0.820061$ & $3.6820740$ & $C_{2}$\\
+            \hline
+            $G_{6}$ & $3.8042375$ & $4.718315$ & $1.2333649$ & $C_{3}$\\
+            \hline
+            $G_{7}$ & $6.7856876$ & $0.820061$ & $4.3128980$ & $C_{2}$\\
+            \hline
+            $G_{8}$ & $2.7359744$ & $3.503213$ & $1.1723348$ & $C_{3}$ \\
+            \hline
+            
+        \end{tabular}
+        \caption{Cálculo distancias respecto centroides}
+
+    \end{table}
+
+    Observamos que la asignación de puntos a clusters se mantiene constante con respecto al paso previo. Esto quiere decir que no es necesaria ninguna
+    reasignación y, por tanto, que las asignaciones son definitivas. La agrupación la podemos ver en el siguiente gráfico:
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.8\textwidth]{../img/kmeans.png}
+        \caption{Gráfico resultado final k-means. Imagen obtenida con R (ejemplo de elaboración propia).}
+    \end{figure}
+    
+    
+\end{ejemplo}
+
+Por último, supongamos que hay elementos en nuestro conjunto de datos que podríamos catalogar como \textit{atípicos}, es decir, supongamos que tenemos \textit{outliers}. Estos valores, al 
+ser muy dispares respecto a los demás, van a tener una gran influencia en el cálculo de los centroides, lo cual va a condicionar la agrupación. Esto lo podemos solucionar con el 
+método $k$-menoids, que presentamos a continuación.
+
+\subsubsection{Método \textit{$k$-medoids}}
+
+El algoritmo \textit{$k$-medoids} se propone como una variante del método $k$-means que es mucho más robusta a ruidos y outliers. En lugar de 
+usar el centroide como centro de un grupo, este algoritmo usa un punto real del grupo para representarlo; el \textit{medoide}, que es el objeto ubicado
+más centralmennte en el grupo, y que minimiza la suma de disimilaridades respecto a los demás puntos, en lugar de la suma de los cuadrados de las distancias Euclideas. Aquí es donde
+se refleja la robustez del método ante datos anómalos como los outliers. Pese a las ventajas evidentes que tiene el método, se ha visto que para conjuntos de 
+datos muy grandes, la eficiencia del método se ve disminuida. \newline
+
+El algoritmo comienza con la matriz de proximidad $D = (d_{ij})$, donde $d_{ij} = d(x_{i},x_{j})$, con $d$ una medida de disimilaridad, que nos la pueden dar de antemano o
+bien la podemos calcular a partir del conjunto de datos, y una configuración inicial de los elementos en $k$ clusters. Usando la matriz $D$, podemos encontrar el elemento de 
+cada cluster que minimiza la disimilaridad total con respecto a todos los elementos de su cluster (el menoide). Esto es, dado un cluster $C_{m}$, $m\in\{1,\dots,k\}$, se busca encontrar
+un elemento $\bar{x}_{m}$ que haga mínima la suma $\sum_{i_{C_{m}}}d_(x_{i_{C_{m}}},\bar{x}_{m})$. \newline
+
+Una vez hallados los medoides de los $k$ clusters, observamos la distancia de cada punto a los distintos medoides. Si existe un cluster $j$ de entre los $k$ que había prefijados que 
+tiene algún elemento $x_{j}$ que está más cerca de otro medoide, entonces este elemento se reasigna al cluster de dicho medoide. Esta reasignación favorece a la minimización de la función
+objetivo:
+\[
+d_{medoid} = \sum_{j=1}^{k}\sum_{i_{C_{j}}}d_(x_{i_{C_{j}}},\bar{x}_{j})
+\]
+
+A continuación se relocalizan medoides y se vuelven a reasignar los elementos. Se repite el proceso hasta que no haya reasignaciones que reduzcan 
+el valor de la función objetivo.
 
 
-% determinacion del numero de clusters
+
+\subsubsection{Determinación del número de clusters óptimo}
