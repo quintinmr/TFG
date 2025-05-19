@@ -31,7 +31,7 @@ estadístico que representan los datos de alta dimensión y se introduce el prob
 Además, se aborda la transcriptómica y las tecnologías de secuenciación de ARN (RNA-seq y scRNA-seq), describiendo 
 la estructura de los datos que generan y los retos asociados a su manejo, dado su gran volumen y alta dimensionalidad.
 
-La información presentada en las próximas dos secciones ha sido extraída de la fuente bibliográfica\cite{Ayala2023}.
+La información presentada en las próximas dos secciones ha sido extraída de la fuente bibliográfica \cite{Ayala2023}.
 
 \section{Estructura de los datos}
 
@@ -40,10 +40,10 @@ conjunto con pocas muestras frente al gran número de características que obser
 aquí el carácter de alta dimensionalidad de los datos ómicos. \newline
 
 Las características que analizamos pueden ser de diferentes tipos, como el nivel de fluorescencia, en el caso
-de que estemos trabajando con microarrays \footnote[1]{Microarray: La tecnología de microarrays permite estudiar 
+de que estemos trabajando con microarrays\footnote[1]{Microarray: La tecnología de microarrays permite estudiar 
 la expresión de múltiples genes simultáneamente. Consiste en fijar miles de secuencias génicas en un chip de vidrio. 
 Al exponer una muestra de ADN o ARN, el apareamiento de bases complementarias genera una señal luminosa medible, 
-indicando los genes expresados en la muestra\cite{microarray-definition}.}, como los de ADN, metilación o proteínas, o el número de lecturas 
+indicando los genes expresados en la muestra \cite{microarray-definition}.}, como los de ADN, metilación o proteínas, o el número de lecturas 
 alineadas obtenidas en procedimientos de secuenciación. Estas características, pueden estar asociadas a un
 elemento de análisis o a un conjunto de muestras en un microarray. O bien, la información puede corresponder a
 un gen, un exón\footnote[2]{Exón: un exón es una región del genoma que termina dentro de una molécula de ARN mensajero.
@@ -51,7 +51,7 @@ Algunos exones son codificantes, es decir, contienen información para fabricar 
 son no codificantes. Los genes del genoma están formados por exones e intrones, que son trozos muy grandes de ARN 
 dentro de una molécula de ARN mensajero que interfieren con el código de los exones. 
 Estos intrones se eliminan de la molécula de ARN para dejar una serie de exones unidos entre sí de manera que se 
-puedan codificar los aminoácidos correctos\cite{exon-definition}\cite{intron-definition}.}, una proteína o una región específica del genoma. \newline
+puedan codificar los aminoácidos correctos \cite{exon-definition}\cite{intron-definition}.}, una proteína o una región específica del genoma. \newline
 
 Denotaremos por $N$ al número de características observadas, que será un valor relativamente grande, del orden
 de miles. Como hemos mencionado anteriormente, estas características se observan sobre un conjunto reducido de 
@@ -68,7 +68,7 @@ adelante. \newline
 Las características las almacenaremos en una matriz, que llamaremos \textit{matriz de expresión}, dada por:
 
 \[
-x = [x_{ij}]_{i=1,\dots,N,\, j=1,\dots,n} =
+X = [x_{ij}]_{i=1,\dots,N,\, j=1,\dots,n} =
 \begin{bmatrix}
 x_{11} & x_{12} & \cdots & x_{1n} \\
 x_{21} & x_{22} & \cdots & x_{2n} \\
@@ -93,17 +93,17 @@ Los valores observados de una característica sobre el conjunto de todas las mue
 expresión) son, en el ámbito de la transcriptómica, lo que se conoce como \textit{perfil}, o de forma más general,
 perfil de expresión. \newline
 
-En la matriz $x$ los valores correspondientes a las diferentes muestras son independientes entre sí, aunque pueden
+En la matriz $X$ los valores correspondientes a las diferentes muestras son independientes entre sí, aunque pueden
 haber sido obtenidos bajo condiciones distintas. Por lo tanto, no se trata de réplicas de una misma condición
 experimental, sino de observaciones independientes. Es decir, presentan independencia condicional. Sin embargo, las
-filas de $x$ representan vectores que sí están relacionados. Por ejemplo, en una matriz de expresión génica\footnote[5]{Expresión génica: 
+filas de $X$ representan vectores que sí están relacionados. Por ejemplo, en una matriz de expresión génica\footnote[5]{Expresión génica: 
 La expresión génica es el proceso por el cual la información codificada por un gen se usa 
 para producir moléculas de ARN que codifican para proteínas o para producir moléculas de ARN no codificantes que cumplen otras funciones. La expresión génica
 actúa como un “interruptor” que controla cuándo y dónde se producen moléculas de ARN y proteínas y como un “control de volumen” para determinar qué cantidad
-de esos materiales se produce\cite{expresion-genica-definition}.}, los 
+de esos materiales se produce \cite{expresion-genica-definition}.}, los 
 valores de expresión de las filas no son independientes, debido a que los genes tienden a actuar de manera coordinada. \newline
 
-Por lo general, los datos en las columnas de la matriz $x$, no pueden compararse directamente entre sí, por la presencia
+Por lo general, los datos en las columnas de la matriz $X$, no pueden compararse directamente entre sí, por la presencia
 de diversos artefactos técnicos y ruido en la medición de la característica de interés. Es por ello que se han desarrollado
 técnicas para corregir estos problemas, denominadas como \textit{técnicas de preprocesado}. Al aplicar estos métodos, los
 datos dejan de ser completamente independientes. No obstante, en la mayoría de los estudios este aspecto no se suele
@@ -112,13 +112,13 @@ por filas. \newline
 
 A la información o variables que describen y caracterizan a las muestras, las llamaremos \textit{metadatos} o 
 \textit{variables fenotípicas}. En este contexto, el uso de este término es adecuado porque estas variables reflejan
-atributos medibles y observables de las muestras, lo que se conoce en el ámbito de la biología como \textit{fenotipo}\cite{phenotype-definition}. 
+atributos medibles y observables de las muestras, lo que se conoce en el ámbito de la biología como \textit{fenotipo} \cite{phenotype-definition}. 
 Normalmente tendremos varias variables fenotípicas. 
-Llamaremos $y = (y_{1},...,y_{n})$ a los valores observados de una variable en las $n$ muestras. Uno de los casos más típicos
+Llamaremos $y = (y_{1},\dots,y_{n})$ a los valores observados de una variable en las $n$ muestras. Uno de los casos más típicos
 de variable fenotípica es cuando se tienen dos grupos de muestras: casos (individuos que tienen la enfermedad) y controles
 (no tienen la enfermedad o condición de interés). En este caso tendríamos $y_{i} = 1$, para un caso e $y_{i} = 0$, si es control.
-Si tuvieramos la situación en la que hay $k$ grupos a comparar, con $k > 2$, entonces se utiliza $y_{i} \in \{1,...,n\}$ 
-con $i = 1,...,n$. Hemos de recalcar que los valores $y_{k}$ son arbitrarios y pueden tomar cualquier otro par de valores.\newline
+Si tuvieramos la situación en la que hay $k$ grupos a comparar, con $k > 2$, entonces se utiliza $y_{i} \in \{1,\dots,n\}$ 
+con $i = 1,\dots,n$. Hemos de recalcar que los valores $y_{k}$ son arbitrarios y pueden tomar cualquier otro par de valores.\newline
 
 
 % toda la información obtenida del libro "G. Ayala - Bioinformática Estadística (2023).pdf"
@@ -191,9 +191,9 @@ tienen un alto rendimiento, dependen del conocimiento existente sobre la sencuen
 A diferencia de los métodos basados en microarrays, los enfoques basados en secuencias determinan directamente la secuencia de ARN. Inicialmente, se utilizó
 la secuenciación de Sanger de bibliotecas de ARN, pero era bastante costosa y de bajo rendimiento y generalmente no cuantitativa. Se 
 desarrollaron métodos basados en etiquetas para superar estas limitaciones, pero tenían el inconveniente de que estaban basados en la 
-costosa tecnolgía de secuenciación de Sanger, y una parte significativa de las etiquetas cortas no se podían asignar de forma única al
+costosa tecnología de secuenciación de Sanger, y una parte significativa de las etiquetas cortas no se podían asignar de forma única al
 genoma de referencia. Todas estas desventajas limitan el uso de la tecnología de secuenciación tradicional para anotar la estructura de los 
-transcriptomas\cite{transcriptomics-1}. \newline    
+transcriptomas \cite{transcriptomics-1}. \newline    
 
 % estos 3 párrafos sacados del archivo transcriptomics-1.pdf
 
@@ -217,65 +217,58 @@ los niveles de expresión de genes entre diferentes condiciones
 biológicas, como células tratadas frente a no tratadas, tejidos sanos frente a cancerosos o distintos estados del desarrollo. Esto ofrece 
 una visión detallada de los cambios en la actividad génica y ayuda a identificar biomarcadores, rutas metabólicas alteradas o procesos 
 reguladores clave. Además, RNA-seq no está limitado a detectar solo transcritos que corresponden a secuencias genómicas conocidas, 
-lo que lo hace particularmente útil para organismos no modelo o cuando se carece de un genoma de referencia bien caracterizado\cite{transcriptomics-2-RNA-seq}.\newline
+lo que lo hace particularmente útil para organismos poco estudiados o cuando se carece de un genoma de referencia bien caracterizado \cite{transcriptomics-2-RNA-seq}.\newline
 % REFERENCIA: RNA-seq: A revolutionary tool....
 
 En la secuenciación de ARN, las lecturas generadas a partir de las muestras de ARN se alinean contra un genoma de referencia o se ensamblan de
 nuevo para crear un \textit{mapa transcripcional}. Si se dispone de un genoma de referencia, los datos se alinean para identificar la ubicación exacta de
 los transcritos en el genoma, permitiendo la cuantificación de la expresión génica. En casos donde no hay un genoma de referencia, las lecturas 
 de ARN se ensamblan para generar una secuencia de contigs\footnote[3]{Contig: Tramo de secuencia continua in silico generada por alineamiento 
-de lecturas de secuencias solapantes\cite{contig-definition}.} que luego se pueden anotar funcionalmente. Además de mapear las lecturas a un genoma, 
+de lecturas de secuencias solapantes \cite{contig-definition}.} que luego se pueden anotar funcionalmente. Además de mapear las lecturas a un genoma, 
 se deben identificar eventos de empalme (splicing\footnote[4]{Splicing: el splicing o empalme, ocurre al final del proceso de transcripción e 
-implica cortar y reorganizar secciones de ARNm\cite{splicing-definition}.}), que es crucial para detectar variantes de splicing alternativo. Este proceso es especialmente 
+implica cortar y reorganizar secciones de ARNm \cite{splicing-definition}.}), que es crucial para detectar variantes de splicing alternativo. Este proceso es especialmente 
 importante para genes que tienen varios exones, ya que las lecturas pueden cruzar estos empalmes y revelar alternativas de splicing que no son 
-evidentes con tecnologías anteriores\cite{transcriptomics-2-RNA-seq-2}. \newline % REFERENCIA: Mapping and quantifying mammalian transcriptomes by RNA-seq
+evidentes con tecnologías anteriores \cite{transcriptomics-2-RNA-seq-2}. \newline % REFERENCIA: Mapping and quantifying mammalian transcriptomes by RNA-seq
 
 % contig: https://www.institutoroche.es/recursos/glosario/contig
 % splicing: https://www.yourgenome.org/theme/what-is-rna-splicing/
 
-Pese a las ventajas que la RNA-seq tiene frente a tecnologías anteriores, los conjuntos de datos producidos son grandes y complejos y la interpretación
+Pese a las ventajas que la RNA\-seq tiene frente a tecnologías anteriores, los conjuntos de datos producidos son grandes y complejos y la interpretación
 no es sencilla. La interpretación de los datos de secuenciación de ARN depende de la cuestión científica de interés. El objetivo principal de muchos 
 estudios biológicos es el perfil de expresión génica entre muestras, que es particularmente relevante, por ejemplo, para experimentos controlados 
-que comparan la expresión en cepas de tipo salvaje y mutantes del mismo tejido, comparando células tratadas versus no tratadas, cáncer versus normal, etc\cite{transcriptomics-2-RNA-seq-3}. \newline
+que comparan la expresión en cepas de tipo salvaje y mutantes del mismo tejido, comparando células tratadas versus no tratadas, cáncer versus normal, etc. \cite{transcriptomics-2-RNA-seq-3}. \newline
 % REFERENCIA: transcriptomics-RNA-seq-3
 
 Por otra parte, los datos RNA-seq requieren estar en unos formatos específicos para su tratamiento. Formatos adecuados para almacenar secuencias tanto
-de ácidos nucleicos como de proteínas. Estos son: formato \textit{FASTA} y \textit{FASTQ}. La información que presentamos a continuación ha sido extraída de\cite{Ayala2023}.
+de ácidos nucleicos como de proteínas. Estos son: formato \textit{FASTA} y \textit{FASTQ}. La información que presentamos a continuación ha sido extraída de \cite{Ayala2023}.
 
-\begin{itemize}
+\begin{enumerate}
+
     \item \textbf{Formato FASTA:} basado en texto, es usado para representar secuencias de nucleótidos o de aminoácidos, ambos representados mediante una sola letra.
     Incluye símbolos para representar huecos (\textit{gaps}) o posiciones desconocidas en la secuencia. Consta de dos líneas:
-    \begin{itemize}
+    \begin{enumerate}
         \item La primera línea comienza con el símbolo $>$, junto con una descripción de la secuencia.
         \item La segunda, contiene la secuencia de bases o aminoácidos. 
-    \end{itemize}
+    \end{enumerate}
 
-    Pese a que no hay restricciones en el número de filas, el número de columnas no debería superar las $80$.
+    Pese a que no hay restricciones en el número de filas, el número de columnas no debería superar las 80.
     
     \item \textbf{Formato FASTAQ:} es el más popular y consiste en cuatro líneas por lectura:
-    \begin{itemize}
-        \item La primera comienza con el carácter "@" y contiene el nombre de la secuencia. Opcionalmente, puede incluir una descripción.
+    \begin{enumerate}
+        \item La primera comienza con el carácter `@' y contiene el nombre de la secuencia. Opcionalmente, puede incluir una descripción.
         \item La segunda línea contiene la secuencia con las letras correspondientes, dependiendo del tipo de secuencia del que se trate (nucleótido o aminoácido).
-        \item La tercera comienza con el carácter "+" y contiene información opcional sobre la secuencia.
-        \item La cuarta y última línea cuantifica la calidad o confiabilidad de cada base en la secuencia recogida en la segunda línea, basada en el índice
-        \textit{Phred} y su codificación. \newline
-    \end{itemize}
+        \item La tercera comienza con el carácter $+$ y contiene información opcional sobre la secuencia.
+        \item La cuarta y última línea cuantifica la calidad o confiabilidad de cada base en la secuencia recogida en la segunda línea, basada en el índice \textit{Phred} y su codificación. 
+    \end{enumerate}
 
-    \begin{mybox}{Ejemplo}
-        
-
-        \begin{lstlisting}
-
+    \begin{lstlisting}
         @SRR1293399.1 ILLUMINA-545855_0026_FC629BG:6:1:1022:5049 length=50
         ACAGGGACGCCATCGAATCCGGATCNTNNNNNNNNNNNNANNNNNNNNNN
         +SRR1293399.1 ILLUMINA-545855_0026_FC629BG:6:1:1022:5049 length=50
         dee\edYcdc`bbY`S]bb_]]Ua^BBBBBBBBBBBBBBBBBBBBBBBBB
-            
-        \end{lstlisting}
-        
-    \end{mybox}
+    \end{lstlisting}
 
-\end{itemize}
+\end{enumerate}
 
 \subsection{scRNA-seq (sigle-cell RNA-seq)}
 
@@ -285,7 +278,7 @@ de la biología: la célula. Es por esto que surge una variante a la RNA-seq: \t
 consolidarse como la opción principal en investigación de la diversidad celular, ya que posibilita el estudio individual de cada célula dentro de una misma muestra. 
 Es una tecnología que permite la cuantificación y comparación de los transcriptomas de células individuales, logrando una disección de la expresión génica a resolución de una 
 sola célula y describiendo moléculas de ARN con alta precisión y a escala genómica. Además, otro aspecto importante de esta técnica es que permite analizar 
-la heterogeneidad celuar; evaluar las similitudes y diferencias transcripcionales dentro de una población de células, lo que ha permitido una comprensión más 
+la heterogeneidad celular; evaluar las similitudes y diferencias transcripcionales dentro de una población de células, lo que ha permitido una comprensión más 
 detallada de los procesos moleculares al evidenciar la variabilidad existente dentro de una misma población celular. \newline
 
 Aunque existe una gran confianza en la utilidad general de scRNA-seq, hay una barrera técnica que debe considerarse cuidadosamente: el aislamiento efectivo de 
@@ -300,7 +293,7 @@ En el estudio de muestras heterogéneas, es fundamental identificar las distinta
 capaces de descomponer la mezcla de expresión génica obtenida. Para ello, se aplican técnicas de normalización y reducción de dimensionalidad, como el análisis 
 de componentes principales (PCA), entre otras, que permiten segmentar las células en función de sus perfiles de 
 expresión. No obstante, la presencia de efectos por lote y la variabilidad técnica pueden introducir sesgos en los resultados, lo que hace necesario implementar 
-estrategias de corrección para garantizar la robustez del análisis y evitar la aparición de artefactos en la identificación de patrones biológicos. \newline
+estrategias de corrección para garantizar la robustez del análisis y evitar la aparición de errores sistemáticos en la identificación de patrones biológicos. \newline
 
 Además, el volumen de datos generado por scRNA-seq plantea retos en términos de almacenamiento, gestión y escalabilidad computacional. La integración de 
 millones de lecturas individuales requiere estrategias eficientes de compresión y procesamiento distribuido, así como el uso de infraestructuras de alto 
@@ -316,4 +309,4 @@ Dado que scRNA-seq es una variante de RNA-seq, hereda sus formatos de almacenami
 más crudo en el que se encuentran los datos de scRNA-seq. % REFERENCIA: https://broadinstitute.github.io/2019_scWorkshop/processing-scrnaseq-data.html
 % y también de transcriptomica-3-scRNA-seq-2.pdf 
 
-Toda la información recogida en esta subsección ha sido extraída de las fuentes bibliográficas\cite{transcriptomics-3-scRNA-seq-1},\cite{transcriptomics-3-scRNA-seq-2},\cite{BroadInstitute2019}.
+Toda la información recogida en esta subsección ha sido extraída de las fuentes bibliográficas \cite{transcriptomics-3-scRNA-seq-1},\cite{transcriptomics-3-scRNA-seq-2},\cite{BroadInstitute2019}.

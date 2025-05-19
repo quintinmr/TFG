@@ -38,7 +38,7 @@ características y columnas las muestras.
 
 \section{Preliminares}
 
-La información aquí recogida se ha extraído de las fuentes\cite{hist-mul-1},\cite{hist-mul-2},\cite{Bib-1}. \newline %history-mul-1, history-mul-2, %Bib-1
+La información aquí recogida se ha extraído de las fuentes \cite{hist-mul-1,hist-mul-2, Bib-1}. \newline %history-mul-1, history-mul-2, %Bib-1
 
 El análisis multivariante es una herramienta clave para explorar y comprender la complejidad de los sistemas 
 biológicos, económicos y sociales. Su capacidad para procesar múltiples variables simultáneamente permite identificar 
@@ -63,14 +63,14 @@ En términos generales, las metodologías multivariantes pueden dividirse en dos
 e \textit{inferencial}. El primero busca simplificar la estructura de los datos y revelar relaciones latentes entre
 variables, mientras que el segundo permite realizar pruebas de hipótesis considerando múltiples variables de manera
 simultánea, asegurando la validez estadística de los resultados. La elección de la técnica adecuada depende del tipo 
-de datos y de la pregunta de investigación. A continuación, se presentan algunas de las principales metodologías multivariantes:
+de datos y de la pregunta de investigación. A continuación, se presentan algunas de las principales metodologías multivariantes.
 
 \subsection{Análisis de Componentes Principales (PCA)}
 
 El \textit{análisis de componentes principales (PCA)} fue introducido por primera vez por Karl Pearson a principios del siglo XX. El 
 tratamiento formal de esta técnica se debe a Hotelling (1933) y Rao (1964). Su propósito era facilitar la comprensión de conjuntos 
 de datos complejos mediante la reducción de su dimensionalidad, minimizando la pérdida de información. En PCA, un conjunto de $N$ variables correlacionadas
-se transforma en un conjunto más pequeño de constructos hipotéticos no correlacionados llamados \textit{componentes principales}(CP).
+se transforma en un conjunto más pequeño de constructos hipotéticos no correlacionados llamados \textit{componentes principales} (CP).
 Su objetivo es condensar la información proporcionada por dichas variables en unas pocas de ellas o en pocas combinaciones lineales de 
 ellas (con máxima variabilidad). \newline %referencia PCA romero béjar, % referencia: Bib-5
 
@@ -101,7 +101,7 @@ p_{i}^{'}p_{j} = 0, \text{ para } i \neq j.
 Así, garantizamos que las componentes principales $Z_{i}$ y $Z_{j}$ son intercorrelacionadas, es decir, su covarianza es cero para $i\neq j$.
 
 
-Los vectores $p_{i}$ son los autovectors de la matriz de covarianza $\Sigma$, y los valores propios $\lambda_{i}$, corresponden
+Los vectores $p_{i}$ son los autovectores de la matriz de covarianza $\Sigma$, y los valores propios $\lambda_{i}$, corresponden
 a la varianza explicada por cada componente principal. La transformación completa de los datos se expresa de la siguiente forma:
 
 \[
@@ -131,10 +131,10 @@ Matemáticamente, cada variable observada, $x_{i}\in \mathbb{R}^{N}$,
 se expresa como una combinación lineal de estos factores, más un término de error específico:
 
 \[
-x_{i} = \sum_{l=1}^{k}q_{il}f_{l} + \mu_{i} + e_{i}, \text{ } i=1,...,N.
+x_{i} = \sum_{l=1}^{k}q_{il}f_{l} + \mu_{i} + e_{i}, \text{ } i=1,\dots,N.
 \]
 
-donde, $q_{il} \in [q_{il}]_{N \times k}$ es una matriz de pesos, $f_{l}$, con $l=1,...,k$ son los factores, $\mu_{i}$ denota la media de la variable
+donde, $q_{il} \in [q_{il}]_{N \times k}$ es una matriz de pesos, $f_{l}$, con $l=1,\dots,k$ son los factores, $\mu_{i}$ denota la media de la variable
 $x_{i}$ y $e_{i}$ es la componente i-ésima del vector de errores aleatorios, $e_{N\times 1}$. El número de factores, $k$, debería ser siempre mucho más pequeño que $N$. \newline
 
 En definitiva, el modelo de análisis factorial asume que la variable observada $x$ puede descomponerse en dos componentes: una parte explicada
@@ -174,7 +174,7 @@ de cada variable a la discriminación. \newline
 
 Cuando estas funciones son combinaciones lineales de las variables originales, se denominan funciones discriminantes lineales (LDF). En
 particular, el análisis discriminante lineal de Fisher busca encontrar una combinación lineal de variables que maximice la separación
-entre grupos. Para dos grupos con medias $\mu_{1}$ y $\mu_{2}$ y una matriiz de covarianza común $\Sigma$, la función discriminante de Fisher
+entre grupos. Para dos grupos con medias $\mu_{1}$ y $\mu_{2}$ y una matriz de covarianza común $\Sigma$, la función discriminante de Fisher
 se define como:
 
 \[
@@ -206,7 +206,7 @@ de control. \newline
 Para el caso de múltiples grupos, la función discriminante se construye de manera que maximice la variabilidad entre los grupos en relación con 
 la variabilidad dentro de los grupos, lo que se logra mediante una descomposición en valores propios. \newline
 
-Toda la información ha sido extraída de las fuentes bibliográficas\cite{bejar-PCA},\cite{bejar-AF}\cite{Bib-5},\cite{Bib-6} %bib-5, biib-6, PCA-béjar, AF-romero bejar
+Toda la información ha sido extraída de las fuentes bibliográficas \cite{bejar-PCA, bejar-AF, Bib-5, Bib-6} %bib-5, biib-6, PCA-béjar, AF-romero bejar
 
 \section{Análisis Clúster}
 
@@ -253,7 +253,7 @@ como la transcriptómica, que es la que nos ocupa en este trabajo, y la explorac
 análisis multivariante se denomina hoy día \textit{minería de datos}. \newline
 
 Las técnicas numéricas de clasificación se originaron principalmente en las ciencias naturales, con el objetivo de liberar a la taxonomía de su naturaleza tradicionalmente
-subjetva. El objetivo era dar clasificaciones objetivas y estables. Objetivas en el sentido de que el análisis del mismo conjunto de organismos mediante la misma 
+subjetiva. El objetivo era dar clasificaciones objetivas y estables. Objetivas en el sentido de que el análisis del mismo conjunto de organismos mediante la misma 
 secuencia de métodos numéricos produce la misma clasificación; estables en cuanto a que la clasificación permanece igual ante la adición de organismos o de nuevas
 características que los describen. \newline
 
@@ -261,7 +261,7 @@ Se le han dado muchos nombres a estas técnicas numéricas, dependiendo del áre
 En psicología, se usa mucho el término \textit{análisis Q}. En inteligencia articial, el reconocimiento de patrones no supervisado es el término predilecto. Sin embargo,
 hoy en día, el \textit{análisis clúster} es probablemente el término genérico para los procedimientos que buscan descubrir grupos en los datos. \newline
 
-La información recogida en esta introducción ha sido extraída de la fuente bibliográfica\cite{clustering-2}. % clustering-2.pdf
+La información recogida en esta introducción ha sido extraída de la fuente bibliográfica \cite{clustering-2}. % clustering-2.pdf
 
 \subsection{¿Qué es el Análisis Cluster (AC)?}
 
@@ -272,18 +272,18 @@ análisis clúster no utiliza etiquetas predefinidas para clasificar los objetos
 El objetivo del análisis cluster es agrupar objetos formando conjuntos (clusters) en los que los elementos dentro de cada uno sean lo más similares posible entre sí (baja 
 variabilidad interna), mientras que los diferentes grupos sean lo más distintos entre sí (alta variabilidad entre ellos). Es, en definitiva, una técnica exploratoria que 
 identifica patrones de similitud dentro de un conjunto de datos, agrupando elementos con características comunes mientras mantiene separadas 
-las estructuras con mayores diferencias\cite{bejar-AC}.\newline % referencia https://digibug.ugr.es/bitstream/handle/10481/85861/AC.pdf?sequence=1&isAllowed=y
+las estructuras con mayores diferencias \cite{bejar-AC}.\newline % referencia https://digibug.ugr.es/bitstream/handle/10481/85861/AC.pdf?sequence=1&isAllowed=y
 
 Un cluster puede entenderse como un conjunto de elementos que presentan una alta cohesión interna (homogeneidad) y una clara separación externa con respecto a otros grupos. 
 Sin embargo, la definición formal de un cluster es difícil de establecer y depende en gran medida del juicio del usuario y del contexto en el que se aplica. Mientras que 
 algunos métodos de análisis buscan identificar estructuras naturales en los datos, en muchas ocasiones el proceso de agrupamiento puede imponer una estructura artificial 
 en la información. Esto resalta la importancia de interpretar con cautela los resultados de un análisis de clusters, ya que no siempre reflejan patrones inherentes a los 
-datos, sino que pueden ser el resultado de los criterios específicos utilizados en la clasificación\cite{clustering-2}. \newline %referencia: clustering-2.pdf \newline
+datos, sino que pueden ser el resultado de los criterios específicos utilizados en la clasificación \cite{clustering-2}. \newline %referencia: clustering-2.pdf \newline
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.6\textwidth]{../img/cluster-1.png}
-    \caption{Ejemplo de clustering\cite{img-cluster-1}.}
+    \caption{Ejemplo de clustering (Fuente: \cite{img-cluster-1}).}
 \end{figure}
 
 En la mayoría de las aplicaciones del AC se busca una partición de los datos en la que cada individuo u objeto pertenezca a un único cluster y el conjunto completo de clusters
@@ -304,13 +304,13 @@ x_{n1} & x_{n2} & \cdots & x_{np}
 \end{bmatrix}
 \]
 %       OBSERVA QUE ES LO CONTRARIO DE LO QUE DIJIMOS EN DATOS ÓMICOS (LA TRASPUESTA)?????? QUÉ HAGO?
-donde $x_{ij}$ cuantifica la variable $j$ en la muestra $i$. El AC tratará de desarrollar un esquema de clasificación que particionará las filas de $X$ en $k$ clusters\cite{clustering-2}. %referencia: clustering-2.pdf
+donde $x_{ij}$ cuantifica la variable $j$ en la muestra $i$. El AC tratará de desarrollar un esquema de clasificación que particionará las filas de $X$ en $k$ clusters \cite{clustering-2}. %referencia: clustering-2.pdf
 
 
 % medidas de proximidad (simularidad, disimilaridad)
 \subsection{Medidas de proximidad}
 
-Para desarrollar esta sección se han utlizado las siguientes referencias bibliográficas:\cite{Bib-5}\cite{clustering-2}. \newline%clustering-2 %Bib-5 \newline
+%Para desarrollar esta sección se han utlizado las siguientes referencias bibliográficas:\cite{Bib-5}\cite{clustering-2}. \newline%clustering-2 %Bib-5 \newline
 
 Dado que el análisis cluster trata de identificar los vectores que son similares y agruparlos en clusters, es esencial contar con herramientas que permitan evaluar la cercanía o 
 distancia entre los objetos que se están agrupando: las \textit{medidas de proximidad}. Las decisiones sobre cómo se van a formar los clusters dependen directamente de las medidas de proximidad utilizadas, ya que estas 
@@ -347,14 +347,12 @@ Por ello, definiremos el concepto de \textit{disimilaridad} análogamente al de 
         
 \end{definicion}
 
-
+\vspace{0.2cm}
 A continuación presentamos algunas de las medidas de disimilaridad más usadas. Hemos de hacer notar que estas medidas normalmente se usan para medir cuán próximos están los individuos, 
 pero si se quiere medir entre variables, también son válidas. Simplemente habría que trasponer la matriz $X$ y trabajar con ella. \newline
 
-Toda la información que sigue a partir de este punto, ha sido extraída de las fuentes bibliográficas:\cite{Bib-1},\cite{Bib-5},\cite{Bib-6},\cite{clustering-2},\cite{clustering-1}.
+Toda la información que sigue a partir de este punto, ha sido extraída de las fuentes bibliográficas:\cite{Bib-1, Bib-5, Bib-6, clustering-2, clustering-1}. \newline
 
-% ejemplos para datos de intervalo, datos binarios ,etc.
-\subsubsection{Medidas de disimilaridad}   % clustering-1, clustering-2, Bib-1, Bib-6, Bib-5
 
 Las medidas de disimilaridad se usan ante la necesidad de agrupar objetos con características similares. Una medida de disimilaridad adecuada es la distancia entre 
 dos observaciones. Se considera una medida de disimilaridad por el hecho de que la distancia aumenta conforme dos individuos se alejan. \newline
@@ -363,7 +361,7 @@ Una gran variedad de distancias pueden generarse mediante la norma\footnote[10]{
 \begin{itemize}
     \item[(N.1)] Desigualdad triangular: $\|x+y\| \leq \|x\| + \|y\| \forall x,y \in X$
     \item[(N.2)] Homogeneidad por homotecias: $\|\lambda x\| = |\lambda| \|x\| \forall x \in \mathbb{X}$, $\lambda \in \mathbb{R}$
-    \item[(N.3)] No degeneración: $x \in X$, $\|x\| = 0 \Rightarrow x = 0$.\cite{def-norma}  
+    \item[(N.3)] No degeneración: $x \in X$, $\|x\| = 0 \Rightarrow x = 0$. \cite{def-norma}  
 \end{itemize}.} $L_{r}$, $r \geq 1$, 
 
 % definición norma: https://www.ugr.es/~rpaya/documentos/AnalisisI/2014-15/Normados.pdf
@@ -399,7 +397,7 @@ afectadas y, en consecuencia, los resultados de los análisis de conglomerados p
 
 \begin{observacion}
 La \textit{distancia euclidea al cuadrado} puede resultar útil para asignar progresivamente mayor importancia a los objetos más separados. Además, al evitar las
-raíces cuadradas, los cálculos se amenizan.
+raíces cuadradas, los cálculos se simplifican.
 \end{observacion}
 
 
@@ -465,12 +463,10 @@ D_{\Sigma}(Cx_{i},Cx_{j}) = \sqrt{(Cx_{i},Cx_{j})^{'}[\frac{1}{p}C(x_{ij}-\overl
 
 La distancia de Mahalanobis no se usa comúnmente en técnicas de clustering porque calcula la matriz $\Sigma$ considerando todos los individuos juntos, en lugar 
 de tratar los objetos de cada clúster por separado. Además, su cálculo es más complejo que el de otras métricas. Sin embargo, puede aplicarse dentro de 
-cada clúster en una fase específica del proceso\cite{cluster-mahalanobis}.
+cada clúster en una fase específica del proceso \cite{cluster-mahalanobis}.
 
 
-\subsection{Medidas de similaridad}
-
-Esta subsección ha sido escrita en base a la información recogida en la referecia bibliográfica\cite{Bib-5}.
+\subsubsection{Medidas de similaridad}
 
 Como en la subsección anterior, consideremos $x_{i},x_{j}$ dos vectores cualesquiera de $\mathbb{R}^{p}$. \newline
 
@@ -492,7 +488,7 @@ Las condiciones $(i)$ y $(ii)$ aseguran que toda similaridad es siempre positiva
     \[
     d_{ij} = 1 - s_{ij}
     \]
-    u otra función decreciente. Sin embargo, a diferencia de las disimilaridades, no consituye una métrica. \newline
+    u otra función decreciente. Sin embargo, a diferencia de las disimilaridades, no constituye una métrica. \newline
     Naturalmente, podríamos pensar si esto también ocurre a la inversa, es decir, si dada una medida de disimilaridad $d_{ij}$, podemos construir una medida de similaridad, sin más que 
     despejar $s_{ij}$ en la anterior expresión: 
     \[
@@ -532,11 +528,16 @@ Presentamos ahora otra medida de similaridad para las filas de $X$.
     la misma que en el caso anterior: trabajar con $\|q_{ij}\|$ o $\|1-q_{ij}^{2}\|$. \newline
 \end{observacion}
 
+Llegados a este punto en el que ya sabemos medir cómo de diferentes o similares son los objetos que queremos agrupar, es el momento de 
+introducir distintas estrategias o algoritmos de agrupación, que pueden ser jerárquicas o no jerárquicas. 
+
 % clústering jerárquico
 
 \subsection{Métodos jerárquicos}  % Bib-1, Bib-2, Bib-5, bejar-AC-2, gallardo-jerarquicos
 
-Los \textit{métodos jerárquicos} para el análisis cluster representan un intento de encontrar buenos clusters en los datos mediante la combinación o división de clusters, con el prósito de
+La información recogida en esta subsección y en las sucesivas subsubsecciones se ha obtenido principalmente de las fuentes biliográficas \cite{Bib-1, Bib-5, bejar-AC, Bib-2, gallardo, bejar-AC-2}.
+
+Los \textit{métodos jerárquicos} para el análisis cluster representan un intento de encontrar buenos clusters en los datos mediante la combinación o división de clusters, con el propósito de
 minimizar (maximizar) una medida de disimilaridad (similaridad). Hay dos tipos de métodos jerárquicos: los \textit{aglomerativos} y los \textit{disociativos}. Los aglomerativos comienzan 
 con clusters que contienen un solo objeto y sucesivamente van combinando clusters hasta que todos forman un único cluster. Los disociativos, por su parte, hacen justo lo contrario: 
 comienzan con todos los objetos agrupados en un único cluster, a continuación dividen dicho cluster en dos clusters separados, y así sucesivamente hasta formar clusters con un solo objeto. 
@@ -548,7 +549,7 @@ Aunque se le suele prestar más atención a los métodos aglomerativos, los diso
 \subsubsection{Dendrograma}
 
 El resultado final de todo método jerárquico es lo que se conoce como \textit{dendograma} o \textit{diagrama en árbol jerárquico}. Es una representación gráfica del clústering que generalmente se
-dibuja en sentido inverso, comenzando desde el último cluster que se ha formado y que engloba a todos los objetos y desde similaridad 0. En el punto de similaridad donde dos clusters se combinan 
+dibuja en sentido inverso, comenzando desde el último cluster que se ha formado y que engloba a todos los objetos. En el punto de similaridad donde dos clusters se combinan 
 para dar lugar al cluster final, este se divide en dos clusters padres y así sucesivamente; la solución con $k$ clusters se obtiene fusionando algunos clusters de la solución con $(k+1)$. \newline
 
 El dendrograma puede dibujarse horizontal o verticalmente, queda a elección de cada uno; ambas formas proporcionan la misma información. En nuestro caso, lo consideraremos en vertical. Nos permite 
@@ -575,7 +576,7 @@ Nos podemos preguntar cómo saber a qué altura cortar el dendrograma. La respue
     \begin{figure}[h]
         \centering
         \includegraphics[width=0.5\textwidth]{../img/dendrograma-1.png}
-        \caption{Ejemplo de dendrograma.}
+        \caption{Ejemplo de dendrograma (Fuente: \cite{bejar-AC-2}).}
     \end{figure}
 
     \FloatBarrier
@@ -592,7 +593,7 @@ Nos podemos preguntar cómo saber a qué altura cortar el dendrograma. La respue
 
 \subsubsection{Métodos jerárquicos aglomerativos}  %gallardo y Bib-5
 
-En esta subsección vamos a analizar los principales métodos jerárquicos aglomerativos. Hemos de aclarar que ninguno de los que presentaremos es más eficiente que otro. Esto 
+A continuación, vamos a analizar los principales métodos jerárquicos aglomerativos. Hemos de aclarar que ninguno de los que presentaremos es más eficiente que otro. Esto 
 dependerá de la naturaleza de los datos y el enfoque que tenga el análisis. \newline
 
 \textbf{Estrategia de la distanca mínima o máxima similaridad} \newline
@@ -636,7 +637,7 @@ s(C_{i},C_{j}) = \min_{\substack{k=1,\dots,n_{i} \\ m=1,\dots,n_{j}}}\{s(x^{i}_{
 
 \textbf{Estrategia de la distancia o similitud promedio}
 
-Mientras que en las dos estrategias anteriores la combinación de dos clusters en uno dependía únicamente de un único para de objetos dentro de cada cluster, 
+Mientras que en las dos estrategias anteriores la combinación de dos clusters en uno dependía únicamente de un único par de objetos dentro de cada cluster, 
 y se usaba la distancia máxima o mínima, la estrategia de la distancia promedio calcula la distancia entre dos clusters como el promedio de las disimilaridades 
 en cada cluster. Dependiendo de si consideramos el tamaño de los clusters en el promedio o no, podemos distinguir entre dos estrategias diferentes: la no ponderada
 y la ponderada. \newline
@@ -729,7 +730,7 @@ Para desarrollar formalmente el método, vamos a establecer la siguiente notaci�
 
 \begin{observacion}
     Notemos que al principio del método, $E_{k} = 0$, $\forall k \in \{1,\dots,m\}$ pues hay $m$ clusters compuestos por un solo individuo. \newline
-    En cada etapa, buscaremos los dos clusters cuya fusión minimce el incremento en $E$.
+    En cada etapa, buscaremos los dos clusters cuya fusión minimice el incremento en $E$.
 \end{observacion}
 
 Supongamos que en la siguiente etapa son $C_{p}$ y $C_{q}$ los dos clusters que se fusionan en uno nuevo, $C_{t}$. Entonces, el incremento de $E$, $\Delta E_{pq}$, vendrá dado por
@@ -864,7 +865,7 @@ Obtenemos por tanto,
 
 \vspace{0.5cm}
 
-Ofrecemos a continuación un pequeño ejemplo de aplicación de este método aglomerativo.
+Ofrecemos a continuación un pequeño ejemplo de aplicación de este método aglomerativo, de elaboración propia aunque basado en la fuente bibliográfica \cite{bejar-AC}.
 
 \begin{ejemplo}
 
@@ -1014,7 +1015,7 @@ Ofrecemos a continuación un pequeño ejemplo de aplicación de este método agl
     \begin{figure}[h]
         \centering
         \includegraphics[width=0.8\textwidth]{../img/dendrograma.png}
-        \caption{Dendrograma resultante. Imagen obtenida con R.}
+        \caption{Dendrograma resultante (Fuente: elaboración propia).}
     \end{figure}
 
 \end{ejemplo}
@@ -1074,16 +1075,18 @@ se completa. \newline
 
 \subsection{Métodos no jerárquicos} %Bib-1, Bib-2, Bejar-AC
 
+La información recogida en esta subsección y en las sucesivas subsubsecciones se ha obtenido principalmente de las fuentes biliográficas \cite{Bib-1, bejar-AC, Bib-2}.
+
 Los \textit{métodos no jerárquicos} para el análisis cluster, también conocidos como métodos de partición, simplemente dividen los datos en un número predeterminado $k$
 de clusters, donde no existe una relación jerárquica entre la solución con $k$ clusters y la de $(k+1)$, es decir, la solución con $k$ clusters no es el paso previo para
 la solución con $(k+1)$. Esta es la principal diferencia con respecto a los jerárquicos, donde el número de clusters era desconocido a priori. \newline
 
 En definitiva, dado un número $k$, buscamos particionar los datos en $k$ clusters de modo que los elementos dentro de cada cluster sean similares entre sí, mientras que los elementos 
-de clusters distintos sean bastante diferentes\cite{Bib-1}\cite{Bib-2}.\newline
+de clusters distintos sean bastante diferentes \cite{Bib-1, Bib-2}.\newline
 
 Se caracterizan por tener una estructura plana, es decir, no implican la construcción de una estructura jerárquica en forma de árbol, a diferencia de los métodos jerárquicos.
 En su lugar, los elementos se asignan a los clusters directamente, teniendo en cuenta el número predefinido de clusters, $k$. No se sigue un proceso progresivo de combinación
-o separación de grupos, como ocurre en los jerárquicos\cite{bejar-AC}. \newline
+o separación de grupos, como ocurre en los jerárquicos \cite{bejar-AC}. \newline
 
 \begin{nota}
     Los algoritmos no jerárquicos son mucho más eficientes que los jerárquicos en términos computacionales.
@@ -1130,7 +1133,8 @@ forman grupos bien dfinidos de forma natural. \newline
 También puede usarse como mejora de los métodos jerárquicos: se agrupan primero los elementos mediante un método jerárquico y luego, utilizando como semillas los centroides de estos grupos
 aplicamos el algoritmo. De esta forma, podremos reasignar los puntos de un cluster a otro, en caso de necesitarlo. Suplimos así el handicap de los aglomerativos. \newline
 
-Ofrecemos a continuación un ejemplo con el que ilustraremos el funcionamiento del método:
+Ofrecemos a continuación un ejemplo con el que ilustraremos el funcionamiento del método. Este ejemplo es de elaboración propia, aunque basado en el ejemplo ilustrativo del método 
+$k$-means recogido en la fuente bibliográfica \cite{quesada-tfg}.
 
 \begin{ejemplo}
     Supongamos que tenemos $8$ genotipos, $G_{1}, G_{2},\dots,G_{8}$, sobre los que observamos la expresión de dos genes, $A$ y $B$:
@@ -1259,7 +1263,7 @@ método $k$-menoids, que presentamos a continuación.
 
 El algoritmo \textit{$k$-medoids} se propone como una variante del método $k$-means que es mucho más robusta a ruidos y outliers. En lugar de 
 usar el centroide como centro de un grupo, este algoritmo usa un punto real del grupo para representarlo; el \textit{medoide}, que es el objeto ubicado
-más centralmennte en el grupo, y que minimiza la suma de disimilaridades respecto a los demás puntos, en lugar de la suma de los cuadrados de las distancias Euclideas. Aquí es donde
+más centralmennte en el grupo, y que minimiza la suma de disimilaridades respecto a los demás puntos, en lugar de la suma de los cuadrados de las distancias Euclideas\cite{kmedoids}. Aquí es donde
 se refleja la robustez del método ante datos anómalos como los outliers. Pese a las ventajas evidentes que tiene el método, se ha visto que para conjuntos de 
 datos muy grandes, la eficiencia del método se ve disminuida. \newline
 
@@ -1281,3 +1285,58 @@ el valor de la función objetivo.
 
 
 \subsubsection{Determinación del número de clusters óptimo}
+
+Los métodos no jerárquicos agrupan los datos en un número prefijado de clusters, $k$. Hay varios métodos para determinar
+dicho número clusters de forma óptima. A continuación describimos tres de los métodos más usados: el \textit{método de Elbow} y el \textit{método de Silhouette}. \newline
+
+\textit{Método de Elbow} \newline
+
+Teniendo en cuenta que el objetivo que se persigue a la hora de agrupar los datos en $k$ clusters es obtener dichos cluster de forma que se minimice la varianza total intra-clusters (wss), es decir,
+la suma de los errores cuadráticos para cada $k$, podemos determinar el número de clusters óptimo de la siguiente forma: \newline
+
+Para distintos valores de $k$ $ (k = 1,2,\dots,10,\dots,15,\dots)$ aplicamos un algoritmo de clustering. Para cada número de clusters con el que hemos probado el algoritmo, calculamos la varianza
+total intra-clusters. Obtenemos así una serie de puntos $ (k_{i}$,$wss_{k_{i}})$, cluster-wss. Graficando dichos puntos, obtenemos una curva de la wss en función del número de clusters, $k$. \newline
+
+El punto en el que la curva presente un `codo', se considera indicador del número de clusters óptimo. Este punto es justo aquel en el que las varianzas intra-clusters pasan de disminuir rápidamente
+a empezar a disminuir de forma lineal conforme aumenta el número de clusters. \newline
+
+\begin{ejemplo}
+    Si aplicamos este método al ejemplo de los genotipos usado para ilustrar el método $k$-means, obtenemos la siguente curva:
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.8\textwidth]{../img/elbow.png}
+        \caption{Método de Elbow aplicado al ejemplo del método k-means[elaboración propia].}
+    \end{figure}
+
+    Observamos que el codo está n $k=3$, justo el número de clusters que habíamos prefijado para aplicar el método $k$-means. Por tanto, fuimos bastante acertados.
+    
+\end{ejemplo}
+
+\textit{Método de la Silueta} \newline  %referencia bejar y bib-2
+
+Este enfoque para la determinación del número óptimo de clusters, también conocido como \textit{silueta promedio}, mide la calidad de un cluster, es decir, cómo de adecuado es un objeto dentro de un cluster o,
+equivalentemente, cómo de bien están separados los clusters. De acuerdo con este método, el número óptimo de clusters, $k$, vendrá dado por el valor $k$ que maximice la silueta promedio, la cual se calcula de
+la forma que presentamos a continuación:
+
+Supongamos que nos dan una partición de nuestro conjunto de datos en $k$ clusters, $\mathcal{C_{k}}$. Sea $C_{i}$ el cluster que contiene al $i$-ésimo elemento. Sea $a_{i}$ la distancia promedio del $i$-ésimo elemento al resto de 
+objetos del mismo cluster $C_{i}$. Sea tambén $C_{j}$ otro cluster, con $j \neq i$, y consideremos la distancia promedo del $i$-ésimo elemento a todos los de $C_{j}$, $d(i,C_{j})$. Calculamos a continuación $d(i,C_{j})$,
+para todos los clusters distintos de $C_{i}$. Sea entonces el mínimo de dichas distancas, $b_{i} = \min_{C_{j}\neq C_{i}}d(i,C_{j})$. El $i$-ésimo valor de silueta promedio viene dado por:
+\[
+s_{i}(\mathcal{C}_{k}) = s_{ik} = \frac{b_{i}-a_{i}}{\max (a_{i},b_{i})}
+\]
+
+de manera que $s_{ik} \in [-1,1]$.\newline
+
+Haciendo el promedio de las siluetas promedio para cada punto del conjunto de datos, obtenemos la \textit{silueta promedio}, $\bar{s}_{k}$. Calculando esta silueta promedio para distintos valor de $k$, obtenemos una serie de 
+puntos $ (k,\bar{s}_{k})$ que podremos representar. El valor de $k$ para el cual $\bar{s}_{k}$ sea máximo, determina el número óptimo de clusters. \newline
+
+\begin{ejemplo}
+    Si aplicamos este método al ejemplo de los genotipos usado para ilustrar el método $k$-means, obtenemos la siguente gráfica de puntos $(k,\bar{s}_{k})$:
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.8\textwidth]{../img/silueta.png}
+        \caption{Método de la Silueta aplicado al ejemplo del método k-means[elaboración propia].}
+    \end{figure}
+
+    Observamos que el máximo de la silueta promedio se alcanza en $k=3$, como era de esperar.
+\end{ejemplo}
