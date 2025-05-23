@@ -1,0 +1,306 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Proxima Nova', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  color: #071417;
+  -webkit-text-size-adjust: none;
+}
+
+body {
+  overflow-y: auto;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: 16px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: #007d99;
+}
+
+a:focus {
+  outline: 1px auto #00c0eb;
+}
+
+img {
+  display: inline-block;
+  vertical-align: top;
+  max-width: 100%;
+  height: auto;
+}
+
+iframe {
+  display: block;
+  margin: 0 auto 24px;
+  width: 90%;
+  height: 420px;
+}
+
+#__next {
+  height: 100%;
+}
+
+.overlay-body,
+.menu-overlay-body {
+  position: fixed;
+}
+
+.overlay-body body,
+.menu-overlay-body body {
+  overflow: hidden;
+  position: fixed;
+}
+
+.tox.tox-tinymce .tox-toolbar {
+  flex-wrap: wrap;
+  background-color: #f5f5f5;
+}
+
+.tox.tox-tinymce .tox-tbtn svg {
+  fill: #555d66;
+}
+
+#titlediv.zsiq_cnt {
+  display: none;
+}
+
+p[style='text-align: right;'] {
+  margin-top: 16px;
+  text-align: center !important;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+p[style='text-align: right;'] em {
+  font-style: normal;
+}
+
+img.aligncenter {
+  display: block;
+  margin: 0 auto;
+}
+
+img[class*='wp-image'] {
+  display: block;
+  margin: 0 auto;
+}
+
+picture[class*='wp-image'] {
+  display: block;
+  text-align: center;
+}
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+/* NProgress Style */
+
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  background: #00c0eb;
+
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 4px;
+}
+
+#nprogress .peg {
+  display: block;
+  position: absolute;
+  right: 0;
+  width: 100px;
+  height: 100%;
+  box-shadow: 0 0 10px #00c0eb, 0 0 5px #00c0eb;
+  opacity: 1;
+
+  transform: rotate(3deg) translate(0px, -4px);
+}
+
+/* NProgress Style */
+
+@font-face {
+  font-family: 'Proxima Nova';
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: url(/_next/static/media/proximanova-light.b8ea21c4.woff2) format('woff2'),
+    url(/_next/static/media/proximanova-light.d55660fd.woff) format('woff'),
+    url(/_next/static/media/proximanova-light.2ed2cdf3.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url(/_next/static/media/proximanova-regular.7775f548.woff2) format('woff2'),
+    url(/_next/static/media/proximanova-regular.55f8c1ec.woff) format('woff'),
+    url(/_next/static/media/proximanova-regular.4936cfc0.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url(/_next/static/media/proximanova-semibold.d53cceb8.woff2) format('woff2'),
+    url(/_next/static/media/proximanova-semibold.aebdba44.woff) format('woff'),
+    url(/_next/static/media/proximanova-semibold.2a0e2a43.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url(/_next/static/media/proximanova-bold.f4be02d0.woff2) format('woff2'),
+    url(/_next/static/media/proximanova-bold.281d396e.woff) format('woff'),
+    url(/_next/static/media/proximanova-bold.1015dd17.ttf) format('truetype');
+}
+

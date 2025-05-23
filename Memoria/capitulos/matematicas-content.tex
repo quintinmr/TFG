@@ -535,7 +535,7 @@ introducir distintas estrategias o algoritmos de agrupación, que pueden ser jer
 
 \subsection{Métodos jerárquicos}  % Bib-1, Bib-2, Bib-5, bejar-AC-2, gallardo-jerarquicos
 
-La información recogida en esta subsección y en las sucesivas subsubsecciones se ha obtenido principalmente de las fuentes biliográficas \cite{Bib-1, Bib-5, bejar-AC, Bib-2, gallardo, bejar-AC-2}.
+La información recogida en esta subsección y en las sucesivas subsubsecciones se ha obtenido principalmente de las fuentes biliográficas \cite{Bib-1, Bib-5, bejar-AC, Bib-2, gallardo, bejar-AC-2}. \newline
 
 Los \textit{métodos jerárquicos} para el análisis cluster representan un intento de encontrar buenos clusters en los datos mediante la combinación o división de clusters, con el propósito de
 minimizar (maximizar) una medida de disimilaridad (similaridad). Hay dos tipos de métodos jerárquicos: los \textit{aglomerativos} y los \textit{disociativos}. Los aglomerativos comienzan 
@@ -1082,11 +1082,11 @@ de clusters, donde no existe una relación jerárquica entre la solución con $k
 la solución con $(k+1)$. Esta es la principal diferencia con respecto a los jerárquicos, donde el número de clusters era desconocido a priori. \newline
 
 En definitiva, dado un número $k$, buscamos particionar los datos en $k$ clusters de modo que los elementos dentro de cada cluster sean similares entre sí, mientras que los elementos 
-de clusters distintos sean bastante diferentes \cite{Bib-1, Bib-2}.\newline
+de clusters distintos sean bastante diferentes.\newline
 
 Se caracterizan por tener una estructura plana, es decir, no implican la construcción de una estructura jerárquica en forma de árbol, a diferencia de los métodos jerárquicos.
 En su lugar, los elementos se asignan a los clusters directamente, teniendo en cuenta el número predefinido de clusters, $k$. No se sigue un proceso progresivo de combinación
-o separación de grupos, como ocurre en los jerárquicos \cite{bejar-AC}. \newline
+o separación de grupos, como ocurre en los jerárquicos. \newline
 
 \begin{nota}
     Los algoritmos no jerárquicos son mucho más eficientes que los jerárquicos en términos computacionales.
@@ -1244,12 +1244,12 @@ $k$-means recogido en la fuente bibliográfica \cite{quesada-tfg}.
     \end{table}
 
     Observamos que la asignación de puntos a clusters se mantiene constante con respecto al paso previo. Esto quiere decir que no es necesaria ninguna
-    reasignación y, por tanto, que las asignaciones son definitivas. La agrupación la podemos ver en el siguiente gráfico:
+    reasignación y, por tanto, que las asignaciones son definitivas. La agrupación la podemos ver en la figura 3.4.
 
     \begin{figure}[h]
         \centering
         \includegraphics[width=0.8\textwidth]{../img/kmeans.png}
-        \caption{Gráfico resultado final k-means. Imagen obtenida con R (ejemplo de elaboración propia).}
+        \caption{Gráfico resultado final k-means. (Fuente: elaboración propia).}
     \end{figure}
     
     
@@ -1257,19 +1257,19 @@ $k$-means recogido en la fuente bibliográfica \cite{quesada-tfg}.
 
 Por último, supongamos que hay elementos en nuestro conjunto de datos que podríamos catalogar como \textit{atípicos}, es decir, supongamos que tenemos \textit{outliers}. Estos valores, al 
 ser muy dispares respecto a los demás, van a tener una gran influencia en el cálculo de los centroides, lo cual va a condicionar la agrupación. Esto lo podemos solucionar con el 
-método $k$-menoids, que presentamos a continuación.
+método $k$-medoids, que presentamos a continuación.
 
 \subsubsection{Método \textit{$k$-medoids}}
 
 El algoritmo \textit{$k$-medoids} se propone como una variante del método $k$-means que es mucho más robusta a ruidos y outliers. En lugar de 
 usar el centroide como centro de un grupo, este algoritmo usa un punto real del grupo para representarlo; el \textit{medoide}, que es el objeto ubicado
-más centralmennte en el grupo, y que minimiza la suma de disimilaridades respecto a los demás puntos, en lugar de la suma de los cuadrados de las distancias Euclideas\cite{kmedoids}. Aquí es donde
+más centralmennte en el grupo, y que minimiza la suma de disimilaridades respecto a los demás puntos, en lugar de la suma de los cuadrados de las distancias Euclideas \cite{kmedoids}. Aquí es donde
 se refleja la robustez del método ante datos anómalos como los outliers. Pese a las ventajas evidentes que tiene el método, se ha visto que para conjuntos de 
 datos muy grandes, la eficiencia del método se ve disminuida. \newline
 
 El algoritmo comienza con la matriz de proximidad $D = (d_{ij})$, donde $d_{ij} = d(x_{i},x_{j})$, con $d$ una medida de disimilaridad, que nos la pueden dar de antemano o
 bien la podemos calcular a partir del conjunto de datos, y una configuración inicial de los elementos en $k$ clusters. Usando la matriz $D$, podemos encontrar el elemento de 
-cada cluster que minimiza la disimilaridad total con respecto a todos los elementos de su cluster (el menoide). Esto es, dado un cluster $C_{m}$, $m\in\{1,\dots,k\}$, se busca encontrar
+cada cluster que minimiza la disimilaridad total con respecto a todos los elementos de su cluster (el medoide). Esto es, dado un cluster $C_{m}$, $m\in\{1,\dots,k\}$, se busca encontrar
 un elemento $\bar{x}_{m}$ que haga mínima la suma $\sum_{i_{C_{m}}}d_(x_{i_{C_{m}}},\bar{x}_{m})$. \newline
 
 Una vez hallados los medoides de los $k$ clusters, observamos la distancia de cada punto a los distintos medoides. Si existe un cluster $j$ de entre los $k$ que había prefijados que 
@@ -1305,7 +1305,7 @@ a empezar a disminuir de forma lineal conforme aumenta el número de clusters. \
     \begin{figure}[h]
         \centering
         \includegraphics[width=0.8\textwidth]{../img/elbow.png}
-        \caption{Método de Elbow aplicado al ejemplo del método k-means[elaboración propia].}
+        \caption{Método de Elbow aplicado al ejemplo del método k-means (Fuente: elaboración propia).}
     \end{figure}
 
     Observamos que el codo está n $k=3$, justo el número de clusters que habíamos prefijado para aplicar el método $k$-means. Por tanto, fuimos bastante acertados.
@@ -1335,7 +1335,7 @@ puntos $ (k,\bar{s}_{k})$ que podremos representar. El valor de $k$ para el cual
     \begin{figure}[h]
         \centering
         \includegraphics[width=0.8\textwidth]{../img/silueta.png}
-        \caption{Método de la Silueta aplicado al ejemplo del método k-means[elaboración propia].}
+        \caption{Método de la Silueta aplicado al ejemplo del método k-means (Fuente: elaboración propia).}
     \end{figure}
 
     Observamos que el máximo de la silueta promedio se alcanza en $k=3$, como era de esperar.

@@ -13,6 +13,8 @@
 \chapter{Proyecto GEO (Gene Expression Omnibus)}
 
 % esto ha salido de geo1, geo2, geo3
+La información recogida en este capítulo dedicado a la base de datos \textit{GEO} ha sido extraída principalmente de las fuentes bibliográficas 
+\cite{geo-1,geo-2,geo-3,geo-4,geo-overview}. \newline
 
 \textit{Gene Expression Omnibus} (GEO) es una base de datos pública e internacional gestionada por el Centro Nacional de Información 
 Biotecnológica (NCBI) de la Biblioteca Nacional de Medicina (NLM) de EE.UU.
@@ -101,7 +103,7 @@ y mantienen relaciones entre sí con cardinalidades reconocibles, es lógico pen
 y, por ende, el lógico basado en el modelo relacional, que se obtiene a partir del conceptual mediante paso a tablas. \newline
 
 Cabe señalar que los archivos de datos en crudo que acompañan a los registros se almacenan en un servidor FTP\footnote{FTP (\textit{FIle Transfer Protocol}) 
-es un servicio utilizado para el envío y obtención de archivos entre dos equipos remotos} y están enlazados desde cada entrada. \newline
+es un servicio utilizado para el envío y obtención de archivos entre dos equipos remotos \cite{ftp}.} y están enlazados desde cada entrada. \newline
 
 % referencia FTP: https://blog.infranetworking.com/servidor-ftp/ 
 
@@ -130,7 +132,7 @@ una secuencia de nucleótidos específica, lo que permite localizarla de forma �
 
 Para organizar toda esta información y facilitar su consulta y análisis, se lleva a cabo un proceso que combina extracción automatizada de datos con una revisión 
 manual, conocida como \textit{curación de datos}\footnote{La curación manual consiste en una revisión realizada por personal especializado que garantiza la calidad, 
-consistencia y coherencia de los datos recopilados, corrigiendo posibles errores y asegurando que se ajustan a los estándares establecidos.}. Gracias a este procedimiento, 
+consistencia y coherencia de los datos recopilados, corrigiendo posibles errores y asegurando que se ajustan a los estándares establecidos \cite{curacion-datos}.}. Gracias a este procedimiento, 
 los datos enviados por los investigadores se reorganizan en registros más estructurados y accesibles denominados \textit{DataSets}. \newline
 
 Un \textit{DataSet} agrupa un conjunto de muestras biológicas que son comparables entre sí desde un punto de vista biológico y estadístico, y que pertenecen a una 
@@ -151,7 +153,7 @@ gráficos de perfiles de expresión génica o los clústeres de agrupación de m
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{../img/geo-datasets.png}
-    \caption{Relación entre Platforms, Samples, DataSets y Profiles (Fuente: ).}  % geo-4.pdf
+    \caption{Relación entre Platforms, Samples, DataSets y Profiles (Fuente: \cite{geo-4}).}  % geo-4.pdf
 \end{figure}
 
 % referencia curación manual:  https://es.wikipedia.org/wiki/Curaci%C3%B3n_de_datos
@@ -196,7 +198,7 @@ en el navegador, como identificadores de \textit{PubMed} y accesiones relacionad
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{../img/geo-browser.png}
-    \caption{Navegador GEO (Fuente: ).}
+    \caption{Navegador GEO (Fuente: \cite{geo-browse}).}
 \end{figure}
 
 \subsection{Descarga de datos}
@@ -232,7 +234,7 @@ Para descargar registros GEO originales podemos hacerlo de cualquiera de las sig
     \begin{figure}[h]
         \centering
         \includegraphics[width=1\textwidth]{../img/geo-displayBar.png}
-        \caption{Barra de navegación de accesiones (Fuente: ).}  % https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi
+        \caption{Barra de navegación de accesiones (Fuente: \cite{display-bar}).}  % https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi
     \end{figure}
     \item \textit{Construcción de una URL:} Una forma alternativa de usar la barra de visualización de accesos anteriormente descrita, es construir una URL para devolver los datos que nos interesen. Las URLs 
     tienen el siguiente formato: 
@@ -293,7 +295,7 @@ aportados por los autores, así como los \textit{DataSets} curados. Puede buscar
     \centering
     \includegraphics[width=1\textwidth]{../img/geo-datasets-browser.png}
     \includegraphics[width=1\textwidth]{../img/geo-adv-queryDataset.png}
-    \caption{Construcción de consulta avanzada en \textit{Entrez GEO DataSets} (Fuente: ).}  % https://www.ncbi.nlm.nih.gov/gds/advanced
+    \caption{Construcción de consulta avanzada en \textit{Entrez GEO DataSets} (Fuente: \cite{geo-advanced}).}  % https://www.ncbi.nlm.nih.gov/gds/advanced
 \end{figure}
 
 Algunos ejemplos de consultas serían:
@@ -332,7 +334,7 @@ barras que indican el contexto experimental, lo que permite ver fácilmente si u
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{../img/geo-profile.png}
-    \caption{Ejemplo de perfil (Fuente: ).}  % https://www.ncbi.nlm.nih.gov/geo/tools/profileGraph.cgi?ID=GDS4515:202859_x_at
+    \caption{Ejemplo de perfil (Fuente: \cite{geo-profile}).}  % https://www.ncbi.nlm.nih.gov/geo/tools/profileGraph.cgi?ID=GDS4515:202859_x_at
 \end{figure}
 
 Se puede consultar usando diferentes atributos, como palabras clave, símbolos o nombres de genes, identificadores de \textit{GenBank} o perfiles que estén marcados como diferencialmente expresados.
@@ -372,6 +374,7 @@ diseñado para el análisis e interpretación de datos genómicos. Veremos cómo
 
 \chapter{Bioconductor}  % referencias: https://bioconductor.org/about/ https://bioinformatics.ccr.cancer.gov/docs/rintro/Lesson_8/, bioconductor-2.pdf, bioconductor-1.pdf
 
+La información recogida en este capítulo ha sido extraída principalmente de las fuentes bibliográficas \cite{bioconductor-1,bioconductor-about,bioconductor-about2,bioconductor-2}. \newline
 
 Bioconductor es un proyecto de código abierto y un repositorio de paquetes para R que se usa mucho en bioinformática y biología computacional. 
 Básicamente, es una plataforma que ofrece muchas herramientas para analizar datos biológicos, especialmente en el campo de las ómicas. 
@@ -392,7 +395,7 @@ es una técnica más reciente. Sus objetivos son varios, pero entre los principa
 
 \section{Integración de R en Bioconductor}
 Para conseguir esto, Bioconductor se apoya en R, que es un lenguaje interpretado y de alto nivel muy usado en estadística y ciencia de datos. R permite 
-crear rápido nuevas formas de analizar datos, tiene un sistema para empaquetar el software junto con la documentación y ofrece estructuras orientadas a 
+crear de forma rápida nuevas formas de analizar datos, tiene un sistema para empaquetar el software junto con la documentación y ofrece estructuras orientadas a 
 objetos que ayudan a manejar la complejidad de los problemas en biología computacional. Además, da acceso a datos en línea y tiene herramientas para 
 hacer simulaciones, modelado y visualizar resultados.
 
@@ -406,13 +409,15 @@ redes, aprendizaje automático y visualización.
 Los paquetes de Bioconductor se dividen en cuatro grupos principales:
 
 \begin{itemize}
-\item \textbf{Software:} algunos paquetes proporcionan las bases para almacenar y acceder a los datos, y otros ofrecen herramientas para analizar esos 
+\item \textit{Software:} algunos paquetes proporcionan las bases para almacenar y acceder a los datos, y otros ofrecen herramientas para analizar esos 
 datos. Esta separación hace que sea más fácil reutilizar estructuras y probar distintas formas de análisis sin aprender cosas nuevas cada vez.
-\item \textbf{Datos de anotación:} contienen bases de datos con información genómica como identificadores de genes o rutas biológicas.
-\item \textbf{Datos experimentales:} son conjuntos de datos estándar que se usan para mostrar ejemplos en los que se aplican los paquetes.
-\item \textbf{Workflows:} son colecciones de documentos que explican cómo usar varios paquetes juntos para hacer un análisis completo, pero no tienen 
+\item \textit{Datos de anotación:} contienen bases de datos con información genómica como identificadores de genes o rutas biológicas.
+\item \textit{Datos experimentales:} son conjuntos de datos estándar que se usan para mostrar ejemplos en los que se aplican los paquetes.
+\item \textit{Workflows:} son colecciones de documentos que explican cómo usar varios paquetes juntos para hacer un análisis completo, pero no tienen 
 código nuevo.
 \end{itemize}
+
+\textbf{¿¿¿Debería listar aquí, en un formato de ficha con información, los paquetes que vaya a utilizar en el desarrollo de la aplicación????}
 
 \section{GEO y Bioconductor}
 
@@ -421,3 +426,78 @@ poder integrarla con \textit{Bioconductor}. Así, tendríamos una fuente bastant
 que ofrece Bioconductor. Para hacer posible esta conexión se desarrolló el paquete \textit{GEOquery}, que actúa como puente entre ambos, facilitando la 
 descarga, consulta y manipulación de los datos desde R y su uso dentro del ecosistema de Bioconductor.
 
+\subsection{GEOquery}
+
+El objetivo principal de \textit{GEOquery} es descargar y leer los archivos en formato SOFT que usa GEO, manteniendo toda la información de los registros 
+originales. Lo bueno de \textit{GEOquery} es que hace muy fácil acceder a los datos de GEO desde R, ya que báscamente todo se puede hacer con un único comando:
+\texttt{getGEO}. \newline
+
+Por ejemplo, para descargar un dataset completo (en este caso, el \textit{GDS1}), primero se carga la librería:
+
+\begin{verbatim}
+    library(GEOquery)
+\end{verbatim}
+
+Luego se usa el comando:
+
+\begin{verbatim}
+    gds <- getGEO('GDS1')
+\end{verbatim}
+
+Esto descarga el archivo comprimido en una carpeta termporal, lo descomprime, lo interpreta y lo guarda en una variable de R llamada \texttt{gds}. Esa
+variable contiene ya todos los datos de GDS1 organizados en una estructura de tipo \texttt{GDS} que se puede utilizar dentro de R y Bioconductor. También
+se puede hacer lo mismo con una muestra individual, cambiando el identificador del dataset por el de la muestra (\textit{GSMxxx}).
+
+\subsubsection{Estructuras de datos en GEOquery}
+
+Una de las ventajas que tiene \textit{GEOquery} es que organiza la información descargada en estructuras de datos específicas para facilitar su manejo. Estas
+estructuras se agrupan de la misma forma en la que GEO organiza sus datos:
+
+\begin{itemize}
+    \item \textit{GDS,GPL y GSM:} son las clases básicas. Cada una contiene una cabecera con metadatos (extraídos tal cual de GEO) y una tabla llamada 
+    \textit{GEODataTable}. Esta tabla tiene dos partes: los nombres de las columnas y una tabla de datos 2D. Por ejemplo, para consultar los metadatos de una
+    muestra:
+    \begin{verbatim}
+    Meta(gsm)[1:3]
+    \end{verbatim}
+
+    Y para ver parte de la tabla de datos:
+
+    \begin{verbatim}
+    Table(gsm)[1:3,c(2,6,7)]
+    \end{verbatim}
+
+    O las descripciones de las columnas:
+
+    \begin{verbatim}
+    Columns(gsm)[c(2,6,7),]
+    \end{verbatim}
+
+    La clase \texttt{GPL} funciona igual, pero en vez de datos de expresión contiene información sobre las características de los arrays. Por otro lado, \texttt{GDS} 
+    incluye además anotaciones asociadas a cada muestra.
+
+    \item \textbf{GSE:} es una clase compuesta que representa un conjunto de muestras (GSM) y plataformas (GPL). Tiene su propia sección de metadatos, pero en 
+    lugar de una tabla de datos, contiene dos listas: una con objetos \texttt{GPL} y otra con objetos \texttt{GSM}. Gracias a los métodos de acceso y a las capacidades 
+    de manipulación de datos de R, se pueden consultar y reorganizar estos datos de forma flexible para los análisis que se quieran hacer.
+\end{itemize}
+
+\subsubsection{Conversión a estructuras de Bioconductor}
+
+Los datos de \textit{GEO} tienen una estructura parecida a la de objetos usados en otros paquetes de \textit{Bioconductor}, como \texttt{MAList}(de \texttt{limma}) o 
+\texttt{ExpressionSet} (de \texttt{Biobase}). Por eso, existen funciones como \texttt{GDS2MA} y \texttt{GDS2eSet} que permiten convertir un objeto \texttt{GDS} a estos 
+formatos. \newline
+
+Por ejemplo, para pasar el objeto \texttt{gds} que descargamos antes a un \texttt{ExpressionSet}:
+
+\begin{verbatim}
+    eset <- GDS2eSet(gds, do.log2 = TRUE)
+\end{verbatim}
+
+Así se obtiene un \texttt{ExpressionSet} que contiene los datos de GEO junto con la información de las muestras, los datos transformados en logaritmo (si se especifica) 
+y las anotaciones de las sondas de la plataforma asociada. \newline
+
+Además, existen funciones parecidas para convertir a otros tipos de objetos de Bioconductor, lo que permite integrar estos datos directamente en los análisis de expresión 
+génica, clasificación, visualización o análisis de redes que se hacen con otros paquetes del entorno. \newline
+
+En resumen, \texttt{GEOquery} sirve de puente entre las herramientas de Bioconductor y los datos públicos disponibles en GEO. Este puente es el que usaremos para desarrollar
+la aplicación con la que pondremos fin a este trabajo y cuyo diseño, desarrollo y documentación veremos en profundidad en el siguiente capítulo. \newline
