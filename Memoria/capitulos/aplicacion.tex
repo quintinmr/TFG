@@ -59,17 +59,18 @@ funcionales y no funcionales necesarios. \newline
     \end{itemize}
 
     \item \textit{Requisitos de almacenamiento: } están asociados a lo que se requiere almacenar a nivel local o en bases de datos para que el sistema
-    pueda sumnistrar la información o salidas requeridas. En nuestro caso, aunque la aplicación web se ejecuta de forma local sin base de datos persistente,
+    pueda suministrar la información o salidas requeridas. En nuestro caso, aunque la aplicación web se ejecuta de forma local sin base de datos persistente,
     existen algunos elementos que deben mantenerse en memoria durante la sesión para permitir el flujo de trabajo.
     \begin{itemize}
         \item Dataset creado a partir de los datos cargados por el usuario.
         \item Resultados intermedios del análisis.
     \end{itemize}
 
-    \item \textit{Requisitos funcionales: } definen lo que la aplicación debe ser capaz de hacer desde el punto de vista del usuariio y la lógica de funcionamiento.
+    \item \textit{Requisitos funcionales: } definen lo que la aplicación debe ser capaz de hacer desde el punto de vista del usuario y la lógica de funcionamiento.
     \begin{itemize}
         \item Permitir al usuario cargar un archivo CSV o TSV con datos de expresión génica.
-        \item Validar el archivo de entrada y notificar al usuario si el formato es o no correcto.
+        \item Validar el formato del archivo de entrada.
+        \item Notificar al usuario de los errores cometido durante la subida de los datos.
         \item Permitir al usuario ejecutar el anáisis de componentes principales (PCA) sobre los datos válidos.
         \item Permitir elegir al usuario qué tipo de análisi clúster quiere aplicar sobre los datos.
         \item Ejecutar el anális cluster con el método elegido por el usuario.
@@ -81,7 +82,7 @@ funcionales y no funcionales necesarios. \newline
         \item Consultar la información de contacto del desarrollador.
     \end{itemize}
 
-    \item \textit{Requisitos no funcionales:} son condicones que debe cubrir el sistema que se desarrollará con respecto a aspectos de calidad, rendimiento y
+    \item \textit{Requisitos no funcionales:} son condiciones que debe cubrir el sistema que se desarrollará con respecto a aspectos de calidad, rendimiento y
     facilidad de uso.
     \begin{itemize}
         \item La interfaz debe ser clara, intuitiva y visualmente atractiva para usuarios con conocimientos básicos de bioinformática.
@@ -136,7 +137,7 @@ El flujo general de la aplicación sigue esta lógica:
 \begin{itemize}
     \item \textit{Carga del fichero de datos}: el ususario selecciona el archivo y se leen los datos utilizando los parámetros seleccionados por el mismo.
     \item \textit{PCA: } se calcula la matriz de componentes principales y se generan dos gráficos: un scatterplot de las dos primeras componentes principales y 
-    un otro con la varianza explicada por las distintas CPs.
+    otro con la varianza explicada por las distintas CPs.
     \item \textit{Análisis cluster:} se despliegan dos opciones al clicar sobre este botón:
     \begin{itemize}
         \item \textit{Jerárquico: } se genera un dendrograma.
@@ -155,7 +156,7 @@ El flujo general de la aplicación sigue esta lógica:
 
 Teniendo claros todos los requisitos que, a priori\footnote[1]{Los requisitos no son una parte cerrada en el proceso de desarrollo del software, si no que son dinámicos. Pueden surgir necesidades durante
 la fase de desarrollo del mismo o incluso podemos ver que algunos son prescindibles y se prefieran quitar de la lista.}, ha de cumplir nuestra aplicación y habiendo hecho el diseño
-de la misma, procedemos a construir el código fuente siguiendo el diseño previamente definido y cumpliendo con los requsitos especificados. \newline
+de la misma, procedemos a construir el código fuente siguiendo el diseño previamente definido y cumpliendo con los requisitos especificados. \newline
 
 En nuestro caso, se ha utilizado el lenguaje de programación \textit{R} junto con el framework de desarrollo de aplicaciones web, \textit{Shiny}. \newline
 
@@ -260,17 +261,40 @@ poder usar HTML y CSS, al ser Shiny un framework de desarrollo web.
 
 \subsection{Gestión de errores y robustez}
 
-Se han añadido varios mecanismos para evitar errores durante el uso de la aplicación y hacerla más robusta:
+Para garantizar un uso seguro y controlado de la aplicación, se han implementado diferentes mecanismos de gestión de errores que minimizan 
+la probabilidad de fallos y mejoran la experiencia del usuario:
 
 \begin{itemize}
-    \item Uso de la función \texttt{req()} para asegurarnos de que el usuario haya cargado datos antes de hacer cualquier análisis.
-    \item Eliminación automática de genes que tengan todos los valores a cero, para evitar problemas posteriores.
-    \item Comprobaciones previas antes de mostrar resultados, como asegurarse de que los valores de p-ajustada (\texttt{padj}) estén 
-    definidos antes de hacer el filtrado.
+    \item Uso sistemático de la función \texttt{req()} en los módulos de análisis para asegurarse de que los datos hayan sido cargados 
+    antes de ejecutar cualquier cálculo o mostrar resultados. Esto previene errores derivados de trabajar con objetos vacíos o inexistentes.
+    
+    \item Eliminación automática de genes cuya suma total de conteos sea cero mediante la instrucción \texttt{df <- df[rowSums(df) != 0, ]}, 
+    evitando problemas en los análisis estadísticos y de clustering.
+    
+    \item Verificación previa del separador de columnas mediante una lectura parcial del fichero y recuento del número de columnas en la 
+    primera línea, mostrando una alerta con \texttt{sendSweetAlert()} si se detecta que el separador indicado por el usuario no coincide 
+    con el contenido del archivo.
+    
+    \item Control de inputs obligatorios (archivo, separador y símbolo decimal) antes de proceder a cargar los datos, mostrando avisos 
+    emergentes amigables cuando falta alguno de ellos.
+    
+    \item Comprobación previa de valores ausentes en los resultados de análisis de expresión diferencial. Antes de seleccionar genes significativos, 
+    se eliminan aquellos con valores \texttt{NA} en \texttt{padj}, evitando errores en las ordenaciones y filtrados.
+    
+    \item Inclusión de un botón de reinicio que permite al usuario restaurar el estado inicial de la aplicación, limpiando los datos cargados y 
+    reseteando los valores de los controles de entrada, mejorando así la robustez operativa durante sesiones prolongadas.
+    
+    \item Validación previa del número de columnas para detectar potenciales errores de formato en el fichero cargado, mediante la instrucción:
+    \begin{verbatim}
+    n_col_elegido <- length(strsplit(lineas[1], sep)[[1]])
+    \end{verbatim}
+    con su correspondiente alerta en caso de detectarse solo una columna.
 \end{itemize}
 
-Gracias a estas medidas, se reduce mucho la probabilidad de que algo falle durante el uso de la aplicación.
+Gracias a estas medidas, la aplicación se comporta de forma robusta y segura ante errores de usuario, problemas de formato o datos anómalos, 
+minimizando así la posibilidad de fallos durante su uso.
 
+\newpage
 
 \section{Manual de usuario}
 
@@ -319,11 +343,24 @@ Puede iniciar la aplicación de dos formas distintas:
     \item En linea, simplemente haciendo click en el enlace proporcionado.
     \item En local, para lo cual tendrá que abrir el archivo \textit{app.R} en \textit{
         Rstudio} y pulsar el botón \textit{Run App} en la parte superior.
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.5\textwidth]{../img/runapp.png}
+            \caption{Botón Runapp RStudio (Fuente: elaboración propia).}
+        \end{figure}
 \end{itemize}
 
 \subsection{Estructura de la pantalla}
 
-Una vez iniciada la aplicación, se abrirá una página en la que verá:
+Una vez iniciada la aplicación, se abrirá la página que puede ver en la figura 6.2:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{../img/app-general.png}
+    \caption{Interfaz de usuario (Fuente: elaboración propia).}
+\end{figure}
+
+En ella, verá:
 
 \begin{itemize}
     \item Una cabecera con el título de la aplicación y el logo de la Universidad de Granada.
@@ -342,8 +379,7 @@ Una vez iniciada la aplicación, se abrirá una página en la que verá:
     todas las acciones y volverá todo al estado justamente posterior a la carga de datos.
     \item A pie de página verá tres enlaces:
     \begin{itemize}
-        \item Un enlace a la memoria en la que se encuentra el manual que está usted leyendo en estos momentos
-        y que podrá encontrar en la página x.
+        \item Un enlace al manual sobre el manejo de la aplicación, que está usted leyendo en estos momentos.
         \item Un enlace de descarga del código fuente desde un repositorio público de \textit{Google Drive}.
         \item Un enlace a una página en la que se muestra información de contacto del desarrollador de la aplicación,
         por si usted tuviera necesidad de comunicarse con el mismo.
@@ -369,7 +405,36 @@ Para subir los datos y poder hacer análisis multivariante con ellos, deberá se
     \item Una vez cargado correctamente, podrá ir a las secciones de análisis.
 \end{itemize}
 
-Si los datos no estuvieran bien formateados, aparecerá un mensaje de error.
+Estos mismos pasos se indican en la propia barra lateral de la interfaz, para guiarlo en todo el proceso, que puede resultar confuso. \newline
+
+Al pulsar el botón \textit{Cargar datos}, necesario pulsarlo para ver los resultados, pueden surgir algunos errores por diferentes causas que se detallan a continuación:
+
+\begin{itemize}
+    \item Si no ha seleccionado ningún fichero de su gestor de archivos, obtendrá el mensaje de error de la figura 6.3.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{../img/err1.png}
+        \caption{Error ningún fichero seleccionado (Fuente: elaboración propia).}
+    \end{figure}
+    \item Si ha seleccionado mal el separador de los distintos registros de su fichero, obtendrá el aviso de la figura 6.4.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{../img/sep.png}
+        \caption{Separador posiblemente erróneo (Fuente: elaboración propia).}
+    \end{figure}
+    \item Si no ha seleccionado ningún separador, verá el aviso de la figura 6.5.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{../img/err2.png}
+        \caption{Ningún separador seleccionado (Fuente: elaboración propia).}
+    \end{figure}
+    \item Si no ha seleccionado ningún símbolo decimal, el mensaje que obtendrá será el de la figura 6.6.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{../img/err3.png}
+        \caption{Ningún símbolo decimal seleccionado (Fuente: elaboración propia).}
+    \end{figure}
+\end{itemize}
 
 \subsection{PCA (Análisis de Componentes Principales)}
 
@@ -383,6 +448,12 @@ nos dará pistas acerca de una posible agrupación de los mismos.
 Tras unos segundos de espera mientras se hacen todos los cálculos, podrá ver un gráfico con puntos de colores que representan las muestras
 de su conjunto de datos. Cada eje (PC1,PC2) representa una "combinación" de genes. Verá también otro gráfico que mostrará cuándta información
 contiene cada eje (varianza explicada por las distintas componentes principales).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{../img/pca.png}
+    \caption{Análisis de Componentes Principales (PCA) (Fuente: elaboración propia).}
+\end{figure}
 
 \subsubsection{¿Qué tiene que hacer usted?}
 
@@ -407,18 +478,38 @@ agrupar las muestras en grupos disjuntos que se llaman \textit{clusters}. Al hac
     \item \textit{Jerárquico:} se muestra un dendrograma (un árbol cuyas hojas son las muestras y que represeta la agrupación jerárquica de las muestras del conjunto de datos, según 
     similitud. Cada bifurcación une dos grupos o elementos similares, y la altura de la unión indica cómo de diferentes son. Se puede cortar a una
     determinada altura para definir el número de clusters).
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=1\textwidth]{../img/jerarquico.png}
+        \caption{Análisis cluster jerárquico - Dendrograma (Fuente: elaboración propia).}
+    \end{figure}
     \item \textit{No jerárquico:}
     \begin{itemize}
         \item Primero puede determinar cuál podría ser el mejor número de clusters en los que puede agrupar las muestras. Aparecerán dos opciones:
         \begin{itemize}
             \item \textit{Método del codo:} al hacer click, se mostrará un gráfico que tiene una "curva". En el eje X, se disponen distintos valores para 
             el número de clusters (k). En el punto de la gráfica en el que se aprecie un "codo", se encuentra el mejor número de clusters.
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.8\textwidth]{../img/elbow-app.png}
+                \caption{Método del codo (Fuente: elaboración propia).}
+            \end{figure}
             \item \textit{Método de la silueta:} muestra también una gráfica de forma que el punto en el que la gráfica alcance su máximo, ese será el candidato
             a número óptimo de clusters.
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.8\textwidth]{../img/silueta-app.png}
+                \caption{Método de la silueta (Fuente: elaboración propia).}
+            \end{figure}
         \end{itemize}
         \item Luego, verá una barra horizontal deslizante con la que podrá elegir el número de clusters con el que aplicar el algoritmo k-means.
         \item Pulsando finalmente sobre el botón \textit{Ejecutar K-means} tras haber escogido el número óptimo de clusters, verá un gráfico con los distintos grupos
         que se habrán formado, en colores diferentes para distinguirlos.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=1\textwidth]{../img/kmeans-app.png}
+            \caption{Método K-means (Fuente: elaboración propia).}
+        \end{figure}
     \end{itemize}
 \end{itemize}
 
@@ -438,6 +529,6 @@ La tabla resultante muestra las siguientes columnas principales:
   \item \textit{padj}: p-valor ajustado para controlar falsos positivos; valores menores a 0.1 indican significancia.
 \end{itemize}
 
-Esta información lee permitirá identificar genes con cambios significativos en la expresión entre los grupos analizados.
+Esta información le permitirá identificar genes con cambios significativos en la expresión entre los grupos analizados.
 
 

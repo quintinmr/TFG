@@ -1,10 +1,12 @@
 \documentclass[print, color, oneside]{ugrTFG}
 \usepackage{url}           % Para poder manejar enlaces URL correctamente
 \usepackage[utf8]{inputenc}
+\usepackage[numbers,sort&compress]{natbib}
 \usepackage{amsmath}       % Si usas matemáticas
 \usepackage{geometry}
 \usepackage{tcolorbox}
 \usepackage{listings}
+\usepackage{xcolor}
 \usepackage{csquotes}
 \usepackage{placeins}
 \usepackage{float}
@@ -16,11 +18,10 @@
 \geometry{left=2.5cm, right=2.5cm, top=3cm, bottom=3cm}
 
 \lstset{
-    breaklines=false,   % Evita que las líneas se corten
-    prebreak={},        % Evita cortes de línea innecesarios
-    xleftmargin=-2.2cm,   % Desplaza el código a la izquierda
-    numbers=none,       % Quita la numeración de líneas
-    frame=none          % Quita el recuadro alrededor del código
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    columns=fullflexible,
+    keepspaces=true,
 }
 
 % -------------------------------------------------------------------
@@ -69,6 +70,7 @@ José Luis Romero Béjar \\ \emph{Departamento de Estadística e Investigación 
 \input{../capitulos/biologia-content}
 \input{../capitulos/matematicas-content}
 \input{../capitulos/informatica-content}
+\input{../capitulos/aplicacion}
 
 
 \printbibliography

@@ -46,7 +46,7 @@ En lo que sigue, iremos detallando los tres objetivos principales que persigue G
 \begin{itemize}
     \item[1.] Proporcionar una base de datos robusta y verátil para almacenar de manera eficiente datos genómicos funcionales de alto rendimiento
     (véase Organizacón de los datos).
-    \item[2.] Ofrecer prodemientos y formatos de envío sencillos que permitan a la comunidad científica depositar datos completos y bien antotados
+    \item[2.] Ofrecer prodemientos y formatos de envío sencillos que permitan a la comunidad científica depositar datos completos y bien anotados
     (véase Envío de datos).
     \item[3.] Facilitar mecanismos intuitivos que permitan a los usuarios consultar, localizar, revisar y descargar estudios y perfiles de expresión génica
     de interés (véase Navegación, descarga y consulta).
@@ -164,20 +164,20 @@ gráficos de perfiles de expresión génica o los clústeres de agrupación de m
 
 Como se adelantó en la introducción, la base de datos GEO se adhiere a las reglas establecidas en MIAME y, por consiguiente, el envío de los procedimientos promueven
 su cumplimiento. Sin embargo, es el propio investigador el que tiene la responsabiilidad, en última instancia, de asegurar que los datos estén suficientemente anotados y
-que se cumple la normativa para investigación con sujetos humanos. A contininuación se va a hacer un desglose de los pasos de los que se compone el flujo de datos que siguen 
+que se cumple la normativa para investigación con sujetos humanos. A continuación se va a hacer un desglose de los pasos de los que se compone el flujo de datos que siguen 
 los investigadores al enviar datos a GEO:
 
 \begin{itemize}
     \item[1.] \textit{Inicio del depósito de datos:} Los investigadores envían sus datos a GEO antes de enviar su manuscrito a una revista. Esto lo hacen a través de su cuenta en 
     de MyNCBI.
-    \item[2.] \textit{Formatos de envío:} GEO permite varios formatos de envío, como hijas de cálculo o XML, según las instrucciones de envío.
-    \item[3.] \textit{Valiidación y curación:} Los envíos pasan primero porr una validación sintáctica automática. Luego, un curador de GEO revisa que los datos estén bien organizados
+    \item[2.] \textit{Formatos de envío:} GEO permite varios formatos de envío, como hojas de cálculo o XML, según las instrucciones de envío.
+    \item[3.] \textit{Validación y curación:} Los envíos pasan primero porr una validación sintáctica automática. Luego, un curador de GEO revisa que los datos estén bien organizados
     y contengan suficente información. Si hay algún problema, el curador colabora con los autors hasta resolverlos.
     \item[4.] \textit{Asignación de identificadores:} Cuando todo está correcto, se asignan números de acceso estables que se pueden citar en el manuscrito.
     \item[5.] \textit{Privacidad previa a la publicación:} Los datos se mantienen privados hasta que el artículo es publicado. Durante ese tiempo, los autores pueden generar una URL
-    que de acceso conficencial a editores y revisores.
+    que dé acceso conficencial a editores y revisores.
     \item[6.] \textit{Disponibilidad pública e indexación:} Tras su publicación, los datos de Platform, Sample y Serie se indexan en la base de datos \textit{Entrez GEO DataSets}, donde
-    los usuarios pueden consultar y descargar los datos, o realizar un análisi de expresión génica mediante la herramienta de comparación \textit{GEO2R}.
+    los usuarios pueden consultar y descargar los datos, o realizar un análisis de expresión génica mediante la herramienta de comparación \textit{GEO2R}.
     \item[7.] \textit{Interoperabilidad con otras bases de datos:} Alguna partes del envío se transiferen a otras bases de datos como \textit{SRA} (para secuencias) o \textit{BioProject}
     (para descripciones de estudios), con enlaces recíprocos hacia GEO.
     \item[8.] \textit{Curación mensual adicional:} Cada mes, algunas Series se seleccionan para una curación más profunda, creando \textit{GEO DataSets} y \textit{GEO Profiles}, derivados 
@@ -191,7 +191,7 @@ los investigadores al enviar datos a GEO:
 \subsection{Navegación}
 % https://www.ncbi.nlm.nih.gov/geo/browse/
 
-El navegador de repositorios GEO cuenta con pestañas que contienen tablas donde se listan los registros de Series, Samples, Platforms y DataSets. Las tablas incluyen informaciión que se 
+El navegador de repositorios GEO cuenta con pestañas que contienen tablas donde se listan los registros de Series, Samples, Platforms y DataSets. Las tablas incluyen información que se 
 puede buscar y filtrar, así como enlaces a registros relacionados y descargas de archivos complementarios. Estas tablas se pueden exportar e incluyen información adicional que no se muestra
 en el navegador, como identificadores de \textit{PubMed} y accesiones relacionadas en SRA.
 
@@ -281,7 +281,7 @@ NCBI dispone de un potente sistema de búsqueda y recuperación llamado \textit{
 datos independientes a las que ya hemos hecho referencia en numerosas ocasiones: \textit{Entrez GEO DataSets} y \textit{Entrez GEO Profiles}. \newline
 
 El flujo de trabajo habitual consiste en que el usuario primero identifique estudios de interés mediante la búsqueda en \textit{Entrez GEO DataSets}, y posteriormente utilice \textit{GEO2R} o \textit{GEO Profiles} para
-localizar genes específicos o patrones de expresión génica dentro de ese estudio. Tambiéen es posible consultar directamente \textit{Entrez GEO Profiles}. \newline
+localizar genes específicos o patrones de expresión génica dentro de ese estudio. También es posible consultar directamente \textit{Entrez GEO Profiles}. \newline
 
 Además, \textit{Entrez} genera numerosos enlaces que conectan datos relacionados: enlaces entre bases de datos que vinculan GEO con otros recursos de NCBI como \textit{PubMed}, \textit{GenBank} o \textit{Gene}; y enlaces
 dentro de la propia base de datos, que conectan genes relacionados por patrón de expresión, posición cromosómica o secuencia. \newline
@@ -417,7 +417,6 @@ datos. Esta separación hace que sea más fácil reutilizar estructuras y probar
 código nuevo.
 \end{itemize}
 
-\textbf{¿¿¿Debería listar aquí, en un formato de ficha con información, los paquetes que vaya a utilizar en el desarrollo de la aplicación????}
 
 \section{GEO y Bioconductor}
 
@@ -429,7 +428,7 @@ descarga, consulta y manipulación de los datos desde R y su uso dentro del ecos
 \subsection{GEOquery}
 
 El objetivo principal de \textit{GEOquery} es descargar y leer los archivos en formato SOFT que usa GEO, manteniendo toda la información de los registros 
-originales. Lo bueno de \textit{GEOquery} es que hace muy fácil acceder a los datos de GEO desde R, ya que báscamente todo se puede hacer con un único comando:
+originales. Lo bueno de \textit{GEOquery} es que hace muy fácil acceder a los datos de GEO desde R, ya que básicamente todo se puede hacer con un único comando:
 \texttt{getGEO}. \newline
 
 Por ejemplo, para descargar un dataset completo (en este caso, el \textit{GDS1}), primero se carga la librería:
