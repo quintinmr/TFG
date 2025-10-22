@@ -1,0 +1,2 @@
+    $ tar -xf GSExxxx_RAW.tar
+    $ gunzip *gz

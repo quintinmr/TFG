@@ -1,0 +1,2058 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{referencia-1}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=383db3f2ca7dac30bd80b4d2be795cb9}{%
+           family={Roche},
+           familyi={R\bibinitperiod},
+           given={Instituto},
+           giveni={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{383db3f2ca7dac30bd80b4d2be795cb9}
+      \strng{fullhash}{383db3f2ca7dac30bd80b4d2be795cb9}
+      \strng{bibnamehash}{383db3f2ca7dac30bd80b4d2be795cb9}
+      \strng{authorbibnamehash}{383db3f2ca7dac30bd80b4d2be795cb9}
+      \strng{authornamehash}{383db3f2ca7dac30bd80b4d2be795cb9}
+      \strng{authorfullhash}{383db3f2ca7dac30bd80b4d2be795cb9}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Último acceso: 14 de enero de 2025}
+      \field{title}{Informe Anticipando Ciencias Ómicas}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.institutoroche.es/static/archivos/Informes_anticipando_CIENCIAS_OMICAS.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.institutoroche.es/static/archivos/Informes_anticipando_CIENCIAS_OMICAS.pdf
+      \endverb
+    \endentry
+    \entry{referencia-2}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=4cb03f848ca2ae2373ae0183aad33a75}{%
+           family={México},
+           familyi={M\bibinitperiod},
+           given={Universidad\bibnamedelimb Nacional\bibnamedelima Autónoma},
+           giveni={U\bibinitperiod\bibinitdelim N\bibinitperiod\bibinitdelim A\bibinitperiod},
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+      }
+      \strng{namehash}{4cb03f848ca2ae2373ae0183aad33a75}
+      \strng{fullhash}{4cb03f848ca2ae2373ae0183aad33a75}
+      \strng{bibnamehash}{4cb03f848ca2ae2373ae0183aad33a75}
+      \strng{authorbibnamehash}{4cb03f848ca2ae2373ae0183aad33a75}
+      \strng{authornamehash}{4cb03f848ca2ae2373ae0183aad33a75}
+      \strng{authorfullhash}{4cb03f848ca2ae2373ae0183aad33a75}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Último acceso: 14 de enero de 2025}
+      \field{title}{Revista UNAM Vol. 18 Núm. 7 Artículo 54}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://revista.unam.mx/vol.18/num7/art54/index.html?
+      \endverb
+      \verb{url}
+      \verb https://revista.unam.mx/vol.18/num7/art54/index.html?
+      \endverb
+    \endentry
+    \entry{referencia-5}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=4cb03f848ca2ae2373ae0183aad33a75}{%
+           family={México},
+           familyi={M\bibinitperiod},
+           given={Universidad\bibnamedelimb Nacional\bibnamedelima Autónoma},
+           giveni={U\bibinitperiod\bibinitdelim N\bibinitperiod\bibinitdelim A\bibinitperiod},
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+      }
+      \strng{namehash}{4cb03f848ca2ae2373ae0183aad33a75}
+      \strng{fullhash}{4cb03f848ca2ae2373ae0183aad33a75}
+      \strng{bibnamehash}{4cb03f848ca2ae2373ae0183aad33a75}
+      \strng{authorbibnamehash}{4cb03f848ca2ae2373ae0183aad33a75}
+      \strng{authornamehash}{4cb03f848ca2ae2373ae0183aad33a75}
+      \strng{authorfullhash}{4cb03f848ca2ae2373ae0183aad33a75}
+      \field{extraname}{2}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Último acceso: 15 de enero de 2025}
+      \field{title}{Artículo en Revista UNAM}
+      \field{year}{2017}
+      \verb{urlraw}
+      \verb https://www.revista.unam.mx/vol.18/num7/art54/PDF_art54.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.revista.unam.mx/vol.18/num7/art54/PDF_art54.pdf
+      \endverb
+    \endentry
+    \entry{tarca}{misc}{}
+      \name{author}{5}{}{%
+        {{hash=884e3934c2c4a54e8f22426f405d74d2}{%
+           family={Tarca},
+           familyi={T\bibinitperiod},
+           given={Adi\bibnamedelima L.},
+           giveni={A\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=999d20358033ca173bbacbd3afbe1518}{%
+           family={Carey},
+           familyi={C\bibinitperiod},
+           given={Vincent\bibnamedelima J.},
+           giveni={V\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=66e406fcc78cd5c24965728611175176}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Xue-wen},
+           giveni={X\bibinithyphendelim w\bibinitperiod}}}%
+        {{hash=0a5c329b19b9b873297829be3ed3ad16}{%
+           family={Romero},
+           familyi={R\bibinitperiod},
+           given={Roberto},
+           giveni={R\bibinitperiod}}}%
+        {{hash=82aae08b16e3e918dfe2f9304d87456a}{%
+           family={Drăghici},
+           familyi={D\bibinitperiod},
+           given={Sorin},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Public Library of Science}%
+      }
+      \strng{namehash}{5f7f010a7e16310a0b0a4bafc2f610d2}
+      \strng{fullhash}{75ca7e8ba74a088e64103aa7943e03b6}
+      \strng{bibnamehash}{5f7f010a7e16310a0b0a4bafc2f610d2}
+      \strng{authorbibnamehash}{5f7f010a7e16310a0b0a4bafc2f610d2}
+      \strng{authornamehash}{5f7f010a7e16310a0b0a4bafc2f610d2}
+      \strng{authorfullhash}{75ca7e8ba74a088e64103aa7943e03b6}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PLoS Computational Biology}
+      \field{note}{© 2007 Public Library of Science}
+      \field{number}{6}
+      \field{title}{Machine Learning and Its Applications to Biology}
+      \field{volume}{3}
+      \field{year}{2007}
+      \field{pages}{e116}
+      \range{pages}{-1}
+      \verb{urlraw}
+      \verb https://doi.org/10.1371/journal.pcbi.0030116
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1371/journal.pcbi.0030116
+      \endverb
+    \endentry
+    \entry{intro-1}{misc}{}
+      \name{author}{3}{}{%
+        {{hash=0cb8fe4210baa81c4b0e67913b4d2768}{%
+           family={Hastie},
+           familyi={H\bibinitperiod},
+           given={Trevor},
+           giveni={T\bibinitperiod}}}%
+        {{hash=88eea600247d798f8b2ce0b2dc614492}{%
+           family={Tibshirani},
+           familyi={T\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod}}}%
+        {{hash=971cf69058b64a94326dea0f2a8bbcce}{%
+           family={Friedman},
+           familyi={F\bibinitperiod},
+           given={Jerome},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{7ca1bfe876d5e037b6aed69704221267}
+      \strng{fullhash}{7ca1bfe876d5e037b6aed69704221267}
+      \strng{bibnamehash}{7ca1bfe876d5e037b6aed69704221267}
+      \strng{authorbibnamehash}{7ca1bfe876d5e037b6aed69704221267}
+      \strng{authornamehash}{7ca1bfe876d5e037b6aed69704221267}
+      \strng{authorfullhash}{7ca1bfe876d5e037b6aed69704221267}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2nd}
+      \field{isbn}{978-0-387-84857-0}
+      \field{note}{© 2009 Springer Science+Business Media, LLC}
+      \field{title}{The Elements of Statistical Learning: Data Mining, Inference, and Prediction}
+      \field{year}{2009}
+      \verb{urlraw}
+      \verb https://link.springer.com/book/10.1007/978-0-387-84858-7
+      \endverb
+      \verb{url}
+      \verb https://link.springer.com/book/10.1007/978-0-387-84858-7
+      \endverb
+    \endentry
+    \entry{kaneshia}{article}{}
+      \name{author}{5}{}{%
+        {{hash=ec3c5c5b7d5449aed63041d60bdd719e}{%
+           family={Kanehisa},
+           familyi={K\bibinitperiod},
+           given={Minoru},
+           giveni={M\bibinitperiod}}}%
+        {{hash=88fc3fc030f2b53b14b041bc6ad64942}{%
+           family={Furumichi},
+           familyi={F\bibinitperiod},
+           given={Miho},
+           giveni={M\bibinitperiod}}}%
+        {{hash=c64300bbfef35b412eeada0c09409514}{%
+           family={Tanabe},
+           familyi={T\bibinitperiod},
+           given={Mao},
+           giveni={M\bibinitperiod}}}%
+        {{hash=c0bbf441da14cb7c5a77919de50bd095}{%
+           family={Sato},
+           familyi={S\bibinitperiod},
+           given={Yoko},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=a4e9c4d216ea4c2422e031ee493ef042}{%
+           family={Morishima},
+           familyi={M\bibinitperiod},
+           given={Kanae},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{6af8e06ac88707a5b2ab9064f31dc094}
+      \strng{fullhash}{5490019c979caffa93b44d2486272000}
+      \strng{bibnamehash}{6af8e06ac88707a5b2ab9064f31dc094}
+      \strng{authorbibnamehash}{6af8e06ac88707a5b2ab9064f31dc094}
+      \strng{authornamehash}{6af8e06ac88707a5b2ab9064f31dc094}
+      \strng{authorfullhash}{5490019c979caffa93b44d2486272000}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nucleic Acids Research}
+      \field{note}{Published online 29 November 2016}
+      \field{number}{Database issue}
+      \field{title}{KEGG: new perspectives on genomes, pathways, diseases and drugs}
+      \field{volume}{45}
+      \field{year}{2017}
+      \field{pages}{D353\bibrangedash D361}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1093/nar/gkw1092
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1093/nar/gkw1092
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1093/nar/gkw1092
+      \endverb
+    \endentry
+    \entry{koh}{misc}{}
+      \name{author}{6}{}{%
+        {{hash=3b0deebf34cb5a180ceba2d5c9672026}{%
+           family={Koh},
+           familyi={K\bibinitperiod},
+           given={Hiromi\bibnamedelimb W.\bibnamedelimi L.},
+           giveni={H\bibinitperiod\bibinitdelim W\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=c36c2871a67016d644551801d67b87d7}{%
+           family={Fermin},
+           familyi={F\bibinitperiod},
+           given={Damian},
+           giveni={D\bibinitperiod}}}%
+        {{hash=b631f76e3a5923ac7e82caac9f5d6600}{%
+           family={Vogel},
+           familyi={V\bibinitperiod},
+           given={Christine},
+           giveni={C\bibinitperiod}}}%
+        {{hash=4248b582c48f7dae19313be6fd0c9339}{%
+           family={Choi},
+           familyi={C\bibinitperiod},
+           given={Kwok\bibnamedelima Pui},
+           giveni={K\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=3e7da4d3d2c5d9095a16df5ce1c5908f}{%
+           family={Ewing},
+           familyi={E\bibinitperiod},
+           given={Rob\bibnamedelima M.},
+           giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=5b5cfd8289d308807451c9e9537d6e2e}{%
+           family={Choi},
+           familyi={C\bibinitperiod},
+           given={Hyungwon},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group}%
+      }
+      \strng{namehash}{9e4e2a848fe6db125cdfdf9ef893fb53}
+      \strng{fullhash}{760e07617a1360fb79bb1cefc811ee54}
+      \strng{bibnamehash}{9e4e2a848fe6db125cdfdf9ef893fb53}
+      \strng{authorbibnamehash}{9e4e2a848fe6db125cdfdf9ef893fb53}
+      \strng{authornamehash}{9e4e2a848fe6db125cdfdf9ef893fb53}
+      \strng{authorfullhash}{760e07617a1360fb79bb1cefc811ee54}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{npj Systems Biology and Applications}
+      \field{note}{© 2021 Nature Publishing Group}
+      \field{title}{iOmicsPASS: network-based integration of multiomics data for predictive subnetwork discovery}
+      \field{volume}{7}
+      \field{year}{2021}
+      \field{pages}{8}
+      \range{pages}{1}
+      \verb{urlraw}
+      \verb https://www.nature.com/npjsba
+      \endverb
+      \verb{url}
+      \verb https://www.nature.com/npjsba
+      \endverb
+    \endentry
+    \entry{bioconductor-1}{article}{}
+      \name{author}{8}{}{%
+        {{hash=06840ce5f3ec7137c6c49ee1605b903c}{%
+           family={Huber},
+           familyi={H\bibinitperiod},
+           given={Wolfgang},
+           giveni={W\bibinitperiod}}}%
+        {{hash=999d20358033ca173bbacbd3afbe1518}{%
+           family={Carey},
+           familyi={C\bibinitperiod},
+           given={Vincent\bibnamedelima J.},
+           giveni={V\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=8a97fae1ed0550968a6f77cd783776f5}{%
+           family={Gentleman},
+           familyi={G\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod}}}%
+        {{hash=62831e4feef4a1127074be90f88b62f4}{%
+           family={Anders},
+           familyi={A\bibinitperiod},
+           given={Simon},
+           giveni={S\bibinitperiod}}}%
+        {{hash=436cb46ed891f6ad8d327d264cebe555}{%
+           family={Carlson},
+           familyi={C\bibinitperiod},
+           given={Marc},
+           giveni={M\bibinitperiod}}}%
+        {{hash=33d5ee790dab68b5e731513f30eb3dca}{%
+           family={Carvalho},
+           familyi={C\bibinitperiod},
+           given={Benilton\bibnamedelima S.},
+           giveni={B\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=bb5aeb0e943660f5cf8500788741b9e5}{%
+           family={Hofmann},
+           familyi={H\bibinitperiod},
+           given={Holger\bibnamedelima C.},
+           giveni={H\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=aa19dfb803b07ffa13770d3889b3d558}{%
+           family={Morgan},
+           familyi={M\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group}%
+      }
+      \strng{namehash}{fc2da058252a450763ed04e3165054ac}
+      \strng{fullhash}{e1e2e4991835fecc0eaad7fdf67286ba}
+      \strng{bibnamehash}{fc2da058252a450763ed04e3165054ac}
+      \strng{authorbibnamehash}{fc2da058252a450763ed04e3165054ac}
+      \strng{authornamehash}{fc2da058252a450763ed04e3165054ac}
+      \strng{authorfullhash}{e1e2e4991835fecc0eaad7fdf67286ba}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature Methods}
+      \field{number}{2}
+      \field{title}{Orchestrating high-throughput genomic analysis with Bioconductor}
+      \field{volume}{12}
+      \field{year}{2015}
+      \field{pages}{115\bibrangedash 121}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1038/nmeth.3252
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1038/nmeth.3252
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1038/nmeth.3252
+      \endverb
+    \endentry
+    \entry{Ayala2023}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=186d57c1a5d70bf7d04135cd1515027e}{%
+           family={Ayala},
+           familyi={A\bibinitperiod},
+           given={Guillermo},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Valencia, España}%
+      }
+      \list{publisher}{1}{%
+        {Universidad de Valencia}%
+      }
+      \strng{namehash}{186d57c1a5d70bf7d04135cd1515027e}
+      \strng{fullhash}{186d57c1a5d70bf7d04135cd1515027e}
+      \strng{bibnamehash}{186d57c1a5d70bf7d04135cd1515027e}
+      \strng{authorbibnamehash}{186d57c1a5d70bf7d04135cd1515027e}
+      \strng{authornamehash}{186d57c1a5d70bf7d04135cd1515027e}
+      \strng{authorfullhash}{186d57c1a5d70bf7d04135cd1515027e}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Edición digital en PDF}
+      \field{title}{Bioinformática Estadística}
+      \field{year}{2023}
+    \endentry
+    \entry{microarray-definition}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=df2151a7334204fd58749a46402a1f43}{%
+           family={Institute},
+           familyi={I\bibinitperiod},
+           given={National\bibnamedelimb Human\bibnamedelimb Genome\bibnamedelima Research},
+           giveni={N\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{df2151a7334204fd58749a46402a1f43}
+      \strng{fullhash}{df2151a7334204fd58749a46402a1f43}
+      \strng{bibnamehash}{df2151a7334204fd58749a46402a1f43}
+      \strng{authorbibnamehash}{df2151a7334204fd58749a46402a1f43}
+      \strng{authornamehash}{df2151a7334204fd58749a46402a1f43}
+      \strng{authorfullhash}{df2151a7334204fd58749a46402a1f43}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Último acceso: 23 de febrero de 2025}
+      \field{title}{Tecnología de microarrays (chips de ADN o ARN)}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.genome.gov/es/genetics-glossary/Tecnolog%C3%ADa-de-microarrays-chips-de-ADN-o-ARN
+      \endverb
+      \verb{url}
+      \verb https://www.genome.gov/es/genetics-glossary/Tecnolog%C3%ADa-de-microarrays-chips-de-ADN-o-ARN
+      \endverb
+    \endentry
+    \entry{exon-definition}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=df2151a7334204fd58749a46402a1f43}{%
+           family={Institute},
+           familyi={I\bibinitperiod},
+           given={National\bibnamedelimb Human\bibnamedelimb Genome\bibnamedelima Research},
+           giveni={N\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{df2151a7334204fd58749a46402a1f43}
+      \strng{fullhash}{df2151a7334204fd58749a46402a1f43}
+      \strng{bibnamehash}{df2151a7334204fd58749a46402a1f43}
+      \strng{authorbibnamehash}{df2151a7334204fd58749a46402a1f43}
+      \strng{authornamehash}{df2151a7334204fd58749a46402a1f43}
+      \strng{authorfullhash}{df2151a7334204fd58749a46402a1f43}
+      \field{extraname}{2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Último acceso: 23 de febrero de 2025}
+      \field{title}{Exón}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.genome.gov/genetics-glossary/Exon
+      \endverb
+      \verb{url}
+      \verb https://www.genome.gov/genetics-glossary/Exon
+      \endverb
+    \endentry
+    \entry{intron-definition}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=df2151a7334204fd58749a46402a1f43}{%
+           family={Institute},
+           familyi={I\bibinitperiod},
+           given={National\bibnamedelimb Human\bibnamedelimb Genome\bibnamedelima Research},
+           giveni={N\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{df2151a7334204fd58749a46402a1f43}
+      \strng{fullhash}{df2151a7334204fd58749a46402a1f43}
+      \strng{bibnamehash}{df2151a7334204fd58749a46402a1f43}
+      \strng{authorbibnamehash}{df2151a7334204fd58749a46402a1f43}
+      \strng{authornamehash}{df2151a7334204fd58749a46402a1f43}
+      \strng{authorfullhash}{df2151a7334204fd58749a46402a1f43}
+      \field{extraname}{3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Último acceso: 23 de febrero de 2025}
+      \field{title}{Intrón}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.genome.gov/es/genetics-glossary/Intron
+      \endverb
+      \verb{url}
+      \verb https://www.genome.gov/es/genetics-glossary/Intron
+      \endverb
+    \endentry
+    \entry{expresion-genica-definition}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=df2151a7334204fd58749a46402a1f43}{%
+           family={Institute},
+           familyi={I\bibinitperiod},
+           given={National\bibnamedelimb Human\bibnamedelimb Genome\bibnamedelima Research},
+           giveni={N\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{df2151a7334204fd58749a46402a1f43}
+      \strng{fullhash}{df2151a7334204fd58749a46402a1f43}
+      \strng{bibnamehash}{df2151a7334204fd58749a46402a1f43}
+      \strng{authorbibnamehash}{df2151a7334204fd58749a46402a1f43}
+      \strng{authornamehash}{df2151a7334204fd58749a46402a1f43}
+      \strng{authorfullhash}{df2151a7334204fd58749a46402a1f43}
+      \field{extraname}{4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Último acceso: 23 de febrero de 2025}
+      \field{title}{Expresión génica}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.genome.gov/es/genetics-glossary/Expresion-genica
+      \endverb
+      \verb{url}
+      \verb https://www.genome.gov/es/genetics-glossary/Expresion-genica
+      \endverb
+    \endentry
+    \entry{phenotype-definition}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=df2151a7334204fd58749a46402a1f43}{%
+           family={Institute},
+           familyi={I\bibinitperiod},
+           given={National\bibnamedelimb Human\bibnamedelimb Genome\bibnamedelima Research},
+           giveni={N\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{df2151a7334204fd58749a46402a1f43}
+      \strng{fullhash}{df2151a7334204fd58749a46402a1f43}
+      \strng{bibnamehash}{df2151a7334204fd58749a46402a1f43}
+      \strng{authorbibnamehash}{df2151a7334204fd58749a46402a1f43}
+      \strng{authornamehash}{df2151a7334204fd58749a46402a1f43}
+      \strng{authorfullhash}{df2151a7334204fd58749a46402a1f43}
+      \field{extraname}{5}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Último acceso: 23 de febrero de 2025}
+      \field{title}{Fenotipo}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.genome.gov/es/genetics-glossary/Fenotipo
+      \endverb
+      \verb{url}
+      \verb https://www.genome.gov/es/genetics-glossary/Fenotipo
+      \endverb
+    \endentry
+    \entry{transcriptomics-1}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=ad07afaf1ddb08bc4e01c2936ba8cb83}{%
+           family={Dong},
+           familyi={D\bibinitperiod},
+           given={ZhiCheng},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=b6f25c2ea695f4385f6acab832194dfc}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Yan},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Guangzhou 510650, China}%
+      }
+      \list{publisher}{2}{%
+        {Key Laboratory of Plant Resources Conservation}%
+        {Sustainable Utilization, South China Botanical Garden, Chinese Academy of Sciences}%
+      }
+      \strng{namehash}{46d87219794c7c2ce677813cbac77f44}
+      \strng{fullhash}{46d87219794c7c2ce677813cbac77f44}
+      \strng{bibnamehash}{46d87219794c7c2ce677813cbac77f44}
+      \strng{authorbibnamehash}{46d87219794c7c2ce677813cbac77f44}
+      \strng{authornamehash}{46d87219794c7c2ce677813cbac77f44}
+      \strng{authorfullhash}{46d87219794c7c2ce677813cbac77f44}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Recibido el 14 de agosto de 2013; aceptado el 6 de septiembre de 2013}
+      \field{title}{Transcriptomics: Advances and Approaches}
+      \field{year}{2013}
+    \endentry
+    \entry{transcriptomics-2-RNA-seq}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=c2882ec5a8d0de9d6161605ce6d87a26}{%
+           family={Zhong\bibnamedelima Wang},
+           familyi={Z\bibinitperiod\bibinitdelim W\bibinitperiod},
+           given={Mark\bibnamedelima Gerstein},
+           giveni={M\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=7d041659633e29317689385f227d3173}{%
+           family={Snyder},
+           familyi={S\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{4}{%
+        {Department of Molecular, Cellular}%
+        {Developmental Biology,}%
+        {Department of Molecular, Biophysics}%
+        {Biochemistry, Yale University, 219 Prospect Street, New Haven, Connecticut 06520, USA}%
+      }
+      \list{publisher}{1}{%
+        {Nature Reviews Genetics}%
+      }
+      \strng{namehash}{19a34e9b1352901a854937f95986c4ef}
+      \strng{fullhash}{19a34e9b1352901a854937f95986c4ef}
+      \strng{bibnamehash}{19a34e9b1352901a854937f95986c4ef}
+      \strng{authorbibnamehash}{19a34e9b1352901a854937f95986c4ef}
+      \strng{authornamehash}{19a34e9b1352901a854937f95986c4ef}
+      \strng{authorfullhash}{19a34e9b1352901a854937f95986c4ef}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nat Rev Genet.}
+      \field{note}{Publicado en versión final editada en enero de 2009}
+      \field{number}{1}
+      \field{title}{RNA-Seq: a revolutionary tool for transcriptomics}
+      \field{volume}{10}
+      \field{year}{2009}
+      \field{pages}{57\bibrangedash 63}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1038/nrg2484
+      \endverb
+    \endentry
+    \entry{contig-definition}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=383db3f2ca7dac30bd80b4d2be795cb9}{%
+           family={Roche},
+           familyi={R\bibinitperiod},
+           given={Instituto},
+           giveni={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{383db3f2ca7dac30bd80b4d2be795cb9}
+      \strng{fullhash}{383db3f2ca7dac30bd80b4d2be795cb9}
+      \strng{bibnamehash}{383db3f2ca7dac30bd80b4d2be795cb9}
+      \strng{authorbibnamehash}{383db3f2ca7dac30bd80b4d2be795cb9}
+      \strng{authornamehash}{383db3f2ca7dac30bd80b4d2be795cb9}
+      \strng{authorfullhash}{383db3f2ca7dac30bd80b4d2be795cb9}
+      \field{extraname}{2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Último acceso: 23 de febrero de 2025}
+      \field{title}{Contig}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.institutoroche.es/recursos/glosario/contig
+      \endverb
+      \verb{url}
+      \verb https://www.institutoroche.es/recursos/glosario/contig
+      \endverb
+    \endentry
+    \entry{splicing-definition}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=1feceb2fec19653f213a8eb53563ea6f}{%
+           family={Genome},
+           familyi={G\bibinitperiod},
+           given={Your},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{1feceb2fec19653f213a8eb53563ea6f}
+      \strng{fullhash}{1feceb2fec19653f213a8eb53563ea6f}
+      \strng{bibnamehash}{1feceb2fec19653f213a8eb53563ea6f}
+      \strng{authorbibnamehash}{1feceb2fec19653f213a8eb53563ea6f}
+      \strng{authornamehash}{1feceb2fec19653f213a8eb53563ea6f}
+      \strng{authorfullhash}{1feceb2fec19653f213a8eb53563ea6f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Último acceso: 23 de febrero de 2025}
+      \field{title}{What is RNA Splicing?}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.yourgenome.org/theme/what-is-rna-splicing/
+      \endverb
+      \verb{url}
+      \verb https://www.yourgenome.org/theme/what-is-rna-splicing/
+      \endverb
+    \endentry
+    \entry{transcriptomics-2-RNA-seq-2}{misc}{}
+      \name{author}{5}{}{%
+        {{hash=c3562acf55b61e562ff47221e309b39e}{%
+           family={Mortazavi},
+           familyi={M\bibinitperiod},
+           given={Ali},
+           giveni={A\bibinitperiod}}}%
+        {{hash=97b7a18db38a3e22d46cf01df7d1a38a}{%
+           family={Williams},
+           familyi={W\bibinitperiod},
+           given={Brian\bibnamedelima A.},
+           giveni={B\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=bf5af3ed483cefce58086a4d15b1d823}{%
+           family={McCue},
+           familyi={M\bibinitperiod},
+           given={Kenneth},
+           giveni={K\bibinitperiod}}}%
+        {{hash=aeb57e3dbeb2d50f2211087ef12f9835}{%
+           family={Schaeffer},
+           familyi={S\bibinitperiod},
+           given={Lorian},
+           giveni={L\bibinitperiod}}}%
+        {{hash=530e94609b5073870ac8d4067b6928e2}{%
+           family={Wold},
+           familyi={W\bibinitperiod},
+           given={Barbara},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group}%
+      }
+      \strng{namehash}{272bc4d10ccc0083239202a9e140bac7}
+      \strng{fullhash}{6a1eb67de9002c3fa4726a647ccc3bb7}
+      \strng{bibnamehash}{272bc4d10ccc0083239202a9e140bac7}
+      \strng{authorbibnamehash}{272bc4d10ccc0083239202a9e140bac7}
+      \strng{authornamehash}{272bc4d10ccc0083239202a9e140bac7}
+      \strng{authorfullhash}{6a1eb67de9002c3fa4726a647ccc3bb7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature Methods}
+      \field{note}{© 2008 Nature Publishing Group}
+      \field{title}{Mapping and quantifying mammalian transcriptomes by RNA-Seq}
+      \field{year}{2008}
+      \verb{urlraw}
+      \verb http://www.nature.com/naturemethods
+      \endverb
+      \verb{url}
+      \verb http://www.nature.com/naturemethods
+      \endverb
+    \endentry
+    \entry{transcriptomics-2-RNA-seq-3}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=4ab610ba341268692f729bbe42c3a7f7}{%
+           family={Alicia\bibnamedelima Oshlack},
+           familyi={A\bibinitperiod\bibinitdelim O\bibinitperiod},
+           given={Mark\bibnamedelimb D.\bibnamedelimi Robinson},
+           giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=579ff19af45c03843cbd8263600965ac}{%
+           family={Young},
+           familyi={Y\bibinitperiod},
+           given={Matthew\bibnamedelima D.},
+           giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Genome Biology}%
+      }
+      \strng{namehash}{8074e7dc3e7ea4da08f9666130566a9b}
+      \strng{fullhash}{8074e7dc3e7ea4da08f9666130566a9b}
+      \strng{bibnamehash}{8074e7dc3e7ea4da08f9666130566a9b}
+      \strng{authorbibnamehash}{8074e7dc3e7ea4da08f9666130566a9b}
+      \strng{authornamehash}{8074e7dc3e7ea4da08f9666130566a9b}
+      \strng{authorfullhash}{8074e7dc3e7ea4da08f9666130566a9b}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Genome Biology}
+      \field{note}{REVIEW}
+      \field{number}{12}
+      \field{title}{From RNA-seq reads to differential expression results}
+      \field{volume}{11}
+      \field{year}{2010}
+      \field{pages}{220}
+      \range{pages}{1}
+      \verb{urlraw}
+      \verb http://genomebiology.com/2010/11/12/220
+      \endverb
+      \verb{url}
+      \verb http://genomebiology.com/2010/11/12/220
+      \endverb
+    \endentry
+    \entry{transcriptomics-3-scRNA-seq-1}{misc}{}
+      \name{author}{4}{}{%
+        {{hash=fca159975fa2ad55c385f1fc10639959}{%
+           family={Haque},
+           familyi={H\bibinitperiod},
+           given={Ashraful},
+           giveni={A\bibinitperiod}}}%
+        {{hash=4c7dbc3962e72af1f1ea5e07e172c750}{%
+           family={Engel},
+           familyi={E\bibinitperiod},
+           given={Jessica},
+           giveni={J\bibinitperiod}}}%
+        {{hash=755501ce6bb27fbe4d7ac4d6cb3070a1}{%
+           family={Teichmann},
+           familyi={T\bibinitperiod},
+           given={Sarah\bibnamedelima A.},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=07d60998b8f5806592ed5e41803ba030}{%
+           family={Lönnberg},
+           familyi={L\bibinitperiod},
+           given={Tapio},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Genome Medicine}%
+      }
+      \strng{namehash}{551f93244ac32705cb438aaf8e3ccd5d}
+      \strng{fullhash}{12bb24456f66a215a328837b5768c73e}
+      \strng{bibnamehash}{551f93244ac32705cb438aaf8e3ccd5d}
+      \strng{authorbibnamehash}{551f93244ac32705cb438aaf8e3ccd5d}
+      \strng{authornamehash}{551f93244ac32705cb438aaf8e3ccd5d}
+      \strng{authorfullhash}{12bb24456f66a215a328837b5768c73e}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Genome Medicine}
+      \field{note}{REVIEW, Open Access}
+      \field{number}{75}
+      \field{title}{A practical guide to single-cell RNA-sequencing for biomedical research and clinical applications}
+      \field{volume}{9}
+      \field{year}{2017}
+      \verb{doi}
+      \verb 10.1186/s13073-017-0467-4
+      \endverb
+    \endentry
+    \entry{transcriptomics-3-scRNA-seq-2}{misc}{}
+      \name{author}{6}{}{%
+        {{hash=8c70307df78e61d3362ae224bb5433cd}{%
+           family={Jovic},
+           familyi={J\bibinitperiod},
+           given={Dragomirka},
+           giveni={D\bibinitperiod}}}%
+        {{hash=637831831f0083bb93477c09b8822b10}{%
+           family={Liang},
+           familyi={L\bibinitperiod},
+           given={Xue},
+           giveni={X\bibinitperiod}}}%
+        {{hash=d1cf1ca539533d586684b5d5ddb75834}{%
+           family={Zeng},
+           familyi={Z\bibinitperiod},
+           given={Hua},
+           giveni={H\bibinitperiod}}}%
+        {{hash=fb72b03bb0004672eb40dd00cb76bdcd}{%
+           family={Lin},
+           familyi={L\bibinitperiod},
+           given={Lin},
+           giveni={L\bibinitperiod}}}%
+        {{hash=5b6033eee983fd5959a39a3ad504ca05}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Fengping},
+           giveni={F\bibinitperiod}}}%
+        {{hash=2b8933add817d64106bf47e9af4926a6}{%
+           family={Luo},
+           familyi={L\bibinitperiod},
+           given={Yonglun},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{4c02b2a544094933dcb80de839dd845f}
+      \strng{fullhash}{2ea0b5fd571baeac3eee5182fa6d1fef}
+      \strng{bibnamehash}{4c02b2a544094933dcb80de839dd845f}
+      \strng{authorbibnamehash}{4c02b2a544094933dcb80de839dd845f}
+      \strng{authornamehash}{4c02b2a544094933dcb80de839dd845f}
+      \strng{authorfullhash}{2ea0b5fd571baeac3eee5182fa6d1fef}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{REVIEW, Recibido: 5 de agosto de 2021; Revisado: 9 de diciembre de 2021; Aceptado: 20 de diciembre de 2021}
+      \field{title}{Single-cell RNA sequencing technologies and applications: A brief overview}
+      \field{year}{2021}
+      \verb{doi}
+      \verb 10.1002/ctm2.694
+      \endverb
+    \endentry
+    \entry{BroadInstitute2019}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=1a0ec606f10fedffbc31788f626c234d}{%
+           family={Institute},
+           familyi={I\bibinitperiod},
+           given={Broad},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{1a0ec606f10fedffbc31788f626c234d}
+      \strng{fullhash}{1a0ec606f10fedffbc31788f626c234d}
+      \strng{bibnamehash}{1a0ec606f10fedffbc31788f626c234d}
+      \strng{authorbibnamehash}{1a0ec606f10fedffbc31788f626c234d}
+      \strng{authornamehash}{1a0ec606f10fedffbc31788f626c234d}
+      \strng{authorfullhash}{1a0ec606f10fedffbc31788f626c234d}
+      \field{extraname}{6}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Último acceso: 23 de febrero de 2025}
+      \field{title}{Processing Single-Cell RNA-Seq Data}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://broadinstitute.github.io/2019_scWorkshop/processing-scrnaseq-data.html
+      \endverb
+      \verb{url}
+      \verb https://broadinstitute.github.io/2019_scWorkshop/processing-scrnaseq-data.html
+      \endverb
+    \endentry
+    \entry{hist-mul-1}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=bc494e85138645cc303073fa81c1c16c}{%
+           family={Rao},
+           familyi={R\bibinitperiod},
+           given={C.\bibnamedelimi Radhakrishna},
+           giveni={C\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Indian Statistical Institute}%
+      }
+      \strng{namehash}{bc494e85138645cc303073fa81c1c16c}
+      \strng{fullhash}{bc494e85138645cc303073fa81c1c16c}
+      \strng{bibnamehash}{bc494e85138645cc303073fa81c1c16c}
+      \strng{authorbibnamehash}{bc494e85138645cc303073fa81c1c16c}
+      \strng{authornamehash}{bc494e85138645cc303073fa81c1c16c}
+      \strng{authorfullhash}{bc494e85138645cc303073fa81c1c16c}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Sankhyā: The Indian Journal of Statistics, Series B (1960-2002)}
+      \field{number}{2}
+      \field{title}{Multivariate Analysis: Some Reminiscences on Its Origin and Development}
+      \field{volume}{45}
+      \field{year}{1983}
+      \field{pages}{284\bibrangedash 299}
+      \range{pages}{16}
+      \verb{urlraw}
+      \verb https://www.jstor.org/stable/25052296
+      \endverb
+      \verb{url}
+      \verb https://www.jstor.org/stable/25052296
+      \endverb
+    \endentry
+    \entry{hist-mul-2}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=c260f36aa87d6ab7d9c8623f2bcf9957}{%
+           family={Shiker},
+           familyi={S\bibinitperiod},
+           given={Mushtak\bibnamedelima A.K.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Education College for Pure Science – Babylon University}%
+      }
+      \strng{namehash}{c260f36aa87d6ab7d9c8623f2bcf9957}
+      \strng{fullhash}{c260f36aa87d6ab7d9c8623f2bcf9957}
+      \strng{bibnamehash}{c260f36aa87d6ab7d9c8623f2bcf9957}
+      \strng{authorbibnamehash}{c260f36aa87d6ab7d9c8623f2bcf9957}
+      \strng{authornamehash}{c260f36aa87d6ab7d9c8623f2bcf9957}
+      \strng{authorfullhash}{c260f36aa87d6ab7d9c8623f2bcf9957}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{British Journal of Science}
+      \field{number}{1}
+      \field{title}{Multivariate Statistical Analysis}
+      \field{volume}{6}
+      \field{year}{2012}
+      \field{pages}{55}
+      \range{pages}{1}
+      \verb{urlraw}
+      \verb https://www.britishjournalofscience.com
+      \endverb
+      \verb{url}
+      \verb https://www.britishjournalofscience.com
+      \endverb
+    \endentry
+    \entry{Bib-1}{book}{}
+      \name{author}{2}{}{%
+        {{hash=67e3a4b81bdc0419963f493654cb5bc7}{%
+           family={Rencher},
+           familyi={R\bibinitperiod},
+           given={Alvin\bibnamedelima C.},
+           giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=6d2169a882beb34f334b30de91ecb391}{%
+           family={Christensen},
+           familyi={C\bibinitperiod},
+           given={William\bibnamedelima F.},
+           giveni={W\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Provo, Utah}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley & Sons, Inc.}%
+      }
+      \strng{namehash}{f501c4f8bf75d22e6cbd2b444081674c}
+      \strng{fullhash}{f501c4f8bf75d22e6cbd2b444081674c}
+      \strng{bibnamehash}{f501c4f8bf75d22e6cbd2b444081674c}
+      \strng{authorbibnamehash}{f501c4f8bf75d22e6cbd2b444081674c}
+      \strng{authornamehash}{f501c4f8bf75d22e6cbd2b444081674c}
+      \strng{authorfullhash}{f501c4f8bf75d22e6cbd2b444081674c}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3rd}
+      \field{note}{Editors: David J. Balding, Noel A. C. Cressie, Garrett M. Fitzmaurice, Harvey Goldstein, Iain M. Johnstone, Geert Molenberghs, David W. Scott, Adrian F. M. Smith, Ruey S. Tsay, Sanford Weisberg}
+      \field{series}{Wiley Series in Probability and Statistics}
+      \field{title}{Methods of Multivariate Analysis}
+      \field{year}{2012}
+    \endentry
+    \entry{bejar-PCA}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=437a99eab275e19d3b4d8b69d5200d4b}{%
+           family={Béjar},
+           familyi={B\bibinitperiod},
+           given={José\bibnamedelimb Luis\bibnamedelima Romero},
+           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=74749879f28d527873cd01e480e6e849}{%
+           family={Díaz},
+           familyi={D\bibinitperiod},
+           given={Carlos\bibnamedelimb Francisco\bibnamedelima Salto},
+           giveni={C\bibinitperiod\bibinitdelim F\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{f3d5db1912360c1b1622afc50bfe0918}
+      \strng{fullhash}{f3d5db1912360c1b1622afc50bfe0918}
+      \strng{bibnamehash}{f3d5db1912360c1b1622afc50bfe0918}
+      \strng{authorbibnamehash}{f3d5db1912360c1b1622afc50bfe0918}
+      \strng{authornamehash}{f3d5db1912360c1b1622afc50bfe0918}
+      \strng{authorfullhash}{f3d5db1912360c1b1622afc50bfe0918}
+      \field{extraname}{1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Asignatura: Estadística Multivariante (Prácticas). Grados en: Física y Matemáticas; Ingeniería Informática y Matemáticas; Matemáticas (4º Curso - 1er semestre 2023-2024)}
+      \field{title}{Tema 3.- Análisis de componentes principales (ACP)}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://digibug.ugr.es/bitstream/handle/10481/85857/ACP.pdf?sequence=1&isAllowed=y
+      \endverb
+      \verb{url}
+      \verb https://digibug.ugr.es/bitstream/handle/10481/85857/ACP.pdf?sequence=1&isAllowed=y
+      \endverb
+    \endentry
+    \entry{bejar-AF}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=437a99eab275e19d3b4d8b69d5200d4b}{%
+           family={Béjar},
+           familyi={B\bibinitperiod},
+           given={José\bibnamedelimb Luis\bibnamedelima Romero},
+           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=74749879f28d527873cd01e480e6e849}{%
+           family={Díaz},
+           familyi={D\bibinitperiod},
+           given={Carlos\bibnamedelimb Francisco\bibnamedelima Salto},
+           giveni={C\bibinitperiod\bibinitdelim F\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{f3d5db1912360c1b1622afc50bfe0918}
+      \strng{fullhash}{f3d5db1912360c1b1622afc50bfe0918}
+      \strng{bibnamehash}{f3d5db1912360c1b1622afc50bfe0918}
+      \strng{authorbibnamehash}{f3d5db1912360c1b1622afc50bfe0918}
+      \strng{authornamehash}{f3d5db1912360c1b1622afc50bfe0918}
+      \strng{authorfullhash}{f3d5db1912360c1b1622afc50bfe0918}
+      \field{extraname}{2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Asignatura: Estadística Multivariante (Prácticas). Grados en: Física y Matemáticas; Ingeniería Informática y Matemáticas; Matemáticas (4º Curso - 1er semestre 2023-2024)}
+      \field{title}{Tema 4.- Análisis factorial (AF)}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://digibug.ugr.es/bitstream/handle/10481/85859/AF.pdf?sequence=1&isAllowed=y
+      \endverb
+      \verb{url}
+      \verb https://digibug.ugr.es/bitstream/handle/10481/85859/AF.pdf?sequence=1&isAllowed=y
+      \endverb
+    \endentry
+    \entry{Bib-5}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=8a3d890752df384511f8e205f96b9df2}{%
+           family={Timm},
+           familyi={T\bibinitperiod},
+           given={Neil\bibnamedelima H.},
+           giveni={N\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag New York, Inc.}%
+      }
+      \strng{namehash}{8a3d890752df384511f8e205f96b9df2}
+      \strng{fullhash}{8a3d890752df384511f8e205f96b9df2}
+      \strng{bibnamehash}{8a3d890752df384511f8e205f96b9df2}
+      \strng{authorbibnamehash}{8a3d890752df384511f8e205f96b9df2}
+      \strng{authornamehash}{8a3d890752df384511f8e205f96b9df2}
+      \strng{authorfullhash}{8a3d890752df384511f8e205f96b9df2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-387-95347-7}
+      \field{note}{Primera edición}
+      \field{series}{Springer Texts in Statistics}
+      \field{title}{Applied Multivariate Analysis}
+      \field{year}{2002}
+    \endentry
+    \entry{Bib-6}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=6bb96042d137af5edf7327fde1dfdb73}{%
+           family={Härdle},
+           familyi={H\bibinitperiod},
+           given={Wolfgang\bibnamedelima Karl},
+           giveni={W\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=371ef20bd039029efa748a2d987270f1}{%
+           family={Simar},
+           familyi={S\bibinitperiod},
+           given={Léopold},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag Berlin Heidelberg}%
+      }
+      \strng{namehash}{71d16b10e0e0737ccf3c122ad5b27be4}
+      \strng{fullhash}{71d16b10e0e0737ccf3c122ad5b27be4}
+      \strng{bibnamehash}{71d16b10e0e0737ccf3c122ad5b27be4}
+      \strng{authorbibnamehash}{71d16b10e0e0737ccf3c122ad5b27be4}
+      \strng{authornamehash}{71d16b10e0e0737ccf3c122ad5b27be4}
+      \strng{authorfullhash}{71d16b10e0e0737ccf3c122ad5b27be4}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{Fourth Edition}
+      \field{isbn}{978-3-662-45170-0}
+      \field{note}{Library of Congress Control Number: 2015933294}
+      \field{title}{Applied Multivariate Statistical Analysis}
+      \field{year}{2015}
+      \verb{doi}
+      \verb 10.1007/978-3-662-45171-7
+      \endverb
+    \endentry
+    \entry{clustering-2}{misc}{}
+      \name{author}{4}{}{%
+        {{hash=eee1f2f055267668599914e680e1e04a}{%
+           family={Everitt},
+           familyi={E\bibinitperiod},
+           given={Brian\bibnamedelima S.},
+           giveni={B\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=6680fee84e6e0dc9914bda71d5575ffe}{%
+           family={Landau},
+           familyi={L\bibinitperiod},
+           given={Sabine},
+           giveni={S\bibinitperiod}}}%
+        {{hash=dd1b8cd4964da2ad4a6f2d693de3db21}{%
+           family={Leese},
+           familyi={L\bibinitperiod},
+           given={Morven},
+           giveni={M\bibinitperiod}}}%
+        {{hash=e8dd44465fe4ea1b665706f7ac5e49f8}{%
+           family={Stahl},
+           familyi={S\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{c7ae74854aa35bcea95b072ed5ccd887}
+      \strng{fullhash}{6abf092cd17ce6d434a100c8e7d1aa0e}
+      \strng{bibnamehash}{c7ae74854aa35bcea95b072ed5ccd887}
+      \strng{authorbibnamehash}{c7ae74854aa35bcea95b072ed5ccd887}
+      \strng{authornamehash}{c7ae74854aa35bcea95b072ed5ccd887}
+      \strng{authorfullhash}{6abf092cd17ce6d434a100c8e7d1aa0e}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{5th}
+      \field{note}{Quinta edición}
+      \field{title}{Cluster Analysis}
+      \field{year}{2011}
+    \endentry
+    \entry{bejar-AC}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=437a99eab275e19d3b4d8b69d5200d4b}{%
+           family={Béjar},
+           familyi={B\bibinitperiod},
+           given={José\bibnamedelimb Luis\bibnamedelima Romero},
+           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=74749879f28d527873cd01e480e6e849}{%
+           family={Díaz},
+           familyi={D\bibinitperiod},
+           given={Carlos\bibnamedelimb Francisco\bibnamedelima Salto},
+           giveni={C\bibinitperiod\bibinitdelim F\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Universidad de Granada}%
+      }
+      \strng{namehash}{f3d5db1912360c1b1622afc50bfe0918}
+      \strng{fullhash}{f3d5db1912360c1b1622afc50bfe0918}
+      \strng{bibnamehash}{f3d5db1912360c1b1622afc50bfe0918}
+      \strng{authorbibnamehash}{f3d5db1912360c1b1622afc50bfe0918}
+      \strng{authornamehash}{f3d5db1912360c1b1622afc50bfe0918}
+      \strng{authorfullhash}{f3d5db1912360c1b1622afc50bfe0918}
+      \field{extraname}{3}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Material protegido por la Licencia Creative Commons CC BY-NC-ND}
+      \field{title}{Tema 6.- Análisis cluster (AC)}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://digibug.ugr.es/bitstream/handle/10481/85861/AC.pdf?sequence=1&isAllowed=y
+      \endverb
+      \verb{url}
+      \verb https://digibug.ugr.es/bitstream/handle/10481/85861/AC.pdf?sequence=1&isAllowed=y
+      \endverb
+    \endentry
+    \entry{img-cluster-1}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=5e7d16345c4f9bd7bdc29f4060faedaf}{%
+           family={Stack\bibnamedelima Overflow},
+           familyi={S\bibinitperiod\bibinitdelim O\bibinitperiod},
+           given={Usuario},
+           giveni={U\bibinitperiod},
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Stack Overflow}%
+      }
+      \strng{namehash}{5e7d16345c4f9bd7bdc29f4060faedaf}
+      \strng{fullhash}{5e7d16345c4f9bd7bdc29f4060faedaf}
+      \strng{bibnamehash}{5e7d16345c4f9bd7bdc29f4060faedaf}
+      \strng{authorbibnamehash}{5e7d16345c4f9bd7bdc29f4060faedaf}
+      \strng{authornamehash}{5e7d16345c4f9bd7bdc29f4060faedaf}
+      \strng{authorfullhash}{5e7d16345c4f9bd7bdc29f4060faedaf}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Pregunta y respuestas en la plataforma Stack Overflow}
+      \field{title}{Adding labels to cluster}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://stackoverflow.com/questions/50107157/adding-labels-to-cluster
+      \endverb
+      \verb{url}
+      \verb https://stackoverflow.com/questions/50107157/adding-labels-to-cluster
+      \endverb
+    \endentry
+    \entry{clustering-1}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=cd01587a47d1084d2adebe55a57d1c5c}{%
+           family={Jain},
+           familyi={J\bibinitperiod},
+           given={Anil\bibnamedelima K.},
+           giveni={A\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=e755f9a92b808557e1ad98df119867d9}{%
+           family={Dubes},
+           familyi={D\bibinitperiod},
+           given={Richard\bibnamedelima C.},
+           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Prentice Hall}%
+      }
+      \strng{namehash}{01f324a6f30a98d9def18769fda7eab2}
+      \strng{fullhash}{01f324a6f30a98d9def18769fda7eab2}
+      \strng{bibnamehash}{01f324a6f30a98d9def18769fda7eab2}
+      \strng{authorbibnamehash}{01f324a6f30a98d9def18769fda7eab2}
+      \strng{authornamehash}{01f324a6f30a98d9def18769fda7eab2}
+      \strng{authorfullhash}{01f324a6f30a98d9def18769fda7eab2}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Primera edición}
+      \field{title}{Algorithms for Clustering Data}
+      \field{year}{1988}
+    \endentry
+    \entry{def-norma}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=1fb00b643aebbbf1d0caa839683f1f80}{%
+           family={Albert},
+           familyi={A\bibinitperiod},
+           given={Rafael\bibnamedelima Payá},
+           giveni={R\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Universidad de Granada}%
+      }
+      \strng{namehash}{1fb00b643aebbbf1d0caa839683f1f80}
+      \strng{fullhash}{1fb00b643aebbbf1d0caa839683f1f80}
+      \strng{bibnamehash}{1fb00b643aebbbf1d0caa839683f1f80}
+      \strng{authorbibnamehash}{1fb00b643aebbbf1d0caa839683f1f80}
+      \strng{authornamehash}{1fb00b643aebbbf1d0caa839683f1f80}
+      \strng{authorfullhash}{1fb00b643aebbbf1d0caa839683f1f80}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Material de Análisis I}
+      \field{title}{Definición de norma}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb https://www.ugr.es/~rpaya/documentos/AnalisisI/2014-15/Normados.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.ugr.es/~rpaya/documentos/AnalisisI/2014-15/Normados.pdf
+      \endverb
+    \endentry
+    \entry{cluster-mahalanobis}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=bd9fb1762e02a556ad96894f09630fd4}{%
+           family={Granada},
+           familyi={G\bibinitperiod},
+           given={Universidad},
+           giveni={U\bibinitperiod},
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Universidad de Granada}%
+      }
+      \strng{namehash}{bd9fb1762e02a556ad96894f09630fd4}
+      \strng{fullhash}{bd9fb1762e02a556ad96894f09630fd4}
+      \strng{bibnamehash}{bd9fb1762e02a556ad96894f09630fd4}
+      \strng{authorbibnamehash}{bd9fb1762e02a556ad96894f09630fd4}
+      \strng{authornamehash}{bd9fb1762e02a556ad96894f09630fd4}
+      \strng{authorfullhash}{bd9fb1762e02a556ad96894f09630fd4}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Material de estudio sobre clustering}
+      \field{title}{Técnicas de clustering y la métrica de Mahalanobis}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.ugr.es/~gallardo/pdf/cluster-2.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.ugr.es/~gallardo/pdf/cluster-2.pdf
+      \endverb
+    \endentry
+    \entry{Bib-2}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=4301fff3cb570308a65d1d20e694ec96}{%
+           family={Izenman},
+           familyi={I\bibinitperiod},
+           given={Alan\bibnamedelima Julian},
+           giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{4301fff3cb570308a65d1d20e694ec96}
+      \strng{fullhash}{4301fff3cb570308a65d1d20e694ec96}
+      \strng{bibnamehash}{4301fff3cb570308a65d1d20e694ec96}
+      \strng{authorbibnamehash}{4301fff3cb570308a65d1d20e694ec96}
+      \strng{authornamehash}{4301fff3cb570308a65d1d20e694ec96}
+      \strng{authorfullhash}{4301fff3cb570308a65d1d20e694ec96}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Series Editors: G. Casella, S. Fienberg, I. Olkin}
+      \field{series}{Springer Texts in Statistics}
+      \field{title}{Modern Multivariate Statistical Techniques: Regression, Classification, and Manifold Learning}
+      \field{year}{2008}
+    \endentry
+    \entry{gallardo}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=2679b8fc7527925500e3ec0582fc3ae2}{%
+           family={Gallardo},
+           familyi={G\bibinitperiod},
+           given={José},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{2679b8fc7527925500e3ec0582fc3ae2}
+      \strng{fullhash}{2679b8fc7527925500e3ec0582fc3ae2}
+      \strng{bibnamehash}{2679b8fc7527925500e3ec0582fc3ae2}
+      \strng{authorbibnamehash}{2679b8fc7527925500e3ec0582fc3ae2}
+      \strng{authornamehash}{2679b8fc7527925500e3ec0582fc3ae2}
+      \strng{authorfullhash}{2679b8fc7527925500e3ec0582fc3ae2}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Apuntes del Departamento de Estadística e Investigación Operativa, Universidad de Granada}
+      \field{title}{Análisis de conglomerados (Cluster Analysis)}
+      \field{year}{2006}
+      \verb{urlraw}
+      \verb https://www.ugr.es/~gallardo/pdf/cluster-3.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.ugr.es/~gallardo/pdf/cluster-3.pdf
+      \endverb
+    \endentry
+    \entry{bejar-AC-2}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=437a99eab275e19d3b4d8b69d5200d4b}{%
+           family={Béjar},
+           familyi={B\bibinitperiod},
+           given={José\bibnamedelimb Luis\bibnamedelima Romero},
+           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=3135f55b649a8febdd6a6b77c1fcb96a}{%
+           family={Fuente},
+           familyi={F\bibinitperiod},
+           given={Guillermo\bibnamedelimb Arturo\bibnamedelimb Cañadas\bibnamedelima De},
+           giveni={G\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim D\bibinitperiod},
+           prefix={la},
+           prefixi={l\bibinitperiod}}}%
+      }
+      \strng{namehash}{01460854dd5de2316f9d0cbcd904f7c1}
+      \strng{fullhash}{01460854dd5de2316f9d0cbcd904f7c1}
+      \strng{bibnamehash}{01460854dd5de2316f9d0cbcd904f7c1}
+      \strng{authorbibnamehash}{01460854dd5de2316f9d0cbcd904f7c1}
+      \strng{authornamehash}{01460854dd5de2316f9d0cbcd904f7c1}
+      \strng{authorfullhash}{01460854dd5de2316f9d0cbcd904f7c1}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Apuntes de práctica, Universidad de Granada}
+      \field{title}{Análisis Cluster - Práctica 3}
+      \field{year}{2024}
+    \endentry
+    \entry{quesada-tfg}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=234c92da525835a36ce9163f28a0a97c}{%
+           family={Quesada},
+           familyi={Q\bibinitperiod},
+           given={Patricia},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{234c92da525835a36ce9163f28a0a97c}
+      \strng{fullhash}{234c92da525835a36ce9163f28a0a97c}
+      \strng{bibnamehash}{234c92da525835a36ce9163f28a0a97c}
+      \strng{authorbibnamehash}{234c92da525835a36ce9163f28a0a97c}
+      \strng{authornamehash}{234c92da525835a36ce9163f28a0a97c}
+      \strng{authorfullhash}{234c92da525835a36ce9163f28a0a97c}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Trabajo Fin de Grado, Universidad de Granada}
+      \field{title}{Análisis Multivariante de Datos Ómicos}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb file:///home/quintin/Descargas/0_20240609%20TFG_Quesada_Patricia_Final.pdf
+      \endverb
+      \verb{url}
+      \verb file:///home/quintin/Descargas/0_20240609%20TFG_Quesada_Patricia_Final.pdf
+      \endverb
+    \endentry
+    \entry{kmedoids}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=cb41e7e037f839138136e53088340de0}{%
+           family={Mannor},
+           familyi={M\bibinitperiod},
+           given={Shie},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{cb41e7e037f839138136e53088340de0}
+      \strng{fullhash}{cb41e7e037f839138136e53088340de0}
+      \strng{bibnamehash}{cb41e7e037f839138136e53088340de0}
+      \strng{authorbibnamehash}{cb41e7e037f839138136e53088340de0}
+      \strng{authornamehash}{cb41e7e037f839138136e53088340de0}
+      \strng{authorfullhash}{cb41e7e037f839138136e53088340de0}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Israel Institute of Technology, Haifa, Israel}
+      \field{title}{k-Armed Bandit}
+      \field{year}{2010}
+    \endentry
+    \entry{geo-1}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=29d41a5116c917496801b104bf249fce}{%
+           family={Clough},
+           familyi={C\bibinitperiod},
+           given={Emily},
+           giveni={E\bibinitperiod}}}%
+        {{hash=572a45ff0be14624532be8002e284240}{%
+           family={Barrett},
+           familyi={B\bibinitperiod},
+           given={Tanya},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{55e11c72d7c1061b48b7a629dd9108e2}
+      \strng{fullhash}{55e11c72d7c1061b48b7a629dd9108e2}
+      \strng{bibnamehash}{55e11c72d7c1061b48b7a629dd9108e2}
+      \strng{authorbibnamehash}{55e11c72d7c1061b48b7a629dd9108e2}
+      \strng{authornamehash}{55e11c72d7c1061b48b7a629dd9108e2}
+      \strng{authorfullhash}{55e11c72d7c1061b48b7a629dd9108e2}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{7}
+      \field{note}{Methods Mol Biol, 1418: 93–110. Disponible en PMC: 2016-07-14. doi:10.1007/978-1-4939-3578-9\_5. National Center for Biotechnology Information, National Library of Medicine, National Institutes of Health}
+      \field{title}{The Gene Expression Omnibus database}
+      \field{year}{2016}
+    \endentry
+    \entry{geo-2}{misc}{}
+      \name{author}{3}{}{%
+        {{hash=620bd69879286925dd7d4cacebc1e57a}{%
+           family={Edgar},
+           familyi={E\bibinitperiod},
+           given={Ron},
+           giveni={R\bibinitperiod}}}%
+        {{hash=eac5aa637cc93864a563939091af688f}{%
+           family={Domrachev},
+           familyi={D\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=cd1111ed5ccac050fbdf58e5395e2812}{%
+           family={Lash},
+           familyi={L\bibinitperiod},
+           given={Alex\bibnamedelima E.},
+           giveni={A\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \strng{namehash}{6978c17adb9cf549658afad7e3be731f}
+      \strng{fullhash}{6978c17adb9cf549658afad7e3be731f}
+      \strng{bibnamehash}{6978c17adb9cf549658afad7e3be731f}
+      \strng{authorbibnamehash}{6978c17adb9cf549658afad7e3be731f}
+      \strng{authornamehash}{6978c17adb9cf549658afad7e3be731f}
+      \strng{authorfullhash}{6978c17adb9cf549658afad7e3be731f}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{1}
+      \field{note}{Nucleic Acids Research, 30(1): 207–210. National Center for Biotechnology Information, National Library of Medicine, National Institutes of Health. Recibido: 15 de agosto de 2001; Aceptado: 10 de octubre de 2001}
+      \field{title}{Gene Expression Omnibus: NCBI gene expression and hybridization array data repository}
+      \field{year}{2002}
+    \endentry
+    \entry{geo-3}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=572a45ff0be14624532be8002e284240}{%
+           family={Barrett},
+           familyi={B\bibinitperiod},
+           given={Tanya},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{572a45ff0be14624532be8002e284240}
+      \strng{fullhash}{572a45ff0be14624532be8002e284240}
+      \strng{bibnamehash}{572a45ff0be14624532be8002e284240}
+      \strng{authorbibnamehash}{572a45ff0be14624532be8002e284240}
+      \strng{authornamehash}{572a45ff0be14624532be8002e284240}
+      \strng{authorfullhash}{572a45ff0be14624532be8002e284240}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{5}
+      \field{note}{En: The NCBI Handbook [Internet]. 2ª edición. Bethesda (MD): National Center for Biotechnology Information (US). Disponible en: \url{https://www.ncbi.nlm.nih.gov/books/}}
+      \field{title}{Gene Expression Omnibus (GEO)}
+      \field{year}{2013}
+    \endentry
+    \entry{geo-4}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=572a45ff0be14624532be8002e284240}{%
+           family={Barrett},
+           familyi={B\bibinitperiod},
+           given={Tanya},
+           giveni={T\bibinitperiod}}}%
+        {{hash=620bd69879286925dd7d4cacebc1e57a}{%
+           family={Edgar},
+           familyi={E\bibinitperiod},
+           given={Ron},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{ba12c3fb6f253d209b1e114401f11788}
+      \strng{fullhash}{ba12c3fb6f253d209b1e114401f11788}
+      \strng{bibnamehash}{ba12c3fb6f253d209b1e114401f11788}
+      \strng{authorbibnamehash}{ba12c3fb6f253d209b1e114401f11788}
+      \strng{authornamehash}{ba12c3fb6f253d209b1e114401f11788}
+      \strng{authorfullhash}{ba12c3fb6f253d209b1e114401f11788}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Methods in Enzymology, vol. 411, pp. 352--369. DOI: 10.1016/S0076-6879(06)11019-8}
+      \field{title}{Gene Expression Omnibus: Microarray Data Storage, Submission, Retrieval, and Analysis}
+      \field{year}{2006}
+    \endentry
+    \entry{geo-overview}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=c5bd8685bf72961535583e7ca487bf54}{%
+           family={Biotechnology\bibnamedelima Information},
+           familyi={B\bibinitperiod\bibinitdelim I\bibinitperiod},
+           given={National\bibnamedelima Center},
+           giveni={N\bibinitperiod\bibinitdelim C\bibinitperiod},
+           prefix={for},
+           prefixi={f\bibinitperiod}}}%
+      }
+      \strng{namehash}{c5bd8685bf72961535583e7ca487bf54}
+      \strng{fullhash}{c5bd8685bf72961535583e7ca487bf54}
+      \strng{bibnamehash}{c5bd8685bf72961535583e7ca487bf54}
+      \strng{authorbibnamehash}{c5bd8685bf72961535583e7ca487bf54}
+      \strng{authornamehash}{c5bd8685bf72961535583e7ca487bf54}
+      \strng{authorfullhash}{c5bd8685bf72961535583e7ca487bf54}
+      \field{extraname}{1}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{5}
+      \field{note}{Disponible en: \url{https://www.ncbi.nlm.nih.gov/geo/info/overview.html}}
+      \field{title}{Gene Expression Omnibus (GEO) Overview}
+      \field{year}{2024}
+    \endentry
+    \entry{ftp}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=cd5fc97079ed153c4fb0e3d33c2ae349}{%
+           family={InfraNetworking},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{cd5fc97079ed153c4fb0e3d33c2ae349}
+      \strng{fullhash}{cd5fc97079ed153c4fb0e3d33c2ae349}
+      \strng{bibnamehash}{cd5fc97079ed153c4fb0e3d33c2ae349}
+      \strng{authorbibnamehash}{cd5fc97079ed153c4fb0e3d33c2ae349}
+      \strng{authornamehash}{cd5fc97079ed153c4fb0e3d33c2ae349}
+      \strng{authorfullhash}{cd5fc97079ed153c4fb0e3d33c2ae349}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{1}
+      \field{note}{Disponible en: \url{https://blog.infranetworking.com/servidor-ftp/}}
+      \field{title}{¿Qué es un servidor FTP y para qué sirve?}
+      \field{year}{2023}
+    \endentry
+    \entry{curacion-datos}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=e2ceeea38f8620383cfbd3e99c5c0cd8}{%
+           family={contributors},
+           familyi={c\bibinitperiod},
+           given={Wikipedia},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
+      \strng{fullhash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
+      \strng{bibnamehash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
+      \strng{authorbibnamehash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
+      \strng{authornamehash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
+      \strng{authorfullhash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{5}
+      \field{note}{Disponible en: \url{https://es.wikipedia.org/wiki/Curaci\%C3\%B3n_de_datos}}
+      \field{title}{Curación de datos}
+      \field{year}{2024}
+    \endentry
+    \entry{geo-browse}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=c5bd8685bf72961535583e7ca487bf54}{%
+           family={Biotechnology\bibnamedelima Information},
+           familyi={B\bibinitperiod\bibinitdelim I\bibinitperiod},
+           given={National\bibnamedelima Center},
+           giveni={N\bibinitperiod\bibinitdelim C\bibinitperiod},
+           prefix={for},
+           prefixi={f\bibinitperiod}}}%
+      }
+      \strng{namehash}{c5bd8685bf72961535583e7ca487bf54}
+      \strng{fullhash}{c5bd8685bf72961535583e7ca487bf54}
+      \strng{bibnamehash}{c5bd8685bf72961535583e7ca487bf54}
+      \strng{authorbibnamehash}{c5bd8685bf72961535583e7ca487bf54}
+      \strng{authornamehash}{c5bd8685bf72961535583e7ca487bf54}
+      \strng{authorfullhash}{c5bd8685bf72961535583e7ca487bf54}
+      \field{extraname}{2}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{5}
+      \field{note}{Disponible en: \url{https://www.ncbi.nlm.nih.gov/geo/browse/}}
+      \field{title}{GEO Browse}
+      \field{year}{2025}
+    \endentry
+    \entry{display-bar}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=c5bd8685bf72961535583e7ca487bf54}{%
+           family={Biotechnology\bibnamedelima Information},
+           familyi={B\bibinitperiod\bibinitdelim I\bibinitperiod},
+           given={National\bibnamedelima Center},
+           giveni={N\bibinitperiod\bibinitdelim C\bibinitperiod},
+           prefix={for},
+           prefixi={f\bibinitperiod}}}%
+      }
+      \strng{namehash}{c5bd8685bf72961535583e7ca487bf54}
+      \strng{fullhash}{c5bd8685bf72961535583e7ca487bf54}
+      \strng{bibnamehash}{c5bd8685bf72961535583e7ca487bf54}
+      \strng{authorbibnamehash}{c5bd8685bf72961535583e7ca487bf54}
+      \strng{authornamehash}{c5bd8685bf72961535583e7ca487bf54}
+      \strng{authorfullhash}{c5bd8685bf72961535583e7ca487bf54}
+      \field{extraname}{3}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Disponible en: \url{https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi}}
+      \field{title}{GEO Query}
+      \field{year}{2025}
+    \endentry
+    \entry{geo-advanced}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=c5bd8685bf72961535583e7ca487bf54}{%
+           family={Biotechnology\bibnamedelima Information},
+           familyi={B\bibinitperiod\bibinitdelim I\bibinitperiod},
+           given={National\bibnamedelima Center},
+           giveni={N\bibinitperiod\bibinitdelim C\bibinitperiod},
+           prefix={for},
+           prefixi={f\bibinitperiod}}}%
+      }
+      \strng{namehash}{c5bd8685bf72961535583e7ca487bf54}
+      \strng{fullhash}{c5bd8685bf72961535583e7ca487bf54}
+      \strng{bibnamehash}{c5bd8685bf72961535583e7ca487bf54}
+      \strng{authorbibnamehash}{c5bd8685bf72961535583e7ca487bf54}
+      \strng{authornamehash}{c5bd8685bf72961535583e7ca487bf54}
+      \strng{authorfullhash}{c5bd8685bf72961535583e7ca487bf54}
+      \field{extraname}{4}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{5}
+      \field{note}{Accedido: 19 de mayo de 2025}
+      \field{title}{Advanced Search - GEO DataSets}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.ncbi.nlm.nih.gov/gds/advanced
+      \endverb
+      \verb{url}
+      \verb https://www.ncbi.nlm.nih.gov/gds/advanced
+      \endverb
+    \endentry
+    \entry{geo-profile}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=c5bd8685bf72961535583e7ca487bf54}{%
+           family={Biotechnology\bibnamedelima Information},
+           familyi={B\bibinitperiod\bibinitdelim I\bibinitperiod},
+           given={National\bibnamedelima Center},
+           giveni={N\bibinitperiod\bibinitdelim C\bibinitperiod},
+           prefix={for},
+           prefixi={f\bibinitperiod}}}%
+      }
+      \strng{namehash}{c5bd8685bf72961535583e7ca487bf54}
+      \strng{fullhash}{c5bd8685bf72961535583e7ca487bf54}
+      \strng{bibnamehash}{c5bd8685bf72961535583e7ca487bf54}
+      \strng{authorbibnamehash}{c5bd8685bf72961535583e7ca487bf54}
+      \strng{authornamehash}{c5bd8685bf72961535583e7ca487bf54}
+      \strng{authorfullhash}{c5bd8685bf72961535583e7ca487bf54}
+      \field{extraname}{5}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{5}
+      \field{note}{Disponible en: \url{https://www.ncbi.nlm.nih.gov/geo/tools/profileGraph.cgi?ID=GDS4515:202859_x_at}}
+      \field{title}{Profile Graph - GDS4515:202859\_x\_at}
+      \field{year}{2025}
+    \endentry
+    \entry{bioconductor-about}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=38d2a0cf6632ec92e8284a8a043f2c0d}{%
+           family={Bioconductor},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{38d2a0cf6632ec92e8284a8a043f2c0d}
+      \strng{fullhash}{38d2a0cf6632ec92e8284a8a043f2c0d}
+      \strng{bibnamehash}{38d2a0cf6632ec92e8284a8a043f2c0d}
+      \strng{authorbibnamehash}{38d2a0cf6632ec92e8284a8a043f2c0d}
+      \strng{authornamehash}{38d2a0cf6632ec92e8284a8a043f2c0d}
+      \strng{authorfullhash}{38d2a0cf6632ec92e8284a8a043f2c0d}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{5}
+      \field{note}{Disponible en: \url{https://bioconductor.org/about/}}
+      \field{title}{About Bioconductor}
+      \field{year}{2025}
+    \endentry
+    \entry{bioconductor-about2}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=695cd3014ed816ee211c94f119c07b25}{%
+           family={Center\bibnamedelimb for\bibnamedelimb Cancer\bibnamedelima Research},
+           familyi={C\bibinitperiod\bibinitdelim f\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim R\bibinitperiod},
+           given={National\bibnamedelimb Cancer\bibnamedelima Institute},
+           giveni={N\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+      }
+      \strng{namehash}{695cd3014ed816ee211c94f119c07b25}
+      \strng{fullhash}{695cd3014ed816ee211c94f119c07b25}
+      \strng{bibnamehash}{695cd3014ed816ee211c94f119c07b25}
+      \strng{authorbibnamehash}{695cd3014ed816ee211c94f119c07b25}
+      \strng{authornamehash}{695cd3014ed816ee211c94f119c07b25}
+      \strng{authorfullhash}{695cd3014ed816ee211c94f119c07b25}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{5}
+      \field{note}{Disponible en: \url{https://bioinformatics.ccr.cancer.gov/docs/rintro/Lesson_8/}}
+      \field{title}{Lesson 8: Data Frames — Introduction to R}
+      \field{year}{2025}
+    \endentry
+    \entry{bioconductor-2}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=ec7296e593436615667c64f50b167ca3}{%
+           family={Davis},
+           familyi={D\bibinitperiod},
+           given={Sean},
+           giveni={S\bibinitperiod}}}%
+        {{hash=fc1c194e55b18782741d46702905a44d}{%
+           family={Meltzer},
+           familyi={M\bibinitperiod},
+           given={Paul\bibnamedelima S.},
+           giveni={P\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{26818de42dc5a597b349ed323db96107}
+      \strng{fullhash}{26818de42dc5a597b349ed323db96107}
+      \strng{bibnamehash}{26818de42dc5a597b349ed323db96107}
+      \strng{authorbibnamehash}{26818de42dc5a597b349ed323db96107}
+      \strng{authornamehash}{26818de42dc5a597b349ed323db96107}
+      \strng{authorfullhash}{26818de42dc5a597b349ed323db96107}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{7}
+      \field{note}{Bioinformatics, vol. 23, no. 14, pp. 1846--1847. DOI: \url{https://doi.org/10.1093/bioinformatics/btm254}}
+      \field{title}{GEOquery: a bridge between the Gene Expression Omnibus (GEO) and BioConductor}
+      \field{year}{2007}
+    \endentry
+    \entry{software}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=c8434749590f02bfb9c1250327c6eb51}{%
+           family={Hossain},
+           familyi={H\bibinitperiod},
+           given={Mohammad\bibnamedelima Ikbal},
+           giveni={M\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+      }
+      \strng{namehash}{c8434749590f02bfb9c1250327c6eb51}
+      \strng{fullhash}{c8434749590f02bfb9c1250327c6eb51}
+      \strng{bibnamehash}{c8434749590f02bfb9c1250327c6eb51}
+      \strng{authorbibnamehash}{c8434749590f02bfb9c1250327c6eb51}
+      \strng{authornamehash}{c8434749590f02bfb9c1250327c6eb51}
+      \strng{authorfullhash}{c8434749590f02bfb9c1250327c6eb51}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{9}
+      \field{note}{International Journal for Multidisciplinary Research (IJFMR), vol. 5, no. 5. E-ISSN: 2582-2160. Disponible en: \url{https://www.ijfmr.com/research-paper.php?id=6223}}
+      \field{title}{Software Development Life Cycle (SDLC) Methodologies for Information Systems Project Management}
+      \field{year}{2023}
+    \endentry
+    \entry{requisitos}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=ed371efddbce9b8d6b09fc27fb4be771}{%
+           family={Romero},
+           familyi={R\bibinitperiod},
+           given={Brunil},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{ed371efddbce9b8d6b09fc27fb4be771}
+      \strng{fullhash}{ed371efddbce9b8d6b09fc27fb4be771}
+      \strng{bibnamehash}{ed371efddbce9b8d6b09fc27fb4be771}
+      \strng{authorbibnamehash}{ed371efddbce9b8d6b09fc27fb4be771}
+      \strng{authornamehash}{ed371efddbce9b8d6b09fc27fb4be771}
+      \strng{authorfullhash}{ed371efddbce9b8d6b09fc27fb4be771}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Dpto. de Lenguajes y Sistemas Informáticos, Universidad de Granada. Curso 2023--2024}
+      \field{title}{Práctica 2: Analizar y diseñar el sistema de información de la empresa creada}
+      \field{year}{2024}
+    \endentry
+    \entry{shiny-basics}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=d8334c85ceefbe9e8a45fa02139cf344}{%
+           family={Posit},
+           familyi={P\bibinitperiod},
+           given={PBC},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{d8334c85ceefbe9e8a45fa02139cf344}
+      \strng{fullhash}{d8334c85ceefbe9e8a45fa02139cf344}
+      \strng{bibnamehash}{d8334c85ceefbe9e8a45fa02139cf344}
+      \strng{authorbibnamehash}{d8334c85ceefbe9e8a45fa02139cf344}
+      \strng{authornamehash}{d8334c85ceefbe9e8a45fa02139cf344}
+      \strng{authorfullhash}{d8334c85ceefbe9e8a45fa02139cf344}
+      \field{extraname}{1}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{5}
+      \field{note}{Disponible en: \url{https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/}}
+      \field{title}{Shiny - Lesson 1: Basic App Structure}
+      \field{year}{2025}
+    \endentry
+    \entry{shiny-gallery}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=d8334c85ceefbe9e8a45fa02139cf344}{%
+           family={Posit},
+           familyi={P\bibinitperiod},
+           given={PBC},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{d8334c85ceefbe9e8a45fa02139cf344}
+      \strng{fullhash}{d8334c85ceefbe9e8a45fa02139cf344}
+      \strng{bibnamehash}{d8334c85ceefbe9e8a45fa02139cf344}
+      \strng{authorbibnamehash}{d8334c85ceefbe9e8a45fa02139cf344}
+      \strng{authornamehash}{d8334c85ceefbe9e8a45fa02139cf344}
+      \strng{authorfullhash}{d8334c85ceefbe9e8a45fa02139cf344}
+      \field{extraname}{2}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{5}
+      \field{note}{Disponible en: \url{https://shiny.posit.co/r/gallery/}}
+      \field{title}{Shiny Gallery - Explore Examples of Shiny Apps}
+      \field{year}{2025}
+    \endentry
+    \entry{shiny-html-tags}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=d8334c85ceefbe9e8a45fa02139cf344}{%
+           family={Posit},
+           familyi={P\bibinitperiod},
+           given={PBC},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{d8334c85ceefbe9e8a45fa02139cf344}
+      \strng{fullhash}{d8334c85ceefbe9e8a45fa02139cf344}
+      \strng{bibnamehash}{d8334c85ceefbe9e8a45fa02139cf344}
+      \strng{authorbibnamehash}{d8334c85ceefbe9e8a45fa02139cf344}
+      \strng{authornamehash}{d8334c85ceefbe9e8a45fa02139cf344}
+      \strng{authorfullhash}{d8334c85ceefbe9e8a45fa02139cf344}
+      \field{extraname}{3}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{5}
+      \field{note}{Disponible en: \url{https://shiny.posit.co/r/articles/build/html-tags/}}
+      \field{title}{Using HTML Tags in Shiny}
+      \field{year}{2025}
+    \endentry
+    \entry{shiny-layout}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=1d0f6977ce2d043e298a59a1cd75b7ef}{%
+           family={Wickham},
+           familyi={W\bibinitperiod},
+           given={Hadley},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{1d0f6977ce2d043e298a59a1cd75b7ef}
+      \strng{fullhash}{1d0f6977ce2d043e298a59a1cd75b7ef}
+      \strng{bibnamehash}{1d0f6977ce2d043e298a59a1cd75b7ef}
+      \strng{authorbibnamehash}{1d0f6977ce2d043e298a59a1cd75b7ef}
+      \strng{authornamehash}{1d0f6977ce2d043e298a59a1cd75b7ef}
+      \strng{authorfullhash}{1d0f6977ce2d043e298a59a1cd75b7ef}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{5}
+      \field{note}{Disponible en: \url{https://mastering-shiny.org/action-layout.html}}
+      \field{title}{Mastering Shiny - Layouts}
+      \field{year}{2025}
+    \endentry
+    \entry{shiny-programming-historian}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=1858ce440de64d8e74bbd957cde463d6}{%
+           family={Historian},
+           familyi={H\bibinitperiod},
+           given={The\bibnamedelima Programming},
+           giveni={T\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \strng{namehash}{1858ce440de64d8e74bbd957cde463d6}
+      \strng{fullhash}{1858ce440de64d8e74bbd957cde463d6}
+      \strng{bibnamehash}{1858ce440de64d8e74bbd957cde463d6}
+      \strng{authorbibnamehash}{1858ce440de64d8e74bbd957cde463d6}
+      \strng{authornamehash}{1858ce440de64d8e74bbd957cde463d6}
+      \strng{authorfullhash}{1858ce440de64d8e74bbd957cde463d6}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{5}
+      \field{note}{Disponible en: \url{https://programminghistorian.org/es/lecciones/creacion-de-aplicacion-shiny}}
+      \field{title}{Creación de una aplicación web con Shiny en R}
+      \field{year}{2025}
+    \endentry
+    \entry{shiny-layout-guide}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=d8334c85ceefbe9e8a45fa02139cf344}{%
+           family={Posit},
+           familyi={P\bibinitperiod},
+           given={PBC},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{d8334c85ceefbe9e8a45fa02139cf344}
+      \strng{fullhash}{d8334c85ceefbe9e8a45fa02139cf344}
+      \strng{bibnamehash}{d8334c85ceefbe9e8a45fa02139cf344}
+      \strng{authorbibnamehash}{d8334c85ceefbe9e8a45fa02139cf344}
+      \strng{authornamehash}{d8334c85ceefbe9e8a45fa02139cf344}
+      \strng{authorfullhash}{d8334c85ceefbe9e8a45fa02139cf344}
+      \field{extraname}{4}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{5}
+      \field{note}{Disponible en: \url{https://shiny.posit.co/r/articles/build/layout-guide/}}
+      \field{title}{Shiny Layout Guide}
+      \field{year}{2025}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

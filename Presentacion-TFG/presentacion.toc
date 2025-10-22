@@ -1,0 +1,14 @@
+\beamer@sectionintoc {1}{\footnotesize Datos ómicos}{3}{0}{1}
+\beamer@sectionintoc {2}{\footnotesize Transcriptómica: RNA-seq}{6}{0}{2}
+\beamer@sectionintoc {3}{\footnotesize Técnicas multivariantes}{8}{0}{3}
+\beamer@subsectionintoc {3}{1}{\tiny Análisis de Componentes Principales (PCA)}{8}{0}{3}
+\beamer@subsectionintoc {3}{2}{\tiny Análisis Cluster}{10}{0}{3}
+\beamer@subsubsectionintoc {3}{2}{1}{\tiny Medidas de disimilaridad}{11}{0}{3}
+\beamer@subsubsectionintoc {3}{2}{2}{\tiny Medidas de similaridad}{12}{0}{3}
+\beamer@subsubsectionintoc {3}{2}{3}{\tiny Métodos de agrupación en análisis cluster}{13}{0}{3}
+\beamer@subsubsectionintoc {3}{2}{4}{\tiny Métodos jerarquicos}{15}{0}{3}
+\beamer@subsubsectionintoc {3}{2}{6}{\tiny Métodos no jerárquicos}{18}{0}{3}
+\beamer@subsubsectionintoc {3}{2}{7}{\tiny Determinación del número óptimo de clusters}{20}{0}{3}
+\beamer@sectionintoc {4}{\footnotesize Proyecto GEO}{21}{0}{4}
+\beamer@sectionintoc {5}{\footnotesize Bioconductor}{24}{0}{5}
+\beamer@sectionintoc {6}{\footnotesize Aplicación práctica}{25}{0}{6}

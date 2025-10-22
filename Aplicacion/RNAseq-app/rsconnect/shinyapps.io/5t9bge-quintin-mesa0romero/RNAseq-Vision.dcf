@@ -1,0 +1,12 @@
+name: RNAseq-Vision
+title: RNAseq-app
+username: 5t9bge-quintin-mesa0romero
+account: 5t9bge-quintin-mesa0romero
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 14806995
+bundleId: 10453988
+url: https://5t9bge-quintin-mesa0romero.shinyapps.io/RNAseq-Vision/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

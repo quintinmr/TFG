@@ -5,7 +5,7 @@
 % Existen varias opciones para la imagen de fondo de la portada del TFG. Todas ellas tienen en logotipo de la universidad de Granada en la cabecera. Las opciones son las siguientes:
 % 1. portada-ugr y portada-ugr-color: diseño con marca de agua basada en el logo de la UGR (en escala de grises y color).
 % 2. portada-ugr-sencilla y portada-ugr-sencilla-color: portada únicamente con el logotipo de la UGR en la cabecera.
-\newcommand{\archivoportada}{portada-ugr}
+\newcommand{\archivoportada}{../img/portada-ugr}
 
 
 % ===================================================================
@@ -14,7 +14,7 @@
 
 % PRINT
 \DeclareOption{print}{
-  \PassOptionsToClass{fontsize=10pt, paper=a4, twoside=true, BCOR=5mm, DIV=10}{scrbook}
+  \PassOptionsToClass{fontsize=12pt, paper=a4, twoside=true, BCOR=5mm, DIV=10}{scrbook}
 }
 
 % TABLET
@@ -25,7 +25,7 @@
 }
 
 \DeclareOption{color}{
-  \renewcommand{\archivoportada}{portada-ugr-color}
+  \renewcommand{\archivoportada}{../img/portada-ugr-color}
   % \PassOptionsToPackage[colorlinks = true, linkcolor = [rgb]{0.5, 0, 0}, urlcolor = [rgb]{0, 0, 0.5}, citecolor = [rgb]{0, 0.5, 0}, ]{hyperref}
 }
 \ProcessOptions\relax
@@ -39,7 +39,7 @@
 \RequirePackage[utf8]{inputenc} 
 
 \RequirePackage[english, spanish, es-nodecimaldot, es-noindentfirst, es-tabla,es-noquoting]{babel}
-\unaccentedoperators % Desactiva los acentos en los operadores matemáticso (p.e. \lim, \max, ...). Eliminar esta opción si queremos que vayan acentuados
+%\unaccentedoperators % Desactiva los acentos en los operadores matemáticso (p.e. \lim, \max, ...). Eliminar esta opción si queremos que vayan acentuados
 
 \RequirePackage{amsmath}
 \RequirePackage{amsthm} 
@@ -64,11 +64,15 @@
   \theoremstyle{definition}
   \newtheorem{definicion}[teorema]{Definición}
   \newtheorem{ejemplo}[teorema]{Ejemplo}
+  \newtheorem{nota}[teorema]{Nota}
 
   \theoremstyle{remark}
   \newtheorem{observacion}[teorema]{Observación}
+  
 
-\RequirePackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+%\RequirePackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+\RequirePackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10,disable-patches=eqnum,footnote]{microtype}
+
 
 % Las tipografías elegidas para el documento, siguiendo la guía de estilo de la UGR, son las siguientes
 % Normal font: 			URW Palladio typeface. 

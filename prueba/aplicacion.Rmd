@@ -1,0 +1,282 @@
+---
+title: "Demo Análisis de datos ómicos"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r}
+library(summarytools)
+library(ggplot2)
+library(ggpubr)
+library(foreign)
+library(readxl)
+library(archdata)
+library(psych)
+library(factoextra)
+library(scatterplot3d)
+library(DESeq2)
+library(edgeR)
+library(pheatmap)
+library(RColorBrewer)
+library(cluster)
+library(ggdendro)
+library(corrplot)
+library(GEOquery)
+```
+
+# Carga de datos
+
+Cargamos los datos, previamente descargados de la base de datos del proyecto GEO. En concreto se ha descargado una matriz de expreesión génica en la que se midió la expresión de 39376 genes en 12 muestras. Nueve de ellas corresponden con pacientes en estado metastásico, tres de los cuales tienen metástasis hepática, tres tumores primariios y tres correesponden a tejidos normales adjacentes. Las 3 restantes son muestras de pacientes sin metástasis, pero con tumores primarios.
+
+```{r}
+#data <- read.csv("GSE92914_raw_counts.csv", sep="", header=TRUE, row.names=1)
+# Crea un directorio temporal
+dir.create("GSE92914_data")
+
+# Descarga los archivos suplementarios
+getGEOSuppFiles("GSE92914", baseDir = "GSE92914_data")
+
+# Mira qué se ha descargado
+list.files("GSE92914_data/GSE92914")
+
+# Descomprimir si es necesario (solo si es .gz)
+untar("GSE92914_data/GSE92914/GSE92914_RAW.tar", exdir = "GSE92914_data/GSE92914/raw")
+
+# Listar los archivos .txt o .csv extraídos
+list.files("GSE92914_data/GSE92914/raw")
+
+# Por ejemplo, si encuentras el archivo correcto:
+#data <- read.csv("GSE92914_data/GSE92914/raw/GSE92914_raw_counts.csv", row.names = 1)
+
+library(R.utils)
+
+# Ruta donde están los archivos .gz
+raw_path <- "GSE92914_data/GSE92914/raw"
+
+# Lista de archivos
+archivos <- list.files(raw_path, pattern = "\\.txt\\.gz$", full.names = TRUE)
+
+# Crear una lista para guardar los datos
+lista_muestras <- list()
+
+# Leer cada archivo y guardarlo
+for (archivo in archivos) {
+  # Nombre de la muestra a partir del nombre de archivo
+  nombre_muestra <- gsub("_.*", "", basename(archivo))
+  
+  # Descomprimir temporalmente sin borrar el original
+  descomprimido <- gunzip(archivo, remove = FALSE, temporary = TRUE)
+  
+  # Leer el archivo (ajusta si tiene otro delimitador, como tab)
+  df <- read.table(descomprimido, header = TRUE, row.names = 1)
+  
+  # Asumimos que la columna con expresión es la segunda (puede variar)
+  lista_muestras[[nombre_muestra]] <- df[, 1]
+}
+
+# Unir todos en una matriz
+data <- do.call(cbind, lista_muestras)
+
+# Ver un resumen
+dim(data)
+head(data)
+
+
+
+```
+
+Como puede ser que haya genes que tengan conteos nulos en todas las muestras, los eliminamos.
+
+```{r}
+data <- data[rowSums(data)!=0,]
+```
+
+Vamos a crear un dataFrame nuevo en el que a cada muestra GSM se le asocie su condición experimental, lo cual va a ser útil para luego hacer un análisis de expresión diferencial.
+
+```{r}
+
+condiciones <- c("LM", "MT", "PN",  # Paciente 1
+                "LM", "MT", "PN",  # Paciente 2
+                "LM", "MT", "PN",  # Paciente 3
+                "NM", "NM", "NM")  # Pacientes 4-6 sin metástasis
+
+group <- factor(condiciones)
+
+# Crear el sampleTable
+sampleTable <- data.frame(
+  row.names = colnames(data),
+  condition = group
+)
+
+# Verificar sampleTable
+print(sampleTable)
+
+```
+
+
+# Análisis de componentes principales
+
+Veamos en primer lugar que las variables están relacionadas mediante el cálculo de la matriz de correlación:
+
+```{r}
+matriz_correlacion <- cor(data)
+matriz_correlacion
+corrplot(matriz_correlacion, method = "square", order = "hclust")
+```
+
+Observamos que la mayoría de las variables están altamente correladas, exceptuando las GSM2440325 y GSM2440331.
+
+Para obtener las componentes principales, vamos a hacer uso de la función *prcomp*, aunque antes prepararemos los datos. Los datos RNA-seq crudos (la matriz de recuentos que hemos descargado), son counts enteros que vienen sin normalizar, tienen una distribución muy sesgada, muchos ceros y valores muy grandes, y no son adecuados para un PCA directo porque en PCA se asume que las variables son cuantitativas continuas y que están en la misma escala. Usaremos algunas funciones propias del paquete Bioconductor.
+
+```{r}
+
+dgelist <- DGEList(counts = data, group = group)
+
+# factores de normalización: 
+dgelist <- calcNormFactors(dgelist)
+
+# Dispersión
+dgelist <- estimateCommonDisp(dgelist)
+dgelist <- estimateTagwiseDisp(dgelist)
+
+# Medimos el nivel de expresión de un gen
+expr_genes <- cpm(dgelist, normalized=TRUE, log = TRUE)
+```
+
+Procedemos a hacer el análisis de componentes principales una vez los datos están listos para ello:
+
+```{r}
+pca <- prcomp(t(expr_genes))
+```
+
+```{r}
+pca_data <- as.data.frame(pca$x)
+pca_data$group <- condiciones
+pca_data$sample <- rownames(pca_data)
+
+# Varianza explicada
+var_exp <- pca$sdev^2 / sum(pca$sdev^2)
+cumulative_var_exp <- cumsum(var_exp)
+
+cumulative_var_exp
+
+# Scree plot
+barplot(var_exp, main="Proporción de varianza explicada por cada PC", 
+        col="skyblue", names.arg=paste0("PC", 1:length(var_exp)),
+        ylab="Proporción de varianza")
+
+plot(cumulative_var_exp, type="b", pch=16, col="blue",
+     main="Varianza explicada acumulada",
+     xlab="Número de Componentes", ylab="Varianza acumulada")
+```
+
+### ¿Qué se observa?
+
+Podemos ver que solo las dos primeras componentes principales ya explican el 45.1% de la varianza total. Esto nos dice que si visualizamos las muestras en un gráfico 2D, ya podríamos ver si las muestras tienden a agruparse según sus tipos (LM,MT,PN,NM).
+
+```{r}
+# PCA plot coloreado por grupo
+ggplot(pca_data, aes(x=PC1, y=PC2)) +
+  geom_point(size=4, aes(color=group)) +
+  geom_text(vjust=-0.7, size=3, aes(label = group)) +
+  theme_minimal() +
+  ggtitle("PCA coloreado por tipo de tejido") +
+  scale_color_brewer(palette="Dark2") +
+  scale_x_continuous(expand = expansion(mult = 0.1)) +
+  scale_y_continuous(expand = expansion(mult = 0.1))
+```
+
+Las muestras de los pacientes metastásicos (LM,MT,PN), están bastante juntas, lo cual puede indicar que sus perfiles de expresión están más próximos entre sí que respecto a las muestras NM. ¿Y esto que puede querer decir? Que incluso el tejido "normal" adyacente(PN) de pacientes con metástasis, tienden a compartir alteraciones transcriptómicas con los tumores, aunque no podemos generalizar porque vemos un punto PN que aparece muy separado en el eje PC1, lo cual indica que tiene un perfil de expresión muy distinto al resto.
+
+Por otro lado, vemos también una clara separación de NM (no metastásico) con respecto a las muestras de pacientes metastásicos, lo cual indica que hay diferencias considerbles en la expresión génica entre pacientes con y sin metástasis.
+
+Podemos además ver los genes que más y menos contribuyen a PC1 y PC2:
+
+```{r}
+cargas <- pca$rotation
+
+# mayores contribuciones positivas
+head(sort(cargas[,1],decreasing = TRUE),10)
+# mayores contribuciones negativas
+head(sort(cargas[,1]),10)
+```
+
+# Análisis de expresión diferencial
+
+https://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html 
+
+Para llevar a cabo el análisis de expresión diferencial a partir de la matriz de expresión génica descargada, vamos a hacer uso del paquete DESeq2 de Bioconductor. 
+Hemos de tener en cuenta que, como entrada, el paquete DESeq2 espera datos de conteo obtenidos de RNA-seq u otra técnica de secuenciación, en la forma de matriz de enteros. Los elementos de la matriz no deben estar normalizados. 
+
+La clase de objeto utilizada por el paquete DESeq2 para almacenar los recuentos de lecturas y las cantidades estimadas intermedias durante el análisis estadístico es el DESeqDataSet, que normalmente se representa en el código por *dds*. 
+
+Todos los pasos que se llevan a cabo en un análisis de expresión diferencial están encapsulados en una única función, *DESeq*. Para obtener los resultados hacemos uso de la función *results*.
+
+```{r}
+dds <- DESeqDataSetFromMatrix(countData = data, colData = sampleTable, design = ~condition)
+dds <- DESeq(dds)
+```
+
+```{r}
+resultados <- results(dds)
+resultados <- resultados[!is.na(resultados$padj),]
+resultados2 <- resultados[order(resultados$padj),]
+```
+
+Finalmente, vemos cuántos genes hay cuya expresión cambia significativamente entre las condiciones, aceptando un 10% de tasa de falsos positivos.
+
+```{r}
+resultadoFin <- resultados2[resultados2$padj < 0.1, ]
+dim(resultadoFin)
+```
+
+Observamos que hay 930 genes diferencialmente expresados, lo cual quiere decir que bajo el umbral de 0.1, hay 930 genes cuya expresión cambia significativamente entre los grupos que estamos comparando.
+
+
+# Análisis cluster (usando datos en crudo)
+
+Escalamos los datos:
+
+```{r}
+x <- scale(data)
+```
+
+### Clustering jerárquico: método de Ward
+
+Construyamos un dendrograma:
+
+```{r}
+# Transponemos: necesitamos muestras como filas
+data_clustering <- t(x)
+
+# Dendrograma
+plot(hclust(dist(data_clustering, method = "euclidean"),
+            method = "ward.D2"), labels = colnames(x), 
+            main = "Clustering jerárquico (Ward)", sub = "", xlab = "")
+
+```
+
+
+### Clustering no jerárquico: KMeans
+
+Elegimos el número de clusters óptimo. Probamos con el método de la silueta: 
+
+```{r}
+set.seed(123)
+fviz_nbclust(data_clustering, kmeans, method = "silhouette")
+```
+
+Y observamos que 3 es un número adecuado. Aplicamos entonces el método K-means:
+
+```{r}
+k_result <- kmeans(data_clustering, centers = 2, nstart = 25)
+k_result$cluster
+```
+
+
+```{r}
+fviz_cluster(k_result,data=data_clustering)
+```
+
+Obtenemos el un resultado muy parecido al que obtuvimos cuando hicimos clustering previo PCA.

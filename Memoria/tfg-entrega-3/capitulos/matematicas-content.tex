@@ -1,0 +1,478 @@
+
+\newpage
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+    \large Parte II \\
+    \vspace{0.5cm}           
+    \LARGE \textbf{FUNDAMENTOS MATEMÁTICOS}
+\end{center}
+\vspace*{\fill}
+\newpage
+\setcounter{page}{1}  
+
+\newpage
+
+\chapter{Técnicas multivariantes: fundamentos y desarrollo del análisis clúster}
+
+El análisis de datos en ciencias ómicas requiere metodologías capaces de manejar la complejidad 
+inherente a los sistemas estudiados. En particular, las técnicas multivariantes han demostrado ser 
+herramientas fundamentales para la exploración, modelado e interpretación de datos de alta dimensión. 
+Estas metodologías permiten identificar relaciones entre variables, reducir la dimensionalidad y 
+clasificar observaciones en función de patrones subyacentes. \newline
+
+Este capítulo está estructurado en dos secciones. En primer lugar, se presentarán las principales 
+técnicas multivariantes, destacando su utilidad y objetivos dentro del análisis de datos. Posteriormente, 
+se abordará en profundidad el análisis clúster, una técnica multivariante ampliamente utilizada para 
+la identificación de patrones en grandes volúmenes de datos. Su aplicación en el ámbito biológico 
+permite revelar estructuras subyacentes en datos complejos, facilitando la comprensión de procesos 
+como la agrupación de expresiones génicas o la clasificación de organismos en función de sus características. \newline
+
+Dado que en el capítulo dedicado a los datos ómicos hemos introducido la matriz de datos ómicos $X$, que 
+representa las $N$ características medidas sobre $n$ muestras, mantendremos esta notación en el desarrollo de
+los fundamentos matemáticos sobre los que se basa este trabajo. Así, consideraremos que la matriz de expresión 
+$X \in \mathbb{R}^{N \times n}$ almacena las observaciones de nuestras variables, con filas representando las
+características y columnas las muestras. 
+
+
+
+\section{Preliminares}
+
+La información aquí recogida se ha extraído principalmente de las fuentes \cite{hist-mul-1}, \cite{hist-mul-2}, \cite{Bib-1}. \newline %history-mul-1, history-mul-2, %Bib-1
+
+El análisis multivariante es una herramienta clave para explorar y comprender la complejidad de los sistemas 
+biológicos, económicos y sociales. Su capacidad para procesar múltiples variables simultáneamente permite identificar 
+patrones ocultos en grandes volúmenes de datos. \newline
+
+Las técnicas multivariantes son fundamentales para abordar la complejidad de los datos en diversas disciplinas, 
+incluyendo las ciencias ómicas, donde se requieren metodologías capaces de gestionar la alta dimensionalidad y 
+variabilidad de los datos obtenidos. Estas herramientas permiten descubrir relaciones entre variables, 
+reducir la dimensionalidad y clasificar observaciones, lo que facilita la interpretación y el modelado de sistemas 
+complejos. \newline
+
+El desarrollo del análisis multivariante se remonta a principios del siglo XX, cuando pioneros como Karl Pearson y R.A
+Fisher introdujeron técnicas fundamentales como el análisis de componentes principales y el análisis discriminante.
+Posteriormente, C.R. Rao y otros investigadores expandieron estos métodos, estableciendo bases matemáticas sólidas que
+han permitido su aplicación en un amplio espectro de disciplinas. Estas técnicas han ido desarrollándose exponencialmente
+con el avance de la computación, facilitando el procesamiento de grandes volúmenes de datos y dando lugar a análisis 
+mucho más sofisticados en muchas áreas como la biología, la economía, las ciencias sociales, etc. \newline
+
+En términos generales, las metodologías multivariantes pueden dividirse en dos grandes enfoques: \textit{descriptivo}
+e \textit{inferencial}. El primero busca simplificar la estructura de los datos y revelar relaciones latentes entre
+variables, mientras que el segundo permite realizar pruebas de hipótesis considerando múltiples variables de manera
+simultánea, asegurando la validez estadística de los resultados. La elección de la técnica adecuada depende del tipo 
+de datos y de la pregunta de investigación. A continuación, se presentan algunas de las principales metodologías multivariantes:
+
+\subsection{Análisis de Componentes Principales (PCA)}
+
+El \textit{análisis de componentes principales (PCA)} fue introducido por primera vez por Karl Pearson a principios del siglo XX. El 
+tratamiento formal de esta técnica se debe a Hotelling (1933) y Rao (1964). Su propósito era facilitar la comprensión de conjuntos 
+de datos complejos mediante la reducción de su dimensionalidad, minimizando la pérdida de información. En PCA, un conjunto de $N$ variables correlacionadas
+se transforma en un conjunto más pequeño de constructos hipotéticos no correlacionados llamados \textit{componentes principales}.
+Su objetivo es condensar la información proporcionada por dichas variables en unas pocas de ellas o en pocas combinaciones lineales de 
+ellas (con máxima variabilidad). \newline %referencia PCA romero béjar, % referencia: Bib-5
+
+
+Las componentes principales se definen como combinaciones lineales de las variables originales que capturan la mayor variabilidad
+posible en los datos. Matemáticamente, si $Y$ es un vector de $N$ variables observadas con media $\mu$ y matriz de covarianza $\Sigma$,
+las componentes principales $Z_{i}$ se obtienen como:
+
+%duda: ¿tengo que explicar que suponemos normalidad multivariante?
+
+\[
+Z_{i} = p^{'}_{i} Y, \hspace{0.2cm} i=1,2,...,N
+\]
+
+donde $p_{i}$ es un vector de pesos o \textit{cargas principales} que maximizan la varianza de $Z_{i}$ bajo la restricción de que $p_{i}$
+tiene norma unitaria, es decir,
+
+\[%duda: ¿tengo que decir la norma que estoy usando?
+\max Var(Z_{i}) = p_{i}^{'}\Sigma p_{i}, \text{ sujeto a } p_{i}^{'}p_{i} = 1.
+\]
+
+y tal que asegura que las componentes principales son ortogonales entre sí, es decir:
+
+\[
+p_{i}^{'}p_{j} = 0, \text{ para } i \neq j.
+\]
+
+Así, garantizamos que las componentes principales $Z_{i}$ y $Z_{j}$ son intercorrelacionadas, es decir, su covarianza es cero para $i\neq j$.
+
+
+Los vectores $p_{i}$ son los autovectors de la matriz de covarianza $\Sigma$, y los valores propios $\lambda_{i}$, corresponden
+a la varianza explicada por cada componente principal. La transformación completa de los datos se expresa de la siguiente forma:
+
+\[
+Z=P^{'}Y
+\]
+
+donde $P$ es la matriz de autovectores de $\Sigma$, lo que garantiza que las componentes principales sean ortogonales entre sí y no 
+correlacionadas, cada una con las anteriores. \newline
+
+Las CP se utilizan para descubrir e interpretar las dependencias que existen entre las variables y para examinar las relaciones
+que pueden existir entre los individuos. También son útiles para estabilizar las estimaciones, evaluar la normalidad
+multivariante y detectar valores atípicos. \newline
+
+% referencias: bib-5, biib-6, PCA-béjar
+
+\subsection{Análisis factorial}
+
+El objetivo principal del \textit{análisis factorial} (AF) es capturar la realidad de la manera más simple posible, identificando 
+unas pocas variables latentes\footnote[8]{Variable latente: variable no observable que se infiere a partir de un conjunto de variables 
+observables utilizando un modelo matemático. } que definen esa realidad. Esta técnica multivariante busca explicar el comportamiento de las $N$ 
+variables en la matriz de datos $X$ utilizando un número reducido de variables latentes, denominadas \textit{factores}. Lo ideal es que toda 
+la información contenida en $X$ pueda ser representada mediante un número menor de factores. Esta técnica busca explicar las correlaciones 
+entre las variables mediante la combinación lineal de dichos factores. Así, cada factor es una variable latente que 
+influye en las variables observadas, y cuya presencia se infiere a partir de las correlaciones entre ellas. \newline
+
+Matemáticamente, cada variable observada, $x\in \mathbb{R}^{N}$, 
+se expresa como una combinación lineal de estos factores, más un término de error específico:
+
+\[
+x_{i} = \sum_{l=1}^{k}q_{il}f_{l} + \mu_{i}, \text{ } i=1,...,N.
+\]
+
+Aquí, $f_{l}$, con $l=1,...,k$ denota a los factores. El número de factores, $k$, debería ser siempre mucho más pequeño que $N$. \newline
+
+En definitiva, el modelo de análisis factorial asume que la variable observada $x$ puede descomponerse en dos componentes: una parte explicada
+por los factores comunes y una parte específica de cada variable. Esto se expresa matricialmente de la siguiente forma:
+
+\[
+x=\Lambda F + \psi
+\]
+
+donde:
+
+\begin{itemize}
+    \item $\Lambda$ es la matriz de cargas factoriales de dimensión $N \times k$,
+    \item $F$ es el vector de factores de dimensión $k$.
+    \item $\psi$ es el vector de factores específicos o residuales de dimensión $N$
+\end{itemize}
+
+El análisis factorial fue desarrollado por Charles Spearman a principios del siglo XX para modelar la inteligencia humana, 
+postulando que las puntuaciones en distintas pruebas estaban intercorrelacionadas debido a un único factor latente de inteligencia 
+general (g). Su modelo de un solo factor fue posteriormente generalizado por Thurstone a múltiples factores. \newline
+
+El análisis de componentes principales (PCA)  y el análisis factorial suelen confundirse porque ambos analizan 
+la variación en un conjunto de variables a partir de la matriz de correlación o covarianza. Sin embargo, mientras que en el EFA unas 
+pocas variables latentes explican las correlaciones observadas, en el PCA se necesitan todos los componentes principales para describir 
+completamente la variabilidad. Así, el PCA se centra en explicar la varianza total, mientras que el EFA se enfoca en las relaciones 
+entre las variables mediante factores comunes. 
+
+%refernecia: Bib-5, Bib-6, AF-romero bejar.
+
+
+\subsection{Análisis Discriminante}
+
+El \textit{análisis discriminante} es una técnica multivariante que permite identificar un subconjunto de variables y funciones
+asociadas que maximicen la separación entre los grupos o poblaciones de estudio. Su objetivo principal es construir funciones
+discriminantes que describan y caractericen la separación de los grupos, evaluar el grado de diferenciación y analizar la contribución
+de cada variable a la discriminación. \newline
+
+Cuando estas funciones son combinaciones lineales de las variables originales, se denominan funciones discriminantes lineales (LDF). En
+particular, el análisis discriminante lineal de Fisher busca encontrar una combinación lineal de variables que maximice la separación
+entre grupos. Para dos grupos con medias $\mu_{1}$ y $\mu_{2}$ y una matriiz de covarianza común $\Sigma$, la función discriminante de Fisher
+se define como:
+
+\[
+L = a^{'}y = \sum_{j=1}^{N} a_{j}y_{j}
+\]
+
+donde $a$ es el vector de coeficientes de la función discriminante e $y$ es el vector de observaciones de las variables. \newline
+
+El vector $a$ que maximiza la separación entre los grupos se obtiene como:
+
+\[
+a_{\Sigma} = \Sigma^{-1}(\mu_{1}-\mu_{2})
+\]
+
+Además, la \textit{distancia de Mahalanobis}, que explicaremos con detalle en la siguiente sección, se emplea para medir la separación entre
+los centroides de los grupos:
+
+\[
+D^{2} = (\mu_{1}-\mu_{2})^{'}S^{-1}(\mu_{1}-\mu_{2})
+\]
+
+Si $D^{2}$ es significativo, implica una buena discriminación entre los grupos. \newline
+
+Este análisis tiene aplicaciones en diversos campos: en biología, Fisher (1936) lo utilizó para diferenciar especies de iris en función de
+características morfológicas; en la gestión de personal, permite clasificar profesionales según sus habilidades; en medicina, ayuda a distinguir
+entre individuos con alto o bajo riesgo de enfermedades; y en la industria, contribuye a identificar cuándo un proceso está bajo control o fuera 
+de control. \newline
+
+Para el caso de múltiples grupos, la función discriminante se construye de manera que maximice la variabilidad entre los grupos en relación con 
+la variabilidad dentro de los grupos, lo que se logra mediante una descomposición en valores propios. \newline
+
+Toda la información ha sido extraída de las fuentes bibliográficas\cite{bejar-PCA},\cite{bejar-AF}\cite{Bib-5},\cite{Bib-6} %bib-5, biib-6, PCA-béjar, AF-romero bejar
+
+\section{Análisis Clúster}
+
+% VER REFERENCIAS clustering-1, clustering-2
+
+\subsection{Introducción}
+
+\begin{quote}
+    Un ser inteligente no puede tratar cada objeto que ve como una entidad única, diferente de cualquier otra en el universo. Debe categorizar los 
+    objetos para poder aplicar el conocimiento adquirido con tanto esfuerzo sobre objetos similares encontrados en el pasado al objeto en cuestión.
+
+\textit{Steven Pinker, Cómo funciona la mente, 1997}
+\end{quote}
+
+Una de las habilidades básicas que poseemos los seres humanos es la de agrupar objetos similares para generar una clasificación. Esta idea de 
+clasficar cosas similares en categorías es bastante primitiva. Nuestros antepasados prehistóricos debían ser capaces de darse cuenta de que muchos
+objetos tenían propiedades semejantes, como ser comestibles, venenosos, peligrosos, etc. \newline
+
+Organizar datos en grupos razonables es uno de los modos más fundamentales de comprensión y aprendizaje. De hecho, es vital para el desarrollo del 
+lenguaje, el cual consiste en palabras que nos ayudan a reconocer y analizar los diferentes tipos de eventos, objetos y personas con los que nos
+relacionamos. Por ejemplo, los sustantivos en una lengua son palabras que describen una clase de cosas que comparten unas características comunes; 
+gatos, perros, caballos, etc., y dicho nombre agrupa a los individuos en grupos. \newline
+
+Además de ser una actividad conceptual humana básica, la clasificación es fundamental en muchas ramas de la ciencia. En biología, por ejemplo, la 
+clasificación de organismos (\textit{taxonomía}) ha sido una gran preocupación desde las primeras investigaciones. Aristóteles ya ideó un sistema para clasificar las especies
+del reino animal; comenzó dividiendo a los animales en dos grupos: los que tienen sangre roja (vertebrados) y los que carecen de ella (invertebrados). 
+Además subdividió estos grupos según su forma de reproducirse: vivas, en huevos, en pupas, etc. Luego, Theophrastos escribió lo relativo a las plantas.
+Los libros resultantes estaban tan bien documentados y eran tan completos, tan profundos y de un alcance tan amplio que sentaron las bases de la investigación
+biológica duranre siglos. \newline
+
+No fue ya hasta los siglos XVII y XVIII cuando los exploradores europeos crearon un nuevo programa similar de investigación y recolección bajo la dirección del 
+sueco Linnaeus, quien estableció un sistema de clasificación que sentó las bases de la taxonomía moderna. Su metodo no solo organizaba a los seres vivos
+en categorías jerárquicas, sino que también reflejaba una idea más profunda: la clasificación es esencial para el conocimiento. \newline
+
+En este sentido, todo el conocimiento real que poseemos, depende de métodos con los que podamos distinguir lo similar de lo diferente. Cuanto mayor sea el 
+número de distinciones naturales que un método comprenda, más clara será nuestra idea de las cosas. A medida que el número de objetos de estudio crece, la 
+necesidad de desarrollar sistemas de clasificación más precisos se vuelve aún más necesaria. \newline
+
+En cierto nivel, un esquema de clasificación puede simplemente representar un método conveniente para organizar un gran conjunto de datos, de modo que se pueda
+comprender con mayor facilidad y la información se recupere de forma más eficiente. Si los datos pueden resumirse adecuadamente mediante un pequeño número de grupos
+de objetos, las etiquetas de grupo pueden proporcionar una descripción muy consisa de los patrones de similitudes y diferencias entre los datos. La necesidad de 
+resumir conjuntos de datos de esta manera es cada vez más importante debido al creciente número de grandes bases de datos disponibles en muchas áreas de la ciencia,
+como la transcriptómica, que es la que nos ocupa en este trabajo, y la exploración de dichas bases de datos mediante \textit{análisis clúster} y otras técnicas de 
+análisis multivariante se denomina hoy día \textit{minería de datos}. \newline
+
+Las técnicas numéricas de clasificación se originaron principalmente en las ciencias naturales, con el objetivo de liberar a la taxonomía de su naturaleza tradicionalmente
+subjetva. El objetivo era dar clasificaciones objetivas y estables. Objetivas en el sentido de que el análisis del mismo conjunto de organismos mediante la misma 
+secuencia de métodos numéricos produce la misma clasificación; estables en cuanto a que la clasificación permanece igual ante la adición de organismos o de nuevas
+características que los describen. \newline
+
+Se le han dado muchos nombres a estas técnicas numéricas, dependiendo del área de aplicación. En biología, el término más extendido es el de \textit{taxonomía numérica}.
+En psicología, se usa mucho el término \textit{análisis Q}. En inteligencia articial, el reconocimiento de patrones no supervisado es el término predilecto. Sin embargo,
+hoy en día, el \textit{análisis clúster} es probablemente el término genérico para los procedimientos que buscan descubrir grupos en los datos. \newline
+
+La información recogida en esta introducción ha sido extraída de la fuente bibliográfica\cite{clustering-2}. % clustering-2.pdf
+
+\subsection{¿Qué es el Análisis Cluster (AC)?}
+
+El \textit{análisis cluster} puede definirse como el estudio formal de los algoritmos y métodos de clasificación de objetos. Un objeto es descrito por un conjunto de mediciones o
+bien de relaciones entre el objeto y otros objetos. No usa etiquetas de categoría que etiqueten objetos con identificadores previos. A diferencia del análisis discriminante, el 
+análisis clúster no utiliza etiquetas predefinidas para clasificar los objetos, sino que busca descubrir estructuras en los datos de manera autónoma. \newline
+
+El objetivo del análisis cluster es agrupar objetos formando conjuntos (clusters) en los que los elementos dentro de cada uno sean lo más similares posible entre sí (baja 
+variabilidad interna), mientras que los diferentes grupos sean lo más distintos entre sí (alta variabilidad entre ellos). Es, en definitiva, una técnica exploratoria que 
+identifica patrones de similitud dentro de un conjunto de datos, agrupando elementos con características comunes mientras mantiene separadas 
+las estructuras con mayores diferencias\cite{bejar-AC}.\newline % referencia https://digibug.ugr.es/bitstream/handle/10481/85861/AC.pdf?sequence=1&isAllowed=y
+
+Un cluster puede entenderse como un conjunto de elementos que presentan una alta cohesión interna (homogeneidad) y una clara separación externa con respecto a otros grupos. 
+Sin embargo, la definición formal de un cluster es difícil de establecer y depende en gran medida del juicio del usuario y del contexto en el que se aplica. Mientras que 
+algunos métodos de análisis buscan identificar estructuras naturales en los datos, en muchas ocasiones el proceso de agrupamiento puede imponer una estructura artificial 
+en la información. Esto resalta la importancia de interpretar con cautela los resultados de un análisis de clusters, ya que no siempre reflejan patrones inherentes a los 
+datos, sino que pueden ser el resultado de los criterios específicos utilizados en la clasificación\cite{clustering-2}. \newline %referencia: clustering-2.pdf \newline
+
+\begin{center}
+    \includegraphics[width=0.5\textwidth]{../img/cluster-1.png}
+\end{center}
+
+En la mayoría de las aplicaciones del AC se busca una partición de los datos en la que cada individuo u objeto pertenezca a un único cluster y el conjunto completo de clusters
+contenga a todos los individuos. Sin embargo, esto no siempre es así y, de hecho, en algunas circunstancias, la superposición de clusters puede ofrecer una solución más aceptable.
+Decimos que una respuesta aceptable del análisis cluster es que no se justifica la agrupación de los datos. El análisis cluster es un procedimiento objetivo; no están predefinidos,
+sino que se forman a medida que avanza el análisis. \newline
+
+Los datos básicos para la mayoría de las aplicaciones del análisis cluster se almacenan en una matriz $n \times p$, $X$, que contiene los valores de las variables que describen
+cada objeto que se va a agrupar, es decir,
+
+\[
+X = [x_{ij}]_{i=1,\dots,n,\, j=1,\dots,p} =
+\begin{bmatrix}
+x_{11} & x_{12} & \cdots & x_{1p} \\
+x_{21} & x_{22} & \cdots & x_{2p} \\
+\vdots & \vdots & \ddots & \vdots \\
+x_{n1} & x_{n2} & \cdots & x_{np}
+\end{bmatrix}
+\]
+%       OBSERVA QUE ES LO CONTRARIO DE LO QUE DIJIMOS EN DATOS ÓMICOS (LA TRASPUESTA)?????? QUÉ HAGO?
+donde $x_{ij}$ cuantifica la variable $j$ en la muestra $i$. El AC tratará de desarrollar un esquema de clasificación que particionará las filas de $X$ en $k$ clusters\cite{clustering-2}. %referencia: clustering-2.pdf
+
+
+% medidas de proximidad (simularidad, disimilaridad)
+\subsection{Medidas de proximidad}
+
+Para desarrollar esta sección se han utlizado las siguientes referencias bibliográficas:\cite{clustering-2}\cite{Bib-5}. \newline%clustering-2 %Bib-5 \newline
+
+Dado que el análisis cluster trata de identificar los vectores que son similares y agruparlos en clusters, es esencial contar con herramientas que permitan evaluar la cercanía o 
+distancia entre los objetos que se están agrupando. Las decisiones sobre cómo se van a formar los clusters dependen directamente de las medidas de proximidad utilizadas, ya que estas 
+definen cómo se calcula la similitud o diferencia entre los distintos elementos. \newline
+
+Las \textit{medidas de proximidad} se usan para representar la cercanía de dos objetos. Si una medida de proximidad representa \textit{similaridad}, el valor de la medida incrementa 
+cuanto más similares sean dos objetos. Alternativamente, si la medida de proximidad representa \textit{disimilitud}, el valor de la medida disminuye a medida que dos objetos se vuelven más 
+parecidos.
+
+\subsubsection{Medidas de Disimilaridad}
+
+Cuando todas las variables registradas son continuas, las proximidades entre los individuos generalmente se cuantifican mediante medidas de disimilaridad o medidas de distancia. 
+Por ello, definiremos el concepto de \textit{disimilaridad} análogamente al de distancia.
+
+\begin{definicion}
+    Sean $\Omega \subset \mathbb{R}^{n}$ un conjunto de puntos de $\mathbb{R}^{n}$ y $x,y \in \Omega$ dos puntos cualesquiera de dicho conjunto. Entendemos por disimilaridad a toda 
+    aplicación $d: \Omega \times \Omega \longrightarrow \mathbb{R}$ que satisface las siguientes propiedades:
+
+    \begin{itemize}
+        \item[i] $d(x,y) \ge 0$
+        \item[ii] $d(x,y)= 0 \Longleftrightarrow x = y$
+        \item[iii] $d(x,y) = d(y,x)$ (simétrica)
+    \end{itemize}
+    Se dice que la disimilaridad es \textit{métrica} si satisface una cuarta propiedad:
+    \begin{itemize}
+        \item[iv] $d(x,y) \leq d(x,z) + d(z,y) \forall z \in \Omega$, 
+    \end{itemize}
+        
+    y se dirá \textit{ultramétrica} si es métrica y además cumple:
+        
+    \begin{itemize}
+        \item[v] $d(x,y) \leq \max\{d(x,z),d(y,z)\}$
+    \end{itemize}
+        
+\end{definicion}
+
+
+A continuación presentamos algunas de las medidas de disimilaridad más usadas. Hemos de hacer notar que estas medidas normalmente se usan para medir cuán próximos están los individuos, 
+pero si se quiere medir entre variables, también son válidas. Simplemente habría que trasponer la matriz $X$ y trabajar con ella. \newline
+
+Toda la información que sigue a partir de este punto, ha sido extraída de las fuentes bibliográficas:\cite{clustering-1},\cite{clustering-2},\cite{Bib-1},\cite{Bib-5},\cite{Bib-6}.
+
+% ejemplos para datos de intervalo, datos binarios ,etc.
+\subsubsection{Medidas de disimilaridad entre individuos}   % clustering-1, clustering-2, Bib-1, Bib-6, Bib-5
+
+Las medidas de disimilaridad entre individuos se usan ante la necesidad de agrupar individuos con características similares. Una medida de disimilaridad adecuada es la distancia entre 
+dos observaciones. Se considera una medida de disimilaridad por el hecho de que la distancia aumenta conforme dos individuos se alejan. \newline
+
+Una gran variedad de distancias pueden generarse mediante la norma\footnote[10]{Norma: Una \textit{norma} en un espacio vectorial $X$ es una aplicación $\|\cdot\| \rightarrow \mathbb{R}$ que verifica:
+\begin{itemize}
+    \item[(N.1)] Desigualdad triangular: $\|x+y\| \leq \|x\| + \|y\| \forall x,y \in X$
+    \item[(N.2)] Homogeneidad por homotecias: $\|\lambda x\| = |\lambda| \|x\| \forall x \in \mathbb{X}$, $\lambda \in \mathbb{R}$
+    \item[(N.3)] No degeneración: $x \in X$, $\|x\| = 0 \Rightarrow x = 0$.\cite{def-norma}  
+\end{itemize}.} $L_{r}$, $r \geq 1$, 
+
+% definición norma: https://www.ugr.es/~rpaya/documentos/AnalisisI/2014-15/Normados.pdf
+
+\[
+d_{ij} = \|x_{i} - x_{j}\|_{r} = \{\sum_{k=1}^{p} |x_{ik}-x_{jk}|^{r}\}^{\frac{1}{r}} \hspace{2cm} (1)
+\]
+
+donde $x_{ik}$ denota el valor de la $k$-ésima variable en el objeto $i$. A esta distancia se la conoce por el nombre de \textit{distancia de Minkowsi}\newline
+
+En lo que sigue, consideremos $x_{i}, x_{j} \in \mathbb{R}^{p}$ dos individuos de la población. Esto es, dos filas de la matriz $X$ que contine los datos. 
+Definimos las siguientes medidas de disimilaridad:
+
+\begin{definicion}
+
+Definimos la \textit{distancia euclídea} como la derivada de la norma $L_{2}$ (caso particular de la distancia de Minkowski cuando $r=2$), 
+
+\[
+d_{2}(x_{i},x_{j}) = \|x_{i} - x_{j}\|_{2} = \sqrt{(x_{i}-x_{j})^{'}(x_{i}-x_{j})} = \sqrt{\sum_{j=1}^{p}(x_{j}-y_{j})^{2}}
+\] 
+
+\end{definicion}
+
+
+De entre todas las medidas de disimilaridad, y de todas las métricas de Minkowski, la distancia Euclidea es la más común. Hemos de tener en cuenta que la 
+distancia euclidea (y la euclidea al cuadrado) suelen calcularse a partir de datos en bruto, 
+no de datos estandarizados. Esto presenta varias ventajas (p. ej., la distancia entre dos objetos cualesquiera no se ve afectada por la adición de nuevos objetos 
+al análisis, que podrían ser valores atípicos). Sin embargo, las distancias pueden verse considerablemente afectadas por las diferencias de escala entre las 
+dimensiones a partir de las cuales se calculan.  Por ejemplo, si una de las dimensiones representa una longitud medida en centímetros y luego se convierte a milímetros (multiplicando los 
+valores por 10), las distancias euclidianas o euclidianas al cuadrado resultantes (calculadas a partir de múltiples dimensiones) pueden verse considerablemente 
+afectadas y, en consecuencia, los resultados de los análisis de conglomerados pueden ser muy diferentes. \newline
+
+
+\begin{observacion}
+La \textit{distancia euclidea al cuadrado} puede resultar útil para asignar progresivamente mayor importancia a los objetos más separados. Además, al evitar las
+raíces cuadradas, los cálculos se amenizan.
+\end{observacion}
+
+
+\begin{definicion}
+
+    Se denomina distancia \textit{Manhattan}, \textit{City Block}, \textit{Hamming}, o \textit{$d_{1}$}, a la distancia derivada de la norma $L_{1}$, que viene dada por
+    
+    \[
+    d_{1}(x_{i},x_{j}) = \sum_{k=1}^{p} |x_{ik}-x_{jk}|
+    \]
+    
+\end{definicion}
+
+Se utiliza cuando todas las características (variables) son binarias y mide el número de características en las que dos individuos difieren.
+
+\begin{definicion}  % referencia: https://en.wikipedia.org/wiki/Lp_space
+    
+    Tomando límite cuando $r \rightarrow \infty$, la distancia derivada del límite de la norma $L_{r}$, llamada \textit{norma del máximo}, $L_{\infty}$, es la que se conoce
+    como \textit{distancia de Chebychev}, y viene dada por
+
+    \[
+    d_{\infty}(x_{i},x_{j}) = \max_{k=1,\dots,p} |x_{ik}-x_{jk}|
+    \]
+\end{definicion}
+
+\begin{observacion}
+    La distancia euclidea la podemos ver como un caso particular de la distancia:
+    \[
+    d_{M}(x_{i},x_{j}) = \sqrt{(x_{i}-x_{j})^{'}M(x_{i}-x_{j})}
+    \]
+
+    cuando $M=I_{p}$, la matriz identidad de orden $p$.
+\end{observacion}
+
+Supongamos que $M$ es la matriz de covarianzas de las variables (las columnas de la matrix $X$ de datos), que se define de la siguiente forma:
+
+\[
+M=\Sigma = \frac{1}{p} \sum_{i=1}^{n}(x_{ij}-\overline{x}_{j})(x_{ij}-\overline{x}_{j})^{'}, \hspace{0.2cm} j=1,...,p 
+\]
+
+Podemos observar que si $p \geq n$, la matriz de covarianzas $\Sigma$, es definida positiva y, por consiguiente, es invertible. Esto nos permite 
+definir la siguiente medida de disimilaridad:
+
+\begin{definicion}
+    Definimos la \textit{distancia de Mahalanobis} para individuos, como:
+    \[
+    D_{\Sigma}(x_{i},x_{j}) = \sqrt{(x_{i}-x_{j})^{'}\Sigma^{-1}(x_{i}-x_{j})}
+    \]
+\end{definicion}
+
+A diferencia de la distancia Euclidea, la de Mahalanobis es invariante frente a cambios de escala. En efecto, sea $C_{n\times n}$ una matriz no singular
+de orden $n$, entonces:
+
+\[
+D_{\Sigma}(Cx_{i},Cx_{j}) = \sqrt{(Cx_{i},Cx_{j})^{'}[\frac{1}{p}C(x_{ij}-\overline{x}_{j})(x_{ij}-\overline{x}_{j})^{'}C^{'}]^{-1}(Cx_{i},Cx_{j})} = 
+\]
+\[
+= \sqrt{(x_{i},x_{j})^{'}C^{'}(C^{'})^{-1}[\frac{1}{p}(x_{ij}-\overline{x}_{j})(x_{ij}-\overline{x}_{j})^{'}]^{-1}C^{-1}C(x_{i},x_{j})} = 
+\]    
+\[
+= sqrt{(x_{i}-x_{j})^{'}\Sigma^{-1}(x_{i}-x_{j})} = D_{\Sigma}(x_{i},x_{j})
+\]
+
+La distancia de Mahalanobis no se usa comúnmente en técnicas de clustering porque calcula la matriz $\Sigma$ considerando todos los individuos juntos, en lugar 
+de tratar los objetos de cada clúster por separado. Además, su cálculo es más complejo que el de otras métricas. Sin embargo, puede aplicarse dentro de 
+cada clúster en una fase específica del proceso\cite{cluster-mahalanobis}.
+
+
+
+
+% mahalanobis distance
+
+\subsubsection{Medidas de disimilaridad entre variables}
+
+
+\subsection{Medidas de similaridad}
+
+
+% clústering jerárquico
+
+% métodos no jerárquicos

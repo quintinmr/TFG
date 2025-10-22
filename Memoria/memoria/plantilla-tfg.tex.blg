@@ -1,0 +1,5 @@
+[0] Config.pm:307> INFO - This is Biber 2.17
+[0] Config.pm:310> INFO - Logfile is 'plantilla-tfg.tex.blg'
+[140] biber:340> INFO - === dom abr  6, 2025, 23:54:56
+[253] Utils.pm:398> ERROR - Cannot find 'plantilla-tfg.tex.bcf'!
+[253] Biber.pm:135> INFO - ERRORS: 1

@@ -1,0 +1,112 @@
+\documentclass[print, color, oneside]{ugrTFG}
+\usepackage{url}           % Para poder manejar enlaces URL correctamente
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}       % Si usas matemáticas
+\usepackage{geometry}
+\usepackage{tcolorbox}
+\usepackage{listings}
+\usepackage{csquotes}
+\usepackage[perpage]{footmisc} % Reinicia la numeración en cada página
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+\addbibresource{../capitulos/referencias.bib}
+\geometry{twoside=false}
+\geometry{left=2.5cm, right=2.5cm, top=3cm, bottom=3cm}
+
+\lstset{
+    breaklines=false,   % Evita que las líneas se corten
+    prebreak={},        % Evita cortes de línea innecesarios
+    xleftmargin=-2.2cm,   % Desplaza el código a la izquierda
+    numbers=none,       % Quita la numeración de líneas
+    frame=none          % Quita el recuadro alrededor del código
+}
+
+% -------------------------------------------------------------------
+% INFORMACIÓN DEL TFG Y EL AUTOR
+% -------------------------------------------------------------------
+
+\newcommand{\miTitulo}{Metodologías Multivariantes para la Identificación de Patrones Biológicos\xspace}
+\newcommand{\miNombre}{Quintín Mesa Romero\xspace}
+\newcommand{\miGrado}{Doble Grado en Ingeniería Informática y Matemáticas}
+\newcommand{\miFacultad}{Facultad de Ciencias}
+\newcommand{\miFacultadBis}{E.T.S. Ingenierías Informática y de Telecomunicación}
+\newcommand{\miUniversidad}{Universidad de Granada}
+
+% Añadir tantos tutores como sea necesario separando cada uno de ellos mediante el comando `\medskip` y una línea en blanco
+\newcommand{\miTutor}{
+José Luis Romero Béjar \\ \emph{Departamento de Estadística e Investigación Operativa}
+}
+
+\newcommand{\miCurso}{2024\-2025\xspace}
+
+\hypersetup{
+    pdftitle={\miTitulo},
+    pdfauthor={\textcopyright\ \miNombre, \miFacultad, \miFacultadBis, \miUniversidad}
+}
+
+\begin{document} 
+
+\newtcolorbox{mybox}[1]
+{colback=black!5!white,colframe=black!75!black, width=1.05\linewidth,fonttitle=\bfseries,title=#1}
+
+\maketitle
+
+% -------------------------------------------------------------------
+% FRONTMATTER
+% -------------------------------------------------------------------
+%frontmatter
+
+\newpage
+\input{../preliminares/declaracion-originalidad}   
+%\input{preliminares/dedicatoria}                % Opcional
+%\input{preliminares/agradecimientos}            % Opcional
+
+\input{../capitulos/introduccion}
+\input{../capitulos/biologia-content}
+\input{../capitulos/matematicas-content}
+\input{../capitulos/informatica-content}
+
+
+\printbibliography
+% -------------------------------------------------------------------
+% MAINMATTER
+% -------------------------------------------------------------------
+
+% Si no deseas reseteo de numeración de capítulos, no es necesario usar \mainmatter
+%\mainmatter % Esto no es necesario si ya has configurado la numeración como continua
+
+% Información relevante para la elaboración del trabajo.
+%\input{capitulos/documentacion}
+%\input{capitulos/recomendaciones}
+
+% Añadir tantos capítulos como sea necesario
+
+%\cleardoublepage\part{Segunda parte}
+%\input{capitulos/capitulo-ejemplo}
+
+% -------------------------------------------------------------------
+% APPENDIX: Opcional
+% -------------------------------------------------------------------
+
+%\appendix % Reinicia la numeración de los capítulos y usa letras para numerarlos
+%\pdfbookmark[-1]{Apéndices}{appendix} % Alternativamente podemos agrupar los apéndices con un nuevo \part{Apéndices}
+
+%\input{apendices/apendice-ejemplo}
+% Añadir tantos apéndices como sea necesario 
+
+% -------------------------------------------------------------------
+% GLOSARIO: Opcional
+% -------------------------------------------------------------------
+
+%\input{glosario} 
+
+% -------------------------------------------------------------------
+% BACKMATTER
+% -------------------------------------------------------------------
+
+%backmatter % Desactiva la numeración de los capítulos
+%\pdfbookmark[-1]{Referencias}{BM-Referencias}
+
+% BIBLIOGRAFÍA
+%-------------------------------------------------------------------
+
+\end{document}

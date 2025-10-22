@@ -1,0 +1,60 @@
+.contacto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    margin:auto;
+}
+
+
+.contacto h1 {
+    color: #3B83BD;
+    margin-bottom: 20px;
+}
+
+.contacto p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.contacto ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.contacto ul li {
+    margin: 10px 0;
+    font-size: 1em;
+}
+
+.contacto a {
+    color: #3B83BD;
+    text-decoration: none;
+}
+
+.contacto a:hover {
+    text-decoration: underline;
+}
+
+.contacto .volver {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 10px 20px;
+    background-color: #3B83BD;
+    color: #fff;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+
+.contacto .volver:hover {
+    background-color: #cf610f;
+}
